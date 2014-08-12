@@ -1,45 +1,40 @@
 <% include head %>
 
 <div id="contactez_nous">
-<div id="titre"><h1>Adhérer à l'Action Française</h1> 
-<p> Vous voulez concrétiser votre engagement au quotidien par un acte symbolique, 
-celui de l'adhésion formelle à l'Action française ? N'hésitez plus, adhérez !</br></br>
+    <div id="titre">
+        <h1>Adhérer à l'Action Française</h1> 
+        <p> Vous voulez concrétiser votre engagement au quotidien par un acte symbolique, 
+        celui de l'adhésion formelle à l'Action française ? N'hésitez plus, adhérez !</br></br>
 
-Plusieurs niveaux d'adhésion sont proposés :</br></br>
+        Plusieurs niveaux d'adhésion sont proposés :</br></br>
 
--membres actifs, 32 euros </br>
--étudiants, lycéens, chômeurs, 16 euros </br>
--bienfaiteurs, 150 euros.</br></br>
+        -membres actifs, 32 euros </br>
+        -étudiants, lycéens, chômeurs, 16 euros </br>
+        -bienfaiteurs, 150 euros.</br></br>
 
-Notre objectif n'étant pas de "placer des cartes" à tout prix, mais de nous donner les moyens de notre indépendance, 
-il n'y a pas d'adhésion d'appel. Néanmoins, pour ne pas laisser les plus démunis en marge du mouvement, 
-le CRAF décernera des cartes de membres d'honneur à des militants exemplaires par leur engagement.</br></br>
+        Notre objectif n'étant pas de "placer des cartes" à tout prix, mais de nous donner les moyens de notre indépendance, 
+        il n'y a pas d'adhésion d'appel. Néanmoins, pour ne pas laisser les plus démunis en marge du mouvement, 
+        le CRAF décernera des cartes de membres d'honneur à des militants exemplaires par leur engagement.</br></br>
 
-Une fois adhérent vous recevrez, en plus des courriers d'information et de notre bulletin de liaison bimestriel, 
-les consignes internes et les invitations militantes.</p>
-</div>
-    <div>
-        <div class="button">
-        <button type="submit">Imprimer le bulletin d'adhésion</button>
-    </div>
-        <input type="text" id="prenom" placeholder="Prénom   Nom" />
-    </div>
-    <div>
-        <input type="email" id="courriel" placeholder="Courriel" />
-    </div>
-    <div>
-     <select name="choix_adhesion">
-	<option value="Membre actif">Membre actif €32,00 EUR</option>
-	<option value="Etudiant, lyceen, chomeur">Etudiant, lyceen, chomeur €16,00 EUR</option>
-	<option value="Bienfaiteur">Bienfaiteur €150,00 EUR</option>
-	</select>
+        Une fois adhérent vous recevrez, en plus des courriers d'information et de notre bulletin de liaison bimestriel, 
+        les consignes internes et les invitations militantes.</p>
     </div>
     
-    <div class="button">
+    <a href="bulletin_adhesion.pdf"><button type="button">Imprimer le bulletin d'adhésion</button></a>
+
+    <form method="POST" action="/adherer">
+        <input type="text" id="prenom" placeholder="Prénom" />
+        <input type="text" id="nom" placeholder="Nom" />
+        <input type="email" id="email" placeholder="Courriel" />
+
+        <select name="type_adhesion">
+        	<option value="reduit">Etudiant, lycéen, chômeur €16,00 EUR</option>
+            <option value="actif" selected="selected">Membre actif €32,00 EUR</option>
+        	<option value="bienfaiteur">Bienfaiteur €150,00 EUR</option>
+    	</select>
+
         <button type="submit">Adhérer</button>
-    </div>
-
-
+    </form>
 </div>
 
 <% include foot %>

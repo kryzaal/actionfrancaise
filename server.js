@@ -19,6 +19,13 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
     })
 })
 
+.get("/article", function(request, response){
+    response.render('article.ejs', {
+        pageSubtitle: "",
+        customStylesheets: ["article.css"]
+    })
+})
+
 .get("/adherer", function(request, response){
     response.render('adherer.ejs', {
     	pageSubtitle: "Adhérer",
@@ -62,12 +69,29 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
 })
 
 .get("/manifeste", function(request, response){
-	throw "e";
-
     response.render('manifeste.ejs', {
     	pageSubtitle: "Manifeste",
     	customStylesheets: ["manifeste.css"]
     });
+})
+
+.get("/recherche", function(request, response){
+    response.render('recherche.ejs', {
+        pageSubtitle: "Recherche" + "",
+        customStylesheets: ["recherche.css"]
+    });
+})
+
+.get("/facebook", function(request, response) {
+    response.redirect("https://facebook.com/action.francaise.nationale")
+})
+
+.get("/twitter", function(request, response) {
+    response.redirect("https://twitter.com/actionfrancaise")
+})
+
+.get("/youtube", function(request, response) {
+    response.redirect("https://youtube.com/channel/UCgYqaZrPyWNEIEKOESjc8IA")
 })
 
 /** 404 & 500 **/
