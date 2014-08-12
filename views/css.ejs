@@ -1,0 +1,5 @@
+<link href="style/main.css" rel="stylesheet" type="text/css" />
+
+<% if(typeof customStylesheets != 'undefined') customStylesheets.forEach(function(stylesheet) { %>
+ <link href="style/<%= stylesheet %>" rel="stylesheet" type="text/css" />
+<%});%>

@@ -1,0 +1,67 @@
+
+
+
+ #militez{
+display:inline-block;
+vertical-align:top;
+ width:100%;
+ height: 50%;
+ }
+ 
+ #militez .tuile{
+ display:inline-block;
+vertical-align:top;
+width:31%;
+height:48%;
+background-color:grey;
+margin-left:2px;
+margin-bottom:2px;
+}
+	
+ #militez #tuile1:hover{
+ background-color:#61b3c5;
+ }
+ #militez #tuile2:hover{
+ background-color:#f1d92f;
+ }
+ #militez #tuile3:hover{
+ background-color:#208425;
+ }
+ #militez #tuile4:hover{
+ background-color:#971217;
+ }
+ #militez #tuile5:hover{
+ background-color:#504c40;
+ }
+ #militez #tuile6:hover{
+ background-color:#e4950b;
+ }
+#militez img{
+display:inline-block;
+float:left;
+height:65px;
+margin-left:2%;
+margin-right:4%;
+margin-bottom:10%;}
+#militez a h1{
+font-size:22px;
+text-decoration:none;
+color:white;
+float:top;
+margin-left:2%;
+}
+#militez p{
+margin-right:2%;}
+#militez a{
+text-decoration:none;
+color:white;}
+
+#militeralaf{
+display:inline-block;
+ background-color:#ece9e9;
+ width:93%;
+ margin:auto;
+ margin-bottom:5px;
+ text-align:left;
+ padding:5px;}
+ 

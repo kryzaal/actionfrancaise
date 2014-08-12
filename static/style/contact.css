@@ -1,0 +1,52 @@
+section{
+margin-top:0px;
+}
+
+
+#contactez_nous{
+display:inline-block;
+vertical-align:top;
+width:60%;
+margin-left:25%;
+margin-right:auto;
+}
+
+#contactez_nous input, #contactez_nous textarea{
+width:100%;
+margin:10px;
+padding:2px;
+border:none;
+background-color:#ece9e9;
+font-family:Arial;
+font-size:20px;
+height:50px;
+}
+
+#contactez_nous textarea{
+height:123px;
+
+}
+
+#contactez_nous #titre{
+font-size:32px;
+color:grey;
+width:100%;
+margin-left:20%;
+
+}
+
+#contactez_nous button{
+background-color: #2e3d60;
+color: white;
+width:100%;
+margin-left:12px;
+margin-right:12px;
+margin-top:10px;
+border:none;
+font-family:Arial;
+font-size:20px;
+height:50px;
+padding: 10px;
+
+text-transform: uppercase;
+}
