@@ -62,16 +62,22 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
 })
 
 .get("/manifeste", function(request, response){
+	throw "e";
+
     response.render('manifeste.ejs', {
     	pageSubtitle: "Manifeste",
     	customStylesheets: ["manifeste.css"]
-    })
+    });
 })
 
-/** 404 **/
+/** 404 & 500 **/
 
 .use(function(req, res, next){
     res.status(404).render('404.ejs');
+})
+
+.use(function(err, req, res, next) {
+    res.status(500).render('500.ejs');
 })
 
 .listen(8080, "127.0.0.1");
