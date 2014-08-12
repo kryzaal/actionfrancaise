@@ -74,4 +74,4 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
     res.status(404).render('404.ejs');
 })
 
-.listen(80, "127.0.0.1");
+.listen(8080, "127.0.0.1");
