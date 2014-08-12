@@ -71,8 +71,7 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
 /** 404 **/
 
 .use(function(req, res, next){
-    res.setHeader('Content-Type', 'text/plain');
-    res.send('Page introuvable !').status(404).end();
+    res.status(404).render('404.ejs');
 })
 
 .listen(80, "127.0.0.1");
