@@ -2,20 +2,13 @@
 
 <div id="contactez_nous">
 <div id="titre"><h1>Contactez-nous</h1></div>
-    <div>
-       
-        <input type="text" id="prenom" placeholder="Prénom" />
-		<input type="text" id="prenom" placeholder="Nom" />
-    </div>
-    <div>
-        <input type="email" id="courriel" placeholder="Courriel" />
-    </div>
-    <div>
-        <textarea id="message" placeholder="Votre message"></textarea>
-    </div>
-    
-    <div class="button">
-        <button type="submit">Envoyer votre message</button>
-    </div>
+
+    <form method="POST" action="/contact">
+        <input type="text" name="prenom" placeholder="Prénom" />
+        <input type="text" name="nom" placeholder="Nom" />
+        <input type="email" name="email" placeholder="Courriel" />
+        <label>Votre message :<br/><textarea name="message"></textarea></label>
+        <button type="submit">Envoyer</button>
+    </form>
 </div>
 <% include foot %>

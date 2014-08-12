@@ -6,9 +6,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/png" href="images/siteAF_icone.png" />
-         
+        <script src="jquery.min.js"></script>
     </head>
     <body>
+        <% if(typeof toaster != 'undefined') { %>
+            <div id="toaster" style="background-color: <%= toaster.color %>;"><%= toaster.html %></div>
+            <script>$('#toaster').fadeOut(<%= toaster.duration * 1000 %>);</script>
+        <% } %>
         <header class='entete' height='170px'>
             <h1><a href="/"><img name="logo" id="logo" alt="Action Française" src="images/SiteAF_logo.png" ></a></h1>
 
