@@ -1,0 +1,9 @@
+#resultats_recherche{
+text-align: left;
+
+}
+
+#resultats_recherche h3:hover{
+cursor:pointer;
+background-color: #2e3d60;
+}
