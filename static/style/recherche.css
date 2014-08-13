@@ -1,6 +1,17 @@
-#resultats_recherche{
-text-align: left;
+section{
+margin-top:52px;
 
+}
+
+#nb_resulats{
+color: grey;
+
+}
+
+#resultats_recherche{
+	padding:5px;
+text-align: left;
+background-color: #ece9e9;
 }
 
 #resultats_recherche h3:hover{
