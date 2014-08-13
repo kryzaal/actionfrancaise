@@ -132,27 +132,6 @@ width:700px;
 #menu_top a:hover{
 color: black;
  }
-#reseaux_sociaux{
-display:inline-block;
-vertical-align:top;
-float:right;
-margin-top:28px;
-
-}
-
-#reseaux_sociaux img 
-{
-height:15px;
-margin:5px;
-
-}
-
-#reseaux_sociaux #recherche img{
-margin-left:1px;
-
-}
-
-
 
 aside{
 
@@ -348,4 +327,45 @@ top:-239px;
   0%   { opacity: 0; }
   50% { opacity: 1; }
   100% {opacity: 0;}
+}
+
+#reseaux_sociaux {
+display:inline-block;
+vertical-align:top;
+float:right;
+margin-top:28px;
+}
+
+#reseaux_sociaux img
+{
+  height:15px;
+  margin:5px;
+}
+
+#reseaux_sociaux form, #reseaux_sociaux a {
+  display: inline-block;
+}
+
+#reseaux_sociaux form {
+  margin-left:1px;
+}
+
+#recherche_focus {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: 0;
+  right: 0;
+}
+
+form#recherche input {
+  display: none;
+  position: absolute;
+  width: 180px;
+  right: 20px;
+  top: 30px;
+}
+
+form#recherche:hover input, form#recherche input:hover, form#recherche input:focus, #recherche_focus:hover input {
+  display: block;
 }

@@ -186,7 +186,7 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
     });
 })
 
-.get("/recherche", function(request, response){
+.post("/recherche", function(request, response){
     response.render('recherche.ejs', {
         pageSubtitle: "Recherche" + "",
         customStylesheets: ["recherche.css"]
