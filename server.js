@@ -10,7 +10,7 @@ var transporter = mailer.createTransport({
     service: 'Gmail',
     auth: {
         user: 'kryzaal',
-        pass: 'quantium7'
+        pass: ''
     }
 });
 
