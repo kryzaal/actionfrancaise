@@ -125,6 +125,32 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
     })
 })
 
+.post("/dons", function(request, response){
+    var mailOptions = {
+        from: 'Action Française <kryzaal@gmail.com>',
+        to: request.body.email,
+        subject: 'Merci pour votre don',
+        text: 'Merci pour votre don',
+        html: 'Merci pour votre don'
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+        }
+
+        response.render('dons.ejs', {
+            pageSubtitle: "Dons",
+            customStylesheets: ["dons.css"],
+            toaster: {
+                color: error ? 'red' : 'green',
+                duration: 5,
+                html: error ? 'Votre don n\'a pas été envoyé' : 'Merci pour votre don, vive le Roi !'
+            }
+        })
+    });
+})
+
 .get("/medias", function(request, response){
     response.render('medias.ejs', {
     	pageSubtitle: "Médias",

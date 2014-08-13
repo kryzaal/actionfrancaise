@@ -1,22 +1,26 @@
 <% include head %>
 
 <div id="contactez_nous">
-<div id="titre"><h1>Soutenir l'Action Française</h1> 
-<p>Vous pouvez, si vous le souhaitez, faire un don à l'Action française.</br>
+	<div id="titre"><h1>Soutenir l'Action Française</h1> 
+	<p>Vous pouvez, si vous le souhaitez, faire un don à l'Action française.</br>
 
-Les dons reçus des sympathisants ou des adhérents sont le seul moyen permettant de garantir aux royalistes les moyens de leurs ambitions : </br>
-ils servent à financer des affiches, des tracts, des autocollants ou encore à louer des salles.</br></br>
+	Les dons reçus des sympathisants ou des adhérents sont le seul moyen permettant de garantir aux royalistes les moyens de leurs ambitions : </br>
+	ils servent à financer des affiches, des tracts, des autocollants ou encore à louer des salles.</br></br>
 
-Verser un don au Centre Royaliste d'Action française est donc un acte militant au même titre que les autres puisque contribue 
-à assurer la promotion du royalisme en France.</br></br>
+	Verser un don au Centre Royaliste d'Action française est donc un acte militant au même titre que les autres puisque contribue 
+	à assurer la promotion du royalisme en France.</br></br>
 
-Votre versement fera l'objet d’un reçu fiscal de 66 % déductible de l'impôt sur le revenu.</br></br>
+	Votre versement fera l'objet d’un reçu fiscal de 66 % déductible de l'impôt sur le revenu.</br></br>
 
-Pour envoyer vos dons, utilisez Paypal :</p>
-</div>
-    <div class="button">
-        <button type="submit">Donner</button>
-    </div>
+	Pour envoyer vos dons, utilisez Paypal :</p>
+	</div>
+    <form method="POST" action="/dons">
+	    <input type="text" name="prenom" placeholder="Prénom" />
+	    <input type="text" name="nom" placeholder="Nom" />
+	    <input type="email" name="email" placeholder="Courriel" />
+	    <input id="montant_don" type="number" name="montant" placeholder="Montant (€)" min="0"/>
+	    <button type="submit">Donner</button>
+    </form>
 </div>
 
 <% include foot %>
