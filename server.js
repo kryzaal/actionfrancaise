@@ -1,3 +1,6 @@
+var server = "127.0.0.1";
+var port = 8080;
+
 var fs = require("fs");
 var express = require("express");
 var compression = require('compression');
@@ -6,22 +9,30 @@ var ejs = require('ejs');
 var mailer = require('nodemailer');
 var bodyParser = require('body-parser')
 
+var placeholder = 'TEXTE';
+
+var auteur_blanchonnet = {
+    nom : "Stéphane Blanchonnet",
+    titre : "Président du comité directeur de l'AF",
+    photo : "auteur_1.jpg"
+}
+
 var articles_demo = [
-	{id: 1, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
+	{id: 1, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014',  texte: placeholder, auteur: auteur_blanchonnet,
 	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
-	{id: 2, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
+	{id: 2, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF',  texte: placeholder, auteur: auteur_blanchonnet,
 	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
-	{id: 3, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
+	{id: 3, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014',  texte: placeholder, auteur: auteur_blanchonnet,
 	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
-	{id: 4, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
+	{id: 4, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF',  texte: placeholder, auteur: auteur_blanchonnet,
 	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
-	{id: 5, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
+	{id: 5, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014',  texte: placeholder, auteur: auteur_blanchonnet,
 	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
-	{id: 6, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
+	{id: 6, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF',  texte: placeholder, auteur: auteur_blanchonnet,
 	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
-	{id: 7, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
+	{id: 7, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', texte: placeholder,  auteur: auteur_blanchonnet,
 	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
-	{id: 8, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
+	{id: 8, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', texte: placeholder, auteur: auteur_blanchonnet,
 	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
 ]; 
 
@@ -55,7 +66,8 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
     response.render('article.ejs', {
         pageSubtitle: "",
         customStylesheets: ["article.css"],
-        article: articles_demo[request.params.id]
+        article: articles_demo[request.params.id],
+        uri: 'http://' + server + ':' + port + '/article/' + request.params.id
     })
 })
 
@@ -212,7 +224,7 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
 })
 
 .use(function(err, req, res, next) {
-    res.status(500).render('500.ejs');
+    res.status(500).render('500.ejs', {erreur : err});
 })
 
-.listen(8080, "127.0.0.1");
+.listen(port, server);

@@ -1,55 +1,26 @@
 <% include head %>
 
 <div id="auteur_article"> 
-<img class="auteur" src="/images/auteur_1.jpg"/>
-<h1>Stéphane Blanchonnet</h1>
-<h2>Président du commité directeur d'AF</h2>
-<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+	<img class="auteur" src="/images/<%= article.auteur.photo %>"/>
+	<h1><%= article.auteur.nom %></h1>
+	<h2><%= article.auteur.titre %></h2>
 </div>
-<div>
-<div class="article" id="article 1">
-<img class="image_article" src="/images/image_article2.jpg" />
-<div id="article_partage"><img src="/images/like.png"/><p>aimer</p><img src="/images/article_fb.png"/><p>partager</p><img src="/images/article_twitter.png"/><p>touitter</p><img src="/images/article_g+.png"/><p>recommander</p></div>
-<h1 class="titre_article">  Titre de l'article </h1>
-<h2> Publié le 12/01/2014 à 20h22</h2>
 
-<h1>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"</h1><p>totam rem aperiam, eaque ipsa quae ab illo 
-inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciuntSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae 
-ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur a
-ut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum 
-quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat 
-voluptatem.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae 
-ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur a
-ut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum 
-quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat 
-voluptatem.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae 
-ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur a
-ut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum 
-quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat 
-voluptatem.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae 
-ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur a
-ut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum 
-quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat 
-voluptatem.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae 
-ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur a
-ut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum 
-quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat 
-voluptatem.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae 
-ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur a
-ut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum 
-quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat 
-voluptatem.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae 
-ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur a
-ut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum 
-quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat 
-voluptatem.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae 
-ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur a
-ut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum 
-quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat 
-voluptatem.</p>
-		 
-</div>    
+<div>
+	<div class="article" id="article 1">
+		<img class="image_article" src="/images/image_article2.jpg" />
+
+		<div id="article_partage">
+			<a href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURI(uri) %>&t=<%= encodeURI(article.titre) %>"><img src="/images/article_fb.png"/>&nbsp;Partager</a>
+			<a href="https://twitter.com/share?url=<%= encodeURI(uri) %>&text=<%= encodeURI(article.titre) %>"><img src="/images/article_twitter.png"/>&nbsp;Twitter</a>
+			<a href="https://plus.google.com/share?url=<%= encodeURI(uri) %>"><img src="/images/article_g+.png"/>&nbsp;Recommander</a>
+		</div>
+
+		<h1 class="titre_article"><%= article.titre %></h1>
+		<h2> Publié le <%= article.date %> à <%= article.heure %></h2>
+
+		<p><%= article.texte %></p>
+	</div>    
 </div>
 
 <% include foot %>
