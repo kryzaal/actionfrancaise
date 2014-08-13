@@ -6,6 +6,25 @@ var ejs = require('ejs');
 var mailer = require('nodemailer');
 var bodyParser = require('body-parser')
 
+var articles_demo = [
+	{id: 1, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
+	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
+	{id: 2, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
+	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
+	{id: 3, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
+	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
+	{id: 4, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
+	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
+	{id: 5, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
+	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
+	{id: 6, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
+	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
+	{id: 7, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
+	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
+	{id: 8, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
+	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
+]; 
+
 var transporter = mailer.createTransport({
     service: 'Gmail',
     auth: {
@@ -27,14 +46,16 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
 .get("/", function(request, response){
     response.render('index.ejs', {
     	pageSubtitle: "Accueil",
-    	customStylesheets: ["index.css"]
+    	customStylesheets: ["index.css"],
+    	articles : articles_demo
     })
 })
 
-.get("/article", function(request, response){
+.get("/article/:id", function(request, response){
     response.render('article.ejs', {
         pageSubtitle: "",
-        customStylesheets: ["article.css"]
+        customStylesheets: ["article.css"],
+        article: articles_demo[request.params.id]
     })
 })
 
