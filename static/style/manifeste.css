@@ -1,5 +1,5 @@
 section{
-
+width:80%;
 	margin-top:0px;
 }
 
@@ -11,7 +11,7 @@ section{
 #titre{
 
 font-size:32px;
-font-color: grey;
+font-color: gray;
 width:100%;
 text-align: center;
 
