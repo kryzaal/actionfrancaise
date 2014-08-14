@@ -1,3 +1,6 @@
+var server = "127.0.0.1";
+var port = 8080;
+
 var fs = require("fs");
 var express = require("express");
 var compression = require('compression');
@@ -5,6 +8,14 @@ var favicon = require('serve-favicon');
 var ejs = require('ejs');
 var mailer = require('nodemailer');
 var bodyParser = require('body-parser')
+
+var placeholder = 'TEXTE';
+
+var auteur_blanchonnet = {
+    nom : "Stéphane Blanchonnet",
+    titre : "Président du comité directeur de l'AF",
+    photo : "auteur_1.jpg"
+}
 
 var articles_demo = [
 	{id: 1, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014',  sous_titre: 'Moment de camaraderie et de formation', 
@@ -70,7 +81,8 @@ app.get("/article/:id", function(request, response){
     response.render('article.ejs', {
         pageSubtitle: "",
         customStylesheets: ["article.css"],
-        article: articles_demo[request.params.id]
+        article: articles_demo[request.params.id],
+        uri: 'http://' + server + ':' + port + '/article/' + request.params.id
     })
 })
 
@@ -169,7 +181,7 @@ app.get("/article/:id", function(request, response){
     });
 })
 
-.get("/recherche", function(request, response){
+.post("/recherche", function(request, response){
     response.render('recherche.ejs', {
         pageSubtitle: "Recherche" + "",
         customStylesheets: ["recherche.css"]
@@ -204,7 +216,7 @@ app.get("/article/:id", function(request, response){
 })
 
 .use(function(err, req, res, next) {
-    res.status(500).render('500.ejs', {error: err});
+    res.status(500).render('500.ejs', {erreur : err});
 })
 
-.listen(8080, "127.0.0.1");
+.listen(port, server);

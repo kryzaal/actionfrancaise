@@ -4,25 +4,40 @@ margin-top:0;
  #organigramme #etage1{
  text-align:center;
  }
-#organigramme #tuile {
-display:inline-block;
-vertical-align:top;
-width:274px;
-height:100px;
-text-align:left;
-color:white;
-background-color:#ece9e9;
-margin:2px;
- }
+
+.tuile {
+	display:inline-block;
+	vertical-align: top;
+	width:274px;
+	max-height:100px;
+	color:#252525;
+	background-color:#ece9e9;
+	margin:2px;
+	overflow: hidden;
+	transition: max-height 1s;
+	border-radius: 3px;
+}
  
-#organigramme #tuile:hover{
-background-color:#203e84;} 
+.tuile div {
+	width: 274px;
+	clear: both;
+	float: none;
+}
+
+.tuile p {
+	text-align: center;
+}
+
+.tuile:hover{
+	background-color:#203e84;
+	max-height: 250px;
+} 
  
- #organigramme img {
-height:100%;
-float:left;
-margin-right:10px;
- }
+#organigramme img {
+	height: 100px;
+	float:left;
+	margin-right:10px;
+}
  #organigramme h1{
 font-size:13px;
  }
