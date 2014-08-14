@@ -79,7 +79,7 @@ app.post("/contact", controllers.contact.post);
 
 app.get("/article/:id", function(request, response){
     response.render('article.ejs', {
-        pageSubtitle: "",
+        pageSubtitle: articles_demo[request.params.id].titre,
         customStylesheets: ["article.css"],
         article: articles_demo[request.params.id],
         uri: 'http://' + server + ':' + port + '/article/' + request.params.id
