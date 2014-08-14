@@ -1,6 +1,5 @@
 section{
-margin-top:0px;
-
+	margin-top:0px;
 }
 
 
@@ -13,7 +12,7 @@ margin-right:auto;
 margin-bottom:10px;
 }
 
-#donner input,#donner select, #donner textarea{
+#donner input, #donner textarea{
 width:100%;
 margin:10px;
 padding:2px;
@@ -33,9 +32,8 @@ height:123px;
 font-size:32px;
 color:grey;
 width:100%;
-
-
 }
+
 #donner p{
 font-size:12px;
 text-align:left;

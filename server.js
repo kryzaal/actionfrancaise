@@ -19,28 +19,28 @@ var auteur_blanchonnet = {
 
 var articles_demo = [
 	{id: 1, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014',  sous_titre: 'Moment de camaraderie et de formation', 
-    resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg'},
+    resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg', auteur: auteur_blanchonnet},
 
 	{id: 2, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', 
-    resume: 'A mort la république !', complet: '', image: 'image_article1.jpg'},
+    resume: 'A mort la république !', complet: '', image: 'image_article1.jpg', auteur: auteur_blanchonnet},
 
 	{id: 3, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
-	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg'},
+	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg', auteur: auteur_blanchonnet},
 
 	{id: 4, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
-	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', complet: '', image: 'image_article1.jpg'},
+	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', complet: '', image: 'image_article1.jpg', auteur: auteur_blanchonnet},
 
 	{id: 5, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
-	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg'},
+	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg', auteur: auteur_blanchonnet},
 
 	{id: 6, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
-	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', complet: '', image: 'image_article1.jpg'},
+	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', complet: '', image: 'image_article1.jpg', auteur: auteur_blanchonnet},
 
 	{id: 7, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
-	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg'},
+	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg', auteur: auteur_blanchonnet},
 
 	{id: 8, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
-	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', complet: '', image: 'image_article1.jpg'},
+	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', complet: '', image: 'image_article1.jpg', auteur: auteur_blanchonnet},
 ]; 
 
 var controllers = {
