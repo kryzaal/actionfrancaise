@@ -74,7 +74,7 @@ width:100%;
 }
 #article_partage{
 width:55%;
-text-align:center;
+text-align:left;
 background-color:#9f2020;
 display:inline-block;
 vertical-align:top;
@@ -82,15 +82,19 @@ vertical-align:top;
 #article_partage img{
 height:15px;
 margin:5px;
-margin-top:9px;
+vertical-align: middle;
 
 }
 
-#article_partage p{
+#article_partage a{
 color:white;
-display:inline-block;
-vertical-align:top;
+
+vertical-align:middle;
+text-decoration: none;
+color:white;
+
 }
+
 
 #ajout_commentaire{
 display:inline-block;
