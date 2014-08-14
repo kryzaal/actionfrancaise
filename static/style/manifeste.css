@@ -1,0 +1,23 @@
+section{
+
+	margin-top:0px;
+}
+
+#texte_manifeste{
+
+	text-align: left;
+}
+
+#titre{
+
+font-size:32px;
+font-color: grey;
+width:100%;
+text-align: center;
+
+}
+
+#description{
+
+	font-style:italic;
+}
