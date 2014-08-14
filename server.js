@@ -7,23 +7,34 @@ var mailer = require('nodemailer');
 var bodyParser = require('body-parser')
 
 var articles_demo = [
-	{id: 1, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
-	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
-	{id: 2, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
-	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
+	{id: 1, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014',  sous_titre: 'Moment de camaraderie et de formation', 
+    resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg'},
+
+	{id: 2, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', 
+    resume: 'A mort la république !', complet: '', image: 'image_article1.jpg'},
+
 	{id: 3, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
-	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
+	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg'},
+
 	{id: 4, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
-	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
+	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', complet: '', image: 'image_article1.jpg'},
+
 	{id: 5, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
-	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
+	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg'},
+
 	{id: 6, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
-	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
+	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', complet: '', image: 'image_article1.jpg'},
+
 	{id: 7, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014', 
-	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', image: 'image_article2.jpg'},
+	sous_titre: 'Moment de camaraderie et de formation', resume: '<b>Vive le Roi</b>', complet: '', image: 'image_article2.jpg'},
+
 	{id: 8, date: '24/05/2014', heure: '16:52', titre: 'Les identitaires rejoignent l\'AF', 
-	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', image: 'image_article1.jpg'},
+	sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', resume: 'A mort la république !', complet: '', image: 'image_article1.jpg'},
 ]; 
+
+var controllers = {
+    contact : require('./controllers/contact')
+};
 
 var transporter = mailer.createTransport({
     service: 'Gmail',
@@ -49,9 +60,13 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
     	customStylesheets: ["index.css"],
     	articles : articles_demo
     })
-})
+});
 
-.get("/article/:id", function(request, response){
+controllers.contact.setTransporter(transporter);
+app.get("/contact", controllers.contact.get);
+app.post("/contact", controllers.contact.post);
+
+app.get("/article/:id", function(request, response){
     response.render('article.ejs', {
         pageSubtitle: "",
         customStylesheets: ["article.css"],
@@ -105,38 +120,6 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
     	pageSubtitle: "Militez !",
     	customStylesheets: ["militez.css"]
     })
-})
-
-.get("/contact", function(request, response){
-    response.render('contact.ejs', {
-    	pageSubtitle: "Contact",
-    	customStylesheets: ["contact.css"]
-    })
-})
-
-.post("/contact", function(request, response){
-    var mailOptions = {
-        from: request.body.email,
-        to: 'Action Française <kryzaal@gmail.com>',
-        subject: 'Message de ' + request.body.prenom + ' ' + request.body.nom,
-        text: request.body.message
-    };
-
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            console.log(error);
-        }
-
-        response.render('contact.ejs', {
-            pageSubtitle: "Contact",
-            customStylesheets: ["contact.css"],
-            toaster: {
-                color: error ? 'red' : 'green',
-                duration: 5,
-                html: error ? 'Votre message n\'a pas été envoyé' : 'Merci pour votre message, nous y répondrons dans les meilleurs délais !'
-            }
-        })
-    });
 })
 
 .get("/dons", function(request, response){
@@ -205,6 +188,15 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
     response.redirect("https://youtube.com/channel/UCgYqaZrPyWNEIEKOESjc8IA")
 })
 
+.get("/visuel/random", function(request, response) {
+    var fileNames = fs.readdir(__dirname + "/visuels", function(err, files) {
+        var random = files[Math.floor(Math.random() * files.length)];
+        response.redirect("/visuel/" + random);
+    });
+})
+
+.use("/visuel", express.static(__dirname + "/visuels"))
+
 /** 404 & 500 **/
 
 .use(function(req, res, next){
@@ -212,7 +204,7 @@ app.use(favicon(__dirname + '/static/images/favicon.png'))
 })
 
 .use(function(err, req, res, next) {
-    res.status(500).render('500.ejs');
+    res.status(500).render('500.ejs', {error: err});
 })
 
 .listen(8080, "127.0.0.1");
