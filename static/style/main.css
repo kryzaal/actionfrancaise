@@ -56,7 +56,7 @@ margin-left:17px;
 padding-top:20px;
 }
 #logo{
-width:400px;
+width:450px;
 
 }
 
@@ -92,40 +92,57 @@ header hr{
 
 
 #menu_top
-{ display:inline-block;
-vertical-align:top;
-float:right;
-padding-top:20px;
-width:700px;
+{ 
+  background-image: -webkit-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
+    background-image:    -moz-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
+    background-image:     -ms-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
+    background-image:      -o-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
+    box-shadow: -1px 5px 13px black;
+height:40px;
+width:100%;
+margin-right: auto;
+margin-left: auto;
+z-index:1;
 }
 
  #menu_top nav
 { 
    display:inline-block; 
   list-style-type: none;
-  float:right;
+width: 100%;
+height: 100%;
+margin-right: auto;
+margin-left: auto;
   text-align:center;
   
 }
 
 #menu_top ul{
-    margin-left: 0px
+  margin-top: 0px;
+    margin-left: 0px;
+    height:100%;
+
 }
 
 #menu_top li
 {
     display: inline-block;
-   margin-right:20px;
+   margin-right:-4px;
+   height:100%;
+     padding-left: 40px;
+    padding-right: 40px;
  }  
    
 
 
 #menu_top a
 {display:inline-block;
+padding-top: 11px;
     font-size: 14px;
-    color: grey;
+    color: white;
     text-decoration: none;
 	text-align:center;
+
 
 }
  
@@ -133,12 +150,16 @@ width:700px;
 color: black;
  }
 
+ #menu_top li:hover{
+  background-color: white;
+ }
+
 aside{
 
     display:inline-block;
 vertical-align:top;
     float:right;
-    margin-top:50px;
+
  }
 aside #adresse_craf h3{
 width:100%;
@@ -164,7 +185,7 @@ filter: grayscale(100%);
     -ms-filter: grayscale(100%);
     -o-filter: grayscale(100%);
 }
-#icone_rectangle img, #militez .tuile, #organigramme #tuile,#menu_top a,#logo,form#recherche input,form#recherche, #recherche_focus{
+#icone_rectangle img, #militez .tuile, #organigramme #tuile,#menu_top a,#menu_top li,#logo,form#recherche input,form#recherche, #recherche_focus{
     -moz-transition: all 0.5s ease-in-out 0s;
     -webkit-transition: all 0.5s ease-in-out 0s;
     -o-transition: all 0.5s ease-in-out 0s;
@@ -189,7 +210,7 @@ filter: grayscale(100%);
 display:inline-block;
 vertical-align: top;
 margin:auto;
-margin-top:53px;
+
 width:83%;
  }
  
@@ -268,5 +289,3 @@ form#recherche input {
 form#recherche:hover input, form#recherche input:hover, form#recherche input:focus, #recherche_focus:hover input {
   display: block;
 }
-
-
