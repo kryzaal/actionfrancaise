@@ -61,14 +61,7 @@ width:450px;
 }
 
 
-#icone_rectangle img:hover{
 
-filter: grayscale(0%);
-    -webkit-filter: grayscale(0%);
-    -moz-filter: grayscale(0%);
-    -ms-filter: grayscale(0%);
-    -o-filter: grayscale(0%);
-}
 
 header hr{
  margin-top:-10px;
@@ -179,11 +172,7 @@ background-color:#d6dae5;
 
 #icone_rectangle img{
 width:160px;
-filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
+
 }
 #icone_rectangle img, #militez .tuile, #organigramme #tuile,#menu_top a,#menu_top li,#logo,form#recherche input,form#recherche, #recherche_focus{
     -moz-transition: all 0.5s ease-in-out 0s;
