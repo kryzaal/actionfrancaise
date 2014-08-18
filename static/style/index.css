@@ -76,6 +76,7 @@ position:relative;
 bottom:5px;
 width:100%;
 margin-top:5px;
+line-height: 16px;
 
 }
 #lire_la_suite h1{
@@ -91,28 +92,33 @@ bottom:0px;
 right:5px;
 display:inline-block;
 margin-left:10px;
-width:30px;}
+width:30px;
+}
 
 section .evenement{
  display:inline-block;
  vertical-align:top;
  text-align:left;
-
  color:#292927;
  white-space: normal;
-
- margin:2px;
- margin-top: 20px;
+ margin-top:2px;
+ margin-left: -12px;
  width:22%;
  height:400px;
 max-width: 400px;
 min-width: 200px;
 
  }
+ #alaune{
+width:100%;
+margin-left: auto;
+margin-right: auto;
+
+ }
 
 .image_evenement{
  display: inline-block;
-    vertical-align: top;
+
     float: right;
     width:100%;
     max-height: 400px;
@@ -122,32 +128,72 @@ min-width: 200px;
 display: inline-block;
 text-align: center;
 
-
-
- background-color:#1d3674;
+background-color:#1d3674;
 width: 100%;
--webkit-transform-origin: 0 0;
-       -moz-transform-origin: 0 0;
-        -ms-transform-origin: 0 0;
-         -o-transform-origin: 0 0;
-            transform-origin: 0 0;
-    -webkit-transform: rotate(-90deg);
-       -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-         -o-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-
-            -moz-box-shadow: 0px 6px 11px #000;
-    -webkit-box-shadow: 0px 6px 11px #000;
-    -o-box-shadow: 0px 6px 11px #000;
-    -ms-box-shadow: 0px 6px 11px #000;
-    box-shadow: 0px 6px 11px #000;
-
+height:15%;
+margin-bottom: 10px;
     }
+
 .description_evenement a{
 text-decoration: none;
 color:white;}
 
+.description_evenement h1{
+    font-size: 15px;
+}
+
+.video{ 
+
+
+            -moz-box-shadow: 0px 0px 2px #000;
+    -webkit-box-shadow: 0px 0px 2px #000;
+    -o-box-shadow: 0px 0px 2px #000;
+    -ms-box-shadow: 0px 0px 2px #000;
+    box-shadow: 0px 0px 2px #000;
+    display:inline-block; 
+    margin:2px;
+
+
+ white-space: normal;
+padding: 5px;
+
+
+}
+#videodumoment{
+    
+ vertical-align:top;
+ text-align:left;
+
+
+ width:45%;
+ height:400px;
+
+min-width: 200px;
+
+}
+
+#alaune iframe{
+    width:100%;
+    height: 100%;
+}
+#videossecondaires{
+ display:inline-block;
+ vertical-align:top;
+ text-align:left;
+
+ color:#292927;
+ white-space: normal;
+
+
+ width:22%;
+ height:400px;
+max-width: 400px;
+min-width: 200px;
+}
+#video1,#video2{
+    height:48%;
+    width:100%;
+    margin-bottom: 2px;}
 
 
 #slideshow {  
@@ -156,9 +202,11 @@ display: inline-block;
     width: 100%;  
     height: 310px;  
    
-    margin: 0 auto 2em;  
+margin-right: auto;
+margin-left: auto; 
  margin-top: 3px;
  margin-bottom: 0px;
+
  
     /* CSS3 effects */  
     
@@ -174,7 +222,7 @@ display: inline-block;
 /* gestion des dimensions et débordement du conteneur */  
 #slideshow .container {  
     position:relative;  
-    width: 100%;  
+    width: 92%;  
     height: 105%;  
     margin-left: auto;
     margin-right: auto;
@@ -194,7 +242,7 @@ display: inline-block;
     position: absolute;  
     left:0; top:0;  
     width: 400%;  
-    height: 310px;  
+       background-color: #e4e7e9;
 }  
   
 /* annulation des marges sur figure */  
