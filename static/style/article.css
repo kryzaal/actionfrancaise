@@ -1,35 +1,32 @@
-section .article{
- display:inline-block;
- vertical-align:top;
- text-align:left;
-
- color:#292927;
- white-space: normal;
-overflow: hidden;
-text-overflow: ellipsis;
-
- width:77%;
- height:100%;
-
- background-color:#ece9e9;
- }
+section .article {
+    display:inline-block;
+    vertical-align:top;
+    text-align:left;
+    color:#292927;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width:77%;
+    height:100%;
+    background-color:#ece9e9;
+}
  
-section .image_article{
-width:45%;
-float:left;
-
-  -moz-transition: all 0.5s ease-in-out 0s;
+section .image_article {
+    width:45%;
+    float:left;
+    -moz-transition: all 0.5s ease-in-out 0s;
     -webkit-transition: all 0.5s ease-in-out 0s;
     -o-transition: all 0.5s ease-in-out 0s;
     -ms-transition: all 0.5s ease-in-out 0s;
     transition: all 0.5s ease-in-out 0s;
-	filter: grayscale(100%);
+    filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
     -ms-filter: grayscale(100%);
     -o-filter: grayscale(100%);
 }
-section .image_article:hover{
+
+section .image_article:hover {
 	filter: grayscale(0);
     -webkit-filter: grayscale(0);
     -moz-filter: grayscale(0);
@@ -37,92 +34,57 @@ section .image_article:hover{
     -o-filter: grayscale(0);
 }
 
-section h1, #auteur_article h1{
-font-size:16px;
-margin:10px;
+section h1, #auteur_article h1 {
+    font-size:16px;
+    margin:10px;
 }
-section .titre_article{
-font-size:16px;
-margin-left:10px;}
 
-section p, #auteur_article p{
-font-size:12px;
-margin:10px;}
+section .titre_article {
+    font-size:16px;
+    margin-left:10px;
+}
+
+section p, #auteur_article p {
+    font-size:12px;
+    margin:10px;
+}
 
 section h2 {
-margin:10px;
+    margin:10px;
 }
 
-#auteur_article{
-display:inline-block;
-vertical-align:top;
-text-align:left;
-float:left;
-width:11%;
- background-color:grey;
-word-wrap: break-word;
-min-width:70px;
-
+#auteur_article {
+    display:inline-block;
+    vertical-align:top;
+    text-align:left;
+    float:left;
+    width:11%;
+    background-color:grey;
+    word-wrap: break-word;
+    min-width:70px;
 }
 
-#auteur_article img{
-width:100%;
-
-}
-#article_partage{
-width:55%;
-text-align:left;
-background-color:#9f2020;
-display:inline-block;
-vertical-align:top;
-}
-#article_partage img{
-height:15px;
-margin:5px;
-vertical-align: middle;
-
+#auteur_article img {
+    width:100%;
 }
 
-#article_partage a{
-color:white;
-
-vertical-align:middle;
-text-decoration: none;
-color:white;
-
+#article_partage {
+    width:55%;
+    text-align:left;
+    background-color:#9f2020;
+    display:inline-block;
+    vertical-align:top;
 }
 
-
-#ajout_commentaire{
-display:inline-block;
-vertical-align:top;
-width:77%;
-margin-left:9%;
-}
-#ajout_commentaire input,#ajout_commentaire textarea{
-width:100%;
-margin:10px;
-padding:2px;
-border:none;
-background-color:#ece9e9;
-font-family:Arial;
-font-size:20px;
-height:50px;
-text-align:left;
+#article_partage img {
+    height:15px;
+    margin:5px;
+    vertical-align: middle;
 }
 
-#ajout_commentaire button{
-background-color: #2e3d60;
-color: white;
-width:100%;
-margin-left:12px;
-margin-right:12px;
-margin-top:10px;
-border:none;
-font-family:Arial;
-font-size:20px;
-height:50px;
-padding: 10px;
-
-text-transform: uppercase;
+#article_partage a {
+    color:white;
+    vertical-align:middle;
+    text-decoration: none;
+    color:white;
 }

@@ -1,6 +1,5 @@
 <% include head %>
   <div id="slideshow">  
-          
     <div class="container">  
         <div class="c_slider"></div>  
         <div class="slider">  
@@ -27,20 +26,24 @@
         </div>  
     </div> </div>
 
-<div id="alaune"> 
+    <div id="alaune"> 
 
-<div class="evenement">
-	<a href="/article/1"><img  class="image_evenement" src="/images/evenement.jpg"><div class="description_evenement">
-		<a href=""><p class="titre_evenement">14 MAI 2014 - CORTEGE TRADITIONNEL SAINTE JEANNE D'ARC</p></a>
-	</div></a>
-	
+        <div class="evenement">
+        	<a href="/article/1">
+                <img class="image_evenement" src="/images/evenement.jpg">
+                <div class="description_evenement">
+            		<a href=""><p class="titre_evenement">14 MAI 2014 - CORTEGE TRADITIONNEL SAINTE JEANNE D'ARC</p></a>
+            	</div>
+            </a>
+        </div>
 
-	
-</div>
-
-<div class="video"  id="videodumoment"><iframe src="http://www.youtube.com/embed/1rC2plTGGBU" frameborder="0" allowfullscreen></iframe></div>
-<div id="videossecondaires"> <div class="video" id="video1"><iframe src="http://www.youtube.com/embed/5W-IIoqQHKs" frameborder="0" allowfullscreen></iframe></div>
- <div class="video" id="video2"><iframe src="http://www.youtube.com/embed/1jPOX72PPMw" frameborder="0" allowfullscreen></iframe></div></div></div> 
+        <div class="video" id="videodumoment"><iframe src="http://www.youtube.com/embed/1rC2plTGGBU" frameborder="0" allowfullscreen></iframe></div>
+        <div id="videossecondaires">
+            <div class="video" id="video1"><iframe src="http://www.youtube.com/embed/5W-IIoqQHKs" frameborder="0" allowfullscreen></iframe>
+            </div>
+        <div class="video" id="video2"><iframe src="http://www.youtube.com/embed/1jPOX72PPMw" frameborder="0" allowfullscreen></iframe></div>
+    </div>
+</div> 
 
 <% articles.forEach(function(article) {%>
 	<% include resume_article %>
