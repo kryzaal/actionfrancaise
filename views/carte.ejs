@@ -1,4 +1,9 @@
 <% include head %>
+<div class="titre"><h1>L'Action Française près de chez vous</h1><p>Retrouvez ici le section d'Action Française la plus proche de chez vous. <br>
+N'hésitez pas à les contacter si vous souhaitez <a href="/militez">militez</a> avec eux, ou à simplement les suivre sur les réseaux sociaux <br>
+Vous souhaitez créer votre propre section? <a href="/contact">Contactez-nous </a>et nous vous indiquerons la marche à suivre
+</p></div>
+
 <div class="carte">
 <img id="fond" src="/images/carte_france/map.png">
 <img class="blason" id="provence" src="/images/carte_france/province_provence.png">
@@ -13,5 +18,16 @@
 <img class="blason" id="oise_picardie" src="/images/carte_france/oise_picardie.png">
 <img class="blason" id="rennes" src="/images/carte_france/rennes.png">
 </div>
+<div id="carte_complement">
+<div id="navigation_rapide">
+	<h2>NAVIGATION RAPIDE</h2>
+	<form method="POST" action="/adherer">
+            <select name="select_section">
+        	<option value="Ile-de-France">Ile-de-France</option>
+            <option value="Bordeaux" selected="selected">Bordeaux</option>
+        	<option value="Provence">Provence</option>
+    	</select></form></div>
+<div id="description_sections"><img class="blason_description" id="blason_description_provence" src="/images/carte_france/province_provence.png">
+<h1>AF Provence</h1></div></div>
  
 <% include foot %>
