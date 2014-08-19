@@ -1,51 +1,30 @@
 <% include head %>
 
 <div id="titre"><h1>Visuels, affiches et vidéos</h1></div>
-<div id="visuels">
 
- <div id="visuel1"><img src="/visuel/visuel1.jpg"/></div>
- <div id="visuel2"><img src="/visuel/visuel2.jpg"/></div>
- <div id="visuel3"><img src="/visuel/visuel3.jpg"/></div>
- <div id="visuel4"><img src="/visuel/visuel4.jpg"/></div>
- <div id="visuel5"><img src="/visuel/visuel5.jpg"/></div>
- <div id="visuel6"><img src="/visuel/visuel6.jpg"/></div>
- <div id="visuel7"><img src="/visuel/visuel7.jpg"/></div>
- <div id="visuel8"><img src="/visuel/visuel8.jpg"/></div>
- <div id="visuel9"><img src="/visuel/visuel9.jpg"/></div>
- <div id="visuel10"><img src="/visuel/visuel10.jpg"/></div>
- <div id="visuel11"><img src="/visuel/visuel11.jpg"/></div>
- <div id="visuel12"><img src="/visuel/visuel12.jpg"/></div>
- <div id="visuel13"><img src="/visuel/visuel13.jpg"/></div>
-  <div id="visuel1"><img src="/visuel/visuel1.jpg"/></div>
- <div id="visuel2"><img src="/visuel/visuel2.jpg"/></div>
- <div id="visuel3"><img src="/visuel/visuel3.jpg"/></div>
- <div id="visuel4"><img src="/visuel/visuel4.jpg"/></div>
- <div id="visuel5"><img src="/visuel/visuel5.jpg"/></div>
- <div id="visuel6"><img src="/visuel/visuel6.jpg"/></div>
- <div id="visuel7"><img src="/visuel/visuel7.jpg"/></div>
- <div id="visuel8"><img src="/visuel/visuel8.jpg"/></div>
- <div id="visuel9"><img src="/visuel/visuel9.jpg"/></div>
- <div id="visuel10"><img src="/visuel/visuel10.jpg"/></div>
- <div id="visuel11"><img src="/visuel/visuel11.jpg"/></div>
- <div id="visuel12"><img src="/visuel/visuel12.jpg"/></div>
- <div id="visuel13"><img src="/visuel/visuel13.jpg"/></div>
+<div id="visuels">
+	<% visuels.forEach(function(filename) { %>
+		 <img src="/visuel/<%= filename %>"/>
+	<% }); %>
 </div>
 
 <div id="videos">
- <div id="visuel1"><iframe src="http://www.youtube.com/embed/1rC2plTGGBU" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel2"><iframe src="http://www.youtube.com/embed/5W-IIoqQHKs" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel3"><iframe src="http://www.youtube.com/embed/1jPOX72PPMw" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel4"><iframe src="http://www.youtube.com/embed/io3Yk1IGyaA" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel5"><iframe src="http://www.youtube.com/embed/e5WxM2qjpBo" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel6"><iframe src="http://www.youtube.com/embed/c7lxeFrHh9M" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel7"><iframe src="http://www.youtube.com/embed/Gf8oIxqaHRs" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel1"><iframe src="http://www.youtube.com/embed/1rC2plTGGBU" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel2"><iframe src="http://www.youtube.com/embed/5W-IIoqQHKs" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel3"><iframe src="http://www.youtube.com/embed/1jPOX72PPMw" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel4"><iframe src="http://www.youtube.com/embed/io3Yk1IGyaA" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel5"><iframe src="http://www.youtube.com/embed/e5WxM2qjpBo" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel6"><iframe src="http://www.youtube.com/embed/c7lxeFrHh9M" frameborder="0" allowfullscreen></iframe></div>
- <div id="visuel7"><iframe src="http://www.youtube.com/embed/Gf8oIxqaHRs" frameborder="0" allowfullscreen></iframe></div>
+	<% videos.forEach(function(code) { %>
+		<div id="video_<%= code %>" onClick="loadVideo(this, '<%= code %>')"></div>
+		<script>$('document').ready(function() {loadTitle('<%= code %>');});</script>
+	<% }); %>
 </div>
+
+<script>
+	function loadVideo(parentDiv, code) {
+		parentDiv.innerHTML = '<iframe src="http://www.youtube.com/embed/' + code + '" frameborder="0" allowfullscreen></iframe>';
+	}
+
+	function loadTitle(code) {
+	    $.getJSON("http://gdata.youtube.com/feeds/api/videos/" + code + "?v=2&alt=jsonc", function(response) {
+	    	document.getElementById("video_" + code).innerHTML = '<img src="http://img.youtube.com/vi/' + code + '/0.jpg"/>' + '<p>' + response.data.title + '</p>';
+	    });
+	}
+</script>
 
 <% include foot %>
