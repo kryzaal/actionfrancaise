@@ -2,24 +2,24 @@ section {
 	margin-top:0px;
 }
 
-#visuels {
+#visuels, #videos {
 	display:inline-block;
-	-webkit-column-count: 3; 
-	-moz-column-count: 3; 
-	column-count: 3;
 	width:48%;
-	margin-right:10px;
 	float:left;
 	vertical-align:top;
 }
 
-#videos {
-	display:inline-block;
+#visuels {
+	margin-right:10px;
 	-webkit-column-count: 3; 
 	-moz-column-count: 3; 
 	column-count: 3;
-	vertical-align:top;
-	width:48%;
+}
+
+#videos {
+	-webkit-column-count: 2; 
+	-moz-column-count: 2; 
+	column-count: 2;
 }
 
 #videos > div {
@@ -28,12 +28,9 @@ section {
 
 section iframe {
 	width:100%;
-	height:193px;
-	float:left;
-	margin:5px;
 }
 
-section img{
+section img {
 	width: 100%;
 	filter: grayscale(100%);
 	    -webkit-filter: grayscale(100%);
@@ -42,7 +39,7 @@ section img{
 	    -o-filter: grayscale(100%);
 }
 
-section img:hover{
+section img:hover {
 	filter: grayscale(0%);
 	    -webkit-filter: grayscale(0%);
 	    -moz-filter: grayscale(0%);
