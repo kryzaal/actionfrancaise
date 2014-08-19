@@ -7,7 +7,7 @@ function setTransporter(transporter) {
 function get(request, response) {
     response.render('contact.ejs', {
         pageSubtitle: "Contact",
-        customStylesheets: ["contact.css"]
+        customStylesheets: ["formulaire.css"]
     });
 }
 

@@ -1,0 +1,57 @@
+section {
+	margin-top:0px;
+}
+
+div.formulaire {
+	display:inline-block;
+	vertical-align:top;
+	width:60%;
+	margin-right:auto;
+	margin-bottom:10px;
+}
+
+div.formulaire input, div.formulaire select, div.formulaire textarea {
+	width:100%;
+	margin:10px;
+	padding:2px;
+	border:none;
+	background-color:#ece9e9;
+	font-family:Arial;
+	font-size:20px;
+	height:50px;
+}
+
+div.formulaire textarea {
+	height:123px;
+}
+
+div.formulaire button {
+	background-color: #2e3d60;
+	color: white;
+	width:100%;
+	margin-left:12px;
+	margin-right:12px;
+	margin-top:10px;
+	border:none;
+	font-family:Arial;
+	font-size:20px;
+	height:50px;
+	padding: 10px;
+	text-transform: uppercase;
+}
+
+div.formulaire button:hover {
+	border:2px solid black;
+	cursor: pointer;
+}
+
+div.formulaire h1 {
+	font-size:32px;
+	color:grey;
+}
+
+div.formulaire p {
+	font-size:12px;
+	text-align:left;
+	margin-left:10px;
+}

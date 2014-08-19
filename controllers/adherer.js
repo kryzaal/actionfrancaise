@@ -7,7 +7,7 @@ function setTransporter(transporter) {
 function get(request, response) {
     response.render('adherer.ejs', {
         pageSubtitle: "Adhérer",
-        customStylesheets: ["adherer.css"]
+        customStylesheets: ["formulaire.css"]
     });
 }
 
