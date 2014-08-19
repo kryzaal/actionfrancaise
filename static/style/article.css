@@ -1,5 +1,4 @@
-
- section .article{
+section .article{
  display:inline-block;
  vertical-align:top;
  text-align:left;
@@ -31,8 +30,6 @@ float:left;
     -o-filter: grayscale(100%);
 }
 section .image_article:hover{
-
-
 	filter: grayscale(0);
     -webkit-filter: grayscale(0);
     -moz-filter: grayscale(0);

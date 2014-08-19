@@ -1,27 +1,25 @@
-@font-face { font-family: Muro;
- src: url('fonts/Muro.otf');
- font-family: MotionPicture;
-  src: url('fonts/MotionPicture.ttf');
-}
-html{
-background-image:radial-gradient(white, #f8f6f6);
-
-}
-body{font-family: Arial;
-font-size: 14px;
-margin:0px;
+@font-face {
+  font-family: MyriadPro;
+  src: url('fonts/MyriadPro.ttf');
 }
 
- #corps{
-     display: block;
-     margin:0px;
-     text-align: center;
- }
+body {
+  font-family: Arial;
+  font-size: 14px;
+  margin:0px;
+  background-image:radial-gradient(white, #f8f6f6);
+}
+
+ #corps {
+  display: block;
+  margin:0px;
+  text-align: center;
+}
  
-header, h2{
-    font-family: Myriad Pro;
-    font-size: 14px;
-    letter-spacing: 1px;
+header, h2 {
+  font-family: MyriadPro;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 #toaster {
@@ -33,160 +31,148 @@ header, h2{
   width: 100%;
 }
 
-
-.entete{
-   
-     background-color: #0000;
-     background-image: url(images/fdl.png);
-     background-repeat:no-repeat;
-     background-position:right bottom;
-     width: 100%; 
-     margin-top:-20px;
-     margin-right:auto;
-     margin-left:auto;
-     margin-bottom: 20px;
+.entete {
+  background-color: #0000;
+  width: 100%; 
+  margin-top:-20px;
+  margin-right:auto;
+  margin-left:auto;
+  margin-bottom: 20px;
 }
-
 
 header h1{
-    display: inline-block;
+  display: inline-block;
 	vertical-align:top;
-
-margin-left:17px;
-padding-top:20px;
-}
-#logo{
-width:450px;
-
+  margin-left:17px;
+  padding-top:20px;
 }
 
-
-
-
-header hr{
- margin-top:-10px;
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: -webkit-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
-    background-image:    -moz-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
-    background-image:     -ms-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
-    background-image:      -o-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
+#logo {
+  width:450px;
 }
 
-#corps hr{
+header hr {
+  margin-top:-10px;
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: -webkit-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
+  background-image:    -moz-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
+  background-image:     -ms-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
+  background-image:      -o-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
+}
+
+#corps hr {
 	margin-top:-20px;
-    border: 0;
-    height: 1px;
-    background: grey;
+  border: 0;
+  height: 1px;
+  background: grey;
 	margin:5px;
-
 }
 
 
-#menu_top
-{ 
+#menu_top { 
   background-image: -webkit-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
-    background-image:    -moz-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
-    background-image:     -ms-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
-    background-image:      -o-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
-    box-shadow: -1px 5px 13px black;
-height:40px;
-width:100%;
-margin-right: auto;
-margin-left: auto;
-z-index:1;
+  background-image:    -moz-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
+  background-image:     -ms-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
+  background-image:      -o-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
+  box-shadow: -1px 5px 13px black;
+  height:40px;
+  width:100%;
+  margin-right: auto;
+  margin-left: auto;
+  z-index:1;
 }
 
- #menu_top nav
-{ 
-   display:inline-block; 
+#menu_top nav { 
+  display:inline-block; 
   list-style-type: none;
-width: 100%;
-height: 100%;
-margin-right: auto;
-margin-left: auto;
+  width: 100%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
   text-align:center;
-  
 }
 
-#menu_top ul{
+#menu_top ul {
   margin-top: 0px;
-    margin-left: 0px;
-    height:100%;
-
+  margin-left: 0px;
+  height:100%;
 }
 
-#menu_top li
-{
-    display: inline-block;
-   margin-right:-4px;
-   height:100%;
-     padding-left: 40px;
-    padding-right: 40px;
- }  
-   
+#menu_top li {
+  display: inline-block;
+  margin-right:-4px;
+  height:100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}  
 
-
-#menu_top a
-{display:inline-block;
-padding-top: 11px;
-    font-size: 14px;
-    color: white;
-    text-decoration: none;
-	text-align:center;
-
-
+#menu_top a {
+  display:inline-block;
+  padding-top: 11px;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  text-align:center;
 }
  
-#menu_top li:hover a{
-color: black;
- }
+#menu_top li:hover a {
+  color: black;
+}
 
- #menu_top li:hover{
+#menu_top li:hover {
   background-color: white;
- }
-
-aside{
-
-    display:inline-block;
-vertical-align:top;
-    float:right;
-
- }
-aside #adresse_craf h3{
-width:100%;
-font-size:10px;
-
 }
+
+aside {
+  display:inline-block;
+  vertical-align:top;
+  float:right;
+}
+
+aside #adresse_craf h3 {
+  width:100%;
+  font-size:10px;
+}
+
 aside #adresse_craf {
-width:160px;
-font-size:10px;
-
-float:right;
-margin-top:5px;
-margin-right:3px;
-background-color:#d6dae5;
+  width:160px;
+  font-size:10px;
+  float:right;
+  margin-top:5px;
+  margin-right:3px;
+  background-color:#d6dae5;
 }
 
-
-#icone_rectangle img{
-width:160px;
-
+#icone_rectangle img {
+ width:160px;
 }
-#icone_rectangle img, #militez .tuile, #organigramme #tuile,#menu_top a,#menu_top li,#logo,form#recherche input,form#recherche, #recherche_focus{
-    -moz-transition: all 0.5s ease-in-out 0s;
-    -webkit-transition: all 0.5s ease-in-out 0s;
-    -o-transition: all 0.5s ease-in-out 0s;
-    -ms-transition: all 0.5s ease-in-out 0s;
-    transition: all 0.5s ease-in-out 0s;
+
+#icone_rectangle img, 
+#militez .tuile, 
+#organigramme #tuile,
+#menu_top a,
+#menu_top li,
+#logo,
+form#recherche input,
+form#recherche, 
+#recherche_focus {
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
 }
-#icone_rectangle img:hover, #militez .tuile:hover, #organigramme #tuile:hover{
-    -moz-box-shadow: 1px 1px 12px #555;
-    -webkit-box-shadow: 1px 1px 12px #555;
-    -o-box-shadow: 1px 1px 12px #555;
-    -ms-box-shadow: 1px 1px 12px #555;
-    box-shadow: 1px 1px 12px #555;
+
+#icone_rectangle img:hover, 
+#militez .tuile:hover, 
+#organigramme #tuile:hover {
+  -moz-box-shadow: 1px 1px 12px #555;
+  -webkit-box-shadow: 1px 1px 12px #555;
+  -o-box-shadow: 1px 1px 12px #555;
+  -ms-box-shadow: 1px 1px 12px #555;
+  box-shadow: 1px 1px 12px #555;
 }
 
 
