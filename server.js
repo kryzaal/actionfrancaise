@@ -54,7 +54,6 @@ var controllers = {
     manifeste : require('./controllers/manifeste'),
     recherche : require('./controllers/recherche'),
     reseaux_sociaux : require('./controllers/reseaux_sociaux'),
-    articles : require('./controllers/articles'),
     carte : require('./controllers/carte')
 };
 
