@@ -31,20 +31,10 @@ max-width: 400px;
     -o-transition: all 0.5s ease-in-out 0s;
     -ms-transition: all 0.5s ease-in-out 0s;
     transition: all 0.5s ease-in-out 0s;
-	filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
+
 }
 section .image_article:hover{
 
-
-	filter: grayscale(0);
-    -webkit-filter: grayscale(0);
-    -moz-filter: grayscale(0);
-    -ms-filter: grayscale(0);
-    -o-filter: grayscale(0);
 }
 section #texte_article{
 height:50%;
@@ -116,6 +106,11 @@ margin-right: auto;
 
  }
 
+#alaune h1{
+    text-align: left;
+    font-size: 20px;
+margin-left: 45px;
+}
 .image_evenement{
  display: inline-block;
 
@@ -138,7 +133,7 @@ margin-bottom: 10px;
 text-decoration: none;
 color:white;}
 
-.description_evenement h1{
+.description_evenement h2{
     font-size: 15px;
 }
 
