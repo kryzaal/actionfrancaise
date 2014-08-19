@@ -21,7 +21,7 @@ width:100%;
 .carte{
 	display: inline-block;
 	vertical-align: top;
-	width:60%;
+	width:600px;
 	height:693px;
 	margin-top: 20px;
 	margin-right: auto;
@@ -35,21 +35,29 @@ width:100%;
 
 .carte .blason{
 position: relative;
-width:10%;
-	max-width:70px;
+width:16%;
+	max-width:100px;
 	border-radius: 0px 0px 47px 47px;
 	    -moz-transition: all 0.5s ease-in-out 0s;
     -webkit-transition: all 0.5s ease-in-out 0s;
     -o-transition: all 0.5s ease-in-out 0s;
     -ms-transition: all 0.5s ease-in-out 0s;
     transition: all 0.5s ease-in-out 0s;
+     -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale"); /* Firefox 4+ */
 }
 .carte .blason:hover{
-    -moz-box-shadow: 0px -5px 25px #555;
-    -webkit-box-shadow: 0px -5px 25px #555;
-    -o-box-shadow: 0px -5px 25px #555;
-    -ms-box-shadow: 0px -5px 25px #555;
-    box-shadow: 0px -5px 25px #555;
+
+     -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='1 1 1 0 013 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");/* Firefox 4+ */
 }
 
 .carte #provence{
@@ -58,47 +66,47 @@ left: 76%;
 }
 
 .carte #idf{
-	bottom:76%;
-left: 37%;
+	bottom:73%;
+left: 30%;
 }
 
 .carte #bordeaux{
 	bottom: 33%;
-left: 5%;
+left: -6%;
 }
 
 .carte #angouleme{
 	bottom: 45%;
-left: 1%;
+left: -20%;
 }
 .carte #annecy{
-	bottom: 48%;
-left: 38%;
+	bottom: 42%;
+left: 11%;
 }
 .carte #clermont{
 	bottom: 42%;
-left: -1%;
+left: -34%;
 }
 .carte #grenoble{
-	bottom:37%;
-left: 9%;
+	bottom:50%;
+left: 63%;
 }
 .carte #lyon{
-	bottom: 48%;
-left: -6%;
+	bottom: 64%;
+left: 41%;
 }
 
 .carte #nantes{
-	bottom: 62%;
-left: -67%;
+	bottom: 77%;
+left: -21%;
 }
 .carte #oise_picardie{
 	bottom: 99%;
-left: 17%;
+left: -8%;
 }
 .carte #rennes{
-	bottom: 83%;
-left: -37%;
+	bottom: 86%;
+left: -58%;
 }
 #carte_complement{
 	display: inline-block;
@@ -106,15 +114,22 @@ left: -37%;
 
 	width:30%;
 	height: 300px;
-	margin-top:30px;
+	margin-top:110px;
+	margin-left: 68px;
 }
 #description_sections{
+border-radius: 5px;
 
+            -moz-box-shadow: 0px 0px 5px #000;
+    -webkit-box-shadow: 0px 0px 5px #000;
+    -o-box-shadow: 0px 0px 5px #000;
+    -ms-box-shadow: 0px 0px 5px #000;
+    box-shadow: 0px 0px 5px #000;
 
 	background-color: #ece9e9;
 	width:100%;
 	height: 300px;
-	margin-top:30px;
+	margin-top:10px;
 }
 
 #description_sections .blason_description {
@@ -125,7 +140,13 @@ margin:5px;
 
 #navigation_rapide{
 	
+border-radius: 5px;
 
+            -moz-box-shadow: 0px 0px 5px #000;
+    -webkit-box-shadow: 0px 0px 5px #000;
+    -o-box-shadow: 0px 0px 5px #000;
+    -ms-box-shadow: 0px 0px 5px #000;
+    box-shadow: 0px 0px 5px #000;
 	background-color: #ece9e9;
 	width:100%;
 	height: 100px;
