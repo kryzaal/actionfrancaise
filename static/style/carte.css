@@ -1,0 +1,79 @@
+.carte{
+	width:60%;
+	height:693px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.carte #fond{
+	width:100%;
+}
+
+.carte .blason{
+position: relative;
+width:10%;
+	max-width:70px;
+	border-radius: 0px 0px 47px 47px;
+	    -moz-transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    -ms-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s;
+}
+.carte .blason:hover{
+    -moz-box-shadow: 0px -5px 25px #555;
+    -webkit-box-shadow: 0px -5px 25px #555;
+    -o-box-shadow: 0px -5px 25px #555;
+    -ms-box-shadow: 0px -5px 25px #555;
+    box-shadow: 0px -5px 25px #555;
+}
+
+.carte #provence{
+	bottom: 21%;
+left: 76%;
+}
+
+.carte #idf{
+	bottom:76%;
+left: 37%;
+}
+
+.carte #bordeaux{
+	bottom: 33%;
+left: 5%;
+}
+
+.carte #angouleme{
+	bottom: 45%;
+left: 1%;
+}
+.carte #annecy{
+	bottom: 21%;
+left: 76%;
+}
+.carte #clermont{
+	bottom: 21%;
+left: 76%;
+}
+.carte #grenoble{
+	bottom: 21%;
+left: 76%;
+}
+.carte #lyon{
+	bottom: 21%;
+left: 76%;
+}
+
+.carte #nantes{
+	bottom: 21%;
+left: 76%;
+}
+.carte #oise_picardie{
+	bottom: 21%;
+left: 76%;
+}
+.carte #rennes{
+	bottom: 21%;
+left: 76%;
+}
