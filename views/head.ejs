@@ -4,7 +4,6 @@
         <% include title %>
         <% include css %>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
 		<link rel="icon" type="/image/png" href="/images/siteAF_icone.png" />
         <script src="/jquery.min.js"></script>
     </head>
@@ -13,6 +12,7 @@
             <div id="toaster" style="background-color: <%= toaster.color %>;"><%= toaster.html %></div>
             <script>$('#toaster').fadeOut(<%= toaster.duration * 1000 %>);</script>
         <% } %>
+
         <header class='entete' height='170px'>
             <h1><a href="/"><img name="logo" id="logo" alt="Action Française" src="/images/SiteAF_logo.png" ></a></h1>
 
@@ -31,7 +31,7 @@
             <div id="menu_top">
                 <nav>
                 <ul>
-                     <li><a href="/">Accueil</a></li>
+                    <li><a href="/">Accueil</a></li>
                     <li><a href="/manifeste">Manifeste</a></li>
                     <li><a href="/militez">Militez!</a></li>
                     <li><a href="/organigramme">Organigramme</a></li>
@@ -40,11 +40,7 @@
                 </ul>
                 </nav>
             </div> 
-       
-          
- 
-</div>  
         </header>
         <div id="corps">
-        <section>
+            <section>
         
