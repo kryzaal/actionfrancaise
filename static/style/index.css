@@ -307,6 +307,8 @@ height: 100%;
     50%, 70%        { left: -200% }  
     75%, 95%        { left: -300% }  
 }  
+
+
 /* complétez le sélecteur : */  
 #slideshow .slider {  
     /* ... avec la propriété animation */  
