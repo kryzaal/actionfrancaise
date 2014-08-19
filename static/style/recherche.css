@@ -1,17 +1,20 @@
 section{
-	margin-top:52px;
+margin-top:52px;
+
 }
 
 #nb_resulats{
-	color: grey;
+color: grey;
+
 }
 
 #resultats_recherche{
 	padding:5px;
-	text-align: left;
-	background-color: #ece9e9;
+text-align: left;
+background-color: #ece9e9;
 }
 
 #resultats_recherche h3:hover{
-	background-color: #2e3d60;
+cursor:pointer;
+background-color: #2e3d60;
 }

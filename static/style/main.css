@@ -1,21 +1,19 @@
-@font-face { 
-  font-family: Muro;
-  src: url('fonts/Muro.otf');
-}
-
-@font-face {
-  font-family: MotionPicture;
+@font-face { font-family: Muro;
+ src: url('fonts/Muro.otf');
+ font-family: MotionPicture;
   src: url('fonts/MotionPicture.ttf');
 }
+html{
+background-image:radial-gradient(white, #f8f6f6);
 
-body {
-  background-image:radial-gradient(white, #f8f6f6);
-  font-family: Arial;
-  font-size: 14px;
-  margin:0px;
+}
+body{font-family: Arial;
+font-size: 14px;
+margin:0px;
 }
 
  #corps{
+     display: bloc;
      margin:0px;
      text-align: center;
  }
@@ -49,6 +47,7 @@ header, h2{
      margin-bottom: 20px;
 }
 
+
 header h1{
     display: inline-block;
 	vertical-align:top;
@@ -61,14 +60,10 @@ width:450px;
 
 }
 
-<<<<<<< HEAD
 
 
 
-hr{
-=======
 header hr{
->>>>>>> origin/master
  margin-top:-10px;
     border: 0;
     height: 1px;
@@ -87,6 +82,7 @@ header hr{
 	margin:5px;
 
 }
+
 
 #menu_top
 { 
@@ -143,8 +139,8 @@ padding-top: 11px;
 
 }
  
-#menu_top li:hover a{
-  color: black;
+#menu_top a:hover{
+color: black;
  }
 
  #menu_top li:hover{
@@ -192,6 +188,12 @@ width:160px;
     -ms-box-shadow: 1px 1px 12px #555;
     box-shadow: 1px 1px 12px #555;
 }
+
+
+
+
+
+ 
 
  section {
 display:inline-block;
