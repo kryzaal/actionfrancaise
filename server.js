@@ -53,8 +53,7 @@ var controllers = {
     militez : require('./controllers/militez'),
     manifeste : require('./controllers/manifeste'),
     recherche : require('./controllers/recherche'),
-    reseaux_sociaux : require('./controllers/reseaux_sociaux'),
-    carte : require('./controllers/carte')
+    reseaux_sociaux : require('./controllers/reseaux_sociaux')
 };
 
 var transporter = mailer.createTransport({
@@ -91,10 +90,16 @@ app.post("/dons", controllers.dons.post);
 
 app.get("/medias", controllers.medias.get);
 app.get("/organigramme", controllers.organigramme.get);
-app.get("/militez", controllers.militez.get);
 app.get("/manifeste", controllers.manifeste.get);
-app.get("/carte", controllers.carte.get);
 app.post("/recherche", controllers.recherche.post);
+
+app.get("/militez", controllers.militez.get);
+app.get("/militez/militer", controllers.militez.militer.get);
+app.get("/militez/campagnes", controllers.militez.campagnes.get);
+app.get("/militez/carte", controllers.militez.carte.get);
+app.get("/militez/camelots", controllers.militez.camelots.get);
+app.get("/militez/cmrds", controllers.militez.cmrds.get);
+app.get("/militez/textes", controllers.militez.textes.get);
 
 app.get("/facebook", controllers.reseaux_sociaux.facebook);
 app.get("/twitter", controllers.reseaux_sociaux.twitter);

@@ -1,0 +1,38 @@
+<div id='militez'>     
+	<a href="/militez/militer"><div id="tuile_militer">	
+		<h1>Militer à l'AF</h1>
+		<img src="/images/icone_megaphone.png"/>
+		<p>#TODO</p>
+	</div></a>
+	<a href="/militez/campagnes"><div id="tuile_campagnes">
+		<h1>Campagne en cours</h1>
+		<img src="/images/icone_poing.png"/>
+		<p>#TODO</p>
+	</div></a>
+	<a href="/militez/carte"><div id="tuile_carte">
+		<h1>L'AF près de chez moi</h1>
+		<img src="/images/icone_localise.png"/>
+		<p>Retrouvez la section d’Action Française proche de chez vous ou montez votre section pour militer dans votre province</p>
+	</div></a>
+	<a href="/militez/camelots"><div id="tuile_camelots">
+		<h1>Les camelots du Roi</h1>
+		<img src="/images/icone_camelot.png"/>
+		<p>#TODO</p>
+	</div></a>
+	<a href="/militez/cmrds"><div id="tuile_cmrds">
+		<h1>Camp Maxime Real del Sarte</h1>
+		<img src="/images/icone_cmrds.png"/>
+		<p>#TODO</p>
+	</div></a>
+	<a href="/militez/textes"><div id="tuile_textes">
+		<h1>Grands textes</h1>
+		<img src="/images/icone_grands_textes.png"/>
+		<p>#TODO</p>
+	</div></a>
+</div>
+
+<script>
+	$(function() {
+		var a = $('#militez > a[href="' + window.location.pathname + '"]').click(function() {return false}).addClass("current");
+	});
+</script>

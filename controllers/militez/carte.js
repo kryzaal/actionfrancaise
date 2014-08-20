@@ -1,7 +1,7 @@
 function get(request, response) {
-	response.render('carte.ejs', {
+	response.render('militez_carte.ejs', {
     	pageSubtitle: "L'AF près de chez moi",
-    	customStylesheets: ["carte.css"]
+    	customStylesheets: ["militez_carte.css", "militez_tuiles.css"]
     });
 }
 
