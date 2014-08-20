@@ -12,35 +12,64 @@
 	margin: 1px;
 	padding: 0;
 }
+#tuile_militer,#tuile_campagnes,#tuile_carte,#tuile_camelots,#tuile_cmrds,#tuile_textes{
+-webkit-transition: box-shadow 0.5s ease-in-out 0s;
+-moz-transition: box-shadow 0.5s ease-in-out 0s;
+-o-transition: box-shadow 0.5s ease-in-out 0s;
+-ms-transition: box-shadow 0.5s ease-in-out 0s;
+transition: box-shadow 0.5s ease-in-out 0s; 
+
+-webkit-transition: background-color 0.5s ease-in-out 0s;
+-moz-transition: background-color 0.5s ease-in-out 0s;
+-o-transition: background-color 0.5s ease-in-out 0s;
+-ms-transition: background-color 0.5s ease-in-out 0s;
+transition: background-color 0.5s ease-in-out 0s; 
+}
+
+
+#tuile_militer:hover,#tuile_campagnes:hover,#tuile_carte:hover,#tuile_camelots:hover,#tuile_cmrds:hover,#tuile_textes:hover{
+    -moz-box-shadow: 6px 2px 12px #000;
+    -webkit-box-shadow: 6px 2px 12px #000;
+    -o-box-shadow: 6px 2px 12px #000;
+    -ms-box-shadow: 6px 2px 12px #000;
+    box-shadow: 6px 2px 12px #000;
+}
 
 a > #tuile_militer:hover, a.current > #tuile_militer {
 	background-color:#61b3c5;
 	cursor: pointer;
+	
+
+
 }
 
 a > #tuile_campagnes:hover, a.current > #tuile_campagnes {
 	background-color:#f1d92f;
 	cursor: pointer;
+
 }
 
 a > #tuile_carte:hover, a.current > #tuile_carte {
 	background-color:#208425;
 	cursor: pointer;
+
 }
 
 a > #tuile_camelots:hover, a.current > #tuile_camelots {
 	background-color:#971217;
 	cursor: pointer;
+
 }
 
 a > #tuile_cmrds:hover, a.current > #tuile_cmrds {
 	background-color:#504c40;
 	cursor: pointer;
+
 }
 
 a > #tuile_textes:hover, a.current > #tuile_textes {
 	background-color:#e4950b;
-	cursor: pointer;
+	cursor: poin6er;2
 }
 
 a.current, a.current > * {
