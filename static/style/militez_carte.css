@@ -16,6 +16,7 @@ width:100%;
 	font-size: 20px;
 }
 .carte{
+	z-index: 1;
 	display: inline-block;
 	vertical-align: top;
 	width:600px;
@@ -31,15 +32,16 @@ width:100%;
 }
 
 .carte .blason{
+	z-index: 2;
 position: relative;
 width:16%;
 	max-width:100px;
 	border-radius: 0px 0px 47px 47px;
-	    -moz-transition: all 0.5s ease-in-out 0s;
-    -webkit-transition: all 0.5s ease-in-out 0s;
-    -o-transition: all 0.5s ease-in-out 0s;
-    -ms-transition: all 0.5s ease-in-out 0s;
-    transition: all 0.5s ease-in-out 0s;
+	    -moz-transition: filter 0.5s ease-in-out 0s;
+    -webkit-transition: filter 0.5s ease-in-out 0s;
+    -o-transition: filter 0.5s ease-in-out 0s;
+    -ms-transition: filter 0.5s ease-in-out 0s;
+    transition: filter 0.5s ease-in-out 0s;
      -webkit-filter: sepia(100%);
   -moz-filter: sepia(100%);
   -ms-filter: sepia(100%);
@@ -48,7 +50,7 @@ width:16%;
 filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.343 0.669 0.119 0 0 0.249 0.626 0.130 0 0 0.172 0.334 0.111 0 0 0 0 0 1 0' /></filter></svg>#greyscale"); /* Firefox 4+ */
 }
 .carte .blason:hover{
-
+	z-index: 3;
      -webkit-filter: sepia(0%);
   -moz-filter: sepia(0%);
   -ms-filter: sepia(0%);
