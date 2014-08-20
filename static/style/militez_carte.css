@@ -182,6 +182,7 @@ height:42px;
 #suivre_section{
 	margin-left: 5px;
 	margin-bottom: 5px;
+	text-align: center;
 }
 #suivre_section h2{
 	margin-left: 5px;
@@ -203,4 +204,18 @@ height:42px;
 	text-transform: uppercase;
 	border: none;
 	
+}
+
+#suivre_section #creermasection{
+	background-color: #c63f10;
+}
+
+#suivre_section button:hover {
+	border:2px solid black;
+	cursor: pointer;
+}
+
+#suivre_section img:hover{
+	
+	cursor: pointer;
 }
