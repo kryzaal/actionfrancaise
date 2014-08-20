@@ -49,7 +49,7 @@ width:16%;
 filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.343 0.669 0.119 0 0 0.249 0.626 0.130 0 0 0.172 0.334 0.111 0 0 0 0 0 1 0' /></filter></svg>#greyscale"); /* Firefox 4+ */
 }
 .carte .blason:hover{
-
+z-index: 11;
      -webkit-filter: sepia(0%);
   -moz-filter: sepia(0%);
   -ms-filter: sepia(0%);
@@ -59,54 +59,67 @@ filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org
 }
 
 .carte #provence{
+
+	z-index: 11;
 	bottom: 21%;
 left: 76%;
 }
 
 .carte #idf{
+	z-index: 10;
 	bottom:73%;
 left: 30%;
 }
 
 .carte #bordeaux{
+	z-index: 10;
 	bottom: 33%;
 left: -6%;
 }
 
 .carte #angouleme{
+	z-index: 10;
 	bottom: 45%;
 left: -20%;
 }
 .carte #annecy{
+	z-index: 10;
 	bottom: 42%;
 left: 11%;
 }
 .carte #clermont{
+	z-index: 10;
 	bottom: 42%;
 left: -34%;
 }
 .carte #grenoble{
+	z-index: 10;
 	bottom:50%;
 left: 63%;
 }
 .carte #lyon{
+	z-index: 10;
 	bottom: 64%;
 left: 41%;
 }
 
 .carte #nantes{
+	z-index: 10;
 	bottom: 77%;
 left: -21%;
 }
 .carte #oise_picardie{
+	z-index: 10;
 	bottom: 99%;
 left: -8%;
 }
 .carte #rennes{
+	z-index: 10;
 	bottom: 86%;
 left: -58%;
 }
 #carte_complement{
+	z-index: 10;
 	display: inline-block;
 	vertical-align: top;
 
