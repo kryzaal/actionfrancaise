@@ -34,7 +34,7 @@ width:100%;
 .carte .blason{
 	z-index: 2;
 position: relative;
-width:16%;
+width:14%;
 	max-width:100px;
 	border-radius: 0px 0px 47px 47px;
 	    -moz-transition: filter 0.5s ease-in-out 0s;
@@ -67,46 +67,46 @@ left: 76%;
 
 .carte #idf{
 	
-	bottom:73%;
-left: 30%;
+	bottom:71%;
+left: 27%;
 }
 
 .carte #bordeaux{
 	
-	bottom: 33%;
-left: -6%;
+	bottom: 32%;
+left: -7%;
 }
 
 .carte #angouleme{
 	
-	bottom: 45%;
+	bottom: 46%;
 left: -20%;
 }
 .carte #annecy{
 	
-	bottom: 42%;
-left: 11%;
+	bottom: 50%;
+left: 17%;
 }
 .carte #clermont{
 	
 	bottom: 42%;
-left: -34%;
+left: -31%;
 }
 .carte #grenoble{
 	
 	bottom:50%;
-left: 63%;
+left: 65%;
 }
 .carte #lyon{
 	
-	bottom: 64%;
-left: 41%;
+	bottom: 60%;
+left: 38%;
 }
 
 .carte #nantes{
 	
-	bottom: 77%;
-left: -21%;
+	bottom: 75%;
+left: -19%;
 }
 .carte #oise_picardie{
 	
@@ -115,8 +115,8 @@ left: -8%;
 }
 .carte #rennes{
 	
-	bottom: 86%;
-left: -58%;
+	bottom: 85%;
+left: -61%;
 }
 #carte_complement{
 	display: inline-block;
