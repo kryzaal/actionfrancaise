@@ -123,6 +123,7 @@ left: -61%;
 	vertical-align: top;
 
 	width:30%;
+	min-width: 310px;
 	height: 300px;
 	margin-top:110px;
 	margin-left: 68px;
