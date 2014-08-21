@@ -5,11 +5,11 @@
 #militez div {
 	display:inline-block;
 	vertical-align:top;
-	width:31%;
+	width:28%;
 	min-width: 310px;
 	height:48%;
 	background-color:grey;
-	margin: 1px;
+	margin-bottom: 4px;
 	padding: 0;
 }
 #tuile_militer,#tuile_campagnes,#tuile_carte,#tuile_camelots,#tuile_cmrds,#tuile_textes{
