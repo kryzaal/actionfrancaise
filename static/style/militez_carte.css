@@ -210,9 +210,6 @@ height:42px;
 	
 }
 
-#suivre_section #creermasection{
-	background-color: #c63f10;
-}
 
 #suivre_section button:hover {
 	border:2px solid black;
@@ -222,4 +219,20 @@ height:42px;
 #suivre_section img:hover{
 	
 	cursor: pointer;
+}
+
+#creermasection{
+	background-color: #c63f10;
+	display: inline-block;
+	vertical-align: top;
+	height:45px;
+	width: 80%;
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: none;
+}
+
+#creermasection:hover {
+	border:2px solid black;
 }

@@ -5,23 +5,24 @@
 <!--<div class="titre"><h1>L'Action Française près de chez vous</h1></div>-->
 
 <div class="carte">
-<img id="fond" src="/images/carte_france/map.png">
-<img class="blason" id="provence" src="/images/carte_france/province_provence.png" style="z-index=3">
-<img class="blason" id="idf" src="/images/carte_france/province_idf.png" style="z-index=3">
-<img class="blason" id="bordeaux" src="/images/carte_france/bordeaux2.png" style="z-index=3">
-<img class="blason" id="angouleme" src="/images/carte_france/angouleme.png" style="z-index=3">
-<img class="blason" id="annecy" src="/images/carte_france/annecy.png" style="z-index=3">
-<img class="blason" id="clermont" src="/images/carte_france/clermont.png" style="z-index=3">
-<img class="blason" id="grenoble" src="/images/carte_france/grenoble.png" style="z-index=3">
-<img class="blason" id="lyon" src="/images/carte_france/lyon.png" style="z-index=3">
-<img class="blason" id="nantes" src="/images/carte_france/nantes.png" style="z-index=3">
-<img class="blason" id="oise_picardie" src="/images/carte_france/oise_picardie.png" style="z-index=3">
-<img class="blason" id="rennes" src="/images/carte_france/rennes.png" style="z-index=3">
+	<img id="fond" src="/images/carte_france/map.png">
+	<img class="blason" id="provence" src="/images/carte_france/province_provence.png">
+	<img class="blason" id="idf" src="/images/carte_france/province_idf.png">
+	<img class="blason" id="bordeaux" src="/images/carte_france/bordeaux2.png">
+	<img class="blason" id="angouleme" src="/images/carte_france/angouleme.png">
+	<img class="blason" id="annecy" src="/images/carte_france/annecy.png">
+	<img class="blason" id="clermont" src="/images/carte_france/clermont.png">
+	<img class="blason" id="grenoble" src="/images/carte_france/grenoble.png">
+	<img class="blason" id="lyon" src="/images/carte_france/lyon.png">
+	<img class="blason" id="nantes" src="/images/carte_france/nantes.png">
+	<img class="blason" id="oise_picardie" src="/images/carte_france/oise_picardie.png">
+	<img class="blason" id="rennes" src="/images/carte_france/rennes.png">
 </div>
+
 <div id="carte_complement">
-<div id="navigation_rapide">
-	<h2>NAVIGATION RAPIDE</h2>
-	<form method="POST" action="/adherer">
+	<div id="navigation_rapide">
+		<h2>NAVIGATION RAPIDE</h2>
+		<form method="POST" action="/adherer">
             <select name="select_section">
         	<option value="Ile-de-France">Ile-de-France</option>
             <option value="Bordeaux" selected="selected">Bordeaux</option>
@@ -34,16 +35,20 @@
 			<option value="nantes">Nantes</option>
 			<option value="oise_picardie">Oise-Picardie</option>
 			<option value="rennes">Rennes</option>
-    	</select></form></div>
-<div id="description_sections"><img class="blason_description" id="blason_description_provence" src="/images/carte_france/province_provence.png">
-<h1>AF Provence</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-<div id="suivre_section">
-	<br>
-
-<img class="reseaux_sociaux_section" id="facebook" src="/images/icone_fb.png">
-<img class="reseaux_sociaux_section" id="twitter" src="/images/icone_twitter.png">
-<button id="lescontacter"type="submit">Les contacter</button>
-<button id="creermasection" type="submit">Créer ma section</button></div>
-</div> </div>
+    		</select>
+		</form>
+	</div>
+	<div id="description_sections">
+		<img class="blason_description" id="blason_description_provence" src="/images/carte_france/province_provence.png" />
+		<h1>AF Provence</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+		<div id="suivre_section">
+			<br />
+			<img class="reseaux_sociaux_section" id="facebook" src="/images/icone_fb.png">
+			<img class="reseaux_sociaux_section" id="twitter" src="/images/icone_twitter.png">
+			<button id="lescontacter"type="submit">Les contacter</button>
+		</div> 
+	</div>
+</div>
+<a href="/militez/creer"><button id="creermasection" type="button">Créer ma section</button></a>
 <% include foot %>

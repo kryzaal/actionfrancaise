@@ -3,7 +3,7 @@
 <div class="formulaire">
 	<h1>Contactez-nous</h1>
 
-    <form method="POST" action="/contact">
+    <form method="POST" action="/contact<% if(who && who != 'default') { %>/<%= who %><% } %>">
         <input type="text" name="prenom" placeholder="Prénom" />
         <input type="text" name="nom" placeholder="Nom" />
         <input type="email" name="email" placeholder="Courriel" />

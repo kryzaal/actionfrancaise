@@ -79,7 +79,9 @@ app.get("/", controllers.index.get);
 
 controllers.contact.setTransporter(transporter);
 app.get("/contact", controllers.contact.get);
+app.get("/contact/:who", controllers.contact.get);
 app.post("/contact", controllers.contact.post);
+app.post("/contact/:who", controllers.contact.post);
 
 controllers.adherer.setTransporter(transporter);
 app.get("/adherer", controllers.adherer.get);
