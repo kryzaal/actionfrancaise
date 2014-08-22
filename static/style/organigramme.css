@@ -1,61 +1,78 @@
-section{
-margin-top:0;
-}
- #organigramme #etage1{
- text-align:center;
- }
-
-.tuile {
-	display:inline-block;
-	vertical-align: top;
-	width:274px;
-	max-height:100px;
-	color:#252525;
-	background-color:#ece9e9;
-	margin:2px;
-	overflow: hidden;
-	transition: max-height 1s;
-	border-radius: 3px;
-}
- 
-.tuile div {
-	width: 274px;
-	clear: both;
-	float: none;
+#organigramme {
+ 	margin: 25px 0;
 }
 
-.tuile p {
-	text-align: center;
+#organigramme div#journal, #organigramme div#mouvement {
+	width: 33%;
+	max-width: 300px;
+	vertical-align: bottom;
 }
 
-.tuile:hover{
-	background-color:#203e84;
-	max-height: 250px;
-} 
- 
-#organigramme img {
+#organigramme #fleche_bureau_journal_mouvement {
+	width: 34%;
+	max-width: 300px;
+	height: 150px;
+}
+
+#organigramme #fleche_comite_bureau {
 	height: 100px;
-	float:left;
-	margin-right:10px;
 }
- #organigramme h1{
-font-size:13px;
- }
- #organigramme h1,#organigramme h2{
-	margin:10px 10px 5px;
- }
- #organigramme .personne1 {
- margin-left:auto;
- margin-right:auto;
- }
 
- #sections #carte_france{
- width:500px;
- 
- }
- 
- #sections #province{
- position:absolute;
- height:100px;
- top:-100px;
- }
+#organigramme .ligne {
+	display: block;
+	clear: both;
+}
+
+#organigramme .organe {
+	min-height: 100px;
+ 	padding: 5px;
+ 	border : 1px solid black;
+}
+
+#organigramme .organe:hover {
+	background-color: #1D3674;
+	border-color: transparent;
+	color: white;
+	cursor: pointer;
+}
+
+#organigramme .organe span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#organigramme .ligne div {
+	display: inline-block;
+}
+
+#organigramme .organe .membres {
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	display: block;
+
+	transition-property: height, width;
+	transition-duration: 1s;
+	transition-timing-function: ease-out;
+}
+
+#organigramme .organe .membres .personne {
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	display: inline-block;
+
+	transition-property: height, width;
+	transition-duration: 10ms;
+	transition-delay: 1s;
+}
+
+#organigramme .organe:hover .membres {
+	height: 100%;
+	width: 100%;
+}
+
+#organigramme .organe:hover .membres .personne {
+	height: 100%;
+	width: 100%;
+}
