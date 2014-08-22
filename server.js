@@ -52,6 +52,7 @@ var controllers = {
     organigramme : require('./controllers/organigramme'),
     militez : require('./controllers/militez'),
     manifeste : require('./controllers/manifeste'),
+    carte : require('./controllers/carte'),
     recherche : require('./controllers/recherche'),
     reseaux_sociaux : require('./controllers/reseaux_sociaux')
 };
@@ -92,6 +93,7 @@ app.get("/medias", controllers.medias.get);
 app.get("/organigramme", controllers.organigramme.get);
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
+app.get("/carte", controllers.carte.get);
 
 app.get("/militez", controllers.militez.get);
 app.get("/militez/militer", controllers.militez.militer.get);
