@@ -4,19 +4,115 @@
 
 <!--<div class="titre"><h1>L'Action Française près de chez vous</h1></div>-->
 
+<% var sections = [
+	{
+		id: 'bordeaux',
+		court: 'Bordeaux',
+		complet: 'Action Française Etudiante - Bordeaux',
+		image: 'bordeaux.png',
+		texte: '#TODO',
+		facebook: 'actionfrancaisebordeaux',
+		contact: 'bordeaux',
+		position: {x: '100', y: '250'}
+	},
+	{
+		id: 'provence',
+		court: 'Provence',
+		complet: 'Action Française - Provence',
+		image: 'provence.png',
+		texte: '#TODO',
+		facebook: 'afprovence',
+		contact: 'provence',
+		position : {x: '300', y: '150'}
+	},
+	{
+		id: 'iledefrance',
+		court: 'Île de France',
+		complet: 'Action Française - Île de France',
+		image: 'iledefrance.png',
+		texte: '#TODO',
+		facebook: 'AFEIleDeFrance',
+		contact: 'iledefrance',
+		position : {x: '70', y: '480'}
+	},
+	{
+		id: 'annecy',
+		court: 'Annecy',
+		complet: 'Action Française Etudiante - Annecy',
+		image: 'annecy.png',
+		texte: '#TODO',
+		facebook: '#',
+		contact: 'annecy',
+		position : {x: '150', y: '340'}
+	},
+	{
+		id: 'clermont',
+		court: 'Clermont-Ferrand',
+		complet: 'Action Française Etudiante - Clermont-Ferrand',
+		image: 'clermont.png',
+		texte: '#TODO',
+		facebook: 'af.clermont',
+		contact: 'clermont',
+		position : {x: '-85', y: '300'}
+	},
+	{
+		id: 'grenoble',
+		court: 'Grenoble',
+		complet: 'Action Française Etudiante - Grenoble',
+		image: 'grenoble.png',
+		texte: '#TODO',
+		facebook: 'action.francaise.grenoble',
+		contact: 'grenoble',
+		position : {x: '5', y: '260'}
+	},
+	{
+		id: 'lyon',
+		court: 'Lyon',
+		complet: 'Action Française - Lyon',
+		image: 'lyon.png',
+		texte: '#TODO',
+		facebook: 'action.francaise.lyon',
+		contact: 'lyon',
+		position : {x: '265', y: '395'}
+	},
+	{
+		id: 'nantes',
+		court: 'Nantes',
+		complet: 'Action Française Etudiante - Nantes',
+		image: 'nantes.png',
+		texte: '#TODO',
+		facebook: 'action.francaise.etudiante.nantes',
+		contact: 'nantes',
+		position : {x: '-100', y: '500'}
+	},
+	{
+		id: 'oise_picardie',
+		court: 'Oise-Picardie',
+		complet: 'Action Française - Oise-Picardie',
+		image: 'oise_picardie.png',
+		texte: '#TODO',
+		facebook: 'actionfrancaise.oise.picardie',
+		contact: 'oise_picardie',
+		position : {x: '-10', y: '640'}
+	},
+	{
+		id: 'rennes',
+		court: 'Rennes',
+		complet: 'Action Française Etudiante - Rennes',
+		image: 'rennes.png',
+		texte: '#TODO',
+		facebook: '#',
+		contact: 'rennes',
+		position : {x: '-300', y: '550'}
+	},
+]; %>
+
 <div class="carte">
-	<img id="fond" src="/images/carte_france/map.png">
-	<img class="blason" id="provence" src="/images/carte_france/province_provence.png">
-	<img class="blason" id="idf" src="/images/carte_france/province_idf.png">
-	<img class="blason" id="bordeaux" src="/images/carte_france/bordeaux2.png">
-	<img class="blason" id="angouleme" src="/images/carte_france/angouleme.png">
-	<img class="blason" id="annecy" src="/images/carte_france/annecy.png">
-	<img class="blason" id="clermont" src="/images/carte_france/clermont.png">
-	<img class="blason" id="grenoble" src="/images/carte_france/grenoble.png">
-	<img class="blason" id="lyon" src="/images/carte_france/lyon.png">
-	<img class="blason" id="nantes" src="/images/carte_france/nantes.png">
-	<img class="blason" id="oise_picardie" src="/images/carte_france/oise_picardie.png">
-	<img class="blason" id="rennes" src="/images/carte_france/rennes.png">
+	<img id="fond" src="/images/carte/map.png" />
+	<% sections.forEach(function(section) { %>
+		<img class="blason" id="<%= section.id %>" src="/images/carte/<%= section.image %>" 
+		style="bottom: <%= section.position.y %>px; left: <%= section.position.x %>px; z-index: <%= 1000 - section.position.y %>" />
+	<% }); %>
 </div>
 
 <div id="carte_complement">
@@ -24,28 +120,18 @@
 		<h2>NAVIGATION RAPIDE</h2>
 		<form method="POST" action="/adherer">
             <select name="select_section">
-        	<option value="Ile-de-France">Ile-de-France</option>
-            <option value="Bordeaux" selected="selected">Bordeaux</option>
-        	<option value="Provence">Provence</option>
-			<option value="angouleme">Angoulême</option>
-			<option value="annecy">Annecy</option>
-			<option value="clermont">Clermont-Ferrand</option>
-			<option value="grenoble">Grenoble</option>
-			<option value="lyon">Lyon</option>
-			<option value="nantes">Nantes</option>
-			<option value="oise_picardie">Oise-Picardie</option>
-			<option value="rennes">Rennes</option>
+            <% sections.forEach(function(section) { %>
+            	<option value="<%= section.id %>"><%= section.court %></option>
+            <% }); %>
     		</select>
 		</form>
 	</div>
 	<div id="description_sections">
-		<img class="blason_description" id="blason_description_provence" src="/images/carte_france/province_provence.png" />
+		<img class="blason_description" id="blason_description_provence" src="/images/carte/provence.png" />
 		<h1>AF Provence</h1>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 		<div id="suivre_section">
-			<br />
 			<img class="reseaux_sociaux_section" id="facebook" src="/images/icone_fb.png">
-			<img class="reseaux_sociaux_section" id="twitter" src="/images/icone_twitter.png">
 			<button id="lescontacter"type="submit">Les contacter</button>
 		</div> 
 	</div>

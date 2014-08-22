@@ -1,21 +1,20 @@
-
-.titre h1{
-font-size:40px;
-color:black;
-width:100%;
+.titre h1 {
+	font-size:40px;
+	color:black;
+	width:100%;
 }
 
-.titre p{
+.titre p {
 	text-align: left;
-
 }
 
-.titre a{
+.titre a {
 	text-decoration: none;
 	color:grey;
 	font-size: 20px;
 }
-.carte{
+
+.carte {
 	z-index: 1;
 	display: inline-block;
 	vertical-align: top;
@@ -26,102 +25,42 @@ width:100%;
 	margin-left: auto;
 }
 
-.carte #fond{
+.carte #fond {
 	width:100%;
-
 }
 
-.carte .blason{
-	z-index: 2;
-position: relative;
-width:14%;
+.carte .blason {
+	position: relative;
+	width:14%;
 	max-width:100px;
 	border-radius: 0px 0px 47px 47px;
-	    -moz-transition: filter 0.5s ease-in-out 0s;
-    -webkit-transition: filter 0.5s ease-in-out 0s;
-    -o-transition: filter 0.5s ease-in-out 0s;
-    -ms-transition: filter 0.5s ease-in-out 0s;
-    transition: filter 0.5s ease-in-out 0s;
-     -webkit-filter: sepia(100%);
-  -moz-filter: sepia(100%);
-  -ms-filter: sepia(100%);
-  -o-filter: sepia(100%);
-  filter: sepia(100%);
-filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0' width='1'><filter id='greyscale'><feColorMatrix type='matrix' values='0.343 0.669 0.119 0 0 0.249 0.626 0.130 0 0 0.172 0.334 0.111 0 0 0 0 0 1 0' /></filter></svg>#greyscale"); /* Firefox 4+ */
-}
-.carte .blason:hover{
-	z-index: 3;
-     -webkit-filter: sepia(0%);
-  -moz-filter: sepia(0%);
-  -ms-filter: sepia(0%);
-  -o-filter: sepia(0%);
-  filter: sepia(0%);
-filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0' /></filter></svg>#greyscale");/* Firefox 4+ */
+	transition: filter 0.5s ease-in-out 0s;
+	-webkit-filter: sepia(100%);
+	-moz-filter: sepia(100%);
+	-ms-filter: sepia(100%);
+	-o-filter: sepia(100%);
+	filter: sepia(100%);
+	filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0' width='1'>\
+		<filter id='greyscale'><feColorMatrix type='matrix' values='0.343 0.669 0.119 0 0 0.249 0.626 0.130 0 0 0.172 0.334 0.111 0 0 0 0 0 1 0' /></filter>\
+		</svg>#greyscale");
 }
 
-.carte #provence{
-
-	bottom: 21%;
-left: 76%;
+.carte .blason:hover {
+	z-index: 1000 !important;
+	-webkit-filter: sepia(0%);
+	-moz-filter: sepia(0%);
+	-ms-filter: sepia(0%);
+	-o-filter: sepia(0%);
+	filter: sepia(0%);
+	filter: url("data:image/svg+xml;utf8,\
+		<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'>\
+		<filter id='greyscale'><feColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0' /></filter>\
+		</svg>#greyscale");
 }
 
-.carte #idf{
-	
-	bottom:71%;
-left: 27%;
-}
-
-.carte #bordeaux{
-	
-	bottom: 32%;
-left: -7%;
-}
-
-.carte #angouleme{
-	
-	bottom: 46%;
-left: -20%;
-}
-.carte #annecy{
-	
-	bottom: 50%;
-left: 17%;
-}
-.carte #clermont{
-	
-	bottom: 42%;
-left: -31%;
-}
-.carte #grenoble{
-	
-	bottom:50%;
-left: 65%;
-}
-.carte #lyon{
-	
-	bottom: 60%;
-left: 38%;
-}
-
-.carte #nantes{
-	
-	bottom: 75%;
-left: -19%;
-}
-.carte #oise_picardie{
-	
-	bottom: 99%;
-left: -8%;
-}
-.carte #rennes{
-	
-	bottom: 85%;
-left: -61%;
-}
-#carte_complement{
+#carte_complement {
 	display: inline-block;
 	vertical-align: top;
-
 	width:24%;
 	min-width: 310px;
 	height: 300px;
@@ -129,76 +68,61 @@ left: -61%;
 	margin-left: 45px;
 	margin-right: 24px;
 }
-#description_sections{
-border-radius: 5px;
 
-            -moz-box-shadow: 0px 0px 5px #000;
-    -webkit-box-shadow: 0px 0px 5px #000;
-    -o-box-shadow: 0px 0px 5px #000;
-    -ms-box-shadow: 0px 0px 5px #000;
-    box-shadow: 0px 0px 5px #000;
-text-align: left;
+#description_sections {
+	text-align: left;
 	background-color: #ece9e9;
 	width:100%;
-
 	margin-top:10px;
 }
 
-#description_sections p{
+#description_sections p {
 	margin:5px;
 }
 
 #description_sections .blason_description {
-width:100px;
-float: left;
-margin:5px;
+	width:100px;
+	float: left;
+	margin:5px;
 }
 
-#navigation_rapide{
-	
-border-radius: 5px;
-
-            -moz-box-shadow: 0px 0px 5px #000;
-    -webkit-box-shadow: 0px 0px 5px #000;
-    -o-box-shadow: 0px 0px 5px #000;
-    -ms-box-shadow: 0px 0px 5px #000;
-    box-shadow: 0px 0px 5px #000;
+#navigation_rapide {
 	background-color: #ece9e9;
 	width:100%;
 	height: 100px;
 	margin-top:30px;	
 }
 
-#navigation_rapide h2{
+#navigation_rapide h2 {
 	padding-top: 10px;
 }
 
-#navigation_rapide select{
+#navigation_rapide select {
 	width:94%;
-margin:10px;
-padding:2px;
-border:none;
-
-font-family:Arial;
-font-size:20px;
-height:42px;
+	margin:10px;
+	padding:2px;
+	border:none;
+	font-family:Arial;
+	font-size:20px;
+	height:42px;
 }
-#suivre_section{
+
+#suivre_section {
 	margin-left: 5px;
 	margin-bottom: 5px;
 	text-align: center;
 }
-#suivre_section h2{
+
+#suivre_section h2 {
 	margin-left: 5px;
 	text-align:left; 
 }
 
-#suivre_section img{
-	
+#suivre_section img {
 	width:45px;
 }
 
-#suivre_section button{
+#suivre_section button {
 	display: inline-block;
 	vertical-align: top;
 	height:45px;
@@ -207,9 +131,7 @@ height:42px;
 	color: white;
 	text-transform: uppercase;
 	border: none;
-	
 }
-
 
 #suivre_section button:hover {
 	border:2px solid black;
@@ -217,7 +139,6 @@ height:42px;
 }
 
 #suivre_section img:hover{
-	
 	cursor: pointer;
 }
 
