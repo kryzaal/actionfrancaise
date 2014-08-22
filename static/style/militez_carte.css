@@ -122,11 +122,12 @@ left: -61%;
 	display: inline-block;
 	vertical-align: top;
 
-	width:30%;
+	width:24%;
 	min-width: 310px;
 	height: 300px;
 	margin-top:110px;
-	margin-left: 68px;
+	margin-left: 45px;
+	margin-right: 24px;
 }
 #description_sections{
 border-radius: 5px;
