@@ -2,6 +2,11 @@
  	margin: 25px 0;
 }
 
+#organigramme a {
+ 	color: black;
+}
+
+
 #organigramme div#journal, #organigramme div#mouvement {
 	width: 33%;
 	max-width: 300px;
@@ -14,7 +19,12 @@
 	height: 150px;
 }
 
-#organigramme #fleche_comite_bureau {
+#organigramme #fleche_bureau_journal_mouvement img {
+	height: 100%;
+	width: 100%;
+}
+
+#organigramme #fleche_comite_bureau, #organigramme #fleche_comite_bureau img {
 	height: 100px;
 }
 
@@ -27,13 +37,17 @@
 	min-height: 100px;
  	padding: 5px;
  	border : 1px solid black;
+ 	cursor: pointer;
 }
 
-#organigramme .organe:hover {
+#organigramme .organe.expanded, #organigramme .organe:hover {
 	background-color: #1D3674;
 	border-color: transparent;
 	color: white;
-	cursor: pointer;
+}
+
+#organigramme .organe.expanded {
+	cursor: default;
 }
 
 #organigramme .organe span {
@@ -46,33 +60,69 @@
 }
 
 #organigramme .organe .membres {
-	height: 0;
-	width: 0;
+	height: 100%;
+	max-height: 0px;
+	width: 100%;
 	overflow: hidden;
 	display: block;
 
-	transition-property: height, width;
+	transition-property: max-height;
 	transition-duration: 1s;
-	transition-timing-function: ease-out;
+}
+
+#organigramme .organe.expanded .membres {
+	max-height: 2000px;
+}
+
+#organigramme .organe .membres .ligne {
+	margin-bottom: 10px;
 }
 
 #organigramme .organe .membres .personne {
-	height: 0;
-	width: 0;
-	overflow: hidden;
 	display: inline-block;
+	overflow: hidden;
+	opacity: 0;
+	height: 100%;
+	max-height: 130px;
+	width: 300px;
+	background-color: grey;
+	vertical-align: top;
+	margin: 2px;
 
-	transition-property: height, width;
-	transition-duration: 10ms;
-	transition-delay: 1s;
+	transition-property: opacity, max-height;
+	transition-duration: 1s, 6s;
 }
 
-#organigramme .organe:hover .membres {
-	height: 100%;
-	width: 100%;
+#organigramme .organe .membres .personne.dirigeant {
+	border: 3px solid #F1D92F
 }
 
-#organigramme .organe:hover .membres .personne {
-	height: 100%;
-	width: 100%;
+#organigramme .organe.expanded .membres .personne {
+	opacity: 1;
+}
+
+#organigramme .organe.expanded .membres .personne:hover {
+	max-height: 1500px;
+}
+
+#organigramme .organe .membres .personne img {
+	float: left;
+}
+
+#organigramme .organe .membres .personne div {
+	display: block;
+	width: 300px;
+	clear: both;
+}
+
+#organigramme .organe button.collapse {
+	background-color: #F1D92F;
+	border: none;
+	color: black;
+	line-height: 40px;
+	font-weight: bold;
+	font-size: 25px;
+	width: 80%;
+	min-width: 120px;
+	cursor: pointer;
 }

@@ -3,144 +3,120 @@
 
 <div id="organigramme">
 	<div class="ligne">
-		<div class="organe">
+		<div class="organe" id="comite_directeur" onclick="expand(this);">
 			<span><h2>Comité directeur</h2>
 			<p>Instance de conseil et d'arbitrage</p></span>
 			<div class="membres">
 				<div class="ligne">
-					<div class="personne">
-						<img src="/images/auteur_1.jpg" />
+					<div class="personne dirigeant">
+						<img src="/images/organigramme/auteur_1.jpg" />
 						<h1>Stéphane Blanchonet</h1>
 						<h2>Président du Comité Directeur d'AF</h2>
 						<div><p>Texte description</p></div>
 					</div>
 				</div>
+				<div class="ligne">
+					<div class="personne">
+						<img src="/images/organigramme/auteur_2.jpg" />
+						<h1>Olivier Perceval</h1>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Elie Hatem</h1>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Michel Bracciali</h1>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Marie-Gabrielle Pujo</h1>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>François Bel-Ker</h1>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Michel Michel</h1>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Michel Fransceschetti</h1>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Bernard Bonnaves</h1>
+						<div><p>Texte description</p></div>
+					</div>
+				</div>
+				<button class="collapse" type="button" onclick="collapse('comite_directeur');">Fermer</button>
 			</div>
 		</div>
 	</div>
 	<div id="fleche_comite_bureau" class="ligne">
-		<div>#FLECHE BAS</div>
+		<img src="/images/organigramme/fleche_bas.png" />
 	</div>
 	<div class="ligne">
-		<div class="organe">
+		<div class="organe" onclick="expand(this);" id="bureau_politique">
 			<span><h2>Bureau politique</h2>
-			<p>Emanation opérationnelle du Comité directeur</p><span>
+			<p>Emanation opérationnelle du Comité directeur</p></span>
+			<div class="membres">
+				<div class="ligne">
+					<div class="personne">
+						<img src="/images/organigramme/auteur_1.jpg" />
+						<h1>Stéphane Blanchonet</h1>
+						<h2>Président du Comité Directeur d'AF</h2>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/auteur_2.jpg" />
+						<h1>Olivier Perceval</h1>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>François Bel-Ker</h1>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Louis-Charles Bonnaves</h1>
+						<div><p>Texte description</p></div>
+					</div>
+				</div>
+				<button class="collapse" type="button" onclick="collapse('bureau_politique');">Fermer</button>
+			</div>
 		</div>
 	</div>
 	<div class="ligne">
-		<div class="organe" id="mouvement">
+		<a href="/organigramme/craf"><div class="organe" id="mouvement">
 			<span><h2>Centre Royaliste d'Action Française</h2>
-			<p>Le mouvement</p><span>
-		</div>
-		<div id="fleche_bureau_journal_mouvement">#FLECHE BAS -> Gauche et Droite</div>
-		<div class="organe" id="journal">
+			<p>Le mouvement</p></span>
+		</div></a>
+		<div id="fleche_bureau_journal_mouvement"><img src="/images/organigramme/fleche_bas_gd.png" /></div>
+		<a href="/organigramme/journal"><div class="organe" id="journal">
 			<span><h2>AF 2000</h2>
-			<p>Le journal</p><span>
-		</div>
+			<p>Le journal</p></span>
+		</div></a>
 	</div>
 </div>
 
-<!--
-<div id="etage1">
+<script>
+	function expand(who) {
+		who.className = "organe expanded";
+	}
 
-</div></br>
-<div id="etage2">
-<div class="tuile" id="personne2">
-<img src="/images/auteur_2.jpg" />
-<h1>Olivier Perceval</h1>
-<h2>Secrétaire Général</h2>
-<div><p>Texte description<br/><br/>Texte</p></div>
-</div>
-<div class="tuile" id="personne3">
-<img src="/images/auteur_4.jpg" />
-<h1>Romain Hellouin</h1>
-<h2>Secrétaire Général Adjoint</h2>
-</div>
-</div></br>
-<div id="etage3">
-<div class="tuile" id="personne4">
-<img src="/images/auteur_3.jpg" />
-<h1>Giovanni Castelluccio</h1>
-<h2>Trésorier</h2>
-</div>
-<div class="tuile" v="personne5">
-<img src="/images/auteur_5.jpg" />
-<h1>Marie-Suzanne de Benque d’Agut</h1>
-<h2>Secrétaire Administrative</h2>
-</div>
-<div class="tuile" id="personne6">
-<img src="/images/auteur_6.jpg" />
-<h1>Marc Savina</h1>
-<h2>Formation</h2>
-</div>
-</div></br>
-<div id="etage4">
-<div class="tuile" id="personne7">
-<img src="/images/auteur_7.jpg" />
-<h1>Philippe Castelluccio</h1>
-<h2>Provinces</h2>
-</div>
-<div class="tuile" id="personne8">
-<img src="/images/auteur_8.jpg" />
-<h1>Jean-Baptiste de l’Aviath</h1>
-<h2>Militantisme</h2>
-</div>
-<div class="tuile" id="personne9">
-<img src="/images/auteur_9.jpg" />
-<h1>François Bel-Ker</h1>
-<h2>Responsable Opérationnel</h2>
-</div>
-<div class="tuile" id="personne10">
-<img src="/images/auteur_10.jpg" />
-<h1>François Marcilhac</h1>
-<h2>Directeur politique</h2>
-</div>
-<div class="tuile" id="personne11">
-<img src="/images/auteur_11.jpg" />
-<h1>Arnaud Duroyaume</h1>
-<h2>Responsable Communication</h2>
-</div>
-</div></br>
-<div id="etage5">
-<div class="tuile" id="personne12">
-<img src="/images/province_idf.png" />
-<h1>AF Ile-de-France</h1>
-<h2>Paris</h2>
-</div>
-<div class="tuile" id="personne13">
-<img src="/images/province_bretagne.png" />
-<h1>AF Bretagne</h1>
-<h2>Rennes</h2>
-</div>
-<div class="tuile" id="personne14">
-<img src="/images/province_guyenne.png" />
-<h1>AF Guyenne</h1>
-<h2>Bordeaux</h2>
-</div>
-<div class="tuile" id="personne15">
-<img src="/images/province_normandie.png" />
-<h1>AF Normandie</h1>
-<h2>Caen</h2>
-</div>
-<div class="tuile" id="personne16">
-<img src="/images/province_vendee.png" />
-<h1>AF Vendée</h1>
-<h2>Laval</h2>
-</div>
-<div class="tuile" id="personne17">
-<img src="/images/province_lorraine.png" />
-<h1>AF Lorraine</h1>
-<h2>Metz</h2>
-</div>
-<div class="tuile" id="personne18">
-<img src="/images/province_provence.png" />
-<h1>AF Provence</h1>
-<h2>Aix-en-Provence</h2>
-</div>
-<div class="tuile" id="personne19">
-<img src="/images/province_auvergne.png" />
-<h1>AF Auvergne</h1>
-<h2>Aurillac</h2>
-</div>
-</div>-->
+	function collapse(who) {
+		setTimeout(function(){ document.getElementById(who).className = "organe" }, 10);
+	}
+</script>
+
 <% include foot %>

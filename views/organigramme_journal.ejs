@@ -1,0 +1,25 @@
+<% include head %>
+<div id="titre"><h1>L'AF 2000</h1></div>
+
+<div id="organigramme">
+	<div class="ligne">
+		<a href="/organigramme"><div class="organe" id="mouvement">
+			<span>
+				<h2>Instances supérieures</h2>
+				<p>Pilotent le mouvement et le journal</p>
+			</span>
+		</div></a>
+	</div>
+</div>
+
+<script>
+	function expand(who) {
+		who.className = "organe expanded";
+	}
+
+	function collapse(who) {
+		setTimeout(function(){ document.getElementById(who).className = "organe" }, 10);
+	}
+</script>
+
+<% include foot %>

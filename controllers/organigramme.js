@@ -6,3 +6,5 @@ function get(request, response) {
 }
 
 exports.get = get;
+exports.journal = require('./organigramme/journal');
+exports.craf = require('./organigramme/craf');

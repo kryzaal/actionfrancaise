@@ -92,7 +92,6 @@ app.get("/dons", controllers.dons.get);
 app.post("/dons", controllers.dons.post);
 
 app.get("/medias", controllers.medias.get);
-app.get("/organigramme", controllers.organigramme.get);
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
 app.get("/carte", controllers.carte.get);
@@ -104,6 +103,10 @@ app.get("/militez/carte", controllers.militez.carte.get);
 app.get("/militez/camelots", controllers.militez.camelots.get);
 app.get("/militez/cmrds", controllers.militez.cmrds.get);
 app.get("/militez/textes", controllers.militez.textes.get);
+
+app.get("/organigramme", controllers.organigramme.get);
+app.get("/organigramme/craf", controllers.organigramme.craf.get);
+app.get("/organigramme/journal", controllers.organigramme.journal.get);
 
 app.get("/facebook", controllers.reseaux_sociaux.facebook);
 app.get("/twitter", controllers.reseaux_sociaux.twitter);
