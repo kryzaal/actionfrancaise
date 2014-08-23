@@ -7,7 +7,7 @@ var sections = [
 		texte: '#TODO',
 		facebook: 'actionfrancaisebordeaux',
 		contact: 'bordeaux',
-		position: {x: '100', y: '250'}
+		position: {x: '150', y: '240'}
 	},
 	{
 		id: 'provence',
@@ -17,7 +17,7 @@ var sections = [
 		texte: '#TODO',
 		facebook: 'afprovence',
 		contact: 'provence',
-		position : {x: '300', y: '150'}
+		position : {x: '430', y: '130'}
 	},
 	{
 		id: 'iledefrance',
@@ -27,7 +27,7 @@ var sections = [
 		texte: '#TODO',
 		facebook: 'AFEIleDeFrance',
 		contact: 'iledefrance',
-		position : {x: '70', y: '480'}
+		position : {x: '280', y: '460'}
 	},
 	{
 		id: 'annecy',
@@ -37,7 +37,7 @@ var sections = [
 		texte: '#TODO',
 		facebook: '#',
 		contact: 'annecy',
-		position : {x: '150', y: '340'}
+		position : {x: '480', y: '320'}
 	},
 	{
 		id: 'clermont',
@@ -47,7 +47,7 @@ var sections = [
 		texte: '#TODO',
 		facebook: 'af.clermont',
 		contact: 'clermont',
-		position : {x: '-85', y: '300'}
+		position : {x: '340', y: '280'}
 	},
 	{
 		id: 'grenoble',
@@ -57,7 +57,7 @@ var sections = [
 		texte: '#TODO',
 		facebook: 'action.francaise.grenoble',
 		contact: 'grenoble',
-		position : {x: '5', y: '260'}
+		position : {x: '480', y: '240'}
 	},
 	{
 		id: 'lyon',
@@ -67,7 +67,7 @@ var sections = [
 		texte: '#TODO',
 		facebook: 'action.francaise.lyon',
 		contact: 'lyon',
-		position : {x: '265', y: '395'}
+		position : {x: '420', y: '290'}
 	},
 	{
 		id: 'nantes',
@@ -77,7 +77,7 @@ var sections = [
 		texte: '#TODO',
 		facebook: 'action.francaise.etudiante.nantes',
 		contact: 'nantes',
-		position : {x: '-100', y: '500'}
+		position : {x: '370', y: '100'}
 	},
 	{
 		id: 'oise_picardie',
@@ -87,7 +87,7 @@ var sections = [
 		texte: '#TODO',
 		facebook: 'actionfrancaise.oise.picardie',
 		contact: 'oise_picardie',
-		position : {x: '-10', y: '640'}
+		position : {x: '300', y: '540'}
 	},
 	{
 		id: 'rennes',
@@ -97,7 +97,17 @@ var sections = [
 		texte: '#TODO',
 		facebook: '#',
 		contact: 'rennes',
-		position : {x: '-300', y: '550'}
+		position : {x: '120', y: '440'}
+	},
+	{
+		id: 'annonay',
+		court: 'Annonay',
+		complet: 'Action Française - Annonay',
+		image: 'annonay.png',
+		texte: '#TODO',
+		facebook: 'af.annonay',
+		contact: 'rennes',
+		position : {x: '395', y: '230'}
 	},
 ]; 
 
