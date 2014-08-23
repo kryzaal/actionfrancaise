@@ -12,3 +12,4 @@ exports.carte = require('./militez/carte');
 exports.camelots = require('./militez/camelots');
 exports.cmrds = require('./militez/cmrds');
 exports.textes = require('./militez/textes');
+exports.creer = require('./militez/creer');

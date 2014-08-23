@@ -10,8 +10,88 @@
 			</span>
 		</div></a>
 	</div>
+	<div id="fleche_bas" class="ligne">
+		<img src="/images/organigramme/fleche_bas.png" />
+	</div>
+	<div class="ligne">
+		<div class="organe" id="secretariat_general" onclick="expand(this);">
+			<span>
+				<h2>Secrétariat général</h2>
+				<p>Instance de direction du mouvement</p>
+			</span>
+			<div class="membres">
+				<div class="ligne">
+					<div class="personne dirigeant">
+						<img src="/images/organigramme/auteur_2.jpg" />
+						<h1>Olivier Perceval</h1>
+						<h2>Sécrétaire général</h2>
+						<div><p>Texte description</p></div>
+					</div>
+				</div>
+				<br/>
+				<div class="ligne">
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>François Bel-Ker</h1>
+						<h2>Sécrétaire général adjoint</h2>
+						<div><p>Texte description</p></div>
+					</div>
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Pierre Marchand</h1>
+						<h2>Sécrétaire général adjoint</h2>
+						<div><p>Texte description</p></div>
+					</div>
+				</div>
+				<br/>
+				<div class="ligne">
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Antoine Desonay</h1>
+						<h2>Sécrétaire général étudiant</h2>
+						<div><p>Texte description</p></div>
+					</div>
+				</div>
+				<button class="collapse" type="button" onclick="collapse('secretariat_general');">Fermer</button>
+			</div>
+		</div>
+		<div id="ligne_droite" class="ligne">
+			<img src="/images/organigramme/ligne_droite.png" />
+		</div>
+		<div class="personne">
+			<img src="/images/organigramme/default.png" />
+			<h1>Blanche Pupion</h1>
+			<h2>Assistante</h2>
+			<div><p>Texte description</p></div>
+		</div>
+		<div id="ligne_droite" class="ligne">
+			<img src="/images/organigramme/ligne_droite.png" />
+		</div>
+		<div class="organe" id="secretariat" onclick="expand(this);">
+			<span>
+				<h2>Secrétariat</h2>
+				<p>Gestion administrative du mouvement</p>
+			</span>
+			<div class="membres">
+				<div class="ligne">
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Odile Véron</h1>
+						<div><p>Texte description</p></div>
+					</div>
+				</div>br/>
+				<div class="ligne">
+					<div class="personne">
+						<img src="/images/organigramme/default.png" />
+						<h1>Marie-Suzanne de Benque d'Agut</h1>
+						<div><p>Texte description</p></div>
+					</div>
+				</div>
+				<button class="collapse" type="button" onclick="collapse('secretariat');">Fermer</button>
+			</div>
+		</div>
+	</div>
 </div>
-
 <script>
 	function expand(who) {
 		who.className = "organe expanded";

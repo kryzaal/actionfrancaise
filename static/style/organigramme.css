@@ -24,7 +24,7 @@
 	width: 100%;
 }
 
-#organigramme #fleche_comite_bureau, #organigramme #fleche_comite_bureau img {
+#organigramme #fleche_bas, #organigramme #fleche_bas img {
 	height: 100px;
 }
 
@@ -34,7 +34,7 @@
 }
 
 #organigramme .organe {
-	min-height: 100px;
+	min-height: 120px;
  	padding: 5px;
  	border : 1px solid black;
  	cursor: pointer;
@@ -78,7 +78,7 @@
 	margin-bottom: 10px;
 }
 
-#organigramme .organe .membres .personne {
+#organigramme .personne {
 	display: inline-block;
 	overflow: hidden;
 	opacity: 0;
@@ -93,23 +93,23 @@
 	transition-duration: 1s, 6s;
 }
 
-#organigramme .organe .membres .personne.dirigeant {
+#organigramme .personne.dirigeant {
 	border: 3px solid #F1D92F
 }
 
-#organigramme .organe.expanded .membres .personne {
+#organigramme .personne {
 	opacity: 1;
 }
 
-#organigramme .organe.expanded .membres .personne:hover {
+#organigramme .personne:hover {
 	max-height: 1500px;
 }
 
-#organigramme .organe .membres .personne img {
+#organigramme .personne img {
 	float: left;
 }
 
-#organigramme .organe .membres .personne div {
+#organigramme .personne div {
 	display: block;
 	width: 300px;
 	clear: both;
