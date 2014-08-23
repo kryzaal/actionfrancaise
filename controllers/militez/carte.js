@@ -77,7 +77,7 @@ var sections = [
 		texte: '#TODO',
 		facebook: 'action.francaise.etudiante.nantes',
 		contact: 'nantes',
-		position : {x: '370', y: '100'}
+		position : {x: '120', y: '370'}
 	},
 	{
 		id: 'oise_picardie',
