@@ -46,7 +46,15 @@
 }
 
 .carte .blason:hover {
+	z-index: 1001 !important;
+	cursor: pointer;
+}
+
+.carte .blason.active {
 	z-index: 1000 !important;
+}
+
+.carte .blason.active, .carte .blason:hover {
 	-webkit-filter: sepia(0%);
 	-moz-filter: sepia(0%);
 	-ms-filter: sepia(0%);
@@ -58,7 +66,7 @@
 		</svg>#greyscale");
 }
 
-#carte_complement {
+#carte_aside {
 	display: inline-block;
 	vertical-align: top;
 	width:24%;
@@ -69,18 +77,18 @@
 	margin-right: 24px;
 }
 
-#description_sections {
+#details {
 	text-align: left;
 	background-color: #ece9e9;
 	width:100%;
 	margin-top:10px;
 }
 
-#description_sections p {
+#details p {
 	margin:5px;
 }
 
-#description_sections .blason_description {
+#details .blason_description {
 	width:100px;
 	float: left;
 	margin:5px;
