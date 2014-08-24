@@ -1,3 +1,6 @@
+var textes = [
+]
+
 function get(request, response) {
 	response.render('militez_textes.ejs', {
     	pageSubtitle: "Grands textes",
@@ -5,4 +8,9 @@ function get(request, response) {
     });
 }
 
+function post(request, response) {
+	response.status(200).write("<texte></texte>").end();
+}
+
 exports.get = get;
+exports.post = post;

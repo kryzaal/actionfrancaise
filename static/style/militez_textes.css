@@ -68,32 +68,14 @@ width:30px;
  
 }
 
-/*#texte_1{
-
-background-color: #2e7bcc;
-}
-
-#texte_2{
-
-background-color: #f95708;
-}
-
-#texte_3{
-
-background-color: #39ad05;
-}
-
-#texte_4{
-
-background-color: #05ada3;
-}
-
-#texte_5{
-
-background-color: #f7dd03;
-}
-
-#texte_6{
-
-background-color: #2e7bcc;
+input {
+	width:80%;
+	margin:10px;
+	padding:2px;
+	border:none;
+	background-color:#ece9e9;
+	font-family:Arial;
+	text-align: center;
+	font-size:20px;
+	height:50px;
 }
