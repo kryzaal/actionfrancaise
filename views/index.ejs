@@ -11,13 +11,28 @@
         	</div>
         </a>
     </div>
-
-    <div class="video" id="videodumoment"><iframe src="http://www.youtube.com/embed/1rC2plTGGBU" frameborder="0" allowfullscreen></iframe></div>
+    
+    <div class="video videodumoment" id="video_1rC2plTGGBU" onClick="loadVideo(this, '1rC2plTGGBU')"></div>
+    <script>$('document').ready(function() {loadTitle('1rC2plTGGBU');});</script>
     <div id="videossecondaires">
-        <div class="video" id="video1"><iframe src="http://www.youtube.com/embed/5W-IIoqQHKs" frameborder="0" allowfullscreen></iframe></div>
-        <div class="video" id="video2"><iframe src="http://www.youtube.com/embed/1jPOX72PPMw" frameborder="0" allowfullscreen></iframe></div>
+        <div class="video" id="video_1jPOX72PPMw" onClick="loadVideo(this, '1jPOX72PPMw')"></div>
+        <script>$('document').ready(function() {loadTitle('1jPOX72PPMw');});</script>
+        <div class="video" id="video_5W-IIoqQHKs" onClick="loadVideo(this, '5W-IIoqQHKs')"></div>
+        <script>$('document').ready(function() {loadTitle('5W-IIoqQHKs');});</script>
     </div>
 </div> 
+
+<script>
+    function loadVideo(parentDiv, code) {
+        parentDiv.innerHTML = '<iframe src="http://www.youtube.com/embed/' + code + '" frameborder="0" allowfullscreen></iframe>';
+    }
+
+    function loadTitle(code) {
+        $.getJSON("http://gdata.youtube.com/feeds/api/videos/" + code + "?v=2&alt=jsonc", function(response) {
+            document.getElementById("video_" + code).innerHTML = '<img src="http://img.youtube.com/vi/' + code + '/0.jpg"/>' + '<p>' + response.data.title + '</p>';
+        });
+    }
+</script>
 
 <% articles.forEach(function(article) {%>
 	<% include resume_article %>

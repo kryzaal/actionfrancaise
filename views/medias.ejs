@@ -9,7 +9,7 @@
 </div>
 
 <div id="videos">
-	<% videos.forEach(function(code) { %>
+	<% videos.forEach(function(code) {%>
 		<div id="video_<%= code %>" onClick="loadVideo(this, '<%= code %>')"></div>
 		<script>$('document').ready(function() {loadTitle('<%= code %>');});</script>
 	<% }); %>

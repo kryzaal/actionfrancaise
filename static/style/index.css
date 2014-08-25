@@ -138,56 +138,46 @@ color:white;}
 }
 
 .video{ 
-
-
-            -moz-box-shadow: 0px 0px 2px #000;
-    -webkit-box-shadow: 0px 0px 2px #000;
-    -o-box-shadow: 0px 0px 2px #000;
-    -ms-box-shadow: 0px 0px 2px #000;
     box-shadow: 0px 0px 2px #000;
     display:inline-block; 
     margin:2px;
-
-
- white-space: normal;
-padding: 5px;
-
-
-}
-#videodumoment{
-    
- vertical-align:top;
- text-align:left;
-
-
- width:45%;
- height:400px;
-
-min-width: 200px;
-
+    white-space: normal;
+    padding: 5px;
 }
 
-#alaune iframe{
+.videodumoment {
+    vertical-align:top;
+    text-align:left;
+    width:45%;
+    height:400px;
+    min-width: 200px;
+}
+
+#alaune iframe {
     width:100%;
     height: 100%;
 }
-#videossecondaires{
- display:inline-block;
- vertical-align:top;
- text-align:left;
 
- color:#292927;
- white-space: normal;
-
-
- width:22%;
- height:400px;
-max-width: 400px;
-min-width: 200px;
+#videossecondaires {
+    display:inline-block;
+    vertical-align:top;
+    text-align:left;
+    color:#292927;
+    white-space: normal;
+    width:22%;
+    height:400px;
+    max-width: 400px;
+    min-width: 200px;
 }
-#video1,#video2{
+
+#videossecondaires > div {
     height:48%;
     width:100%;
     margin-bottom: 2px;
+}
+
+#videossecondaires > div > img {
+    height:100%;
+    width:100%;
 }
 
