@@ -7,7 +7,7 @@ function setTransporter(transporter) {
 function get(request, response) {
     response.render('dons.ejs', {
         pageSubtitle: "Dons",
-        customStylesheets: ["formulaire.css"]
+        customStylesheets: ["formulaire"]
     })
 }
 
@@ -27,7 +27,7 @@ function post(request, response) {
 
         response.render('dons.ejs', {
             pageSubtitle: "Dons",
-            customStylesheets: ["dons.css"],
+            customStylesheets: ["dons"],
             toaster: {
                 color: error ? 'red' : 'green',
                 duration: 5,

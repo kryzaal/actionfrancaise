@@ -7,7 +7,7 @@ function setTransporter(transporter) {
 function get(request, response) {
     response.render('adherer.ejs', {
         pageSubtitle: "Adhérer",
-        customStylesheets: ["formulaire.css"]
+        customStylesheets: ["formulaire"]
     });
 }
 
@@ -27,7 +27,7 @@ function post(request, response) {
 
         response.render('adherer.ejs', {
             pageSubtitle: "Adhérer",
-            customStylesheets: ["adherer.css"],
+            customStylesheets: ["formulaire"],
             toaster: {
                 color: error ? 'red' : 'green',
                 duration: 5,

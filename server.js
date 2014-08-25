@@ -12,10 +12,12 @@ var bodyParser = require('body-parser')
 var placeholder = 'TEXTE';
 
 var auteur_blanchonnet = {
+    code : "stephane_blanchonnet",
     nom : "Stéphane Blanchonnet",
-    titre : "Président du comité directeur de l'AF",
-    photo : "auteur_1.jpg"
+    titre : "Président du comité directeur de l'AF"
 }
+
+global.document_root = __dirname;
 
 global.articles_demo = [
 	{id: 1, date: '23/05/2014', heure: '12:34', titre: 'CMRDS 2014',  sous_titre: 'Moment de camaraderie et de formation', 
@@ -67,11 +69,10 @@ var transporter = mailer.createTransport({
 
 var app = express();
 
-app.use(favicon(__dirname + '/static/images/favicon.png'))
+app.use(favicon(__dirname + '/static/style/images/favicon.png'))
 .use(compression())
 .use(bodyParser.json())
 .use(bodyParser.urlencoded())
-.use(express.static(__dirname + "/static"));
 
 /** ROUTES **/
 
@@ -123,16 +124,31 @@ app.get("/article/:id", function(request, response){
         article: articles_demo[request.params.id],
         uri: 'http://' + server + ':' + port + '/article/' + request.params.id
     })
-})
+});
 
-.get("/visuel/random", function(request, response) {
-    var fileNames = fs.readdir(__dirname + "/visuels", function(err, files) {
+app.use("/visuel", express.static(__dirname + "/static/images/visuels"));
+
+app.get("/visuel/random", function(request, response) {
+    var fileNames = fs.readdir(__dirname + "/static/images/visuels", function(err, files) {
         var random = files[Math.floor(Math.random() * files.length)];
         response.redirect("/visuel/" + random);
     });
-})
+});
 
-.use("/visuel", express.static(__dirname + "/visuels"))
+app.get("/profil/:code/photo", function(request, response) {
+    fs.readFile(__dirname + '/static/profiles/' + request.params.code + '/profile.jpg', function (err, data) {
+        if (err) throw err;
+        response.writeHead('200', {'Content-Type': 'image/jpg'});
+        response.end(data,'binary');
+    });
+});
+
+app.use("/files", express.static(__dirname + "/static/files"));
+app.use("/css", express.static(__dirname + "/static/style"));
+app.use("/fonts", express.static(__dirname + "/static/fonts"));
+app.use("/images", express.static(__dirname + "/static/images"));
+app.use("/slides", express.static(__dirname + "/static/slideshow"));
+
 
 /** 404 & 500 **/
 

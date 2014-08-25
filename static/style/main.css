@@ -118,6 +118,36 @@ header hr {
   background-color: white;
 }
 
+.icone_rectangle img {
+ width:160px;
+}
+
+.icone_rectangle img, 
+#militez .tuile, 
+#organigramme #tuile,
+#menu_top a,
+#menu_top li,
+#logo,
+form#recherche input,
+form#recherche, 
+#recherche_focus {
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.icone_rectangle img:hover, 
+#militez .tuile:hover, 
+#organigramme #tuile:hover {
+  -moz-box-shadow: 1px 1px 12px #555;
+  -webkit-box-shadow: 1px 1px 12px #555;
+  -o-box-shadow: 1px 1px 12px #555;
+  -ms-box-shadow: 1px 1px 12px #555;
+  box-shadow: 1px 1px 12px #555;
+}
+
 aside {
   display:inline-block;
   vertical-align:top;
@@ -137,42 +167,6 @@ aside #adresse_craf {
   margin-right:3px;
   background-color:#d6dae5;
 }
-
-#icone_rectangle img {
- width:160px;
-}
-
-#icone_rectangle img, 
-#militez .tuile, 
-#organigramme #tuile,
-#menu_top a,
-#menu_top li,
-#logo,
-form#recherche input,
-form#recherche, 
-#recherche_focus {
-  -moz-transition: all 0.5s ease-in-out 0s;
-  -webkit-transition: all 0.5s ease-in-out 0s;
-  -o-transition: all 0.5s ease-in-out 0s;
-  -ms-transition: all 0.5s ease-in-out 0s;
-  transition: all 0.5s ease-in-out 0s;
-}
-
-#icone_rectangle img:hover, 
-#militez .tuile:hover, 
-#organigramme #tuile:hover {
-  -moz-box-shadow: 1px 1px 12px #555;
-  -webkit-box-shadow: 1px 1px 12px #555;
-  -o-box-shadow: 1px 1px 12px #555;
-  -ms-box-shadow: 1px 1px 12px #555;
-  box-shadow: 1px 1px 12px #555;
-}
-
-
-
-
-
- 
 
  section {
 display:inline-block;

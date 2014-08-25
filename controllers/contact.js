@@ -12,7 +12,7 @@ function setTransporter(transporter) {
 function get(request, response) {
     response.render('contact.ejs', {
         pageSubtitle: "Contact",
-        customStylesheets: ["formulaire.css"],
+        customStylesheets: ["formulaire"],
         who: typeof request.params.who === undefined ? "default" : request.params.who
     });
 }
@@ -34,7 +34,7 @@ function post(request, response) {
 
         response.render('contact.ejs', {
             pageSubtitle: "Contact",
-            customStylesheets: ["formulaire.css"],
+            customStylesheets: ["formulaire"],
             toaster: {
                 color: error ? 'red' : 'green',
                 duration: 5,

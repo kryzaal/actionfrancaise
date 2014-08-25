@@ -1,7 +1,7 @@
 function get(request, response) {
 	response.render('militez_campagnes.ejs', {
     	pageSubtitle: "Campagnes en cours",
-    	customStylesheets: ["militez_campagnes.css", "militez_tuiles.css"]
+    	customStylesheets: ["militez_campagnes", "militez_tuiles"]
     });
 }
 

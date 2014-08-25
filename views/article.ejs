@@ -1,7 +1,7 @@
 <% include head %>
 
 <div id="auteur_article"> 
-	<img class="auteur" src="/images/<%= article.auteur.photo %>"/>
+	<img class="auteur" src="/profil/<%= article.auteur.code %>/photo"/>
 	<h1><%= article.auteur.nom %></h1>
 	<h2><%= article.auteur.titre %></h2>
 </div>

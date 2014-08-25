@@ -1,30 +1,15 @@
 <% include head %>
-  <div id="slideshow">  
-    <div class="container">  
-        <div class="c_slider"></div>  
-        <div class="slider">  
-            <figure>  
-                <img src="images/slideshow_1.jpg" alt=""  />  
-                <figcaption></figcaption>  
-  
-            </figure><!-- 
-            --><figure>  
-                <img src="images/slideshow_2.jpg" alt=""/>  
-                <figcaption></figcaption>  
-            </figure><!-- 
-            --><figure>  
-                <img src="images/slideshow_3.jpg" alt="" />  
-                <figcaption></figcaption>  
-  
-            </figure><!-- 
-            --><figure>  
-                <img src="images/slideshow_4.jpg" alt=""  />  
-                <figcaption></figcaption>  
-            </figure>  
-           
-           
-        </div>  
-    </div> </div>
+    <div id="slideshow">  
+        <div class="container">
+            <div class="slider" style="width: <%= 100 * (slides.length - 1) %>%;">
+                <% slides.forEach(function(filename) { %>
+                    <figure>  
+                        <img src="/slides/<%= filename %>"/>
+                    </figure>
+                <% });%>
+            </div>  
+        </div>
+    </div>
 
     <div id="alaune"> 
 

@@ -1,7 +1,7 @@
 function get(request, response) {
 	response.render('militez.ejs', {
     	pageSubtitle: "Militez !",
-    	customStylesheets: ["militez.css", "militez_tuiles.css"]
+    	customStylesheets: ["militez", "militez_tuiles"]
     });
 }
 
