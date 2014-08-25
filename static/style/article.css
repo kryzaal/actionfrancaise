@@ -1,4 +1,4 @@
-section .article {
+.article {
     display:inline-block;
     vertical-align:top;
     text-align:left;
@@ -11,7 +11,7 @@ section .article {
     background-color:#ece9e9;
 }
  
-section .image_article {
+.article .image_article {
     width:45%;
     float:left;
     -moz-transition: all 0.5s ease-in-out 0s;
@@ -26,7 +26,7 @@ section .image_article {
     -o-filter: grayscale(100%);
 }
 
-section .image_article:hover {
+.article .image_article:hover {
 	filter: grayscale(0);
     -webkit-filter: grayscale(0);
     -moz-filter: grayscale(0);
@@ -34,26 +34,26 @@ section .image_article:hover {
     -o-filter: grayscale(0);
 }
 
-section h1, #auteur_article h1 {
+.article h1, #auteur h1 {
     font-size:16px;
     margin:10px;
 }
 
-section .titre_article {
+.article .titre_article {
     font-size:16px;
     margin-left:10px;
 }
 
-section p, #auteur_article p {
+.article p, #auteur p {
     font-size:12px;
     margin:10px;
 }
 
-section h2 {
+.article h2 {
     margin:10px;
 }
 
-#auteur_article {
+#auteur {
     display:inline-block;
     vertical-align:top;
     text-align:left;
@@ -64,11 +64,11 @@ section h2 {
     min-width:70px;
 }
 
-#auteur_article img {
+#auteur img {
     width:100%;
 }
 
-#article_partage {
+.article .article_partage {
     width:55%;
     text-align:left;
     background-color:#9f2020;
@@ -76,13 +76,13 @@ section h2 {
     vertical-align:top;
 }
 
-#article_partage img {
+.article .article_partage img {
     height:15px;
     margin:5px;
     vertical-align: middle;
 }
 
-#article_partage a {
+.article .article_partage a {
     color:white;
     vertical-align:middle;
     text-decoration: none;

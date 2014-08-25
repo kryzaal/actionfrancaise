@@ -8,53 +8,15 @@
 			<p>Instance de conseil et d'arbitrage</p></span>
 			<div class="membres">
 				<div class="ligne">
-					<div class="personne dirigeant">
-						<img src="/images/organigramme/auteur_1.jpg" />
-						<h1>Stéphane Blanchonet</h1>
-						<h2>Président du Comité Directeur d'AF</h2>
-						<div><p>Texte description</p></div>
-					</div>
-			
-					<div class="personne">
-						<img src="/images/organigramme/auteur_2.jpg" />
-						<h1>Olivier Perceval</h1>
-						<div><p>Texte description</p></div>
-					</div>
-					<div class="personne">
-						<img src="/images/organigramme/default.png" />
-						<h1>Elie Hatem</h1>
-						<div><p>Texte description</p></div>
-					</div>
-					<div class="personne">
-						<img src="/images/organigramme/default.png" />
-						<h1>Michel Bracciali</h1>
-						<div><p>Texte description</p></div>
-					</div>
-					<div class="personne">
-						<img src="/images/organigramme/default.png" />
-						<h1>Marie-Gabrielle Pujo</h1>
-						<div><p>Texte description</p></div>
-					</div>
-					<div class="personne">
-						<img src="/images/organigramme/default.png" />
-						<h1>François Bel-Ker</h1>
-						<div><p>Texte description</p></div>
-					</div>
-					<div class="personne">
-						<img src="/images/organigramme/default.png" />
-						<h1>Michel Michel</h1>
-						<div><p>Texte description</p></div>
-					</div>
-					<div class="personne">
-						<img src="/images/organigramme/default.png" />
-						<h1>Michel Fransceschetti</h1>
-						<div><p>Texte description</p></div>
-					</div>
-					<div class="personne">
-						<img src="/images/organigramme/default.png" />
-						<h1>Bernard Bonnaves</h1>
-						<div><p>Texte description</p></div>
-					</div>
+					<div class="personne dirigeant" data-profil="stephane_blanchonnet"></div>
+					<div class="personne" data-profil="olivier_perceval"></div>
+					<div class="personne" data-profil="elie_hatem"></div>
+					<div class="personne" data-profil="michel_bracciali"></div>
+					<div class="personne" data-profil="marie_gabrielle_pujo"></div>
+					<div class="personne" data-profil="francois_bel_ker"></div>
+					<div class="personne" data-profil="michel_michel"></div>
+					<div class="personne" data-profil="michel_franceschetti"></div>
+					<div class="personne" data-profil="bernard_bonnaves"></div>
 				</div>
 				<button class="collapse" type="button" onclick="collapse('comite_directeur');">Fermer</button>
 			</div>
@@ -69,27 +31,10 @@
 			<p>Emanation opérationnelle du Comité directeur</p></span>
 			<div class="membres">
 				<div class="ligne">
-					<div class="personne">
-						<img src="/images/organigramme/auteur_1.jpg" />
-						<h1>Stéphane Blanchonet</h1>
-						<h2>Président du Comité Directeur d'AF</h2>
-						<div><p>Texte description</p></div>
-					</div>
-					<div class="personne">
-						<img src="/images/organigramme/auteur_2.jpg" />
-						<h1>Olivier Perceval</h1>
-						<div><p>Texte description</p></div>
-					</div>
-					<div class="personne">
-						<img src="/images/organigramme/default.png" />
-						<h1>François Bel-Ker</h1>
-						<div><p>Texte description</p></div>
-					</div>
-					<div class="personne">
-						<img src="/images/organigramme/default.png" />
-						<h1>Louis-Charles Bonnaves</h1>
-						<div><p>Texte description</p></div>
-					</div>
+					<div class="personne dirigeant" data-profil="olivier_perceval"></div>
+					<div class="personne" data-profil="stephane_blanchonnet"></div>
+					<div class="personne" data-profil="francois_bel_ker"></div>
+					<div class="personne" data-profil="louis_charles_bonnaves"></div>
 				</div>
 				<button class="collapse" type="button" onclick="collapse('bureau_politique');">Fermer</button>
 			</div>
@@ -116,6 +61,15 @@
 	function collapse(who) {
 		setTimeout(function(){ document.getElementById(who).className = "organe" }, 10);
 	}
+
+	$(function() {
+		$('.personne').each(function() {
+			var div = this;
+			$.get("/profil/" + div.dataset.profil, function( data ) {
+				$(div).html($.trim(data));
+			});
+		});
+	})
 </script>
 
 <% include foot %>
