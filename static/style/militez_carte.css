@@ -116,18 +116,14 @@
 }
 
 #suivre_section {
-	margin-left: 5px;
-	margin-bottom: 5px;
+	margin: 5px auto;
+	clear: both;
 	text-align: center;
 }
 
 #suivre_section h2 {
 	margin-left: 5px;
 	text-align:left; 
-}
-
-#suivre_section img {
-	width:45px;
 }
 
 #suivre_section button {
