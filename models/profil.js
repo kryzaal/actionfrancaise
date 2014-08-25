@@ -63,11 +63,6 @@ exports.exists = function(code, callback) {
 	callback(false, typeof data[code] !== 'undefined');
 }
 
-exports.fetchAll = function(callback) {
-	var array = object_to_array(data);
-	callback(false, array);
-}
-
 exports.fetchOne = function(code, callback) {
 	if(typeof data[code] === 'undefined') callback("Code " + code + " introuvable dans les profils", undefined);
 	else callback(false, data[code]);

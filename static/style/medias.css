@@ -22,8 +22,29 @@ section {
 	column-count: 2;
 }
 
+#videos > div > img {
+}
+
 #videos > div {
 	cursor: pointer;
+	position: relative;
+	vertical-align: top;
+}
+
+#videos > div > h2 {
+	width: 100%;
+	top: 45%;
+	left: 0;
+	position: absolute;
+    color:white;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgba(180, 180, 180, 0.8);
+}
+
+#videos > div:hover > h2 {
+    background-color: rgba(100, 100, 100, 1);
 }
 
 section iframe {
