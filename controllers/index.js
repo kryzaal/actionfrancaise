@@ -4,7 +4,7 @@ function get(request, response) {
 	fs.readdir(document_root + "/static/slideshow", function(err, files) {
 		response.render('index.ejs', {
 	    	pageSubtitle: "Accueil",
-	    	customStylesheets: ["index"],
+	    	customStylesheets: ["index", "slideshow"],
 	    	articles : articles_demo,
 	    	slides : files
 	    });
