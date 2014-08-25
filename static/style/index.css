@@ -101,16 +101,13 @@ min-width: 200px;
  }
  #alaune{
 width:100%;
+height:400px;
 margin-left: auto;
 margin-right: auto;
 
  }
 
-#alaune h1{
-    text-align: left;
-    font-size: 20px;
-margin-left: 45px;
-}
+
 .image_evenement{
  display: inline-block;
 
@@ -149,9 +146,28 @@ color:white;}
     vertical-align:top;
     text-align:left;
     width:45%;
-    height:400px;
+    height:100%;
     min-width: 200px;
 }
+
+.videodumoment img {
+   
+    width:100%;
+    height:100%;
+    min-width: 200px;
+}
+
+.videodumoment h1 {
+   position: relative;
+    top:-50%;
+    color:white;
+font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+
+
+}
+
 
 #alaune iframe {
     width:100%;
@@ -171,9 +187,9 @@ color:white;}
 }
 
 #videossecondaires > div {
-    height:48%;
+    height:46.8%;
     width:100%;
-    margin-bottom: 2px;
+    margin-bottom: -2px;
 }
 
 #videossecondaires > div > img {
@@ -181,3 +197,18 @@ color:white;}
     width:100%;
 }
 
+#videossecondaires h1 {
+
+   display: inline-block;
+position: relative;
+top: -50%;
+    height: 0px;
+    margin-top: -14px;
+  
+    color:white;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+ 
+
+}
