@@ -78,9 +78,9 @@ margin-bottom:-40px;
 	min-height: 80px;
 	width:50%;
  	padding: 5px;
- 	border-radius: 10px;
+ 	border-radius: 5px;
 
-background-color:#e95903;
+background-color:#51544f;
  	cursor: pointer;
  	transition-property: background-color;
 	transition-duration: 1s;
