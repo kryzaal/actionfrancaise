@@ -116,9 +116,9 @@ app.use("/slides", express.static(__dirname + "/static/slideshow"));
 
 
 /** 404 & 500 **/
-app.get("/404") {
-    res.status(418).render('4.ejs');
-}
+app.get("/418", function(request, response) {
+    response.status(418).end("I'm not a teapot");
+});
 
 app.use(function(req, res, next){
     res.status(404).render('404.ejs');
