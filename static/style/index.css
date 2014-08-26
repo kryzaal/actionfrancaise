@@ -61,14 +61,27 @@ section h2{
 font-size:12px;
 }
 
-#lire_la_suite{
-    margin-top:30px;
+ #lire_la_suite{
+position:relative;
+bottom:5px;
+width:100%;
+margin-top:10px;
+line-height: 16px;
 }
+#lire_la_suite h1{
 
-#lire_la_suite img {
-    margin-left:10px;
-    width: 200px;
-    height: 32px;
+display:inline-block;
+float:left;
+text-decoration:none;
+color:black;
+}
+#lire_la_suite img{
+position:relative;
+bottom:0px;
+right:5px;
+display:inline-block;
+margin-left:10px;
+width:30px;
 }
 
 section .evenement{
