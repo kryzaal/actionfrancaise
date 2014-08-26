@@ -53,17 +53,12 @@ section iframe {
 
 section img {
 	width: 100%;
-	filter: grayscale(100%);
-	    -webkit-filter: grayscale(100%);
-	    -moz-filter: grayscale(100%);
-	    -ms-filter: grayscale(100%);
-	    -o-filter: grayscale(100%);
+	cursor: pointer;
 }
 
-section img:hover {
-	filter: grayscale(0%);
-	    -webkit-filter: grayscale(0%);
-	    -moz-filter: grayscale(0%);
-	    -ms-filter: grayscale(0%);
-	    -o-filter: grayscale(0%);
+#fullscreen {
+	z-index: 100;
+	width: 90vw;
+	height: 90vh;
+	display: none;
 }

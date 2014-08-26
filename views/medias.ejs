@@ -1,10 +1,12 @@
 <% include head %>
 
+<div id="fullscreen"></div>
+
 <div id="titre"><h1>Visuels, affiches et vidéos</h1></div>
 
 <div id="visuels">
 	<% visuels.forEach(function(filename) { %>
-		 <img src="/visuel/<%= filename %>"/>
+		 <img src="/visuel/<%= filename %>" onClick="expand(this);"/>
 	<% }); %>
 </div>
 
@@ -16,6 +18,12 @@
 </div>
 
 <script>
+	function expand(img) {
+		$('#fullscreen').css('background-image', 'background-image: url("' + img.src + '") no-repeat center');
+		$('#fullscreen').css('display', 'block');
+		$('#fullscreen').click(function() { $('#fullscreen').css('display', 'none'); });
+	}
+
 	function loadVideo(parentDiv, code) {
 		parentDiv.innerHTML = '<iframe src="http://www.youtube.com/embed/' + code + '?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>';
 	}

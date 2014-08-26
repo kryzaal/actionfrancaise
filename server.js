@@ -101,7 +101,7 @@ app.use("/visuel", express.static(__dirname + "/static/images/visuels"));
 app.get("/visuel/random", function(request, response) {
     var fileNames = fs.readdir(__dirname + "/static/images/visuels", function(err, files) {
         var random = files[Math.floor(Math.random() * files.length)];
-        response.redirect(300, "/visuel/" + random);
+        response.redirect(303, "/visuel/" + random);
     });
 });
 
@@ -116,6 +116,9 @@ app.use("/slides", express.static(__dirname + "/static/slideshow"));
 
 
 /** 404 & 500 **/
+app.get("/404") {
+    res.status(418).render('4.ejs');
+}
 
 app.use(function(req, res, next){
     res.status(404).render('404.ejs');
