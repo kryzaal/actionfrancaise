@@ -71,8 +71,8 @@ header hr {
   background-image:     -ms-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
   background-image:      -o-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
     box-shadow:  0px 0px 12px #000;
-    border-top: 1px dashed #dfe0e3;
-    border-bottom: 1px dashed #dfe0e3;
+   /* border-top: 1px dashed #dfe0e3;
+    border-bottom: 1px dashed #dfe0e3;*/
     padding: 1px;
   height:40px;
   width:100%;
@@ -114,15 +114,15 @@ header hr {
 }
  
 #menu_top li:hover a {
-  color: black;
+  color: #fada27;
 }
-
+/*;
 #menu_top li:hover {
  background-image: -webkit-linear-gradient(left,white,#e7dfdf,white); 
   background-image:    -moz-linear-gradient(left,white,#e7dfdf,white); 
   background-image:     -ms-linear-gradient(left,white,#e7dfdf,white); 
   background-image:      -o-linear-gradient(left,white,#e7dfdf,white); 
-}
+}*/
 
 .icone_rectangle img {
  width:160px;
