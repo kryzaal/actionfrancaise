@@ -1,7 +1,7 @@
 body {
   font-family: Arial;
   font-size: 14px;
-  margin:0px;
+  margin:2px;
   background-image:radial-gradient(white, #f8f6f6);
 }
 
@@ -66,11 +66,14 @@ header hr {
 
 
 #menu_top { 
-  background-image: -webkit-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
-  background-image:    -moz-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
-  background-image:     -ms-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
-  background-image:      -o-linear-gradient(left,#1d3674,#0D1C42,#0D1C42,#1d3674); 
-  box-shadow: -1px 5px 13px black;
+    background-image: -webkit-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
+  background-image:    -moz-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
+  background-image:     -ms-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
+  background-image:      -o-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
+    box-shadow:  0px 0px 12px #000;
+    border-top: 1px dashed #dfe0e3;
+    border-bottom: 1px dashed #dfe0e3;
+    padding: 1px;
   height:40px;
   width:100%;
   margin-right: auto;
@@ -115,7 +118,10 @@ header hr {
 }
 
 #menu_top li:hover {
-  background-color: white;
+ background-image: -webkit-linear-gradient(left,white,#e7dfdf,white); 
+  background-image:    -moz-linear-gradient(left,white,#e7dfdf,white); 
+  background-image:     -ms-linear-gradient(left,white,#e7dfdf,white); 
+  background-image:      -o-linear-gradient(left,white,#e7dfdf,white); 
 }
 
 .icone_rectangle img {
