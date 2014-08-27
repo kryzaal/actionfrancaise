@@ -110,11 +110,17 @@ header hr {
   text-decoration: none;
   text-align:center;
   line-height: 40px;
-  vertical-align: middle;
+  vertical-align: middle; 
+
+   -moz-transition: all 0.1s ease-in-out 0s;
+  -webkit-transition: all 0.1s ease-in-out 0s;
+  -o-transition: all 0.1s ease-in-out 0s;
+  -ms-transition: all 0.1s ease-in-out 0s;
+  transition: all 0.1s ease-in-out 0s;
 }
- 
 #menu_top li:hover a {
   color: #fada27;
+
 }
 /*;
 #menu_top li:hover {
