@@ -97,12 +97,12 @@ background-color:#51544f;
 #organigramme .organe span {
 	display: inline-block;
 	vertical-align: middle;
-	 font-size: 20px
+	 font-size: 20px;
 }
 
 #organigramme .organe span h2 {
 
-	 font-size: 20px
+	 font-size: 20px;
 }
 
 
@@ -149,7 +149,7 @@ background-color:#51544f;
 }
 
 #organigramme .personne.dirigeant {
-	border: 3px solid #F1D92F
+	border: 3px solid #F1D92F;
 }
 
 #organigramme .personne {
