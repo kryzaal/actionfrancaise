@@ -6,6 +6,10 @@
 		$.get("/profil/<%= article.auteur %>", function( data ) {
 			$('#auteur').html(data);
 		});
+
+		$(window).scroll(function() {
+			$('#auteur').css('top', $(this).scrollTop());
+		});
 	})
 </script>
 
@@ -25,6 +29,5 @@
 		<p><%- article.complet %></p>
 	</div>    
 </div>
-
 
 <% include foot %>

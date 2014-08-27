@@ -54,11 +54,13 @@
 }
 
 #auteur {
+    position: relative;
+    float: left;
     display:inline-block;
     vertical-align:top;
-    text-align:left;
-    float:left;
-    width:11%;
+    text-align: center;
+
+    width:15%;
     background-color:grey;
     word-wrap: break-word;
     min-width:70px;
@@ -67,8 +69,13 @@
 #auteur h2 {
     margin-left: 5px;
 }
+
 #auteur img {
-    width:100%;
+    width: 130px;
+}
+
+#auteur p {
+    text-align: justify;
 }
 
 .article .article_partage {
