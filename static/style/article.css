@@ -64,6 +64,9 @@
     min-width:70px;
 }
 
+#auteur h2 {
+    margin-left: 5px;
+}
 #auteur img {
     width:100%;
 }
