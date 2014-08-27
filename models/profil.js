@@ -73,7 +73,22 @@ var data = {
 		code : "marie_suzanne_de_benque_d_agut",
 	    nom : "Marie Suzanne de Benque d'Agut",
 	    titre : "Secrétaire"
-	}
+	},
+	arnaud_paris : {
+		code : "arnaud_paris",
+	    nom : "Arnaud Pâris",
+	    titre : "Directeur de la cellule de communication"
+	},
+	marielle_pujo : {
+		code : "marielle_pujo",
+	    nom : "Marielle Pujo",
+	    titre : "Directrice de la publication"
+	},
+	gregoire_dubost : {
+		code : "gregoire_dubost",
+	    nom : "Grégoire Dubost",
+	    titre : "Secrétaire de rédaction - Maquettiste"
+	},
 };
 
 function object_to_array(object) {
