@@ -160,6 +160,8 @@ color:black;}
   background-image:    -moz-linear-gradient(left,rgba(132, 132, 132, 1),rgba(180, 180, 180, 1),rgba(132, 132, 132, 1)); 
   background-image:     -ms-linear-gradient(left,rgba(132, 132, 132, 1),rgba(180, 180, 180, 1),rgba(132, 132, 132, 1)); 
   background-image:      -o-linear-gradient(left,rgba(132, 132, 132, 1),rgba(180, 180, 180, 1),rgba(132, 132, 132, 1)); 
+
+  cursor:pointer;
 }
 
 
