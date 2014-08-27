@@ -11,9 +11,6 @@ var bodyParser = require('body-parser')
 
 global.document_root = __dirname;
 
-global.
-global.articles_demo = require('./models/article').demo;
-
 var controllers = {
     index : require('./controllers/index'),
     contact : require('./controllers/contact'),
@@ -27,6 +24,7 @@ var controllers = {
     recherche : require('./controllers/recherche'),
     reseaux_sociaux : require('./controllers/reseaux_sociaux'),
     profil : require('./controllers/profil'),
+    articles : require('./controllers/articles')
 };
 
 var transporter = mailer.createTransport({
@@ -87,17 +85,7 @@ app.get("/facebook", controllers.reseaux_sociaux.facebook);
 app.get("/twitter", controllers.reseaux_sociaux.twitter);
 app.get("/youtube", controllers.reseaux_sociaux.youtube);
 
-app.get("/article/:id", function(request, response){
-    response.render('article.ejs', {
-        pageSubtitle: articles_demo[request.params.id].titre,
-        customStylesheets: ["article"],
-        article: articles_demo[request.params.id],
-        uri: 'http://' + server + ':' + port + '/article/' + request.params.id
-    })
-});
-
 app.use("/visuel", express.static(__dirname + "/static/images/visuels"));
-
 app.get("/visuel/random", function(request, response) {
     var fileNames = fs.readdir(__dirname + "/static/images/visuels", function(err, files) {
         var random = files[Math.floor(Math.random() * files.length)];
@@ -107,6 +95,8 @@ app.get("/visuel/random", function(request, response) {
 
 app.get("/profil/:code/photo", controllers.profil.photo);
 app.get("/profil/:code", controllers.profil.get);
+
+app.get("/article/:id", controllers.articles.get);
 
 app.use("/files", express.static(__dirname + "/static/files"));
 app.use("/css", express.static(__dirname + "/static/style"));
