@@ -1,4 +1,10 @@
+body{
+  height: 100%;
+}
 
+section{
+  height: 100%;
+}
 
 section .etage{
 margin-bottom:20px;
@@ -102,10 +108,11 @@ section .evenement{
  text-align:left;
  color:#292927;
  white-space: normal;
- margin-top:2px;
+
    box-shadow: 0px 0px 2px #000;
  width:23%;
-
+height: 101%;
+overflow: hidden;
 max-width: 400px;
 min-width: 200px;
 
@@ -134,16 +141,17 @@ color:black;}
     box-shadow: 0px 0px 2px #000;
     display:inline-block; 
     margin-right:5px;
-      margin-bottom: 9px;
+      margin-bottom: 6px;
     white-space: normal;
     padding: 2px;
+    overflow: hidden;
 }
 
 .videodumoment {
     vertical-align:top;
     text-align:left;
     margin-left: 5px;
-    width:43%;
+    width:45%;
     height:100%;
     min-width: 200px;
 }
@@ -172,7 +180,7 @@ color:black;}
     text-align:left;
     color:#292927;
     white-space: normal;
-    width: 24%;
+    width: 22%;
     height: 100%;
     max-width: 400px;
     min-width: 200px;
@@ -207,7 +215,6 @@ color:black;}
   background-image:     -ms-linear-gradient(left,rgba(132, 132, 132, 1),rgba(180, 180, 180, 1),rgba(132, 132, 132, 1)); 
   background-image:      -o-linear-gradient(left,rgba(132, 132, 132, 1),rgba(180, 180, 180, 1),rgba(132, 132, 132, 1)); 
 
-    box-shadow:  0px 0px 23px #000;
 
 }
 
