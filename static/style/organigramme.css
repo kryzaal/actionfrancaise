@@ -81,16 +81,13 @@ background-color:#51544f;
 	transition-duration: 1s;
 }
 
-
-
-
 #organigramme .organe.expanded, #organigramme .organe:hover {
 	background-color: #1D3674;
 	border-color: transparent;
 	color: white;
 }
 
-#organigramme .organe.expanded {
+#organigramme .organe.expanded, #organigramme .organe.noexpansion {
 	cursor: default;
 }
 

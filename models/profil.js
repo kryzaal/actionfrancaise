@@ -44,11 +44,36 @@ var data = {
 	    nom : "Bernard Bonnaves",
 	    titre : "Membre du comité directeur de l'AF"
 	},
+	antoine_desonay : {
+		code : "antoine_desonay",
+	    nom : "Antoine Desonay",
+	    titre : "Secrétaire général étudiant"
+	},
 	louis_charles_bonnaves : {
 		code : "louis_charles_bonnaves",
 	    nom : "Louis-Charles Bonnaves",
 	    titre : "Membre du bureau politique de l'AF"
 	},
+	pierre_marchand : {
+		code : "pierre_marchand",
+	    nom : "Pierre Marchand",
+	    titre : "Secrétaire général adjoint de l'AF"
+	},
+	blanche_pupion : {
+		code : "blanche_pupion",
+	    nom : "Blanche Pupion",
+	    titre : "Assistante"
+	},
+	odile_veron : {
+		code : "odile_veron",
+	    nom : "Odile Véron",
+	    titre : "Secrétaire"
+	},
+	marie_suzanne_de_benque_d_agut : {
+		code : "marie_suzanne_de_benque_d_agut",
+	    nom : "Marie Suzanne de Benque d'Agut",
+	    titre : "Secrétaire"
+	}
 };
 
 function object_to_array(object) {
