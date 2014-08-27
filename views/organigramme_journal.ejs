@@ -20,6 +20,15 @@
 	function collapse(who) {
 		setTimeout(function(){ document.getElementById(who).className = "organe" }, 10);
 	}
+
+	$(function() {
+		$('.personne').each(function() {
+			var div = this;
+			$.get("/profil/" + div.dataset.profil, function( data ) {
+				$(div).html($.trim(data));
+			});
+		});
+	})
 </script>
 
 <% include foot %>

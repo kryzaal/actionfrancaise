@@ -21,21 +21,11 @@
 			</span>
 			<div class="membres">
 				<div class="ligne">
-					<div class="personne dirigeant">
-						<img src="/images/organigramme/auteur_2.jpg" />
-						<h1>Olivier Perceval</h1>
-						<h2>Sécrétaire général</h2>
-						<div><p>Texte description</p></div>
-					</div>
+					<div class="personne dirigeant" data-profil="olivier_perceval"></div>
 				</div>
 				<br/>
 				<div class="ligne">
-					<div class="personne">
-						<img src="/images/organigramme/default.png" />
-						<h1>François Bel-Ker</h1>
-						<h2>Sécrétaire général adjoint</h2>
-						<div><p>Texte description</p></div>
-					</div>
+					<div class="personne" data-profil="francois_bel_ker"></div>
 					<div class="personne">
 						<img src="/images/organigramme/default.png" />
 						<h1>Pierre Marchand</h1>
@@ -101,6 +91,15 @@
 	function collapse(who) {
 		setTimeout(function(){ document.getElementById(who).className = "organe" }, 10);
 	}
+
+	$(function() {
+		$('.personne').each(function() {
+			var div = this;
+			$.get("/profil/" + div.dataset.profil, function( data ) {
+				$(div).html($.trim(data));
+			});
+		});
+	})
 </script>
 
 <% include foot %>
