@@ -1,6 +1,10 @@
 <% include head %>
 
-<div id="fullscreen"></div>
+<div id="viewer">
+	<div class="button" onclick="previous();"></div>
+	<div id="image" onclick="collapse();"></div>
+	<div class="button" onclick="next();"></div>
+</div>
 
 <div id="titre"><h1>Visuels, affiches et vidéos</h1></div>
 
@@ -18,10 +22,30 @@
 </div>
 
 <script>
+	var selectedImage = null;
+
 	function expand(img) {
-		$('#fullscreen').css('background-image', 'background-image: url("' + img.src + '") no-repeat center');
-		$('#fullscreen').css('display', 'block');
-		$('#fullscreen').click(function() { $('#fullscreen').css('display', 'none'); });
+		selectedImage = img;
+		$('#viewer > #image').css('background-image', "url('" + img.src + "')");
+		$('#viewer').addClass('expanded');
+	}
+
+	function collapse() {
+		selectedImage = null;
+		$('#viewer > #image').css('background-image', 'none');
+		$('#viewer').removeClass('expanded');
+	}
+
+	function previous() {
+		var previousImg = $(selectedImage).prev();
+		if(previousImg.length == 0) previousImg = $('#visuels img:last-child');
+		expand(previousImg[0]);
+	}
+
+	function next() {
+		var nextImg = $(selectedImage).next();
+		if(nextImg.length == 0) nextImg = $('#visuels img:first-child');
+		expand(nextImg[0]);
 	}
 
 	function loadVideo(parentDiv, code) {
