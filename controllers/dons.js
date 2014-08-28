@@ -7,7 +7,8 @@ function setTransporter(transporter) {
 function get(request, response) {
     response.render('dons.ejs', {
         pageSubtitle: "Dons",
-        customStylesheets: ["formulaire"]
+        customStylesheets: ["formulaire"],
+        captcha: { publicKey : require('./captcha').publicKey }
     })
 }
 

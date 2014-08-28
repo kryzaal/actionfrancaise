@@ -89,7 +89,8 @@ app.use("/visuel", express.static(__dirname + "/static/images/visuels"));
 app.get("/visuel/random", function(request, response) {
     var fileNames = fs.readdir(__dirname + "/static/images/visuels", function(err, files) {
         var random = files[Math.floor(Math.random() * files.length)];
-        response.redirect(303, "/visuel/" + random);
+        response.writeHead(200, {'Content-Type': 'text/plain'});
+        response.end(random);
     });
 });
 

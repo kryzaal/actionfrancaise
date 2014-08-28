@@ -1,13 +1,14 @@
 <% include head %>
 
 <div class="formulaire">
-	<h1>Contactez-nous</h1>
+	<h1><%= who.titre %></h1>
 
-    <form method="POST" action="/contact<% if(who && who != 'default') { %>/<%= who %><% } %>">
+    <form method="POST" action="/contact<% if(who.code != 'default') { %>/<%= who.code %><% } %>">
         <input type="text" name="prenom" placeholder="Prénom" />
         <input type="text" name="nom" placeholder="Nom" />
         <input type="email" name="email" placeholder="Courriel" />
         <textarea placeholder="Votre message" name="message"></textarea>
+        <script src="http://www.google.com/recaptcha/api/challenge?k=<% captcha.pubKey %>"></script>
         <button type="submit">Envoyer</button>
     </form>
 </div>

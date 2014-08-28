@@ -57,6 +57,12 @@
 	    	document.getElementById("video_" + code).innerHTML = '<img src="http://img.youtube.com/vi/' + code + '/0.jpg"/>' + '<h1>' + response.data.title + '</h1>';
 	    });
 	}
+
+	$(function() {
+		$('#random').remove();
+		var hash = window.location.hash.substr(1);
+		if(hash.length > 1) expand($('img[src="/visuel/' + hash + '"]')[0]);
+	});
 </script>
 
 <% include foot %>

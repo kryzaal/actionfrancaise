@@ -1,8 +1,16 @@
 var _transporter = null;
 
 var contacts = {
-    default: "Action Française <kryzaal@gmail.com>",
-    bordeaux: "AFE Bordeaux <kryzaal@gmail.com>"
+    'default': {
+        code: "default",
+        mail: "Action Française <kryzaal@gmail.com>",
+        titre: "Contactez-nous",
+    },
+    'bordeaux': {
+        code: "bordeaux",
+        mail: "AFE Bordeaux <kryzaal@gmail.com>",
+        titre: "Contactez l'AFE Bordeaux",
+    }
 }
 
 function setTransporter(transporter) {
@@ -10,15 +18,18 @@ function setTransporter(transporter) {
 }
 
 function get(request, response) {
+    var who = typeof request.params.who == 'undefined' ? "default" : request.params.who;
+
     response.render('contact.ejs', {
         pageSubtitle: "Contact",
         customStylesheets: ["formulaire"],
-        who: typeof request.params.who === undefined ? "default" : request.params.who
+        who: contacts[who],
+        captcha: { publicKey : require('./captcha').publicKey }
     });
 }
 
 function post(request, response) {
-    var who = typeof request.params.who === undefined ? "default" : request.params.who;
+    var who = typeof request.params.who == 'undefined' ? "default" : request.params.who;
 
 	var mailOptions = {
         from: request.body.email,
@@ -40,7 +51,7 @@ function post(request, response) {
                 duration: 5,
                 html: error ? 'Votre message n\'a pas été envoyé' : 'Merci pour votre message, nous y répondrons dans les meilleurs délais !'
             },
-            who: who
+            who: contacts[who]
         });
     });
 }

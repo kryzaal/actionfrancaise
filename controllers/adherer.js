@@ -7,7 +7,8 @@ function setTransporter(transporter) {
 function get(request, response) {
     response.render('adherer.ejs', {
         pageSubtitle: "Adhérer",
-        customStylesheets: ["formulaire"]
+        customStylesheets: ["formulaire"],
+        captcha: { publicKey : require('./captcha').publicKey }
     });
 }
 
