@@ -2,7 +2,7 @@
 <div id="titre"><h1>Centre Royaliste d'Action Française</h1></div>
 
 <div id="organigramme">
-	<div class="ligne">
+	<div class="ligne" id="instances_superieurs">
 		<a href="/organigramme">
 			<div class="organe" id="mouvement">
 			<span>
@@ -12,9 +12,8 @@
 			</div>
 		</a>
 	</div>
-	<div id="fleche_bas" class="ligne">
-	</div>
-	<div class="ligne">
+	
+	<div class="ligne" id="secretariats">
 		<div class="organe" id="secretariat_general" onclick="expand(this);">
 			<span>
 				<h2>Secrétariat général</h2>
@@ -34,6 +33,7 @@
 				<button class="collapse" type="button" onclick="collapse('secretariat_general');">Fermer</button>
 			</div>
 		</div>
+		<div id="fleche_secretariats"><div id="gauche"></div><div id="droite"></div></div>
 		<div class="organe" id="secretariat" onclick="expand(this);">
 			<span>
 				<h2>Secrétariat</h2>
@@ -51,9 +51,8 @@
 			</div>
 		</div>
 	</div>
-	<div id="fleche_bas" class="ligne">
-	</div>
-	<div class="ligne">
+
+	<div class="ligne" id="com_sections">
 		<div class="organe" id="communication" onclick="expand(this);">
 			<span>
 				<h2>Communication</h2>
@@ -66,7 +65,9 @@
 				<button class="collapse" type="button" onclick="collapse('communication');">Fermer</button>
 			</div>
 		</div>
+		<div id="fleche_com_sections" class="ligne">
 		
+		</div>
 		<div class="organe" id="sections" >
 			<a href="/carte"><span>
 				<h2>Les sections</h2>

@@ -23,7 +23,7 @@ section{
 	height:100px;
 	border-left: 2px solid black;
 }
-#organigramme #fleche_bureau_journal_mouvement {
+#organigramme #fleche_bureau_journal_mouvement, #organigramme #fleche_secretariats, #organigramme #fleche_com_sections {
 	display: inline-block;
 	vertical-align: middle;
 	width: 34%;
@@ -34,7 +34,13 @@ section{
 	border-bottom: 2px solid black;
 }
 
-#organigramme #fleche_bureau_journal_mouvement #gauche {
+
+#organigramme #fleche_secretariats,#organigramme #fleche_com_sections {
+	margin-top: -40px;
+}
+
+
+#organigramme #fleche_bureau_journal_mouvement #gauche, #organigramme #fleche_secretariats #gauche {
 	display: inline-block;
 	vertical-align: top;
 	float: left;
@@ -42,6 +48,11 @@ section{
 	margin-top: -130px;
 	height: 134px;
 	border-right: 2px solid black;
+}
+
+#organigramme #fleche_secretariats #gauche {
+	margin-top: -162px;
+	height:385px;
 }
 
 
@@ -54,34 +65,29 @@ section{
 }
 
 
-#organigramme #ligne_droite{
-	display: inline-block;
-	vertical-align: bottom;
-	margin-bottom:-40px;
-	width:100px;
-	height:100px;
-	border-top: 2px solid black;
-}
-
 
 #organigramme .ligne {
 	display: block;
 	clear: both;
-}
 
+}
+#organigramme #instances_superieurs, #organigramme #secretariats, #organigramme #com_sections{
+		margin-bottom: 102px;
+}
 #organigramme .organe {
 	min-height: 80px;
-	width:40%;
+	width:30%;
  	padding: 5px;
  	border-radius: 5px;
-
-background-color:#51544f;
+	background-color: #e3e3e3;
+  	border: 2px dashed grey;
  	cursor: pointer;
  	transition-property: background-color;
 	transition-duration: 1s;
 }
 
 #organigramme .organe.expanded, #organigramme .organe:hover {
+	background-image: none;
 	background-color: #1D3674;
 	border-color: transparent;
 	color: white;
