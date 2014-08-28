@@ -1,6 +1,6 @@
 <% var slide_width = 965; %>
 
-<div id="slideshow"  >  
+<div id="slideshow">  
     <div onmouseover="setPause(true);" onMouseOut="setPause(false);">
         <div id="slider" style="width: <%= slide_width * (slides.length) %>px;">
             <% slides.forEach(function(filename) { %>
@@ -13,14 +13,13 @@
 </div>
 
 <script>
-    $(showNext);
-    $(window).blur(function() { setPause(true); });
-    $(window).focus(function() { setPause(false); });
+    $(window).blur(function() { clearInterval(interval); });
+    $(window).focus(showNext);
 
     var last = <%= slides.length - 1 %>;
     var current = 0;
     var reverse = false;
-    var currentTimeOut = null;
+    var interval = null;
 
     function nextSlide() {
         if(current == 0) reverse = false;
@@ -30,20 +29,19 @@
     }
 
     function showSlide(index) {
+        console.log("slide " + current);
         var element = document.getElementById('slider');
         element.style.left = '-' + (<%= slide_width - 3 %> * index) + 'px';
     }
 
     function showNext() {
-        currentTimeOut = setTimeout(function() {
+        interval = setInterval(function() {
             showSlide(nextSlide());
-            showNext();
         }, 5000);
     }
 
     function setPause(value) {
-        if(value) clearTimeout(currentTimeOut);
+        if(value) clearInterval(interval);
         else showNext();
     }
-           
 </script>
