@@ -109,7 +109,7 @@ section .evenement{
  color:#292927;
  white-space: normal;
 
-   box-shadow: 0px 0px 2px #000;
+
  width:22.5%;
 height: 101%;
 overflow: hidden;
@@ -122,7 +122,7 @@ min-width: 200px;
 
 .image_evenement{
  display: inline-block;
-
+   box-shadow: 0px 0px 2px #000;
     float: right;
     width:100%;
     max-height: 400px;
@@ -199,7 +199,6 @@ color:black;}
 
 .video h1 {
   position: absolute;
- background-color:#ece9e9;
   min-height: 30px;
   bottom: 0;
   left: 0;
@@ -207,7 +206,8 @@ color:black;}
   line-height: 15px;
   margin-left: auto;
   margin-right: auto;
-   color:#292927;
+  background-color:#ece9e9;
+  color:#292927;
   font-size: 13px;
   text-align: center;
   text-transform: uppercase;
