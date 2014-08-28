@@ -3,15 +3,16 @@
 
 <div id="organigramme">
 	<div class="ligne">
-		<a href="/organigramme"><div class="organe" id="mouvement">
+		<a href="/organigramme">
+			<div class="organe" id="mouvement">
 			<span>
 				<h2>Instances supérieures</h2>
 				<p>Pilotent le mouvement et le journal</p>
 			</span>
-		</div></a>
+			</div>
+		</a>
 	</div>
 	<div id="fleche_bas" class="ligne">
-
 	</div>
 	<div class="ligne">
 		<div class="organe" id="secretariat_general" onclick="expand(this);">
@@ -49,6 +50,10 @@
 				<button class="collapse" type="button" onclick="collapse('secretariat');">Fermer</button>
 			</div>
 		</div>
+	</div>
+	<div id="fleche_bas" class="ligne">
+	</div>
+	<div class="ligne">
 		<div class="organe" id="communication" onclick="expand(this);">
 			<span>
 				<h2>Communication</h2>
@@ -61,14 +66,19 @@
 				<button class="collapse" type="button" onclick="collapse('communication');">Fermer</button>
 			</div>
 		</div>
-		<a href="/carte"><div class="organe" id="sections">
-			<span>
+		
+		<div class="organe" id="sections" >
+			<a href="/carte"><span>
 				<h2>Les sections</h2>
 				<p>Direction locale de l'AF</p>
-			</span>
-		</div></a>
+			</span></a>
+		</div>
 	</div>
 </div>
+
+
+
+
 <script>
 	function expand(who) {
 		who.className = "organe expanded";

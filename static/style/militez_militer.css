@@ -1,9 +1,16 @@
 #militer{
 	display:inline-block;
 	background-color:#ece9e9;
-	width:93%;
+	width:87%;
 	margin:auto;
 	margin-bottom:5px;
 	text-align:left;
 	padding:5px;
+}
+
+#militer img{
+	position: relative;
+	
+	width:101%;
+	margin: -4px;
 }
