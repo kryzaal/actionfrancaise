@@ -1,4 +1,5 @@
 var _transporter = null;
+var captcha = require('./captcha');
 
 var contacts = {
     'default': {
@@ -29,6 +30,8 @@ function get(request, response) {
 }
 
 function post(request, response) {
+    if(!captcha.check(request)) throw "Bad captcha";
+
     var who = typeof request.params.who == 'undefined' ? "default" : request.params.who;
 
 	var mailOptions = {
