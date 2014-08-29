@@ -68,6 +68,7 @@ app.get("/carte", controllers.carte.get);
 
 app.get("/campagnes", controllers.campagnes.get);
 app.get("/campagnes/:campagne", controllers.campagnes.get);
+app.get("/campagnes/:campagne/affiche", controllers.campagnes.affiche);
 app.get("/campagnes/:campagne/:photo", controllers.campagnes.photo);
 
 app.get("/militez", controllers.militez.get);
@@ -79,6 +80,7 @@ app.get("/militez/creer", controllers.militez.creer.get);
 
 app.get("/militez/campagnes", controllers.militez.campagnes.get);
 app.get("/militez/campagnes/:campagne", controllers.militez.campagnes.get);
+app.get("/militez/campagnes/:campagne/affiche", controllers.militez.campagnes.affiche);
 app.get("/militez/campagnes/:campagne/:photo", controllers.militez.campagnes.photo);
 
 app.get("/militez/textes", controllers.militez.textes.get);

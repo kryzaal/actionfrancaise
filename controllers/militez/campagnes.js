@@ -11,9 +11,9 @@ function get(request, response) {
 
     model.fetchOne(request.params.campagne, function(err, data) {
         if(err) throw err;
-        if(!data) do404();
+        if(!data) do404(response);
         else response.render('militez_campagnes.ejs', {
-            pageSubtitle: campagne_specifiee ? "Campagnes et évenements" : makeTitre(data),
+            pageSubtitle: campagne_specifiee ? makeTitre(data) : "Campagnes et évenements",
             customStylesheets: ["militez_campagnes", "militez_tuiles", "viewer"],
             tuiles: tuiles,
             campagne: data
@@ -26,13 +26,28 @@ function photo(request, response) {
         if(err) throw err;
         if(exists)
             fs.readFile(document_root + '/static/campagnes/' + request.params.campagne + '/' + request.params.photo + '.jpg', function (error, data) {
-                if (error) do404();
+                if (error) do404(response);
                 else {
                     response.writeHead('200', {'Content-Type': 'image/jpg'});
                     response.end(data,'binary');
                 }
             });
-        else do404();
+        else do404(response);
+    });
+}
+
+function affiche(request, response) {
+    model.exists(request.params.campagne, function(err, exists) {
+        if(err) throw err;
+        if(exists)
+            fs.readFile(document_root + '/static/campagnes/' + request.params.campagne + '.jpg', function (error, data) {
+                if (error) do404(response);
+                else {
+                    response.writeHead('200', {'Content-Type': 'image/jpg'});
+                    response.end(data,'binary');
+                }
+            });
+        else do404(response);
     });
 }
 
@@ -49,4 +64,5 @@ function makeTitre(data) {
 
 exports.get = get;
 exports.photo = photo;
+exports.affiche = affiche;
 exports.tuiles = tuiles;

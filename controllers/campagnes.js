@@ -8,3 +8,4 @@ function get(request, response) {
 
 exports.get = get;
 exports.photo = parent.photo;
+exports.affiche = parent.affiche;
