@@ -59,9 +59,9 @@
     display:inline-block;
     vertical-align:top;
     text-align: center;
-
+    color: white;
     width:15%;
-    background-color:grey;
+    background-color: #9f2020;
     word-wrap: break-word;
     min-width:70px;
 }
@@ -71,7 +71,7 @@
 }
 
 #auteur img {
-    width: 130px;
+    width: 100%;
 }
 
 #auteur p {
