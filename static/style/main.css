@@ -4,7 +4,7 @@ body {
   margin: 0;
   background-image:radial-gradient(white, #f8f6f6);
   width: 100%;
-  overflow-x: hidden;
+  min-width: 1300px;
 }
 
 #corps {
@@ -47,14 +47,12 @@ header h1{
   width:450px;
 }
 
-
 #menu_top { 
   background-image: -webkit-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
   background-image:    -moz-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
   background-image:     -ms-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
   background-image:      -o-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
   box-shadow:  0px 0px 12px #000;
-  padding: 1px;
   height:40px;
   width:100%;
   margin-right: auto;
@@ -126,10 +124,6 @@ form#recherche,
 .icone_rectangle img:hover, 
 #militez .tuile:hover, 
 #organigramme #tuile:hover {
-  -moz-box-shadow: 1px 1px 12px #555;
-  -webkit-box-shadow: 1px 1px 12px #555;
-  -o-box-shadow: 1px 1px 12px #555;
-  -ms-box-shadow: 1px 1px 12px #555;
   box-shadow: 1px 1px 12px #555;
 }
 
