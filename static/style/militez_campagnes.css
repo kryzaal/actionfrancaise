@@ -4,6 +4,7 @@
 
 #evenements > div.button {
 	position: relative;
+	top: 5px;
 	width: 10%;
 	height: 15%;
 	min-height: 250px;
@@ -22,7 +23,7 @@
 }
 
 #evenements > div.button:first-child {
-	background-image: url('/css/images/left_arrow.png');
+	background-image: url('/css/images/left_arrow2.png');
 	float: left;
 }
 
@@ -37,10 +38,36 @@
 	margin-bottom: 45px;
 }
 
+#evenements > #evenement > * {
+	margin: 5px 20px;
+}
+
 #evenement div.img_container {
-	width: 90%;
 	margin: 10px auto;
 	background-color: #808080;
+}
+
+#evenement div.titres {
+	background-color: #0D1C42;
+	color: white;
+	font-size: 1.4em;
+}
+
+#evenement div.titres h1 {
+	font-size: 1.4em;
+	text-transform: uppercase;
+}
+
+#evenement div.titres h2 {
+	font-size: 1.4em;
+}
+
+#evenement div.titres a {
+	text-decoration: none;
+	font-weight: 900;
+	color: white;
+	font-size: 2em;
+	padding: 5px;
 }
 
 #evenement div#edition > * {
@@ -56,4 +83,5 @@
 
 #evenement #photos img {
 	width: 100%;
+	cursor: pointer;
 }
