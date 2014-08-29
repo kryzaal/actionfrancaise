@@ -20,12 +20,10 @@ var controllers = {
     organigramme : require('./controllers/organigramme'),
     militez : require('./controllers/militez'),
     manifeste : require('./controllers/manifeste'),
-    carte : require('./controllers/carte'),
     recherche : require('./controllers/recherche'),
     reseaux_sociaux : require('./controllers/reseaux_sociaux'),
     profil : require('./controllers/profil'),
-    articles : require('./controllers/articles'),
-    campagnes : require('./controllers/campagnes'),
+    articles : require('./controllers/articles')
 };
 
 var transporter = mailer.createTransport({
@@ -64,12 +62,12 @@ app.post("/dons", controllers.dons.post);
 app.get("/medias", controllers.medias.get);
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
-app.get("/carte", controllers.carte.get);
+app.get("/carte", controllers.militez.carte.get);
 
-app.get("/campagnes", controllers.campagnes.get);
-app.get("/campagnes/:campagne", controllers.campagnes.get);
-app.get("/campagnes/:campagne/affiche", controllers.campagnes.affiche);
-app.get("/campagnes/:campagne/:photo", controllers.campagnes.photo);
+app.get("/campagnes", controllers.militez.campagnes.get);
+app.get("/campagnes/:campagne", controllers.militez.campagnes.get);
+app.get("/campagnes/:campagne/affiche", controllers.militez.campagnes.affiche);
+app.get("/campagnes/:campagne/:photo", controllers.militez.campagnes.photo);
 
 app.get("/militez", controllers.militez.get);
 app.get("/militez/militer", controllers.militez.militer.get);
@@ -97,7 +95,7 @@ app.get("/youtube", controllers.reseaux_sociaux.youtube);
 
 app.use("/visuel", express.static(__dirname + "/static/images/visuels"));
 app.get("/visuel/random", function(request, response) {
-    var fileNames = fs.readdir(__dirname + "/static/images/visuels", function(err, files) {
+    fs.readdir(__dirname + "/static/images/visuels", function(err, files) {
         var random = files[Math.floor(Math.random() * files.length)];
         response.writeHead(200, {'Content-Type': 'text/plain'});
         response.end(random);

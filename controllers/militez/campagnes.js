@@ -1,6 +1,5 @@
 var fs = require('fs');
 var model = require('../../models/campagne');
-var tuiles = true;
 
 function get(request, response) {
     var campagne_specifiee = true;
@@ -12,11 +11,15 @@ function get(request, response) {
     model.fetchOne(request.params.campagne, function(err, data) {
         if(err) throw err;
         if(!data) do404(response);
-        else response.render('militez_campagnes.ejs', {
-            pageSubtitle: campagne_specifiee ? makeTitre(data) : "Campagnes et évenements",
-            customStylesheets: ["militez_campagnes", "militez_tuiles", "viewer"],
-            tuiles: tuiles,
-            campagne: data
+        else fs.readdir(__dirname + "/static/campagnes/" + request.params.campagne, function(err, files) {
+            if(!err) data.photos = files;
+
+            response.render('militez_campagnes.ejs', {
+                pageSubtitle: campagne_specifiee ? makeTitre(data) : "Campagnes et évenements",
+                customStylesheets: ["militez_campagnes", "militez_tuiles", "viewer"],
+                tuiles: exports.tuiles,
+                campagne: data
+            });
         });
     });
 }
@@ -65,4 +68,4 @@ function makeTitre(data) {
 exports.get = get;
 exports.photo = photo;
 exports.affiche = affiche;
-exports.tuiles = tuiles;
+exports.tuiles = true;

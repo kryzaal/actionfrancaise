@@ -7,17 +7,15 @@
 	<div id="evenement">
 		<div class="img_container"><img class="image_evenement" src="/campagnes/jeanne_2014/affiche" /></div>
 		<div class="titres">
-			<h1>évenement</h1>
-			<h2>Cortège traditionnel de Jeanne d'Arc</h2>
-			<div id="edition">
+			<h1><%= campagne.type %></h1>
+			<h2><%= campagne.nom %></h2>
+			<% if(campagne.editions) { %><div id="edition">
 				<a href="#jeanne_2013">Edition 2013</a>
-				<h3>Edition 2014</h3>
+				<h3><%= campagne.editions.actuelle %></h3>
 				<a href="#jeanne_2015">Edition 2015</a>
-			</div>
+			</div><% } %>
 		</div>
-		<article>
-			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-		</article>
+		<article><%- campagne.description %></article>
 		<div class="ss_titre"><h3>Photos</h3></div>
 		<div id="photos" class="viewer_elements">
 			<img src="/campagnes/jeanne_2014/img1" />
@@ -28,7 +26,7 @@
 			<img src="/campagnes/jeanne_2014/img6" />
 		</div>
 	</div>
-	<div class="button" onclick="next();"><span>CMRDS 2014</span></div>
+	<div class="button"><span>CMRDS 2014</span></div>
 </div>
 
 <% include viewer %>
@@ -37,49 +35,6 @@
 	$(window).scroll(function() {
 		$('#evenements div.button').css('top', $(this).scrollTop() + 5);
 	});
-
-	//Format URI : /campagnes/[code_campagne]#image
-
-	/*var current = null;
-
-	var campagnes = {
-		'jeanne_2014' : {
-			code: 'jeanne_2014',
-			type: 'evenement',
-			occurence_precedente: 'jeanne_2013',
-			occurence_suivante: null,
-			date: new Date('2014', '5', '11'),
-			nom: "Cortège traditionnel de Jeanne d'Arc",
-			photos: ['img1', 'img2', 'img3'],
-			description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'
-		}
-	}
-
-	$(function() {
-		current = window.location.hash.length > 1 ? window.location.hash.substr(1) : campagnes[0].code;
-		render(campagnes[current]);
-	});
-
-	
-
-	function render(campagne) {
-		
-
-		var container = $('#evenement');
-	}
- 
-	function previous() {
-		if(current == 0) current = campagnes.length;
-		current -= 1;
-		render(campagnes[current]);
-	}
-
-	function next() {
-		if(current == campagnes.length - 1) current = 0;
-		else current += 1;
-
-		window.location.hash = '#' + current;
-	}*/
 </script>
 
 <% include foot %>
