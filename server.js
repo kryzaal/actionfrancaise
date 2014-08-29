@@ -24,7 +24,8 @@ var controllers = {
     recherche : require('./controllers/recherche'),
     reseaux_sociaux : require('./controllers/reseaux_sociaux'),
     profil : require('./controllers/profil'),
-    articles : require('./controllers/articles')
+    articles : require('./controllers/articles'),
+    campagnes : require('./controllers/campagnes'),
 };
 
 var transporter = mailer.createTransport({
@@ -64,6 +65,7 @@ app.get("/medias", controllers.medias.get);
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
 app.get("/carte", controllers.carte.get);
+app.get("/campagnes", controllers.campagnes.get);
 
 app.get("/militez", controllers.militez.get);
 app.get("/militez/militer", controllers.militez.militer.get);

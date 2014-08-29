@@ -1,0 +1,43 @@
+#evenements {
+	width: 100%;
+}
+
+#evenements > div.button {
+	position: relative;
+	width: 10%;
+	height: 15%;
+	min-height: 250px;
+	border: none;
+	opacity: 0.7;
+
+	background-color: rgba(40, 40, 40, 0.7);
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+#evenements > div.button:hover {
+	background-color: rgba(40, 40, 40, 0.95);
+	opacity: 0.95;
+}
+
+#evenements > div.button:first-child {
+	background-image: url('/css/images/left_arrow.png');
+	float: left;
+}
+
+#evenements > div.button:last-child {
+	background-image: url('/css/images/right_arrow.png');
+	float: right;
+}
+
+#evenements > #evenement {
+	width: 80%;
+	float: left;
+}
+
+#evenement div.img_container {
+	width: 90%;
+	margin: 10px auto;
+	background-color: #808080;
+}

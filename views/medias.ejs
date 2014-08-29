@@ -26,6 +26,10 @@
 
 	function expand(img) {
 		selectedImage = img;
+
+		var slices = img.src.split('/');
+		window.location.hash = '#' + slices.pop();
+		
 		$('#viewer > #image').css('background-image', "url('" + img.src + "')");
 		$('#viewer').addClass('expanded');
 	}
