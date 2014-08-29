@@ -1,7 +1,3 @@
-section {
-	margin-top:0px;
-}
-
 #visuels, #videos {
 	display:inline-block;
 	width:48%;
@@ -54,15 +50,7 @@ section {
 
 }
 
-
-
-
-
-#videos > div:hover > h2 {
-    background-color: rgba(100, 100, 100, 1);
-}
-
-section iframe {
+#videos iframe {
 	width:100%;
 }
 
@@ -71,18 +59,19 @@ section img {
 	cursor: pointer;
 }
 
+#videos > div:hover > h2 {
+    background-color: rgba(100, 100, 100, 1);
+}
+
 #viewer {
 	display: none;
-
 	width: 100%;
     height: 100%;
-    
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     top: 0;
-
     z-index: 255;
     background-color: rgba(100, 100, 100, 0.6);
 }
