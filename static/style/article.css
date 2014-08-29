@@ -14,6 +14,7 @@ article {
 article .image_article {
     width:45%;
     float:left;
+    margin-right: 10px;
     -moz-transition: all 0.5s ease-in-out 0s;
     -webkit-transition: all 0.5s ease-in-out 0s;
     -o-transition: all 0.5s ease-in-out 0s;
@@ -53,6 +54,7 @@ article h2 {
     margin:10px;
 }
 
+
 section > aside {
     position: relative;
     float: left;
@@ -84,7 +86,7 @@ section > aside {
 #partage {
     text-align: left;
     color: white;
-    background-color: #9f2020;
+    background-color:#0D1C42;
     word-wrap: break-word;
     display: table;
     width: 100%;
