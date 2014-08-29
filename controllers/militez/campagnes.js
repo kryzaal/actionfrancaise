@@ -11,8 +11,10 @@ function get(request, response) {
     model.fetchOne(request.params.campagne, function(err, data) {
         if(err) throw err;
         if(!data) do404(response);
-        else fs.readdir(__dirname + "/static/campagnes/" + request.params.campagne, function(err, files) {
-            if(!err) data.photos = files;
+        else fs.readdir(document_root + "/static/campagnes/" + request.params.campagne, function(err, files) {
+            if(err) throw err;
+                
+            data.photos = files;
 
             response.render('militez_campagnes.ejs', {
                 pageSubtitle: campagne_specifiee ? makeTitre(data) : "Campagnes et évenements",

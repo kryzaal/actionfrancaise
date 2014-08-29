@@ -16,15 +16,14 @@
 			</div><% } %>
 		</div>
 		<article><%- campagne.description %></article>
-		<div class="ss_titre"><h3>Photos</h3></div>
-		<div id="photos" class="viewer_elements">
-			<img src="/campagnes/jeanne_2014/img1" />
-			<img src="/campagnes/jeanne_2014/img2" />
-			<img src="/campagnes/jeanne_2014/img3" />
-			<img src="/campagnes/jeanne_2014/img4" />
-			<img src="/campagnes/jeanne_2014/img5" />
-			<img src="/campagnes/jeanne_2014/img6" />
-		</div>
+		<% if(campagne.photos) { %>
+			<div class="ss_titre"><h3>Photos</h3></div>
+			<div id="photos" class="viewer_elements">
+			<% campagne.photos.forEach(function(photo) { photo = photo.substr(0, photo.length - 4); %>
+				<img src="/campagnes/jeanne_2014/<%= photo %>" />
+			<% }) %>
+			</div>
+		<% } %>
 	</div>
 	<div class="button"><span>CMRDS 2014</span></div>
 </div>
