@@ -4,40 +4,32 @@ width:60%;
 	
 }
 #texte_manifeste hr {
-	width: 70%;
+	width: 88%;
     height: 30px;
     border-style: solid;
     border-color: black;
     border-width: 1px 0 0 0;
-    border-radius: 20px;
-}
-#texte_manifeste hr:before { /* Not really supposed to work, but does */
-    display: block;
-    content: "";
-    height: 30px;
-    margin-top: -31px;    
-    border-style: solid;
-    border-color: black;
-    border-width: 0 0 1px 0;
-    border-radius: 20px;
+
 }
 
 #texte_manifeste{
-padding: 50px;
+padding: 1px 50px 50px 50px;
+
 background-color: #ece9e9;
 	text-align: left;
 }
 
-#titre{
+#titre_texte{
 
-font-size:32px;
 font-color: gray;
 width:100%;
-text-align: center;
+text-align: left;
 
 }
 
-
+#titre_texte h1{
+  font-size:32px;  
+}
 
 #description{
 

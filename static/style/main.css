@@ -166,10 +166,14 @@ max-width: 1200px;
  }
  
 section #titre{
-font-size:32px;
-
-color:#232424;
+font-size:21px;
+font-family: Segoe UI Light;
+color:#707474;
 width:100%;
+text-align: right;
+position: absolute;
+top:27px;
+right: 5px;
 
 
 }
