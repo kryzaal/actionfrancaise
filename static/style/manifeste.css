@@ -13,9 +13,8 @@ width:60%;
 }
 
 #texte_manifeste{
-padding: 1px 50px 50px 50px;
-
-background-color: #ece9e9;
+    padding: 1px 50px 50px 50px;
+    border: 1px dashed grey;
 	text-align: left;
 }
 
@@ -28,7 +27,7 @@ text-align: left;
 }
 
 #titre_texte h1{
-  font-size:32px;  
+  font-size:46px;  
 }
 
 #description{
