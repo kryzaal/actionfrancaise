@@ -1,6 +1,29 @@
 <% include head %>
 
-<div id="auteur"></div>
+<aside id="article_aside">
+	<div id="auteur"></div>
+	<div id="partage">
+		<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURI(uri) %>&t=<%= encodeURI(article.titre) %>">
+			<img src="/images/article_fb.png"/><p>&nbsp;Partager</p>
+		</a>
+		<a class="twitter" href="https://twitter.com/share?url=<%= encodeURI(uri) %>&text=<%= encodeURI(article.titre) %>">
+			<img src="/images/article_twitter.png"/><p>&nbsp;Twitter</p>
+		</a>
+		<a class="plus" href="https://plus.google.com/share?url=<%= encodeURI(uri) %>">
+			<img src="/images/article_g+.png"/><p>&nbsp;Recommander</p>
+		</a>
+	</div>
+</aside>
+
+<article>
+	<img class="image_article" src="/images/image_article2.jpg" />
+
+	<h1 class="titre_article"><%= article.titre %></h1>
+	<h2> Publié le <%= article.date %> à <%= article.heure %></h2>
+
+	<p><%- article.complet %></p>
+</article>
+
 <script>
 	$(function() {
 		$.get("/profil/<%= article.auteur %>", function( data ) {
@@ -8,26 +31,9 @@
 		});
 
 		$(window).scroll(function() {
-			$('#auteur').css('top', $(this).scrollTop());
+			$('#article_aside').css('top', $(this).scrollTop());
 		});
 	})
 </script>
-
-<div>
-	<div class="article">
-		<img class="image_article" src="/images/image_article2.jpg" />
-
-		<div class="article_partage">
-			<a href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURI(uri) %>&t=<%= encodeURI(article.titre) %>"><img src="/images/article_fb.png"/>&nbsp;Partager</a>
-			<a href="https://twitter.com/share?url=<%= encodeURI(uri) %>&text=<%= encodeURI(article.titre) %>"><img src="/images/article_twitter.png"/>&nbsp;Twitter</a>
-			<a href="https://plus.google.com/share?url=<%= encodeURI(uri) %>"><img src="/images/article_g+.png"/>&nbsp;Recommander</a>
-		</div>
-
-		<h1 class="titre_article"><%= article.titre %></h1>
-		<h2> Publié le <%= article.date %> à <%= article.heure %></h2>
-
-		<p><%- article.complet %></p>
-	</div>    
-</div>
 
 <% include foot %>
