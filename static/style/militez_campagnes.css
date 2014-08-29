@@ -34,10 +34,26 @@
 #evenements > #evenement {
 	width: 80%;
 	float: left;
+	margin-bottom: 45px;
 }
 
 #evenement div.img_container {
 	width: 90%;
 	margin: 10px auto;
 	background-color: #808080;
+}
+
+#evenement div#edition > * {
+	display: inline;
+}
+
+#evenement #photos
+{
+	-webkit-column-count: 2; 
+	-moz-column-count: 2; 
+	column-count: 2;
+}
+
+#evenement #photos img {
+	width: 100%;
 }

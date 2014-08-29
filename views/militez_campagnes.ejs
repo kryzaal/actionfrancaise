@@ -5,15 +5,23 @@
 <div id="evenements">
 	<div class="button" onclick="previous();"></div>
 	<div id="evenement">
-		<h1></h1>
 		<div class="img_container"><img class="image_evenement" src="/images/evenement.jpg" /></div>
+		<h1>Evenement</h1>
 		<h2>Cortège traditionnel de Jeanne d'Arc</h2>
+		<div id="edition"><a href="#jeanne_2013">&laquo;</a><h3>Edition 2014</h3><a href="#jeanne_2015">&raquo;</a></div>
+		<article>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</article>
+		<div id="photos">
+			<img src="/visuel/visuel1.jpg" />
+			<img src="/visuel/visuel13.jpg" />
+			<img src="/visuel/visuel12.jpg" />
+			<img src="/visuel/visuel8.jpg" />
+		</div>
 	</div>
 	<div class="button" onclick="next();"></div>
 </div>
 
 <script>
-	var current = null;
+	/*var current = null;
 
 	var campagnes = {
 		'jeanne_2014' : {
@@ -54,7 +62,7 @@
 		else current += 1;
 
 		window.location.hash = '#' + current;
-	}
+	}*/
 </script>
 
 <% include foot %>
