@@ -47,24 +47,7 @@ header h1{
   width:450px;
 }
 
-header hr {
-  margin-top:-10px;
-  border: 0;
-  height: 1px;
-  background: #333;
-  background-image: -webkit-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
-  background-image:    -moz-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
-  background-image:     -ms-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
-  background-image:      -o-linear-gradient(left,#f8f6f6,#f8f6f6,#f8f6f6,#333,#333); 
-}
 
-#corps hr {
-	margin-top:-20px;
-  border: 0;
-  height: 1px;
-  background: grey;
-	margin:5px;
-}
 
 
 #menu_top { 
