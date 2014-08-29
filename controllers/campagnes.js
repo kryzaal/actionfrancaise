@@ -1,11 +1,10 @@
-var parent = require('./militez/campagnes.js');
+var parent = require('./militez/campagnes');
+var model = require('../models/campagne');
 
 function get(request, response) {
-	response.render('militez_campagnes.ejs', {
-    	pageSubtitle: "Campagnes et évenements",
-    	customStylesheets: ["militez_campagnes", "militez_tuiles"],
-    	tuiles: false
-    });
+    parent.tuiles = false;
+	parent.get(request, response);
 }
 
 exports.get = get;
+exports.photo = parent.photo;

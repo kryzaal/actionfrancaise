@@ -3,26 +3,35 @@
 <% if(tuiles) { %><% include militez_tuiles %><% } %>
 
 <div id="evenements">
-	<div class="button"></div>
+	<div class="button"><span>Carrefour Royal</span></div>
 	<div id="evenement">
 		<div class="img_container"><img class="image_evenement" src="/images/evenement.jpg" /></div>
 		<div class="titres">
-			<h1>Evenement</h1>
+			<h1>évenement</h1>
 			<h2>Cortège traditionnel de Jeanne d'Arc</h2>
-			<div id="edition"><a href="#jeanne_2013">&laquo;</a><h3>Edition 2014</h3><a href="#jeanne_2015">&raquo;</a></div>
+			<div id="edition">
+				<a href="#jeanne_2013">Edition 2013</a>
+				<h3>Edition 2014</h3>
+				<a href="#jeanne_2015">Edition 2015</a>
+			</div>
 		</div>
 		<article>
 			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 		</article>
-		<div id="photos">
-			<img src="/visuel/visuel1.jpg" />
-			<img src="/visuel/visuel13.jpg" />
-			<img src="/visuel/visuel4.jpg" />
-			<img src="/visuel/visuel8.jpg" />
+		<div class="ss_titre"><h3>Photos</h3></div>
+		<div id="photos" class="viewer_elements">
+			<img src="/campagnes/jeanne_2014/img1" />
+			<img src="/campagnes/jeanne_2014/img2" />
+			<img src="/campagnes/jeanne_2014/img3" />
+			<img src="/campagnes/jeanne_2014/img4" />
+			<img src="/campagnes/jeanne_2014/img5" />
+			<img src="/campagnes/jeanne_2014/img6" />
 		</div>
 	</div>
-	<div class="button" onclick="next();"></div>
+	<div class="button" onclick="next();"><span>CMRDS 2014</span></div>
 </div>
+
+<% include viewer %>
 	
 <script>
 	$(window).scroll(function() {

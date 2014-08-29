@@ -1,16 +1,10 @@
 <% include head %>
 
-<div id="viewer">
-	<div class="button" onclick="previous();"></div>
-	<div id="image" onclick="collapse();"></div>
-	<div class="button" onclick="next();"></div>
-</div>
-
 <div id="titre"><h1>Visuels, affiches et vidéos</h1></div>
 
-<div id="visuels">
+<div id="visuels" class="viewer_elements">
 	<% visuels.forEach(function(filename) { %>
-		 <img src="/visuel/<%= filename %>" onClick="expand(this);"/>
+		 <img src="/visuel/<%= filename %>"/>
 	<% }); %>
 </div>
 
@@ -21,37 +15,9 @@
 	<% }); %>
 </div>
 
+<% include viewer %>
+
 <script>
-	var selectedImage = null;
-
-	function expand(img) {
-		selectedImage = img;
-
-		var slices = img.src.split('/');
-		window.location.hash = '#' + slices.pop();
-		
-		$('#viewer > #image').css('background-image', "url('" + img.src + "')");
-		$('#viewer').addClass('expanded');
-	}
-
-	function collapse() {
-		selectedImage = null;
-		$('#viewer > #image').css('background-image', 'none');
-		$('#viewer').removeClass('expanded');
-	}
-
-	function previous() {
-		var previousImg = $(selectedImage).prev();
-		if(previousImg.length == 0) previousImg = $('#visuels img:last-child');
-		expand(previousImg[0]);
-	}
-
-	function next() {
-		var nextImg = $(selectedImage).next();
-		if(nextImg.length == 0) nextImg = $('#visuels img:first-child');
-		expand(nextImg[0]);
-	}
-
 	function loadVideo(parentDiv, code) {
 		parentDiv.innerHTML = '<iframe src="http://www.youtube.com/embed/' + code + '?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>';
 	}
@@ -64,8 +30,6 @@
 
 	$(function() {
 		$('#random').remove();
-		var hash = window.location.hash.substr(1);
-		if(hash.length > 1) expand($('img[src="/visuel/' + hash + '"]')[0]);
 	});
 </script>
 

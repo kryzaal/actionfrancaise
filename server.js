@@ -1,5 +1,5 @@
-var server = "127.0.0.1";
-var port = 8080;
+global.server = "127.0.0.1";
+global.port = 8080;
 
 var fs = require("fs");
 var express = require("express");
@@ -65,15 +65,21 @@ app.get("/medias", controllers.medias.get);
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
 app.get("/carte", controllers.carte.get);
+
 app.get("/campagnes", controllers.campagnes.get);
+app.get("/campagnes/:campagne", controllers.campagnes.get);
+app.get("/campagnes/:campagne/:photo", controllers.campagnes.photo);
 
 app.get("/militez", controllers.militez.get);
 app.get("/militez/militer", controllers.militez.militer.get);
-app.get("/militez/campagnes", controllers.militez.campagnes.get);
 app.get("/militez/carte", controllers.militez.carte.get);
 app.get("/militez/camelots", controllers.militez.camelots.get);
 app.get("/militez/cmrds", controllers.militez.cmrds.get);
 app.get("/militez/creer", controllers.militez.creer.get);
+
+app.get("/militez/campagnes", controllers.militez.campagnes.get);
+app.get("/militez/campagnes/:campagne", controllers.militez.campagnes.get);
+app.get("/militez/campagnes/:campagne/:photo", controllers.militez.campagnes.photo);
 
 app.get("/militez/textes", controllers.militez.textes.get);
 app.post("/militez/textes/:filtre", controllers.militez.textes.post);
@@ -106,7 +112,6 @@ app.use("/css", express.static(__dirname + "/static/style"));
 app.use("/fonts", express.static(__dirname + "/static/fonts"));
 app.use("/images", express.static(__dirname + "/static/images"));
 app.use("/slides", express.static(__dirname + "/static/slideshow"));
-
 
 /** 404 & 500 **/
 app.get("/418", function(request, response) {
