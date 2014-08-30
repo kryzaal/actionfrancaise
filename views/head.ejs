@@ -22,13 +22,31 @@
                 <a id="FB" href="/facebook"><img  src="/css/images/facebook.png" /></a>
                 <a id="twitter" href="/twitter"><img  src="/css/images/twitter.png" /></a>
                 <a id="youtube" href="/youtube"><img  src="/css/images/youtube.png" /></a>
-                <a id="rss" href="/rss"><img  src="/css/images/rss.png" /></a>
+                <div id="rss_button" onclick="rss();"><img  src="/css/images/rss.png" /></div>
                 
                 <form id="recherche" method="POST" action="/recherche">
                     <img src="/css/images/recherche.png"/>
                     <div id="recherche_focus"><input class="recherche" type="text" name="recherche" placeholder=" Tapez votre recherche" onkeypress="if (event.keyCode == 13) $('#recherche').submit();" /></div>
                 </form>
             </div>
+
+            <script>
+                function rss() {
+                    $.get('/rss', function(data, success, xhr) {
+                        $('#lightbox').html(data).css({
+                            'display' : 'block',
+                            'width': '250px',
+                            'height': '250px'
+                        });
+
+                        $('*:not(#lightbox, #rss_button)').click(function() {
+                            $('#lightbox').html(data).css({
+                                'display' : 'none'
+                            });
+                        })
+                    })
+                }
+            </script>
 
             <div id="menu_top">
                 <nav>
@@ -43,6 +61,7 @@
                 </nav>
             </div>
         </header>
+        <div id="lightbox"></div>
         <div id="corps">
             <section>
                 <div id="titre"><h1><% if(typeof pageSubtitle != "undefined") { %> <%= pageSubtitle %> <% } %></h1></div>

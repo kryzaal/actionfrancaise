@@ -210,8 +210,12 @@ margin-top:28px;
   margin:5px;
 }
 
-#reseaux_sociaux form, #reseaux_sociaux a {
+#reseaux_sociaux form, #reseaux_sociaux a, #reseaux_sociaux div {
   display: inline-block;
+}
+
+#reseaux_sociaux div {
+  cursor: pointer;
 }
 
 #reseaux_sociaux form {
@@ -238,4 +242,14 @@ form#recherche input {
 
 form#recherche:hover input, form#recherche input:hover, form#recherche input:focus, #recherche_focus:hover input {
   display: block;
+}
+
+#lightbox {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: gray;
 }

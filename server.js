@@ -23,7 +23,8 @@ var controllers = {
     recherche : require('./controllers/recherche'),
     reseaux_sociaux : require('./controllers/reseaux_sociaux'),
     profil : require('./controllers/profil'),
-    articles : require('./controllers/articles')
+    articles : require('./controllers/articles'),
+    rss: require('./controllers/rss')
 };
 
 var transporter = mailer.createTransport({
@@ -63,6 +64,7 @@ app.get("/medias", controllers.medias.get);
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
 app.get("/carte", controllers.militez.carte.get);
+app.get("/creer", controllers.militez.creer.get);
 
 app.get("/campagnes", controllers.militez.campagnes.get);
 app.get("/campagnes/:campagne", controllers.militez.campagnes.get);
@@ -92,6 +94,9 @@ app.get("/organigramme/journal", controllers.organigramme.journal.get);
 app.get("/facebook", controllers.reseaux_sociaux.facebook);
 app.get("/twitter", controllers.reseaux_sociaux.twitter);
 app.get("/youtube", controllers.reseaux_sociaux.youtube);
+
+app.get("/rss", controllers.rss.get);
+app.post("/rss", controllers.rss.post);
 
 app.use("/visuel", express.static(__dirname + "/static/images/visuels"));
 app.get("/visuel/random", function(request, response) {
