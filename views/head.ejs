@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <% include title %>
+        <title>
+            Action Française
+            <% if(typeof pageSubtitle != "undefined") { %> <%= " - " + pageSubtitle %> <% } %>
+        </title>
         <% include css %>
         <meta charset="utf-8">
 		<link rel="icon" type="/image/png" href="/css/images/favicon.png" />
@@ -42,4 +45,4 @@
         </header>
         <div id="corps">
             <section>
-        
+                <div id="titre"><h1><% if(typeof pageSubtitle != "undefined") { %> <%= pageSubtitle %> <% } %></h1></div>

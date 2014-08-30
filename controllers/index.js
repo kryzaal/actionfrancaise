@@ -9,7 +9,6 @@ function get(request, response) {
 		fs.readdir(document_root + "/static/slideshow", function(err, files) {
 			campagne_model.fetchLatest(function(err, campagne) {
 				response.render('index.ejs', {
-			    	pageSubtitle: "Accueil",
 			    	customStylesheets: ["index", "slideshow"],
 			    	articles : articles,
 			    	slides : files,
