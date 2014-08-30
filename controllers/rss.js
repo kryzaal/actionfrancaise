@@ -84,7 +84,7 @@ function xml(request, response) {
 	}
 
 	feed.feed_url = feed.feed_url.substr(0, feed.feed_url.length - 1);
-	feed.title = feed.title.substr(0, feed.feed_url.length - 2);
+	feed.title = feed.title.substr(0, feed.title.length - 2);
 
 	response.writeHead('200', {'Content-Type': 'application/xml'});
     response.end(feed.xml());
