@@ -1,22 +1,8 @@
-<style>
-	#rss form {
-		display: table;
-	}
-
-	#rss form > * {
-		display: table-row;
-	}
-
-	#rss form > * > * {
-		display: table-cell;
-	}
-</style>
-
 <div id="rss">
-	<h2>Flux RSS</h2>
-	<p>Créez votre flux RSS personnalisé en fonction des informations que vous souhaitez voir</p>
+	<div><h2>Flux RSS</h2></div>
+	<p>Créez votre flux RSS personnalisé en fonction des informations que vous souhaitez recevoir.</p>
 
-	<form name="rss" action="/rss" method="post">
+	<form name="rss" action="/rss/xml" method="get">
 		<label><input type="checkbox" name="campagnes" /> Evenements/Campagnes</label>
 		<label><input type="checkbox" name="articles" /> Articles publiés</label>
 		<label><input type="checkbox" name="visuels" /> Nouveaux visuels</label>

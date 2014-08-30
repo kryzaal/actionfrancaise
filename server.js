@@ -96,7 +96,7 @@ app.get("/twitter", controllers.reseaux_sociaux.twitter);
 app.get("/youtube", controllers.reseaux_sociaux.youtube);
 
 app.get("/rss", controllers.rss.get);
-app.post("/rss", controllers.rss.post);
+app.get("/rss/xml", controllers.rss.xml);
 
 app.use("/visuel", express.static(__dirname + "/static/images/visuels"));
 app.get("/visuel/random", function(request, response) {

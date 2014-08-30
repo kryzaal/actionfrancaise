@@ -39,8 +39,15 @@
                             'height': '250px'
                         });
 
-                        $('*:not(#lightbox)').click(function() {
-                            $('#lightbox').html(data).css({
+                        $('#lightbox_fog').css({
+                            'display' : 'block'
+                        });
+
+                        $('#lightbox_fog').click(function() {
+                            $('#lightbox').html('').css({
+                                'display' : 'none'
+                            });
+                            $('#lightbox_fog').css({
                                 'display' : 'none'
                             });
                         })
@@ -62,6 +69,7 @@
             </div>
         </header>
         <div id="lightbox"></div>
+        <div id="lightbox_fog"></div>
         <div id="corps">
             <section>
                 <div id="titre"><h1><% if(typeof pageSubtitle != "undefined") { %> <%= pageSubtitle %> <% } %></h1></div>
