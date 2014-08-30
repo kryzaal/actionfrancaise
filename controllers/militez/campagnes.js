@@ -12,7 +12,7 @@ function get(request, response) {
         if(err) throw err;
         if(!data) do404(response);
         else fs.readdir(document_root + "/static/campagnes/" + request.params.campagne, function(err, files) {
-            if(err) throw err;
+            if(err) files = null;
                 
             data.photos = files;
 

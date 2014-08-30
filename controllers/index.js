@@ -7,7 +7,7 @@ function get(request, response) {
 		var articles = data;
 
 		fs.readdir(document_root + "/static/slideshow", function(err, files) {
-			campagne_model.fetchLatest(function(campagne) {
+			campagne_model.fetchLatest(function(err, campagne) {
 				response.render('index.ejs', {
 			    	pageSubtitle: "Accueil",
 			    	customStylesheets: ["index", "slideshow"],

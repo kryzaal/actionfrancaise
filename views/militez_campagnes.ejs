@@ -1,36 +1,72 @@
 <% include head %>
 
-<% if(tuiles) { %><% include militez_tuiles %><% } %>
+<% 
+var base_addr = '/campagnes/';
+var previous = campagne.previous;
+var next = campagne.next;
+
+if(tuiles) { 
+	base_addr = '/militez' + base_addr; 
+%>
+<% include militez_tuiles %>
+<% } %>
 
 <div id="evenements">
-	<div class="button"><span>Carrefour Royal</span></div>
+	<% if(previous) { %>
+		<a href="<%= base_addr + previous.code %>">
+			<div class="button"><span><%= previous.nom %></span></div>
+		</a>
+	<% } %>
+
 	<div id="evenement">
-		<div class="img_container"><img class="image_evenement" src="/campagnes/jeanne_2014/affiche" /></div>
+
+		<div class="img_container"><img class="image_evenement" src="/campagnes/<%= campagne.code %>/affiche" /></div>
+
 		<div class="titres">
 			<h1><%= campagne.type %></h1>
 			<h2><%= campagne.nom %></h2>
+
 			<% if(campagne.editions) { %><div id="edition">
-				<a href="#jeanne_2013">Edition 2013</a>
+				<% if(campagne.editions.precedente) { %>
+					<a href="<%= base_addr + campagne.editions.precedente.code %>"><%= campagne.editions.precedente.libelle %></a>
+				<% } %>
+
 				<h3><%= campagne.editions.actuelle %></h3>
-				<a href="#jeanne_2015">Edition 2015</a>
+
+				<% if(campagne.editions.suivante) { %>
+					<a href="<%= base_addr + campagne.editions.suivante.code %>"><%= campagne.editions.suivante.libelle %></a>
+				<% } %>
 			</div><% } %>
 		</div>
+
 		<article><%- campagne.description %></article>
+
 		<% if(campagne.photos) { %>
 			<div class="ss_titre"><h3>Photos</h3></div>
 			<div id="photos" class="viewer_elements">
 			<% campagne.photos.forEach(function(photo) { photo = photo.substr(0, photo.length - 4); %>
-				<img src="/campagnes/jeanne_2014/<%= photo %>" />
+				<img src="/campagnes/<%= campagne.code %>/<%= photo %>" />
 			<% }) %>
 			</div>
 		<% } %>
+
 	</div>
-	<div class="button"><span>CMRDS 2014</span></div>
+
+	<% if(next) { %>
+		<a href="<%= base_addr + next.code %>">
+			<div class="button"><span><%= next.nom %></span></div>
+		</a>
+	<% } %>
+
 </div>
 
 <% include viewer %>
 	
 <script>
+	$(function() {
+		document.getElementById('evenement').scrollIntoView(true);
+	})
+
 	$(window).scroll(function() {
 		$('#evenements div.button').css('top', $(this).scrollTop() + 5);
 	});

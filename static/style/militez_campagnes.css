@@ -1,9 +1,10 @@
 #evenements {
 	width: 100%;
+	position: relative;
 }
 
-#evenements > div.button {
-	position: relative;
+#evenements div.button {
+	position: absolute;
 	top: 5px;
 	width: 10%;
 	height: 15%;
@@ -18,24 +19,24 @@
 	cursor: pointer;
 }
 
-#evenements > div.button:hover {
+#evenements div.button:hover {
 	background-color: rgba(40, 40, 40, 0.95);
 	opacity: 0.95;
 }
 
-#evenements > div.button:first-child {
+#evenements a:first-child div.button {
 	background-image: url('/css/images/left_arrow2.png');
-	float: left;
+	left: 0;
 }
 
-#evenements > div.button:last-child {
+#evenements a:last-child div.button {
 	background-image: url('/css/images/right_arrow.png');
-	float: right;
+	right: 0;
 }
 
 #evenements > #evenement {
+	display: inline-block;
 	width: 80%;
-	float: left;
 	margin-bottom: 45px;
 }
 
@@ -93,7 +94,7 @@
 	text-align: justify;
 }
 
-#evenement > div.ss_titre {
+#evenement div.ss_titre {
 	display: block;
 	background-color: #0D1C42;
 	height: 35px;
