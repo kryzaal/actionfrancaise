@@ -1,15 +1,13 @@
 <% include head %>
 
 <% 
-var base_addr = '/campagnes/';
+var base_addr = '/campagnes/militez/';
 var previous = campagne.previous;
 var next = campagne.next;
 
-if(tuiles) { 
-	base_addr = '/militez' + base_addr; 
 %>
+
 <% include militez_tuiles %>
-<% } %>
 
 <div id="evenements">
 	<% if(previous) { %>

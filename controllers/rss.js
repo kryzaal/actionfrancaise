@@ -55,29 +55,36 @@ function get(request, response) {
 function xml(request, response) {
 	var feed = new RSS(feed_builder);
 	feed.feed_url += '?';
+	feed.title += ' - ';
 
-	if(request.query.campagnes == true) {
-		feed.feed_url += 'campagnes,';
+	if(request.query.campagnes == 'on') {
+		feed.title += 'Campagnes, Evenements, ';
+		feed.feed_url += 'campagnes=on,';
 		feed.item(create_campagne_item(campagne_model.fetchOneSync('jeanne_2013')));
 	}
 
-	if(request.query.articles == true) {
-		feed.feed_url += 'articles,';
+	if(request.query.articles == 'on') {
+		feed.title += 'Articles, ';
+		feed.feed_url += 'articles=on,';
 	}
 
-	if(request.query.visuels == true) {
-		feed.feed_url += 'visuels,';
+	if(request.query.visuels == 'on') {
+		feed.title += 'Visuels, ';
+		feed.feed_url += 'visuels=on,';
 	}
 
-	if(request.query.videos == true) {
-		feed.feed_url += 'videos,';
+	if(request.query.videos == 'on') {
+		feed.title += 'Videos, ';
+		feed.feed_url += 'videos=on,';
 	}
 
-	if(request.query.textes == true) {
-		feed.feed_url += 'textes,';
+	if(request.query.textes == 'on') {
+		feed.title += 'Textes, ';
+		feed.feed_url += 'textes=on,';
 	}
 
 	feed.feed_url = feed.feed_url.substr(0, feed.feed_url.length - 1);
+	feed.title = feed.title.substr(0, feed.feed_url.length - 2);
 
 	response.writeHead('200', {'Content-Type': 'application/xml'});
     response.end(feed.xml());

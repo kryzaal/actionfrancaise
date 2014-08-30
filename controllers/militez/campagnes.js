@@ -19,7 +19,6 @@ function get(request, response) {
             response.render('militez_campagnes.ejs', {
                 pageSubtitle: campagne_specifiee ? makeTitre(data) : "Campagnes et évenements",
                 customStylesheets: ["militez_campagnes", "militez_tuiles", "viewer"],
-                tuiles: exports.tuiles,
                 campagne: data
             });
         });
@@ -70,4 +69,3 @@ function makeTitre(data) {
 exports.get = get;
 exports.photo = photo;
 exports.affiche = affiche;
-exports.tuiles = true;

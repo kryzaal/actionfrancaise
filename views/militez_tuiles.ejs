@@ -34,7 +34,12 @@
 <script>
 	$(function() {
 		var pathname = window.location.pathname.split('/');
-		if(pathname[1] != "militez") $('#militez').remove();
+		if(pathname[1] != "militez") {
+			$('#militez').remove();
+
+			var allLinks = $('section a[href*="militez"]');
+			allLinks.attr("href", allLinks.attr("href").replace('/militez', ''));
+		}
 
 		var a = $('#militez > a[href="/' + pathname[1] + "/" + pathname[2] + '"]').click(function() {return false}).addClass("current");
 		$(".disabled").click(function() {

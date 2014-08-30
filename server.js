@@ -1,4 +1,4 @@
-global.server = "127.0.0.1";
+global.server = "localhost";
 global.port = 8080;
 
 var fs = require("fs");
