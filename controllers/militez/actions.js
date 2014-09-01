@@ -16,7 +16,7 @@ function get(request, response) {
                 
             data.photos = files;
 
-            response.render('militez_campagnes.ejs', {
+            response.render('militez_actions.ejs', {
                 pageSubtitle: action_specifiee ? makeTitre(data) : "Campagnes et évenements",
                 customStylesheets: ["militez_actions", "militez_tuiles", "viewer"],
                 action: data
