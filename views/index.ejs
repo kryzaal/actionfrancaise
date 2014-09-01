@@ -41,7 +41,20 @@
         });
     });
 </script>
-
+<div id="filtre_articles">
+        <h2>Trier par</h2>
+     
+        <select id="liste_date">
+            <option value="" disabled selected>Par date</option>
+            <option name="Maurras">Croissant</option></select>
+        <select id="liste_auteur">
+            <option value="" disabled selected>Par auteur</option>
+            <option name="Maurras">Maurras</option></select>
+         <select id="liste_thèmes">
+            <option value="" disabled selected>Par thème</option>
+            <option name="Maurras">Maurras</option>
+        </select>
+        <input type="text" name="motclef" placeholder="Par mot clef" /></div>
 <% articles.forEach(function(article) {%>
 	<% include resume_article %>
 <% });%>
