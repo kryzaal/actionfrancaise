@@ -1,25 +1,13 @@
 <% include head %>
 
 <div id="visuels" class="viewer_elements"></div>
-
-<div id="videos">
-	<% videos.forEach(function(code) {%>
-		<div class="video_<%= code %>" onClick="loadVideo(this, '<%= code %>')"></div>
-		<script>$('document').ready(function() {loadTitle('<%= code %>');});</script>
-	<% }); %>
-</div>
+<div id="videos"></div>
 
 <% include viewer %>
 
 <script>
 	function loadVideo(parentDiv, code) {
 		parentDiv.innerHTML = '<iframe src="http://www.youtube.com/embed/' + code + '?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>';
-	}
-
-	function loadTitle(code) {
-	    $.getJSON("http://gdata.youtube.com/feeds/api/videos/" + code + "?v=2&alt=jsonc", function(response) {
-	    	$(".video_" + code).html('<img src="http://img.youtube.com/vi/' + code + '/0.jpg"/>' + '<h1>' + response.data.title + '</h1>');
-	    });
 	}
 
 	$(function() {
@@ -32,6 +20,25 @@
 
 			response.forEach(function(filename) {
 				$('#visuels').append('<img src="/medias/visuels/' + filename + '"/>');
+			})
+		});
+
+		$.get('/medias/videos', function(response, success, xhr) {
+			if(!success) {
+				log(response);
+				return;
+			}
+
+			response.forEach(function(code) {
+				$('#videos').append('<div class="video_' + code + '" onClick="loadVideo(this, ' + code + ')"></div>');
+				
+				$.get("http://gdata.youtube.com/feeds/api/videos/" + code + "?v=2&alt=jsonc", function(response) {
+					if(!success) {
+						log(response);
+						return;
+					}
+	    			$(".video_" + code).html('<img src="http://img.youtube.com/vi/' + code + '/0.jpg"/>' + '<h1>' + response.data.title + '</h1>');
+	    		});
 			})
 		});
 	});

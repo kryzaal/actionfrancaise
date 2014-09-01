@@ -1,7 +1,6 @@
 global.server = "localhost";
 global.port = 8080;
 
-var fs = require("fs");
 var express = require("express");
 var compression = require('compression');
 var favicon = require('serve-favicon');
@@ -64,6 +63,7 @@ app.get("/medias", controllers.medias.get);
 app.get("/medias/visuels", controllers.medias.visuels.list);
 app.get("/medias/visuels/random", controllers.medias.visuels.random);
 app.use("/medias/visuels/:filename", controllers.medias.visuels.get);
+app.get("/medias/videos", controllers.medias.videos.list);
 
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
