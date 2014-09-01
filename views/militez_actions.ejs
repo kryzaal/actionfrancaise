@@ -39,14 +39,10 @@ var next = action.next;
 
 		<article><%- action.description %></article>
 
-		<% if(action.photos) { %>
+		<div id="photos_container">
 			<div class="ss_titre"><h3>Photos</h3></div>
-			<div id="photos" class="viewer_elements">
-			<% action.photos.forEach(function(photo) { photo = photo.substr(0, photo.length - 4); %>
-				<img src="/actions/<%= action.code %>/<%= photo %>" />
-			<% }) %>
-			</div>
-		<% } %>
+			<div id="photos" class="viewer_elements"></div>
+		</div>
 
 	</div>
 
@@ -63,6 +59,16 @@ var next = action.next;
 <script>
 	$(function() {
 		document.getElementById('evenement').scrollIntoView(true);
+		
+		$.get('/actions/<%= action.code %>/photos', function(response) {
+			if(response.length == 0) $("#photos_container").remove();
+			else response.forEach(function(photo) {
+				photo = photo.substr(0, photo.length - 4);
+				$("#photos").append('<img src="/actions/photos/' + photo + '" />');
+			});
+		}).fail(function() {
+			$("#photos_container").remove();
+		});
 	})
 
 	$(window).scroll(function() {

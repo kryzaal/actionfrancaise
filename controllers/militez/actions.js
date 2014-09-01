@@ -1,5 +1,9 @@
 var fs = require('fs');
 var model = require('../../models/action');
+var folder = require(document_root + "/lib/folder");
+
+var actionsFolder = new folder.Folder(document_root + '/data/actions/');
+var subfolders = {};
 
 function get(request, response) {
     var action_specifiee = true;
@@ -10,54 +14,31 @@ function get(request, response) {
 
     model.fetchOne(request.params.action, function(err, data) {
         if(err) throw err;
-        if(!data) do404(response);
-        else fs.readdir(document_root + "/data/actions/" + request.params.action, function(err, files) {
-            if(err) files = null;
-                
-            data.photos = files;
-
+        if(!data) {
+            response.writeHead('404');
+            response.end();
+        } else {
             response.render('militez_actions.ejs', {
                 pageSubtitle: action_specifiee ? makeTitre(data) : "Campagnes et évenements",
                 customStylesheets: ["militez_actions", "militez_tuiles", "viewer"],
                 action: data
             });
-        });
+        }
     });
+}
+
+function photos(request, response) {
+    if(typeof(subfolders[request.params.action]) === 'undefined') subfolders[request.params.action] = actionsFolder.subfolder(request.params.action);
+    subfolders[request.params.action].lsToJson(response);
 }
 
 function photo(request, response) {
-    model.exists(request.params.action, function(err, exists) {
-        if(err) throw err;
-        if(exists)
-            fs.readFile(document_root + '/data/actions/' + request.params.action + '/' + request.params.photo + '.jpg', function (error, data) {
-                if (error) do404(response);
-                else {
-                    response.writeHead('200', {'Content-Type': 'image/jpg'});
-                    response.end(data,'binary');
-                }
-            });
-        else do404(response);
-    });
+    if(typeof(subfolders[request.params.action]) === 'undefined') subfolders[request.params.action] = actionsFolder.subfolder(request.params.action);
+    subfolders[request.params.action].fileToBinary(response, request.params.photo + '.jpg', 'image/jpg');
 }
 
 function affiche(request, response) {
-    model.exists(request.params.action, function(err, exists) {
-        if(err) throw err;
-        if(exists)
-            fs.readFile(document_root + '/data/actions/' + request.params.action + '.jpg', function (error, data) {
-                if (error) do404(response);
-                else {
-                    response.writeHead('200', {'Content-Type': 'image/jpg'});
-                    response.end(data,'binary');
-                }
-            });
-        else do404(response);
-    });
-}
-
-function do404(response) {
-    response.writeHead('404');
-    response.end();
+    actionsFolder.fileToBinary(response, request.params.action + '.jpg', 'image/jpg');
 }
 
 function makeTitre(data) {
@@ -68,4 +49,5 @@ function makeTitre(data) {
 
 exports.get = get;
 exports.photo = photo;
+exports.photos = photo;
 exports.affiche = affiche;

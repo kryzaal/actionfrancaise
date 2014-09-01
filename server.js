@@ -1,5 +1,6 @@
 global.server = "localhost";
 global.port = 8080;
+global.isDevelopment = true;
 
 var express = require("express");
 var compression = require('compression');
