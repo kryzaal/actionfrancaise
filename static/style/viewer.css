@@ -50,7 +50,7 @@
 
 #viewer > div.button:first-child {
 	left: 0;
-	background-image: url('/style/images/left_arrow2.png');
+	background-image: url('/style/images/left_arrow.png');
 }
 
 #viewer > div.button:last-child {

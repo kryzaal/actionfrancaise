@@ -66,10 +66,10 @@ app.post("/recherche", controllers.recherche.post);
 app.get("/carte", controllers.militez.carte.get);
 app.get("/creer", controllers.militez.creer.get);
 
-app.get("/campagnes", controllers.militez.campagnes.get);
-app.get("/campagnes/:campagne", controllers.militez.campagnes.get);
-app.get("/campagnes/:campagne/affiche", controllers.militez.campagnes.affiche);
-app.get("/campagnes/:campagne/:photo", controllers.militez.campagnes.photo);
+app.get("/actions", controllers.militez.actions.get);
+app.get("/actions/:action", controllers.militez.actions.get);
+app.get("/actions/:action/affiche", controllers.militez.actions.affiche);
+app.get("/actions/:action/:photo", controllers.militez.actions.photo);
 
 app.get("/militez", controllers.militez.get);
 app.get("/militez/militer", controllers.militez.militer.get);
@@ -78,10 +78,10 @@ app.get("/militez/camelots", controllers.militez.camelots.get);
 app.get("/militez/cmrds", controllers.militez.cmrds.get);
 app.get("/militez/creer", controllers.militez.creer.get);
 
-app.get("/militez/campagnes", controllers.militez.campagnes.get);
-app.get("/militez/campagnes/:campagne", controllers.militez.campagnes.get);
-app.get("/militez/campagnes/:campagne/affiche", controllers.militez.campagnes.affiche);
-app.get("/militez/campagnes/:campagne/:photo", controllers.militez.campagnes.photo);
+app.get("/militez/actions", controllers.militez.actions.get);
+app.get("/militez/actions/:action", controllers.militez.actions.get);
+app.get("/militez/actions/:action/affiche", controllers.militez.actions.affiche);
+app.get("/militez/actions/:action/:photo", controllers.militez.actions.photo);
 
 app.get("/militez/textes", controllers.militez.textes.get);
 app.post("/militez/textes/:filtre", controllers.militez.textes.post);

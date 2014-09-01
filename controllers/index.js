@@ -1,20 +1,20 @@
 var fs = require('fs');
 var article_model = require('../models/article');
-var campagne_model = require('../models/campagne');
+var action_model = require('../models/action');
 
 function get(request, response) {
 	article_model.fetchAll(function(error, data) {
 		var articles = data;
 
 		fs.readdir(document_root + "/data/slideshow", function(err, files) {
-			campagne_model.fetchLatest(function(err, campagne) {
+			action_model.fetchLatest(function(err, action) {
 				response.render('index.ejs', {
 			    	customStylesheets: ["index", "slideshow"],
 			    	articles : articles,
 			    	slides : files,
-			    	latestCampagne : {
-			    		type: campagne.type,
-			    		code: campagne.code
+			    	latestAction : {
+			    		type: action.type,
+			    		code: action.code
 			    	}
 			    });
 		    });

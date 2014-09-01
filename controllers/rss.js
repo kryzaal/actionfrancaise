@@ -1,6 +1,6 @@
 var RSS = require('rss');
 var article_model = require('../models/article.js');
-var campagne_model = require('../models/campagne.js');
+var action_model = require('../models/action.js');
 
 var http_base = "http://" + server + ':' + port;
 
@@ -25,14 +25,14 @@ function create_item() {
 	}
 }
 
-function create_campagne_item(campagne) {
+function create_action_item(action) {
 	return {
-		title: campagne.titre(),
-		description: campagne.description,
-		guid: campagne.code,
-		url: http_base + "/campagnes/" + campagne.code,
-		categories: [campagne.type],
-		date: campagne.creation,
+		title: action.titre(),
+		description: action.description,
+		guid: action.code,
+		url: http_base + "/actions/" + action.code,
+		categories: [action.type],
+		date: action.creation,
 	}
 }
 
@@ -57,10 +57,10 @@ function xml(request, response) {
 	feed.feed_url += '?';
 	feed.title += ' - ';
 
-	if(request.query.campagnes == 'on') {
+	if(request.query.actions == 'on') {
 		feed.title += 'Campagnes, Evenements, ';
-		feed.feed_url += 'campagnes=on,';
-		feed.item(create_campagne_item(campagne_model.fetchOneSync('jeanne_2013')));
+		feed.feed_url += 'actions=on,';
+		feed.item(create_action_item(action_model.fetchOneSync('jeanne_2013')));
 	}
 
 	if(request.query.articles == 'on') {

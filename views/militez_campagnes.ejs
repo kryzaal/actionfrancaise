@@ -1,9 +1,9 @@
 <% include head %>
 
 <% 
-var base_addr = '/militez/campagnes/';
-var previous = campagne.previous;
-var next = campagne.next;
+var base_addr = '/militez/actions/';
+var previous = action.previous;
+var next = action.next;
 
 %>
 
@@ -18,32 +18,32 @@ var next = campagne.next;
 
 	<div id="evenement">
 
-		<div class="img_container"><img class="image_evenement" src="/campagnes/<%= campagne.code %>/affiche" /></div>
+		<div class="img_container"><img class="image_evenement" src="/actions/<%= action.code %>/affiche" /></div>
 
 		<div class="titres">
-			<h1><%= campagne.type %></h1>
-			<h2><%= campagne.nom %></h2>
+			<h1><%= action.type %></h1>
+			<h2><%= action.nom %></h2>
 
-			<% if(campagne.editions) { %><div id="edition">
-				<% if(campagne.editions.precedente) { %>
-					<a href="<%= base_addr + campagne.editions.precedente.code %>"><%= campagne.editions.precedente.libelle %></a>
+			<% if(action.editions) { %><div id="edition">
+				<% if(action.editions.precedente) { %>
+					<a href="<%= base_addr + action.editions.precedente.code %>"><%= action.editions.precedente.libelle %></a>
 				<% } %>
 
-				<h3><%= campagne.editions.actuelle %></h3>
+				<h3><%= action.editions.actuelle %></h3>
 
-				<% if(campagne.editions.suivante) { %>
-					<a href="<%= base_addr + campagne.editions.suivante.code %>"><%= campagne.editions.suivante.libelle %></a>
+				<% if(action.editions.suivante) { %>
+					<a href="<%= base_addr + action.editions.suivante.code %>"><%= action.editions.suivante.libelle %></a>
 				<% } %>
 			</div><% } %>
 		</div>
 
-		<article><%- campagne.description %></article>
+		<article><%- action.description %></article>
 
-		<% if(campagne.photos) { %>
+		<% if(action.photos) { %>
 			<div class="ss_titre"><h3>Photos</h3></div>
 			<div id="photos" class="viewer_elements">
-			<% campagne.photos.forEach(function(photo) { photo = photo.substr(0, photo.length - 4); %>
-				<img src="/campagnes/<%= campagne.code %>/<%= photo %>" />
+			<% action.photos.forEach(function(photo) { photo = photo.substr(0, photo.length - 4); %>
+				<img src="/actions/<%= action.code %>/<%= photo %>" />
 			<% }) %>
 			</div>
 		<% } %>

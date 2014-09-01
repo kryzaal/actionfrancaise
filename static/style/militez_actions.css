@@ -25,12 +25,12 @@
 }
 
 #evenements a:first-child div.button {
-	background-image: url('/css/images/left_arrow2.png');
+	background-image: url('/style/images/left_arrow.png');
 	left: 0;
 }
 
 #evenements a:last-child div.button {
-	background-image: url('/css/images/right_arrow.png');
+	background-image: url('/style/images/right_arrow.png');
 	right: 0;
 }
 

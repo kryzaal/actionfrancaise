@@ -1,35 +1,35 @@
 var fs = require('fs');
-var model = require('../../models/campagne');
+var model = require('../../models/action');
 
 function get(request, response) {
-    var campagne_specifiee = true;
-    if(!request.params.campagne) {
-        request.params.campagne = 'jeanne_2014';
-        campagne_specifiee = false;
+    var action_specifiee = true;
+    if(!request.params.action) {
+        request.params.action = 'jeanne_2014';
+        action_specifiee = false;
     }
 
-    model.fetchOne(request.params.campagne, function(err, data) {
+    model.fetchOne(request.params.action, function(err, data) {
         if(err) throw err;
         if(!data) do404(response);
-        else fs.readdir(document_root + "/data/campagnes/" + request.params.campagne, function(err, files) {
+        else fs.readdir(document_root + "/data/actions/" + request.params.action, function(err, files) {
             if(err) files = null;
                 
             data.photos = files;
 
             response.render('militez_campagnes.ejs', {
-                pageSubtitle: campagne_specifiee ? makeTitre(data) : "Campagnes et évenements",
-                customStylesheets: ["militez_campagnes", "militez_tuiles", "viewer"],
-                campagne: data
+                pageSubtitle: action_specifiee ? makeTitre(data) : "Campagnes et évenements",
+                customStylesheets: ["militez_actions", "militez_tuiles", "viewer"],
+                action: data
             });
         });
     });
 }
 
 function photo(request, response) {
-    model.exists(request.params.campagne, function(err, exists) {
+    model.exists(request.params.action, function(err, exists) {
         if(err) throw err;
         if(exists)
-            fs.readFile(document_root + '/data/campagnes/' + request.params.campagne + '/' + request.params.photo + '.jpg', function (error, data) {
+            fs.readFile(document_root + '/data/actions/' + request.params.action + '/' + request.params.photo + '.jpg', function (error, data) {
                 if (error) do404(response);
                 else {
                     response.writeHead('200', {'Content-Type': 'image/jpg'});
@@ -41,10 +41,10 @@ function photo(request, response) {
 }
 
 function affiche(request, response) {
-    model.exists(request.params.campagne, function(err, exists) {
+    model.exists(request.params.action, function(err, exists) {
         if(err) throw err;
         if(exists)
-            fs.readFile(document_root + '/data/campagnes/' + request.params.campagne + '.jpg', function (error, data) {
+            fs.readFile(document_root + '/data/actions/' + request.params.action + '.jpg', function (error, data) {
                 if (error) do404(response);
                 else {
                     response.writeHead('200', {'Content-Type': 'image/jpg'});

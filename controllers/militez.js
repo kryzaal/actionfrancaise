@@ -7,7 +7,7 @@ function get(request, response) {
 
 exports.get = get;
 exports.militer = require('./militez/militer');
-exports.campagnes = require('./militez/campagnes');
+exports.actions = require('./militez/actions');
 exports.carte = require('./militez/carte');
 exports.camelots = require('./militez/camelots');
 exports.cmrds = require('./militez/cmrds');
