@@ -11,7 +11,7 @@ function get(request, response) {
     model.fetchOne(request.params.campagne, function(err, data) {
         if(err) throw err;
         if(!data) do404(response);
-        else fs.readdir(document_root + "/static/campagnes/" + request.params.campagne, function(err, files) {
+        else fs.readdir(document_root + "/data/campagnes/" + request.params.campagne, function(err, files) {
             if(err) files = null;
                 
             data.photos = files;
@@ -29,7 +29,7 @@ function photo(request, response) {
     model.exists(request.params.campagne, function(err, exists) {
         if(err) throw err;
         if(exists)
-            fs.readFile(document_root + '/static/campagnes/' + request.params.campagne + '/' + request.params.photo + '.jpg', function (error, data) {
+            fs.readFile(document_root + '/data/campagnes/' + request.params.campagne + '/' + request.params.photo + '.jpg', function (error, data) {
                 if (error) do404(response);
                 else {
                     response.writeHead('200', {'Content-Type': 'image/jpg'});
@@ -44,7 +44,7 @@ function affiche(request, response) {
     model.exists(request.params.campagne, function(err, exists) {
         if(err) throw err;
         if(exists)
-            fs.readFile(document_root + '/static/campagnes/' + request.params.campagne + '.jpg', function (error, data) {
+            fs.readFile(document_root + '/data/campagnes/' + request.params.campagne + '.jpg', function (error, data) {
                 if (error) do404(response);
                 else {
                     response.writeHead('200', {'Content-Type': 'image/jpg'});

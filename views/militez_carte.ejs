@@ -3,9 +3,9 @@
 <% if(tuiles) { %><% include militez_tuiles %><% } %>
 
 <div class="carte">
-	<img id="fond" src="/images/carte/map.png" />
+	<img id="fond" src="/style/images/carte/map.png" />
 	<% sections.forEach(function(section) { %>
-		<img id="blason_<%= section.id %>" class="blason" src="/images/carte/<%= section.image %>" 
+		<img id="blason_<%= section.id %>" class="blason" src="/style/images/carte/<%= section.image %>" 
 		style="bottom: <%= section.position.y %>px; left: <%= section.position.x %>px; z-index: <%= 1000 - section.position.y %>"
 		onClick="drawSection('<%= section.id %>')"/>
 	<% }); %>
@@ -23,7 +23,7 @@
 	<div id="details">
 	</div>
 </div>
-<a href="creer" class="disabled"><button id="creermasection" type="button">Créer ma section</button></a>
+<a href="creer"><button id="creermasection" type="button">Créer ma section</button></a>
 
 <script>
 	var current = null;
@@ -37,12 +37,12 @@
 
 		var details = document.getElementById("details");
 		details.innerHTML =
-			'<img class="blason_description" src="/images/carte/' + current.image + '" />' +
+			'<img class="blason_description" src="/style/images/carte/' + current.image + '" />' +
 			'<h1>' + current.complet + '</h1>' +
 			'<p>' + current.texte + '</p>' +
 			'<div id="suivre_section">' +
-				'<a href="http://facebook.com/' + current.facebook + '"><img src="/css/images/icone_fb.png"></a>' +
-				'<a href="/contact/' + current.contact + '"><img src="/css/images/icone_mail.png"></a>' +
+				'<a href="http://facebook.com/' + current.facebook + '"><img src="/style/images/icone_fb.png"></a>' +
+				'<a href="/contact/' + current.contact + '"><img src="/style/images/icone_mail.png"></a>' +
 			'</div>';
 
 		$("img.blason").removeClass("active");
@@ -71,11 +71,6 @@
 	];
 
 	$(function() { drawSection(sections[0].id); });
-
-	$(".disabled").click(function() {
-		alert("Non disponible dans cette démo");
-		return false;
-	});
 </script>
 
 <% include foot %>

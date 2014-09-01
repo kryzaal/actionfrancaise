@@ -29,6 +29,17 @@
             document.getElementById("video_" + code).innerHTML = '<img src="http://img.youtube.com/vi/' + code + '/0.jpg"/>' + '<h1>' + response.data.title + '</h1>';
         });
     }
+
+    $(function() {
+        $('.texte_article p').each(function() {
+            var jElement = $(this);
+
+            while(jElement[0].scrollHeight > jElement[0].offsetHeight) {
+                var lastIndex = jElement.html().lastIndexOf(" ");
+                jElement.html(jElement.html().substring(0, lastIndex) + '&hellip;');
+            }
+        });
+    });
 </script>
 
 <% articles.forEach(function(article) {%>

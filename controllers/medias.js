@@ -1,7 +1,7 @@
 var fs = require("fs");
 
 function get(request, response) {
-	var fileNames = fs.readdir(document_root + "/static/images/visuels", function(err, files) {
+	var fileNames = fs.readdir(document_root + "/data/visuels", function(err, files) {
         response.render('medias.ejs', {
 	    	pageSubtitle: "Visuels, affiches et vidéos",
 	    	customStylesheets: ["medias", "viewer"],

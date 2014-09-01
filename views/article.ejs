@@ -4,19 +4,19 @@
 	<div id="auteur"></div>
 	<div id="partage">
 		<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURI(uri) %>&t=<%= encodeURI(article.titre) %>">
-			<img src="/images/article_fb.png"/><p>&nbsp;Partager</p>
+			<img src="/style/images/article_fb.png"/><p>&nbsp;Partager</p>
 		</a>
 		<a class="twitter" href="https://twitter.com/share?url=<%= encodeURI(uri) %>&text=<%= encodeURI(article.titre) %>">
-			<img src="/images/article_twitter.png"/><p>&nbsp;Twitter</p>
+			<img src="/style/images/article_twitter.png"/><p>&nbsp;Twitter</p>
 		</a>
 		<a class="plus" href="https://plus.google.com/share?url=<%= encodeURI(uri) %>">
-			<img src="/images/article_g+.png"/><p>&nbsp;Recommander</p>
+			<img src="/style/images/article_g+.png"/><p>&nbsp;Recommander</p>
 		</a>
 	</div>
 </aside>
 
 <article>
-	<img class="image_article" src="/images/image_article2.jpg" />
+	<img class="image_article" src="/article/<%= article.id %>/image" />
 
 	<h1 class="titre_article"><%= article.titre %></h1>
 	<h2> Publié le <%= article.date %> à <%= article.heure %></h2>

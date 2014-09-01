@@ -7,7 +7,7 @@
         </title>
         <% include css %>
         <meta charset="utf-8">
-		<link rel="icon" type="/image/png" href="/css/images/favicon.png" />
+		<link rel="icon" type="/image/png" href="/style/images/favicon.png" />
         <script src="/files/jquery.min.js"></script>
     </head>
     <body>
@@ -16,16 +16,16 @@
             <script>$('#toaster').fadeOut(<%= toaster.duration * 1000 %>);</script>
         <% } %>
         <header class='entete' height='170px'>
-            <h1><a href="/"><img name="logo" id="logo" alt="Action Française" src="/css/images/logo.png" ></a></h1>
+            <h1><a href="/"><img name="logo" id="logo" alt="Action Française" src="/style/images/logo.png" ></a></h1>
 
             <div id="reseaux_sociaux">
-                <a id="FB" href="/facebook"><img  src="/css/images/facebook.png" /></a>
-                <a id="twitter" href="/twitter"><img  src="/css/images/twitter.png" /></a>
-                <a id="youtube" href="/youtube"><img  src="/css/images/youtube.png" /></a>
-                <div id="rss_button" onclick="rss();"><img  src="/css/images/rss.png" /></div>
+                <a id="FB" href="/facebook"><img  src="/style/images/facebook.png" /></a>
+                <a id="twitter" href="/twitter"><img  src="/style/images/twitter.png" /></a>
+                <a id="youtube" href="/youtube"><img  src="/style/images/youtube.png" /></a>
+                <div id="rss_button" onclick="rss();"><img  src="/style/images/rss.png" /></div>
                 
                 <form id="recherche" method="POST" action="/recherche">
-                    <img src="/css/images/recherche.png"/>
+                    <img src="/style/images/recherche.png"/>
                     <div id="recherche_focus"><input class="recherche" type="text" name="recherche" placeholder=" Tapez votre recherche" onkeypress="if (event.keyCode == 13) $('#recherche').submit();" /></div>
                 </form>
             </div>

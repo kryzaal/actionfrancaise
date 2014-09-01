@@ -98,9 +98,9 @@ app.get("/youtube", controllers.reseaux_sociaux.youtube);
 app.get("/rss", controllers.rss.get);
 app.get("/rss/xml", controllers.rss.xml);
 
-app.use("/visuel", express.static(__dirname + "/static/images/visuels"));
+app.use("/visuel", express.static(__dirname + "/data/visuels"));
 app.get("/visuel/random", function(request, response) {
-    fs.readdir(__dirname + "/static/images/visuels", function(err, files) {
+    fs.readdir(__dirname + "/data/visuels", function(err, files) {
         var random = files[Math.floor(Math.random() * files.length)];
         response.writeHead(200, {'Content-Type': 'text/plain'});
         response.end(random);
@@ -110,13 +110,13 @@ app.get("/visuel/random", function(request, response) {
 app.get("/profil/:code/photo", controllers.profil.photo);
 app.get("/profil/:code", controllers.profil.get);
 
-app.get("/article/:id", controllers.articles.get);
+app.get("/article/:code", controllers.articles.get);
+app.get("/article/:code/image", controllers.articles.image);
 
 app.use("/files", express.static(__dirname + "/static/files"));
-app.use("/css", express.static(__dirname + "/static/style"));
+app.use("/style", express.static(__dirname + "/static/style"));
 app.use("/fonts", express.static(__dirname + "/static/fonts"));
-app.use("/images", express.static(__dirname + "/static/images"));
-app.use("/slides", express.static(__dirname + "/static/slideshow"));
+app.use("/slides", express.static(__dirname + "/data/slideshow"));
 
 /** 404 & 500 **/
 app.get("/418", function(request, response) {

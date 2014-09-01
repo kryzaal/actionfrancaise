@@ -2,9 +2,9 @@ var fs = require('fs');
 var model = require("../models/profil");
 
 function photo(request, response) {
-    fs.readFile(document_root + '/static/profiles/' + request.params.code + '.jpg', function (err, data) {
+    fs.readFile(document_root + '/data/profiles/' + request.params.code + '.jpg', function (err, data) {
         if (err) 
-        	fs.readFile(document_root + '/static/profiles/fallback.png', function (err, data) {
+        	fs.readFile(document_root + '/data/profiles/fallback.png', function (err, data) {
 		        if (err) throw err;
 
 		        response.writeHead('307', {'Content-Type': 'image/png'});

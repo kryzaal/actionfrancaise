@@ -9,7 +9,7 @@ var feed_builder = {
     description: "Flux RSS du site de l'Action Française",
     feed_url: http_base + "/rss/xml",
     site_url: http_base,
-    image_url: http_base + "/css/images/favicon.png",
+    image_url: http_base + "/style/images/favicon.png",
     language: 'fr'
 };
 
