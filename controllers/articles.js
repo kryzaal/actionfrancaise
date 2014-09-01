@@ -9,7 +9,7 @@ function get(request, response) {
 		        pageSubtitle: data.titre,
 		        customStylesheets: ["article"],
 		        article: data,
-		        uri: '/article/' + data.id
+		        uri: server + ':' + port + '/article/' + data.id
 		    })
 		});
 	});

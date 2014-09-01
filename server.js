@@ -1,5 +1,5 @@
-var server = "127.0.0.1";
-var port = 8080;
+global.server = "localhost";
+global.port = 8080;
 
 var fs = require("fs");
 var express = require("express");
@@ -20,12 +20,11 @@ var controllers = {
     organigramme : require('./controllers/organigramme'),
     militez : require('./controllers/militez'),
     manifeste : require('./controllers/manifeste'),
-    carte : require('./controllers/carte'),
     recherche : require('./controllers/recherche'),
     reseaux_sociaux : require('./controllers/reseaux_sociaux'),
     profil : require('./controllers/profil'),
     articles : require('./controllers/articles'),
-    campagnes : require('./controllers/campagnes'),
+    rss: require('./controllers/rss')
 };
 
 var transporter = mailer.createTransport({
@@ -64,16 +63,25 @@ app.post("/dons", controllers.dons.post);
 app.get("/medias", controllers.medias.get);
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
-app.get("/carte", controllers.carte.get);
-app.get("/campagnes", controllers.campagnes.get);
+app.get("/carte", controllers.militez.carte.get);
+app.get("/creer", controllers.militez.creer.get);
+
+app.get("/campagnes", controllers.militez.campagnes.get);
+app.get("/campagnes/:campagne", controllers.militez.campagnes.get);
+app.get("/campagnes/:campagne/affiche", controllers.militez.campagnes.affiche);
+app.get("/campagnes/:campagne/:photo", controllers.militez.campagnes.photo);
 
 app.get("/militez", controllers.militez.get);
 app.get("/militez/militer", controllers.militez.militer.get);
-app.get("/militez/campagnes", controllers.militez.campagnes.get);
 app.get("/militez/carte", controllers.militez.carte.get);
 app.get("/militez/camelots", controllers.militez.camelots.get);
 app.get("/militez/cmrds", controllers.militez.cmrds.get);
 app.get("/militez/creer", controllers.militez.creer.get);
+
+app.get("/militez/campagnes", controllers.militez.campagnes.get);
+app.get("/militez/campagnes/:campagne", controllers.militez.campagnes.get);
+app.get("/militez/campagnes/:campagne/affiche", controllers.militez.campagnes.affiche);
+app.get("/militez/campagnes/:campagne/:photo", controllers.militez.campagnes.photo);
 
 app.get("/militez/textes", controllers.militez.textes.get);
 app.post("/militez/textes/:filtre", controllers.militez.textes.post);
@@ -87,9 +95,12 @@ app.get("/facebook", controllers.reseaux_sociaux.facebook);
 app.get("/twitter", controllers.reseaux_sociaux.twitter);
 app.get("/youtube", controllers.reseaux_sociaux.youtube);
 
+app.get("/rss", controllers.rss.get);
+app.get("/rss/xml", controllers.rss.xml);
+
 app.use("/visuel", express.static(__dirname + "/static/images/visuels"));
 app.get("/visuel/random", function(request, response) {
-    var fileNames = fs.readdir(__dirname + "/static/images/visuels", function(err, files) {
+    fs.readdir(__dirname + "/static/images/visuels", function(err, files) {
         var random = files[Math.floor(Math.random() * files.length)];
         response.writeHead(200, {'Content-Type': 'text/plain'});
         response.end(random);
@@ -106,7 +117,6 @@ app.use("/css", express.static(__dirname + "/static/style"));
 app.use("/fonts", express.static(__dirname + "/static/fonts"));
 app.use("/images", express.static(__dirname + "/static/images"));
 app.use("/slides", express.static(__dirname + "/static/slideshow"));
-
 
 /** 404 & 500 **/
 app.get("/418", function(request, response) {

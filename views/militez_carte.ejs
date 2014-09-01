@@ -2,8 +2,6 @@
 
 <% if(tuiles) { %><% include militez_tuiles %><% } %>
 
-<!--<div class="titre"><h1>L'Action Française près de chez vous</h1></div>-->
-
 <div class="carte">
 	<img id="fond" src="/images/carte/map.png" />
 	<% sections.forEach(function(section) { %>
@@ -25,7 +23,7 @@
 	<div id="details">
 	</div>
 </div>
-<a href="/militez/creer"><button id="creermasection" type="button">Créer ma section</button></a>
+<a href="creer" class="disabled"><button id="creermasection" type="button">Créer ma section</button></a>
 
 <script>
 	var current = null;
@@ -73,6 +71,11 @@
 	];
 
 	$(function() { drawSection(sections[0].id); });
+
+	$(".disabled").click(function() {
+		alert("Non disponible dans cette démo");
+		return false;
+	});
 </script>
 
 <% include foot %>

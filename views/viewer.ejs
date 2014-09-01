@@ -1,0 +1,47 @@
+<div id="viewer">
+	<div class="button" onclick="previous();"></div>
+	<div id="image" onclick="collapse();"></div>
+	<div class="button" onclick="next();"></div>
+</div>
+
+<script>
+	var selectedImage = null;
+
+	function expand(img) {
+		selectedImage = img;
+
+		var slices = img.src.split('/');
+		window.location.hash = '#' + slices.pop();
+		
+		$('#viewer > #image').css('background-image', "url('" + img.src + "')");
+		$('#viewer').addClass('expanded');
+	}
+
+	function collapse() {
+		window.location.hash = null;
+		selectedImage.scrollIntoView( true );
+
+		selectedImage = null;
+		$('#viewer > #image').css('background-image', 'none');
+		$('#viewer').removeClass('expanded');
+	}
+
+	function previous() {
+		var previousImg = $(selectedImage).prev();
+		if(previousImg.length == 0) previousImg = $('.viewer_elements > img:last-child');
+		expand(previousImg[0]);
+	}
+
+	function next() {
+		var nextImg = $(selectedImage).next();
+		if(nextImg.length == 0) nextImg = $('.viewer_elements > img:first-child');
+		expand(nextImg[0]);
+	}
+
+	$(function() {
+		$('#random').remove();
+		$('.viewer_elements > img').click(function() { expand(this); });
+		var hash = window.location.hash.substr(1);
+		if(hash.length > 1) expand($('img[src*="' + hash + '"]')[0]);
+	});
+</script>

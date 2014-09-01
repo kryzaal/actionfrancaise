@@ -1,76 +1,73 @@
 <% include head %>
 
-<% if(tuiles) { %><% include militez_tuiles %><% } %>
+<% 
+var base_addr = '/militez/campagnes/';
+var previous = campagne.previous;
+var next = campagne.next;
+
+%>
+
+<% include militez_tuiles %>
 
 <div id="evenements">
-	<div class="button"></div>
+	<% if(previous) { %>
+		<a href="<%= base_addr + previous.code %>">
+			<div class="button"><span><%= previous.nom %></span></div>
+		</a>
+	<% } %>
+
 	<div id="evenement">
-		<div class="img_container"><img class="image_evenement" src="/images/evenement.jpg" /></div>
+
+		<div class="img_container"><img class="image_evenement" src="/campagnes/<%= campagne.code %>/affiche" /></div>
+
 		<div class="titres">
-			<h1>Evenement</h1>
-			<h2>Cortège traditionnel de Jeanne d'Arc</h2>
-			<div id="edition"><a href="#jeanne_2013">&laquo;</a><h3>Edition 2014</h3><a href="#jeanne_2015">&raquo;</a></div>
+			<h1><%= campagne.type %></h1>
+			<h2><%= campagne.nom %></h2>
+
+			<% if(campagne.editions) { %><div id="edition">
+				<% if(campagne.editions.precedente) { %>
+					<a href="<%= base_addr + campagne.editions.precedente.code %>"><%= campagne.editions.precedente.libelle %></a>
+				<% } %>
+
+				<h3><%= campagne.editions.actuelle %></h3>
+
+				<% if(campagne.editions.suivante) { %>
+					<a href="<%= base_addr + campagne.editions.suivante.code %>"><%= campagne.editions.suivante.libelle %></a>
+				<% } %>
+			</div><% } %>
 		</div>
-		<article>
-			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-		</article>
-		<div id="photos">
-			<img src="/visuel/visuel1.jpg" />
-			<img src="/visuel/visuel13.jpg" />
-			<img src="/visuel/visuel4.jpg" />
-			<img src="/visuel/visuel8.jpg" />
-		</div>
+
+		<article><%- campagne.description %></article>
+
+		<% if(campagne.photos) { %>
+			<div class="ss_titre"><h3>Photos</h3></div>
+			<div id="photos" class="viewer_elements">
+			<% campagne.photos.forEach(function(photo) { photo = photo.substr(0, photo.length - 4); %>
+				<img src="/campagnes/<%= campagne.code %>/<%= photo %>" />
+			<% }) %>
+			</div>
+		<% } %>
+
 	</div>
-	<div class="button" onclick="next();"></div>
+
+	<% if(next) { %>
+		<a href="<%= base_addr + next.code %>">
+			<div class="button"><span><%= next.nom %></span></div>
+		</a>
+	<% } %>
+
 </div>
+
+<% include viewer %>
 	
 <script>
+	$(function() {
+		document.getElementById('evenement').scrollIntoView(true);
+	})
+
 	$(window).scroll(function() {
 		$('#evenements div.button').css('top', $(this).scrollTop() + 5);
 	});
-
-	//Format URI : /campagnes/[code_campagne]#image
-
-	/*var current = null;
-
-	var campagnes = {
-		'jeanne_2014' : {
-			code: 'jeanne_2014',
-			type: 'evenement',
-			occurence_precedente: 'jeanne_2013',
-			occurence_suivante: null,
-			date: new Date('2014', '5', '11'),
-			nom: "Cortège traditionnel de Jeanne d'Arc",
-			photos: ['img1', 'img2', 'img3'],
-			description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'
-		}
-	}
-
-	$(function() {
-		current = window.location.hash.length > 1 ? window.location.hash.substr(1) : campagnes[0].code;
-		render(campagnes[current]);
-	});
-
-	
-
-	function render(campagne) {
-		
-
-		var container = $('#evenement');
-	}
- 
-	function previous() {
-		if(current == 0) current = campagnes.length;
-		current -= 1;
-		render(campagnes[current]);
-	}
-
-	function next() {
-		if(current == campagnes.length - 1) current = 0;
-		else current += 1;
-
-		window.location.hash = '#' + current;
-	}*/
 </script>
 
 <% include foot %>

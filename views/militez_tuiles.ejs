@@ -1,6 +1,3 @@
-
-<div id="titre"><h1>Militez</h1> </div>
-
 <div id='militez'>     
 	<a href="/militez/militer"><div id="tuile_militer">	
 		<h1>Militer à l'AF</h1>
@@ -36,7 +33,15 @@
 
 <script>
 	$(function() {
-		var a = $('#militez > a[href="' + window.location.pathname + '"]').click(function() {return false}).addClass("current");
+		var pathname = window.location.pathname.split('/');
+		if(pathname[1] != "militez") {
+			$('#militez').remove();
+
+			var allLinks = $('section a[href*="militez"]');
+			allLinks.attr("href", allLinks.attr("href").replace('/militez', ''));
+		}
+
+		var a = $('#militez > a[href="/' + pathname[1] + "/" + pathname[2] + '"]').click(function() {return false}).addClass("current");
 		$(".disabled").click(function() {
 			alert("Non disponible dans cette démo");
 			return false;

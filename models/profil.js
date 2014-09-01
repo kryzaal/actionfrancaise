@@ -7,7 +7,7 @@ var data = {
 	olivier_perceval : {
 		code : "olivier_perceval",
 	    nom : "Olivier Perceval",
-	    titre : "Secrétaire général de l'AF"
+	    titre : "Membre du comité directeur de l'AF"
 	},
 	elie_hatem : {
 		code : "elie_hatem",
@@ -27,7 +27,7 @@ var data = {
 	francois_bel_ker : {
 		code : "francois_bel_ker",
 	    nom : "François Bel-Ker",
-	    titre : "Secrétaire général adjoint de l'AF"
+	    titre : "Secrétaire général de l'AF"
 	},
 	michel_michel : {
 		code : "michel_michel",
@@ -88,6 +88,16 @@ var data = {
 		code : "gregoire_dubost",
 	    nom : "Grégoire Dubost",
 	    titre : "Secrétaire de rédaction - Maquettiste"
+	},
+	philippe_mesnard : {
+		code : "philippe_mesnard",
+	    nom : "Philippe Mesnard",
+	    titre : "Rédacteur en chef"
+	},
+	francois_marcilhac : {
+		code : "francois_marcilhac",
+	    nom : "François Marcilhac",
+	    titre : "Directeur politique et éditorialiste"
 	},
 };
 
