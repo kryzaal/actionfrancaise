@@ -24,7 +24,8 @@ var controllers = {
     reseaux_sociaux : require('./controllers/reseaux_sociaux'),
     profil : require('./controllers/profil'),
     articles : require('./controllers/articles'),
-    rss: require('./controllers/rss')
+    rss: require('./controllers/rss'),
+    sections: require('./controllers/sections')
 };
 
 var transporter = mailer.createTransport({
@@ -65,6 +66,10 @@ app.get("/medias/visuels", controllers.medias.visuels.list);
 app.get("/medias/visuels/random", controllers.medias.visuels.random);
 app.use("/medias/visuels/:filename", controllers.medias.visuels.get);
 app.get("/medias/videos", controllers.medias.videos.list);
+
+app.get("/sections", controllers.sections.get);
+app.get("/sections/:code/contact", controllers.sections.contact);
+app.get("/sections/:code/blason", controllers.sections.blason);
 
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);

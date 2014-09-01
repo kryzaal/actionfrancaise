@@ -14,7 +14,7 @@
 	font-size: 20px;
 }
 
-.carte {
+#carte {
 	position: relative;
 	z-index: 1;
 	display: inline-block;
@@ -26,11 +26,11 @@
 	margin-left: auto;
 }
 
-.carte #fond {
+#carte #fond {
 	width:100%;
 }
 
-.carte .blason {
+#carte .blason {
 	position: absolute;
 	width:80px;
 	border-radius: 0px 0px 47px 47px;
@@ -45,16 +45,16 @@
 		</svg>#greyscale");
 }
 
-.carte .blason:hover {
+#carte .blason:hover {
 	z-index: 1001 !important;
 	cursor: pointer;
 }
 
-.carte .blason.active {
+#carte .blason.active {
 	z-index: 1000 !important;
 }
 
-.carte .blason.active, .carte .blason:hover {
+#carte .blason.active, #carte .blason:hover {
 	-webkit-filter: sepia(0%);
 	-moz-filter: sepia(0%);
 	-ms-filter: sepia(0%);

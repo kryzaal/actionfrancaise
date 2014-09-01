@@ -1,28 +1,19 @@
 <% include head %>
 
-<% if(tuiles) { %><% include militez_tuiles %><% } %>
+<% include militez_tuiles %>
 
-<div class="carte">
-	<img id="fond" src="/style/images/carte/map.png" />
-	<% sections.forEach(function(section) { %>
-		<img id="blason_<%= section.id %>" class="blason" src="/style/images/carte/<%= section.image %>" 
-		style="bottom: <%= section.position.y %>px; left: <%= section.position.x %>px; z-index: <%= 1000 - section.position.y %>"
-		onClick="drawSection('<%= section.id %>')"/>
-	<% }); %>
+<div id="carte">
+	<img id="fond" src="/style/images/map.png" />
 </div>
 
 <div id="carte_aside">
 	<div id="navigation_rapide">
 		<h2>NAVIGATION RAPIDE</h2>
-        <select id="liste_sections" onChange="drawSection(this.value)">
-        <% sections.forEach(function(section) { %>
-        	<option name="<%= section.id %>" value="<%= section.id %>"><%= section.court %></option>
-        <% }); %>
-		</select>
+        <select id="liste_sections" onChange="drawSection(this.value)"></select>
 	</div>
-	<div id="details">
-	</div>
-	<a href="creer" class="disabled"><button id="creermasection" type="button">Créer ma section</button></a>
+	<div id="details"></div>
+
+	<a href="/creer"><button id="creermasection" type="button">Créer ma section</button></a>
 </div>
 
 <script>
@@ -37,12 +28,12 @@
 
 		var details = document.getElementById("details");
 		details.innerHTML =
-			'<img class="blason_description" src="/style/images/carte/' + current.image + '" />' +
+			'<img class="blason_description" src="/sections/' + current.id + '/blason" />' +
 			'<h1>' + current.complet + '</h1>' +
 			'<p>' + current.texte + '</p>' +
 			'<div id="suivre_section">' +
 				'<a href="http://facebook.com/' + current.facebook + '"><img src="/style/images/icone_fb.png"></a>' +
-				'<a href="/contact/' + current.contact + '"><img src="/style/images/icone_mail.png"></a>' +
+				'<a href="/section/' + current.id + '/contact"><img src="/style/images/icone_mail.png"></a>' +
 			'</div>';
 
 		$("img.blason").removeClass("active");
@@ -57,20 +48,22 @@
 		return output;
 	}
 
-	var sections = [
-		<% sections.forEach(function(section) { %>
-			{
-				id: '<%= section.id %>',
-				complet: '<%= section.complet %>',
-				image: '<%= section.image %>',
-				texte: '<%= section.texte %>',
-				facebook: '<%= section.facebook %>',
-				contact: '<%= section.contact %>'
-			},
-		<%}); %>
-	];
+	var sections = null;
 
-	$(function() { drawSection(sections[0].id); });
+	$(function() {
+		$.get('/sections', function(data) {
+			data.forEach(function(section) {
+				$("#carte").append('<img id="blason_' + section.id + '" class="blason" src="/sections/' + section.id + '/blason"' +
+				'style="bottom: ' + section.position.y + 'px; left: ' + section.position.x + 'px; z-index: ' + (1000 - section.position.y) + '"' +
+				'onClick="drawSection(\'' + section.id + '\')"/>');
+
+				$("#liste_sections").append('<option name="' + section.id +'" value="' + section.id + '">' + section.court + '</option>');
+			});
+
+			sections = data;
+			drawSection(sections[0].id);
+		});
+	});
 </script>
 
 <% include foot %>
