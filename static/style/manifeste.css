@@ -1,36 +1,23 @@
 section{
-width:60%;
-
-	
-}
-#texte_manifeste hr {
-	width: 88%;
-    height: 30px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px 0 0 0;
-
+    width:60%;
 }
 
-#texte_manifeste{
+#manifeste div:first-child {
     padding: 1px 50px 50px 50px;
     border: 1px dashed grey;
 	text-align: left;
 }
 
-#titre_texte{
-
-font-color: gray;
-width:100%;
-text-align: left;
-
+#manifeste h1 {
+    font-color: gray;
+    width:100%;
+    text-align: left;
 }
 
-#titre_texte h1{
+#manifeste h2{
   font-size:46px;  
 }
 
-#description{
-
+em {
 	font-style:italic;
 }

@@ -61,6 +61,10 @@ app.get("/dons", controllers.dons.get);
 app.post("/dons", controllers.dons.post);
 
 app.get("/medias", controllers.medias.get);
+app.get("/medias/visuels", controllers.medias.visuels.list);
+app.get("/medias/visuels/random", controllers.medias.visuels.random);
+app.use("/medias/visuels/:filename", controllers.medias.visuels.get);
+
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
 app.get("/carte", controllers.militez.carte.get);
@@ -97,15 +101,6 @@ app.get("/youtube", controllers.reseaux_sociaux.youtube);
 
 app.get("/rss", controllers.rss.get);
 app.get("/rss/xml", controllers.rss.xml);
-
-app.use("/visuel", express.static(__dirname + "/data/visuels"));
-app.get("/visuel/random", function(request, response) {
-    fs.readdir(__dirname + "/data/visuels", function(err, files) {
-        var random = files[Math.floor(Math.random() * files.length)];
-        response.writeHead(200, {'Content-Type': 'text/plain'});
-        response.end(random);
-    });
-});
 
 app.get("/profil/:code/photo", controllers.profil.photo);
 app.get("/profil/:code", controllers.profil.get);

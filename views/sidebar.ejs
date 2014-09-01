@@ -8,8 +8,8 @@
 
   <script>
     $(function() {
-      $.get('/visuel/random', function(data, status, xhr) {
-        $("#random").html('<a href="/medias#' + data + '"><img src="/visuel/' + data + '" /></a>');
+      $.get('/medias/visuels/random', function(data, status, xhr) {
+        $("#random").html('<a href="/medias#' + data + '"><img src="/medias/visuels/' + data + '" /></a>');
       });
     });
   </script>

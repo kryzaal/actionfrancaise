@@ -1,10 +1,6 @@
 <% include head %>
 
-<div id="visuels" class="viewer_elements">
-	<% visuels.forEach(function(filename) { %>
-		 <img src="/visuel/<%= filename %>"/>
-	<% }); %>
-</div>
+<div id="visuels" class="viewer_elements"></div>
 
 <div id="videos">
 	<% videos.forEach(function(code) {%>
@@ -28,6 +24,16 @@
 
 	$(function() {
 		$('#random').remove();
+		$.get('/medias/visuels', function(response, success, xhr) {
+			if(!success) {
+				log(response);
+				return;
+			}
+
+			response.forEach(function(filename) {
+				$('#visuels').append('<img src="/medias/visuels/' + filename + '"/>');
+			})
+		});
 	});
 </script>
 
