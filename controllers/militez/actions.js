@@ -14,7 +14,7 @@ function get(request, response) {
 
     model.fetchOne(request.params.action, function(err, data) {
         if(err) throw err;
-        if(!data) send404();
+        if(!data) send404(response, true);
         else {
             response.render('militez_actions.ejs', {
                 pageSubtitle: action_specifiee ? makeTitre(data) : "Campagnes et évenements",

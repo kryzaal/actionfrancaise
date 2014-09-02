@@ -121,15 +121,20 @@ app.use("/slides", express.static(__dirname + "/data/slideshow"));
 
 /** 404 & 500 **/
 
-global.send404 = function(request, response) {
+global.send404 = function(response, pretty) {
+    if(typeof(pretty) === 'undefined') pretty = false;
+
     response.status(404);
-    if(request.accepts('html')) response.render('404.ejs');
+    if(pretty) response.render('404.ejs');
     else response.end();
 }
 
-global.send500 = function(request, response, err) {
+global.send500 = function(response, pretty, err) {
+    if(typeof(pretty) === 'undefined') pretty = false;
+    if(typeof(err) === 'undefined') err = '';
+
     response.status(500);
-    if(request.accepts('html')) response.render('500.ejs', {erreur : err});
+    if(pretty) response.render('500.ejs', {erreur : err});
     else response.end(err);
 }
 
@@ -138,11 +143,11 @@ app.get("/418", function(request, response) {
 });
 
 app.use(function(request, response, next){
-    global.send404(request, response);
+    global.send404(response, true);
 });
 
 app.use(function(err, request, response, next) {
-    global.send500(request, response, err);
+    global.send500(response, true, err);
 });
 
 app.listen(port, server);
