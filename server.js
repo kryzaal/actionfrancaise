@@ -151,3 +151,5 @@ app.use(function(err, request, response, next) {
 });
 
 app.listen(port, server);
+
+require('./database').db.close();

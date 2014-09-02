@@ -1,6 +1,6 @@
 var data = {
-	'1' : {
-		id: 1, 
+	'annonce_cmrds_2014' : {
+		id: 'annonce_cmrds_2014', 
 		date: '23/05/2014', 
 		heure: '12:34', 
 		titre: 'CMRDS 2014',  
@@ -25,14 +25,14 @@ var data = {
 		heure: '12:34', 
 		titre: 'CMRDS 2014', 
 		sous_titre: 'Moment de camaraderie et de formation', 
-		resume: '<b>       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</b>', 
+		resume: '<b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</b>', 
 		complet: '', 
 		auteur: 'stephane_blanchonnet'
 	},
 	'4' : {
 		id: 4, 
 		date: '24/05/2014', 
-		heure: '16:52', 
+		heure: '16:54', 
 		titre: 'Les identitaires rejoignent l\'AF', 
 		sous_titre: 'Le royalisme, seule conclusion possible au nationalisme.', 
 		resume: '<b> A mort la république !      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</b>', 
