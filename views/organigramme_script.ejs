@@ -1,0 +1,18 @@
+<script>
+	function expand(who) {
+		$(who).addClass('expanded');
+	}
+
+	function collapse(who) {
+		setTimeout(function(){ $(who).parents().removeClass('expanded'); }, 5);
+	}
+
+	$(function() {
+		$('.personne').each(function() {
+			var div = this;
+			$.get("/profil/" + div.dataset.profil, function( data ) {
+				$(div).html($.trim(data));
+			});
+		});
+	})
+</script>

@@ -18,13 +18,11 @@
 					<div class="personne" data-profil="bernard_bonnaves"></div>
 					<div class="personne" data-profil="francois_marcilhac"></div>
 				</div>
-				<button class="collapse" type="button" onclick="collapse('comite_directeur');">Fermer</button>
+				<button class="collapse" type="button" onclick="collapse(this);">Fermer</button>
 			</div>
 		</div>
 	</div>
-	<div id="fleche_bas" class="ligne">
-		<!--<img src="/images/organigramme/fleche_bas.png" />-->
-	</div>
+	<div id="fleche_bas" class="ligne"></div>
 	<div class="ligne">
 		<div class="organe" onclick="expand(this);" id="bureau_politique">
 			<span><h2>Bureau politique</h2>
@@ -37,7 +35,7 @@
 					<div class="personne" data-profil="louis_charles_bonnaves"></div>
 					<div class="personne" data-profil="francois_marcilhac"></div>
 				</div>
-				<button class="collapse" type="button" onclick="collapse('bureau_politique');">Fermer</button>
+				<button class="collapse" type="button" onclick="collapse(this);">Fermer</button>
 			</div>
 		</div>
 	</div>
@@ -46,7 +44,7 @@
 			<span><h2>Centre Royaliste d'Action Française</h2>
 			<p>Le mouvement</p></span>
 		</div></a>
-		<div id="fleche_bureau_journal_mouvement"><div id="gauche"></div><div id="droite"></div></div>
+		<div id="fleche_bureau_journal_mouvement"><div></div></div>
 		<a href="/organigramme/journal"><div class="organe" id="journal">
 			<span><h2>AF 2000</h2>
 			<p>Le journal</p></span>
@@ -54,23 +52,6 @@
 	</div>
 </div>
 
-<script>
-	function expand(who) {
-		who.className = "organe expanded";
-	}
-
-	function collapse(who) {
-		setTimeout(function(){ document.getElementById(who).className = "organe" }, 10);
-	}
-
-	$(function() {
-		$('.personne').each(function() {
-			var div = this;
-			$.get("/profil/" + div.dataset.profil, function( data ) {
-				$(div).html($.trim(data));
-			});
-		});
-	})
-</script>
+<% include organigramme_script %>
 
 <% include foot %>

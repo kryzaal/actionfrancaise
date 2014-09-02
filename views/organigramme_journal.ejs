@@ -1,14 +1,8 @@
 <% include head %>
 
 <div id="organigramme">
-	<div class="ligne">
-		<a href="/organigramme"><div class="organe" id="mouvement">
-			<span>
-				<h2>Instances supérieures</h2>
-				<p>Pilotent le mouvement et le journal</p>
-			</span>
-		</div></a>
-	</div>
+	<% include organigramme_instancessuperieures %>
+	<div id="fleche_bas" class="ligne"></div>
 	<div class="ligne">
 		<div class="organe noexpansion" id="priep">
 			<span>
@@ -17,6 +11,7 @@
 			</span>
 		</div>
 	</div>
+	<div id="fleche_bas" class="ligne"></div>
 	<div class="ligne">
 		<div class="organe" id="af2000" onclick="expand(this);">
 			<span>
@@ -32,10 +27,11 @@
 				<div class="ligne">
 					<div class="personne" data-profil="gregoire_dubost"></div>
 				</div>
-				<button class="collapse" type="button" onclick="collapse('af2000');">Fermer</button>
+				<button class="collapse" type="button" onclick="collapse(this);">Fermer</button>
 			</div>
 		</div>
 	</div>
+	<div id="fleche_bas" class="ligne"></div>
 	<div class="ligne">
 		<div class="organe noexpansion" id="comite_redaction">
 			<span>
@@ -44,6 +40,7 @@
 			</span>
 		</div>
 	</div>
+	<div id="fleche_bas" class="ligne"></div>
 	<div class="ligne">
 		<div class="organe noexpansion" id="redacteurs">
 			<span>
@@ -54,23 +51,6 @@
 	</div>
 </div>
 
-<script>
-	function expand(who) {
-		who.className = "organe expanded";
-	}
-
-	function collapse(who) {
-		setTimeout(function(){ document.getElementById(who).className = "organe" }, 10);
-	}
-
-	$(function() {
-		$('.personne').each(function() {
-			var div = this;
-			$.get("/profil/" + div.dataset.profil, function( data ) {
-				$(div).html($.trim(data));
-			});
-		});
-	})
-</script>
+<% include organigramme_script %>
 
 <% include foot %>

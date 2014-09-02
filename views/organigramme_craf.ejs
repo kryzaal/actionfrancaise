@@ -1,54 +1,12 @@
 <% include head %>
 
 <div id="organigramme">
-	<div class="ligne" id="instances_superieurs">
-		<a href="/organigramme">
-			<div class="organe" id="mouvement">
-			<span>
-				<h2>Instances supérieures</h2>
-				<p>Pilotent le mouvement et le journal</p>
-			</span>
-			</div>
-		</a>
-	</div>
-	
+	<% include organigramme_instancessuperieures %>
+
 	<div class="ligne" id="secretariats">
-		<div class="organe" id="secretariat_general" onclick="expand(this);">
-			<span>
-				<h2>Secrétariat général</h2>
-				<p>Instance de direction du mouvement</p>
-			</span>
-			<div class="membres">
-				<div class="ligne">
-					<div class="personne dirigeant" data-profil="olivier_perceval"></div>
-					<div class="personne" data-profil="antoine_desonay"></div>
-				</div>
-				<br/>
-				<div class="ligne">
-					<div class="personne" data-profil="francois_bel_ker"></div>
-					<div class="personne" data-profil="pierre_marchand"></div>
-				</div>
-				<br/>
-				<button class="collapse" type="button" onclick="collapse('secretariat_general');">Fermer</button>
-			</div>
-		</div>
-		<div id="fleche_secretariats"><div id="gauche"></div><div id="droite"></div></div>
-		<div class="organe" id="secretariat" onclick="expand(this);">
-			<span>
-				<h2>Secrétariat</h2>
-				<p>Gestion administrative du mouvement</p>
-			</span>
-			<div class="membres">
-				<div class="ligne">
-					<div class="personne" data-profil="odile_veron"></div>
-					<div class="personne" data-profil="marie_suzanne_de_benque_d_agut"></div>
-				</div>
-				<div class="ligne">
-					<div class="personne" data-profil="blanche_pupion"></div>
-				</div>
-				<button class="collapse" type="button" onclick="collapse('secretariat');">Fermer</button>
-			</div>
-		</div>
+		<% include organigramme_craf_secretariatgeneral %>
+		<div id="fleche_secretariats"><div></div></div>
+		<% include organigramme_craf_secretariat %>
 	</div>
 
 	<div class="ligne" id="com_sections">
@@ -61,11 +19,10 @@
 				<div class="ligne">
 					<div class="personne" data-profil="arnaud_paris"></div>
 				</div>
-				<button class="collapse" type="button" onclick="collapse('communication');">Fermer</button>
+				<button class="collapse" type="button" onclick="collapse(this);">Fermer</button>
 			</div>
 		</div>
 		<div id="fleche_com_sections" class="ligne">
-		
 		</div>
 		<div class="organe" id="sections" >
 			<a href="/carte"><span>
@@ -76,26 +33,6 @@
 	</div>
 </div>
 
-
-
-
-<script>
-	function expand(who) {
-		who.className = "organe expanded";
-	}
-
-	function collapse(who) {
-		setTimeout(function(){ document.getElementById(who).className = "organe" }, 10);
-	}
-
-	$(function() {
-		$('.personne').each(function() {
-			var div = this;
-			$.get("/profil/" + div.dataset.profil, function( data ) {
-				$(div).html($.trim(data));
-			});
-		});
-	})
-</script>
+<% include organigramme_script %>
 
 <% include foot %>
