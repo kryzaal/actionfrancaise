@@ -8,10 +8,10 @@ section{
 
 
 #filtre_articles{
-margin-top: 25px;
+margin-top: 45px;
 
 height:45px;
-width:92.5%;
+width:92.2%;
 background-color:#ece9e9;
 margin-right: auto;
 margin-left: auto;
@@ -21,18 +21,17 @@ margin-left: auto;
 #filtre_articles h2, #filtre_articles p, #filtre_articles select, #filtre_articles input{
 display: inline-block;
 vertical-align: middle;
-margin-top: 2px;
+margin-top: 5px;
  font-family:Arial;
   font-size:16px;
 }
-
+#filtre_articles h2{
+  margin-top: 10px;
+}
 #filtre_articles select,#filtre_articles input{
- width:22%;
- 
+  width:22%;
   padding:2px;
   border:none;
-
- 
   height:80%;
 }
 
