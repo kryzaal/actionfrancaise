@@ -1,0 +1,90 @@
+#cmrds {
+	width: 100%;
+}
+
+#cmrds a {
+	text-decoration: none;
+	color: white;
+}
+
+#cmrds h1 {
+	top: 0;
+}
+
+#cmrds nav {
+	position: relative;
+	display: inline-block;
+	width: 15%;
+	float: left;
+	top: 0;
+}
+
+#cmrds nav div.line {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	z-index 1;
+	min-height: 100%;
+	width: 50%;
+	border-left: 5px solid #ECE9E9;
+}
+
+#cmrds nav div.evenement {
+	position: relative;
+	z-index 2;
+	background-color: #1D3674;
+	color: white;
+	width: 80%;
+	clear: both;
+	padding: 10px;
+	font-weight: bolder;
+	margin-bottom: 20%;
+	cursor: pointer;
+	-webkit-transition: box-shadow background-color 0.5s ease-in-out 0s;
+	-moz-transition: box-shadow background-color 0.5s ease-in-out 0s;
+	-o-transition: box-shadow background-color 0.5s ease-in-out 0s;
+	-ms-transition: box-shadow background-color 0.5s ease-in-out 0s;
+	transition: box-shadow  background-color 0.5s ease-in-out 0s; 
+}
+
+#cmrds nav div.evenement:hover {
+	background-color: #0D1C42;
+	box-shadow: 0px 0px 12px #000;
+}
+
+#cmrds nav div.evenement:nth-child(even) {
+	float: left;
+}
+
+#cmrds nav div.evenement:nth-child(odd) {
+	float: right;
+}
+
+#cmrds nav div.evenement:last-child {
+	margin-bottom: 0;
+}
+
+#timeline {
+	display: inline-block;
+	width: 80%;
+	float: right;
+}
+
+#timeline div.line {
+	display: inline-block;
+	width: 60%;
+	min-height: 250px;
+}
+
+#timeline div.line:nth-child(even) {
+	border-left: 5px solid #1D3674;
+}
+
+#timeline div.line:nth-child(odd) {
+	border-right: 5px solid #1D3674;
+}
+
+#timeline article {
+	background-color: #ECE9E9;
+	margin: -15px 0;
+}
