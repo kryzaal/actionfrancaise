@@ -1,5 +1,6 @@
 #organigramme {
  	margin: 25px 0;
+ 	overflow: hidden;
 }
 
 #organigramme a {
@@ -15,9 +16,11 @@
 #organigramme .ligne {
 	display: block;
 	clear: both;
+	width: 100%;
 }
 
 #organigramme .organe {
+	position: relative;
 	min-height: 80px;
 	width:30%;
  	padding: 5px;
@@ -26,6 +29,7 @@
   	border: 2px dashed grey;
  	cursor: pointer;
  	vertical-align: top;
+ 	z-index: 5;
  	transition-property: background-color;
 	transition-duration: 1s;
 }
@@ -182,12 +186,28 @@
 	border-right: 2px solid black;
 }
 
+#organigramme #ligne_fleche_centrale {
+	position: relative;
+	bottom: -50px;
+	height: 0;
+	max-height: 100%;
+}
+
+#organigramme #ligne_fleche_centrale div {
+	position: absolute;
+	bottom: 0;
+	height: 1000px;
+	border-left: 2px solid black;
+	z-index: 1;
+}
+
 #organigramme #fleche_com_sections {
-	/*display: inline-block;
-	vertical-align: middle;
+	display: inline-block;
+	vertical-align: bottom;
 	width: 34%;
-	max-width: 300px;
-	height: 2px;
-	margin: -40px -5px 54px;
-	border-bottom: 2px solid black;*/
+	min-height: 80px;
+	margin-top: 50px;
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
 }
