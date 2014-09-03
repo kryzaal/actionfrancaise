@@ -26,20 +26,18 @@
 	font-weight: bold;
 }
 
-
-
 #evenements div.button:hover {
 	
 	opacity: 0.95;
 }
 
 #evenements a:first-child div.button {
-	background-image: url('/style/images/left_arrow.png');
+	background-image: url('/style/images/previous_action.png');
 	left: 0;
 }
 
 #evenements a:last-child div.button {
-	background-image: url('/style/images/right_arrow.png');
+	background-image: url('/style/images/next_action.png');
 	right: 0;
 }
 

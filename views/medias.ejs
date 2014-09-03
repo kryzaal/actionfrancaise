@@ -3,8 +3,6 @@
 <div id="visuels" class="viewer_elements"></div>
 <div id="videos"></div>
 
-<% include viewer %>
-
 <script>
 	function loadVideo(parentDiv, code) {
 		parentDiv.innerHTML = '<iframe src="http://www.youtube.com/embed/' + code + '?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>';
@@ -43,5 +41,7 @@
 		});
 	});
 </script>
+
+<% include viewer %>
 
 <% include foot %>

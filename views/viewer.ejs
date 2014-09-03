@@ -39,8 +39,10 @@
 	}
 
 	$(function() {
-		$('#random').remove();
-		$('.viewer_elements > img').click(function() { expand(this); });
+		setTimeout(function() {
+			$('.viewer_elements > img').click(function() { expand(this); });
+		}, 50);
+
 		var hash = window.location.hash.substr(1);
 		if(hash.length > 1) expand($('img[src*="' + hash + '"]')[0]);
 	});
