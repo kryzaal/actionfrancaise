@@ -80,6 +80,7 @@ app.get("/creer", controllers.militez.creer.get);
 app.get("/actions", controllers.militez.actions.get);
 app.get("/actions/:action", controllers.militez.actions.get);
 app.get("/actions/:action/affiche", controllers.militez.actions.affiche);
+app.get("/actions/:action/photos", controllers.militez.actions.photos);
 app.get("/actions/:action/:photo", controllers.militez.actions.photo);
 
 app.get("/militez", controllers.militez.get);
@@ -92,6 +93,7 @@ app.get("/militez/creer", controllers.militez.creer.get);
 app.get("/militez/actions", controllers.militez.actions.get);
 app.get("/militez/actions/:action", controllers.militez.actions.get);
 app.get("/militez/actions/:action/affiche", controllers.militez.actions.affiche);
+app.get("/militez/actions/:action/photos", controllers.militez.actions.photos);
 app.get("/militez/actions/:action/:photo", controllers.militez.actions.photo);
 
 app.get("/militez/textes", controllers.militez.textes.get);

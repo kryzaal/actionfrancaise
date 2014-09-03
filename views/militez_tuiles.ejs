@@ -38,7 +38,7 @@
 			$('#militez').remove();
 
 			var allLinks = $('section a[href*="militez"]');
-			if(!allLinks.empty())
+			if(!allLinks.length == 0)
 				allLinks.attr("href", allLinks.attr("href").replace('/militez', ''));
 		}
 

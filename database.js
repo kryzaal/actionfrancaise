@@ -23,10 +23,10 @@ function initDb() {
 			console.log("Version du schéma initiale : " + version);
 		});
 
-		upgradeSchema();
-
-		getSchemaVersion(function(version) {
-			console.log("Fin de l'initialisation de la base, version du schéma : " + version);
+		upgradeSchema(function() {
+			getSchemaVersion(function(version) {
+				console.log("Fin de l'initialisation de la base, version du schéma : " + version);
+			});
 		});
 	});
 }
@@ -46,7 +46,7 @@ function setSchemaVersion(version, callback) {
 	})
 }
 
-function upgradeSchema() {
+function upgradeSchema(onFinish) {
 	if(patchs.length == 0) return;
 	var lowestPatch = patchs[0];
 	patchs.shift();
@@ -57,7 +57,8 @@ function upgradeSchema() {
 		if(schema_version - version == 1) {
 			console.log('Upgrade vers la version du schema ' + schema_version);
 			executeSqlFile(patch_dir + lowestPatch, function() {
-				setSchemaVersion(version + 1, upgradeSchema);
+				setSchemaVersion(version + 1, function() {upgradeSchema(function() {})});
+				onFinish();
 			});
 		}
 		else 

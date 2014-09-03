@@ -47,5 +47,5 @@ function makeTitre(data) {
 
 exports.get = get;
 exports.photo = photo;
-exports.photos = photo;
+exports.photos = photos;
 exports.affiche = affiche;

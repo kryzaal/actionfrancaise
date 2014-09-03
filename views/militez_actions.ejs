@@ -17,7 +17,6 @@ var next = action.next;
 	<% } %>
 
 	<div id="evenement">
-
 		<div class="img_container"><img class="image_evenement" src="/actions/<%= action.code %>/affiche" /></div>
 
 		<div class="titres">
@@ -64,7 +63,7 @@ var next = action.next;
 			if(response.length == 0) $("#photos_container").remove();
 			else response.forEach(function(photo) {
 				photo = photo.substr(0, photo.length - 4);
-				$("#photos").append('<img src="/actions/photos/' + photo + '" />');
+				$("#photos").append('<img src="/actions/<%= action.code %>/' + photo + '" />');
 			});
 		}).fail(function() {
 			$("#photos_container").remove();
@@ -72,7 +71,8 @@ var next = action.next;
 	})
 
 	$(window).scroll(function() {
-		$('#evenements div.button').css('top', $(this).scrollTop() + 5);
+		var scroll = $(this).scrollTop() - $('#militez').height() - 150;
+		$('#evenements div.button').css('top', scroll < 5 ? 5 : scroll);
 	});
 </script>
 
