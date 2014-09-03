@@ -1,5 +1,7 @@
 #evenements {
-	width: 100%;
+	width: 88%;
+	margin-left: auto;
+	margin-right: auto;
 	position: relative;
 }
 
@@ -10,16 +12,24 @@
 	height: 250px;
 	border: none;
 	opacity: 0.7;
-	color: white;
-
-	background-color: rgba(40, 40, 40, 0.7);
+	color: black;
 	background-position: center;
 	background-repeat: no-repeat;
 	cursor: pointer;
 }
 
+#evenements div.button span{
+	
+	position: relative;
+	top:225px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+
 #evenements div.button:hover {
-	background-color: rgba(40, 40, 40, 0.95);
+	
 	opacity: 0.95;
 }
 
@@ -45,8 +55,18 @@
 
 #evenement div.img_container {
 	margin: 10px auto;
-	background-color: #808080;
+	background-image: -webkit-linear-gradient(left,#D1D7E6,#fff,#D1D7E6); 
+  background-image:    -moz-linear-gradient(left,#D1D7E6,#fff,#D1D7E6); 
+  background-image:     -ms-linear-gradient(left,#D1D7E6,#fff,#D1D7E6); 
+  background-image:      -o-linear-gradient(left,#D1D7E6,#fff,#D1D7E6); 
+	box-shadow: inset 1px 1px 12px #555;
 }
+
+#evenement div.img_container img{
+	height:500px;
+	box-shadow: 0px 0px 5px #555;
+}
+
 
 #evenement div.titres {
 	background-color: #0D1C42;
