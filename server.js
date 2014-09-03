@@ -1,6 +1,7 @@
 global.server = "localhost";
 global.port = 8080;
 global.isDevelopment = true;
+global.document_root = __dirname;
 
 var express = require("express");
 var compression = require('compression');
@@ -9,7 +10,7 @@ var ejs = require('ejs');
 var mailer = require('nodemailer');
 var bodyParser = require('body-parser')
 
-global.document_root = __dirname;
+require('./database');
 
 var controllers = {
     index : require('./controllers/index'),
@@ -151,5 +152,3 @@ app.use(function(err, request, response, next) {
 });
 
 app.listen(port, server);
-
-require('./database').db.close();
