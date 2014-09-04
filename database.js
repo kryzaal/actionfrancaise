@@ -11,6 +11,7 @@ process.on('exit', function(code) {
 });
 
 var patchs = [];
+var sqlStack = [];
 
 function initDb() {
 	fs.createReadStream(dbPath).pipe(fs.createWriteStream(backupPath));
@@ -18,64 +19,85 @@ function initDb() {
 	patchs = fs.readdirSync(patch_dir);
 	patchs.sort();
 
-	executeSqlFile(document_root + '/sql/base.sql', function() {
+	executeBase(function() {
 		getSchemaVersion(function(version) {
 			console.log("Version du schéma initiale : " + version);
-		});
-
-		upgradeSchema(function() {
-			getSchemaVersion(function(version) {
-				console.log("Fin de l'initialisation de la base, version du schéma : " + version);
+			
+			upgradeSchema(function() {
+				getSchemaVersion(function(version) {
+					console.log("Fin de l'initialisation de la base, version du schéma : " + version);
+				});
 			});
 		});
 	});
 }
 
+function executeBase(callback) {
+	db.serialize(function() {
+		db.run("CREATE TABLE IF NOT EXISTS parameters (key TEXT PRIMARY KEY, value TEXT)");
+		db.run("INSERT OR IGNORE INTO parameters (key, value) VALUES ('version', '0')");
+		callback();
+	});
+}
+
 function getSchemaVersion(callback) {
-	db.get("SELECT value FROM parameters WHERE (key == $key)", {$key: 'version'}, function(err, row) {
-		if(err) throw err;
-		if(typeof(row) == 'undefined') row = {value: 0};
-		callback(parseInt(row.value));
+	db.serialize(function() {
+		db.get("SELECT value FROM parameters WHERE (key == 'version')", {}, function(err, row) {
+			if(err) throw err;
+			if(typeof(row) == 'undefined') row = {value: 0};
+			callback(parseInt(row.value));
+		});
 	});
 }
 
 function setSchemaVersion(version, callback) {
-	db.run("INSERT OR REPLACE INTO parameters (key, value) VALUES ($key, $value)", {$key: 'version', $value: version}, function(err) {
-		if(err) throw err;
-		callback();
-	})
+	db.serialize(function() {
+		db.run("INSERT OR REPLACE INTO parameters (key, value) VALUES ($key, $value)", {'$key': 'version', '$value': version}, function(err) {
+			if(err) throw err;
+			callback();
+		});
+	});
 }
 
 function upgradeSchema(onFinish) {
-	if(patchs.length == 0) return;
 	var lowestPatch = patchs[0];
-	patchs.shift();
-
 	var schema_version = parseInt(lowestPatch.split('.')[0]);
 
 	getSchemaVersion(function(version) {
 		if(schema_version - version == 1) {
 			console.log('Upgrade vers la version du schema ' + schema_version);
 			executeSqlFile(patch_dir + lowestPatch, function() {
-				setSchemaVersion(version + 1, function() {upgradeSchema(function() {})});
-				onFinish();
+				setSchemaVersion(version + 1, function() {
+					patchs.shift();
+					upgradeSchema(onFinish);
+				});
+				
 			});
 		}
 		else 
 			if(schema_version > version) throw "Impossible de passer de la version du schema " + version + " a la version " + schema_version + " : chainon manquant";
 	});
+
+	if(patchs.length == 0) {
+		onFinish();
+		return;
+	}
 }
 
 function executeSqlFile(file, callback) {
 	var script = fs.readFileSync(file, {encoding: 'utf-8'});
-	db.run(script, {}, function(err) {
-		if(err) throw err;
-		callback();
+	var parts = script.replace('\n', ' ').split(';');
+
+	sqlStack.push('BEGIN TRANSACTION');
+	parts.forEach(function(part) {
+		sqlStack.push(part);
 	});
+	sqlStack.push('COMMIT');
+
+	callback();
 }
 
-db.serialize(function() {
-	initDb();
-});
+initDb();
+console.log(JSON.stringify(sqlStack));
 
 exports.db = db;
