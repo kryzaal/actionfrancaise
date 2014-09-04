@@ -1,119 +1,16 @@
-var data = {
-	stephane_blanchonnet : {
-	    code : "stephane_blanchonnet",
-	    nom : "Stéphane Blanchonnet",
-	    titre : "Président du comité directeur de l'AF"
-	},
-	olivier_perceval : {
-		code : "olivier_perceval",
-	    nom : "Olivier Perceval",
-	    titre : "Membre du comité directeur de l'AF"
-	},
-	elie_hatem : {
-		code : "elie_hatem",
-	    nom : "Elie Hatem",
-	    titre : "Avocat, membre du comité directeur de l'AF"
-	},
-	michel_bracciali : {
-		code : "michel_bracciali",
-	    nom : "Michel Bracciali",
-	    titre : "Membre du comité directeur de l'AF"
-	},
-	marie_gabrielle_pujo : {
-		code : "marie_gabrielle_pujo",
-	    nom : "Marie-Gabrielle Pujo",
-	    titre : "Membre du comité directeur de l'AF"
-	},
-	francois_bel_ker : {
-		code : "francois_bel_ker",
-	    nom : "François Bel-Ker",
-	    titre : "Secrétaire général de l'AF"
-	},
-	michel_michel : {
-		code : "michel_michel",
-	    nom : "Michel Michel",
-	    titre : "Sociologue, membre du comité directeur de l'AF"
-	},
-	michel_franceschetti : {
-		code : "michel_franceschetti",
-	    nom : "Michel Franceschetti",
-	    titre : "Membre du comité directeur de l'AF"
-	},
-	bernard_bonnaves : {
-		code : "bernard_bonnaves",
-	    nom : "Bernard Bonnaves",
-	    titre : "Membre du comité directeur de l'AF"
-	},
-	antoine_desonay : {
-		code : "antoine_desonay",
-	    nom : "Antoine Desonay",
-	    titre : "Secrétaire général étudiant"
-	},
-	louis_charles_bonnaves : {
-		code : "louis_charles_bonnaves",
-	    nom : "Louis-Charles Bonnaves",
-	    titre : "Membre du bureau politique de l'AF"
-	},
-	pierre_marchand : {
-		code : "pierre_marchand",
-	    nom : "Pierre Marchand",
-	    titre : "Secrétaire général adjoint de l'AF"
-	},
-	blanche_pupion : {
-		code : "blanche_pupion",
-	    nom : "Blanche Pupion",
-	    titre : "Assistante"
-	},
-	odile_veron : {
-		code : "odile_veron",
-	    nom : "Odile Véron",
-	    titre : "Secrétaire"
-	},
-	marie_suzanne_de_benque_d_agut : {
-		code : "marie_suzanne_de_benque_d_agut",
-	    nom : "Marie Suzanne de Benque d'Agut",
-	    titre : "Secrétaire"
-	},
-	arnaud_paris : {
-		code : "arnaud_paris",
-	    nom : "Arnaud Pâris",
-	    titre : "Directeur de la cellule de communication"
-	},
-	marielle_pujo : {
-		code : "marielle_pujo",
-	    nom : "Marielle Pujo",
-	    titre : "Directrice de la publication"
-	},
-	gregoire_dubost : {
-		code : "gregoire_dubost",
-	    nom : "Grégoire Dubost",
-	    titre : "Secrétaire de rédaction - Maquettiste"
-	},
-	philippe_mesnard : {
-		code : "philippe_mesnard",
-	    nom : "Philippe Mesnard",
-	    titre : "Rédacteur en chef"
-	},
-	francois_marcilhac : {
-		code : "francois_marcilhac",
-	    nom : "François Marcilhac",
-	    titre : "Directeur politique et éditorialiste"
-	},
-};
-
-function object_to_array(object) {
-	array = [];
-	for( var i in object ) {
-	    array.push(object[i]);
-	}
-	return array;
-}
+var dbHandler = require(document_root + '/database').handler;
 
 exports.exists = function(code, callback) {
-	callback(false, typeof data[code] !== 'undefined');
+	dbHandler.get("SELECT COUNT(*) > 0 FROM profils WHERE code == ?", code, callback);
 }
 
 exports.fetchOne = function(code, callback) {
-	if(typeof data[code] === 'undefined') callback("Code " + code + " introuvable dans les profils", undefined);
-	else callback(false, data[code]);
+	dbHandler.get("SELECT * FROM profils WHERE code == ?", code, function(err, row) {
+		callback(err, {
+			code: row['code'],
+			nom: row['nom'],
+			titre: row['titre'],
+			biographie: row['biographie'],
+		})
+	});
 }

@@ -9,8 +9,10 @@ var favicon = require('serve-favicon');
 var ejs = require('ejs');
 var mailer = require('nodemailer');
 var bodyParser = require('body-parser')
+var database = require('./database');
 
-require('./database');
+database.init();
+process.on('exit', database.finalize);
 
 var controllers = {
     index : require('./controllers/index'),
