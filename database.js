@@ -61,6 +61,7 @@ sync(function() {
 	patchs = fs.readdirSync(patch_dir);
 	patchs.sort();
 
+	db.run.sync(db, "PRAGMA foreign_keys = ON", {});
 	db.run.sync(db, "CREATE TABLE IF NOT EXISTS parameters (key TEXT PRIMARY KEY, value TEXT)", {});
 	db.run.sync(db, "INSERT OR IGNORE INTO parameters (key, value) VALUES ('version', '0')", {});
 
