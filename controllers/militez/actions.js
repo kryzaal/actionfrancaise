@@ -45,7 +45,21 @@ function makeTitre(data) {
     return titre;
 }
 
+function latest(request, response) {
+    model.fetchLatest(function(err, data) {
+        if(err) throw err;
+        else {
+            response.writeHead('200', {'Content-Type': 'application/json'});
+            response.end(JSON.stringify({
+                code: data.code,
+                type: data.type
+            }));
+        }
+    });
+}
+
 exports.get = get;
 exports.photo = photo;
 exports.photos = photos;
 exports.affiche = affiche;
+exports.latest = latest;

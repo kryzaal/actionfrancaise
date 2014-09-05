@@ -1,0 +1,10 @@
+<div class="article">
+	<a href="/articles/<%= code %>"><img class="image_article" src="/articles/<%= code %>/image" /></a>
+	<div class="texte_article">
+		<h1 class="titre_article"><%= titre %></h1>
+		<h2>Publié le <%= date %> à <%= heure %></h2>
+		<% if(typeof sous_titre != 'undefined') { %><h3><%= sous_titre %></h3><% } %>
+		<p><%= resume %></p>
+	</div>
+	<div class="lire_la_suite"><a href="/articles/<%= code %>"><h1>Lire la suite</h1><img src="/style/images/lire_la_suite.png"></a></div>
+</div>

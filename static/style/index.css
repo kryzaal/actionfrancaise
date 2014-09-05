@@ -8,38 +8,23 @@ section{
 
 
 #filtre_articles{
-margin-top: 45px;
-
-height:45px;
-width:92.2%;
-background-color:#ece9e9;
-margin-right: auto;
-margin-left: auto;
-
+  margin-top: 45px;
+  width:90%;
+  height: 35px;
+  background-color:#ece9e9;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px;
 }
-
-#filtre_articles h2, #filtre_articles p, #filtre_articles select, #filtre_articles input{
-display: inline-block;
-vertical-align: middle;
-margin-top: 5px;
- font-family:Arial;
-  font-size:16px;
-}
-#filtre_articles h2{
-  margin-top: 10px;
-}
-#filtre_articles select,#filtre_articles input{
-  width:22%;
-  padding:2px;
-  border:none;
-  height:80%;
-}
-
 
 #filtre_articles input{
-  height:70%;
+  width: 98%;
+  border:none;
+  text-align: center;
+  height: 25px;
+  margin: 5px;
+  font-weight: bold;
 }
-
 
 section .etage{
   margin-bottom:20px;
@@ -128,7 +113,7 @@ margin-top: 10px;
  }
 
 
-section .evenement{
+#evenement{
     position: relative;
  display:inline-block;
  vertical-align:top;
@@ -157,7 +142,7 @@ min-width: 200px;
 }
 
 
-.evenement a{
+#evenement a{
 text-decoration: none;
 color:black;}
 
@@ -243,7 +228,7 @@ color:black;}
 
 }
 
-.evenement h1 {
+#evenement h1 {
    position: absolute;
  background-color:#ece9e9;
   min-height: 20px;

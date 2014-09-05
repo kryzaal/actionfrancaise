@@ -80,6 +80,7 @@ app.get("/carte", controllers.militez.carte.get);
 app.get("/creer", controllers.militez.creer.get);
 
 app.get("/actions", controllers.militez.actions.get);
+app.get("/actions/latest", controllers.militez.actions.latest);
 app.get("/actions/:action", controllers.militez.actions.get);
 app.get("/actions/:action/affiche", controllers.militez.actions.affiche);
 app.get("/actions/:action/photos", controllers.militez.actions.photos);
@@ -116,8 +117,11 @@ app.get("/rss/xml", controllers.rss.xml);
 app.get("/profil/:code/photo", controllers.profil.photo);
 app.get("/profil/:code", controllers.profil.get);
 
-app.get("/article/:code", controllers.articles.get);
-app.get("/article/:code/image", controllers.articles.image);
+app.get("/articles", controllers.articles.list);
+app.post("/articles/:query", controllers.articles.search);
+app.get("/articles/:code", controllers.articles.get);
+app.get("/articles/:code/resume", controllers.articles.resume);
+app.get("/articles/:code/image", controllers.articles.image);
 
 app.use("/files", express.static(__dirname + "/static/files"));
 app.use("/style", express.static(__dirname + "/static/style"));

@@ -1,6 +1,6 @@
 var data = {
 	'annonce_cmrds_2014' : {
-		id: 'annonce_cmrds_2014', 
+		code: 'annonce_cmrds_2014', 
 		date: '23/05/2014', 
 		heure: '12:34', 
 		titre: 'CMRDS 2014',  
@@ -10,7 +10,7 @@ var data = {
 	    auteur: 'stephane_blanchonnet'
 	},
 	'2' : {
-		id: 2, 
+		code: 2, 
 		date: '24/05/2014', 
 		heure: '16:52', 
 		titre: 'Les identitaires rejoignent l\'AF', 
@@ -20,7 +20,7 @@ var data = {
 	    auteur: 'stephane_blanchonnet'
 	},
 	'3' : {
-		id: 3, 
+		code: 3, 
 		date: '23/05/2014', 
 		heure: '12:34', 
 		titre: 'CMRDS 2014', 
@@ -30,7 +30,7 @@ var data = {
 		auteur: 'stephane_blanchonnet'
 	},
 	'4' : {
-		id: 4, 
+		code: 4, 
 		date: '24/05/2014', 
 		heure: '16:54', 
 		titre: 'Les identitaires rejoignent l\'AF', 
@@ -40,7 +40,7 @@ var data = {
 		auteur: 'stephane_blanchonnet'
 	},
 	'5' : {
-		id: 5, 
+		code: 5, 
 		date: '23/05/2014', 
 		heure: '12:34', 
 		titre: 'CMRDS 2014', 
@@ -50,7 +50,7 @@ var data = {
 		auteur: 'stephane_blanchonnet'
 	},
 	'6' : {
-		id: 6, 
+		code: 6, 
 		date: '24/05/2014', 
 		heure: '16:52', 
 		titre: 'Les identitaires rejoignent l\'AF', 
@@ -60,7 +60,7 @@ var data = {
 		auteur: 'stephane_blanchonnet'
 	},
 	'7' : {
-		id: 7, 
+		code: 7, 
 		date: '23/05/2014', 
 		heure: '12:34', 
 		titre: 'CMRDS 2014', 
@@ -70,7 +70,7 @@ var data = {
 		auteur: 'stephane_blanchonnet'
 	},
 	'8' : {
-		id: 8, 
+		code: 8, 
 		date: '24/05/2014', 
 		heure: '16:52', 
 		titre: 'Les identitaires rejoignent l\'AF', 

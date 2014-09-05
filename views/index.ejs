@@ -3,11 +3,7 @@
 <% include slideshow %>
 
 <div id="alaune"> 
-    <div class="evenement">
-    	<a href="/actions/<%= latestAction.code %>">
-            <img class="image_evenement" src="/actions/<%= latestAction.code %>/affiche" />
-        	<h1><%= latestAction.type %></h1></a>
-    	</div>
+    <div id="evenement"></div>
        
     <div class="video videodumoment" id="video_e5WxM2qjpBo" onClick="loadVideo(this, 'e5WxM2qjpBo')"></div>
     <script>$('document').ready(function() {loadTitle('e5WxM2qjpBo');});</script>
@@ -18,6 +14,12 @@
         <script>$('document').ready(function() {loadTitle('5W-IIoqQHKs');});</script>
     </div>
 </div> 
+
+<div id="filtre_articles">
+    <input type="text" id="search" placeholder="Par mot clef" />
+</div>
+
+<div id="articles"></div>
 
 <script>
     function loadVideo(parentDiv, code) {
@@ -30,7 +32,34 @@
         });
     }
 
+    var cache_resume = {};
+
+    function load_list(list) {
+        list.forEach(function(code) {
+            $("#articles").empty();
+            if(typeof(cache_resume[code]) !== 'undefined') $("#articles").append(cache_resume[code]);
+            else $.get('/articles/' + code + '/resume', function(html) {
+                cache_resume[code] = html;
+                $("#articles").append(html);
+            });
+        });
+    }
+
     $(function() {
+        $.get('/actions/latest', function(data) {
+            $("#evenement").html(
+                '<a href="/actions/' + data.code + '">' +
+                    '<img class="image_evenement" src="/actions/' + data.code + '/affiche" />' +
+                    '<h1>' + data.code + '</h1>' +
+                '</a>');
+        });
+
+        $.get('/articles', load_list);
+
+        $("#search").keyup(function() {
+            $.post('/articles/' + $(this).val(), load_list);
+        });
+
         $('.texte_article p').each(function() {
             var jElement = $(this);
 
@@ -41,22 +70,4 @@
         });
     });
 </script>
-<div id="filtre_articles">
-        <h2>Trier par</h2>
-     
-        <select id="liste_date">
-            <option value="" disabled selected>Par date</option>
-            <option name="Maurras">Croissant</option></select>
-        <select id="liste_auteur">
-            <option value="" disabled selected>Par auteur</option>
-            <option name="Maurras" >Maurras</option></select>
-         <select id="liste_thèmes">
-            <option value="" disabled selected>Par thème</option>
-            <option name="Maurras">Maurras</option>
-        </select>
-        <input type="text" name="motclef" placeholder="Par mot clef" /></div>
-<% articles.forEach(function(article) {%>
-	<% include resume_article %>
-<% });%>
-
 <% include foot %>
