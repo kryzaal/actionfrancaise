@@ -1,115 +1,65 @@
-.intro{
-	width:99%;
-	text-align: left;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding: 5px;
-	border: 1px dashed grey;}
-
-.intro img{
-	display: inline-block;
-	float:left;
-	height:140px;
-
-
-}
-
-
-
-#camelots {
-	width: 88%;
-	margin-right: auto;
+#camelots{
+	width:88%;
 	margin-left: auto;
-}
-article img {
-	float: left;
-	height:300px;
-	margin:5px;
+	margin-right:auto; 
+
 
 }
-#camelots a {
-	text-decoration: none;
+
+#intro{
+}
+
+.ss_titre{
+background-color: #0D1C42;
 	color: white;
+	font-size: 1.4em;
 }
 
-#camelots h1 {
-	top: 0;
+.texte{
+
+display:inline-block;
+vertical-align:top;
+text-align:left;
+
+color:#292927;
+white-space: normal;
+margin-top: 5px;
+width:33%;
+height:100px;
+overflow: hidden;
+background-color:#ece9e9;
+
 }
 
-#camelots nav {
-	position: relative;
+.texte img{
 	display: inline-block;
-	width: 15%;
-	float: left;
-	top: 0;
+	vertical-align: top;
+	float:left;
+	height:100%;
+	transition: filter 0.5s ease-in-out 0s;
+     -webkit-filter: sepia(100%);
+  -moz-filter: greyscale(100%);
+  -ms-filter: greyscale(100%);
+  -o-filter: greyscale(100%);
+  filter: greyscale(100%);
+filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0' width='1'><filter id='greyscale'><feColorMatrix type='matrix' values='0.343 0.669 0.119 0 0 0.249 0.626 0.130 0 0 0.172 0.334 0.111 0 0 0 0 0 1 0' /></filter></svg>#greyscale"); /* Firefox 4+ */
+}
+.texte_texte{
+margin-left:105px;
+
+
 }
 
-#camelots nav div.line {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	z-index 1;
-	min-height: 100%;
-	width: 50%;
-	border-left: 5px solid #ECE9E9;
+.texte_texte h1{
+	margin-top:0px;
+font-size: 17px;
+
 }
 
-#camelots nav div.evenement {
-	position: relative;
-	z-index 2;
-	background-color: #1D3674;
-	color: white;
-	width: 80%;
-	clear: both;
-	padding: 10px;
-	font-weight: bolder;
-	margin-bottom: 20%;
-	cursor: pointer;
-	-webkit-transition: box-shadow background-color 0.5s ease-in-out 0s;
-	-moz-transition: box-shadow background-color 0.5s ease-in-out 0s;
-	-o-transition: box-shadow background-color 0.5s ease-in-out 0s;
-	-ms-transition: box-shadow background-color 0.5s ease-in-out 0s;
-	transition: box-shadow  background-color 0.5s ease-in-out 0s; 
+.texte_texte p{
+		margin-top:-16px;
+	font-size: 12px;
+
 }
 
-#camelots nav div.evenement:hover {
-	background-color: #0D1C42;
-	box-shadow: 0px 0px 12px #000;
-}
 
-#camelots nav div.evenement:nth-child(even) {
-	float: left;
-}
-
-#camelots nav div.evenement:nth-child(odd) {
-	float: right;
-}
-
-#camelots nav div.evenement:last-child {
-	margin-bottom: 0;
-}
-
-#timeline {
-	display: inline-block;
-	width: 80%;
-	float: right;
-}
-
-#timeline div.line {
-	display: inline-block;
-	width: 60%;
-	min-height: 250px;
-}
-
-#timeline div.line:nth-child(even) {
-	border-left: 5px solid #1D3674;
-}
-
-#timeline div.line:nth-child(odd) {
-	border-right: 5px solid #1D3674;
-}
-
-#timeline article {
-	background-color: #ECE9E9;
-	margin: -15px 0;
-}
