@@ -16,7 +16,7 @@
 </div> 
 
 <div id="filtre_articles">
-    <input type="text" id="search" placeholder="Par mot clef" />
+    <input type="text" id="search" placeholder="Mot clé, auteur, titre ..." auto/>
 </div>
 
 <div id="articles"></div>
@@ -34,14 +34,31 @@
 
     var cache_resume = {};
 
+    function load_one(article_node, html) {
+        $(article_node).html(html);
+        $(article_node).find('.texte_article p').each(function() {
+            var jElement = $(this);
+
+            while(jElement[0].scrollHeight > jElement[0].offsetHeight) {
+                var lastIndex = jElement.html().lastIndexOf(" ");
+                jElement.html(jElement.html().substring(0, lastIndex) + '&hellip;');
+            }
+        });
+    }
+
     function load_list(list) {
+        $("#articles").empty();
         list.forEach(function(code) {
-            $("#articles").empty();
-            if(typeof(cache_resume[code]) !== 'undefined') $("#articles").append(cache_resume[code]);
-            else $.get('/articles/' + code + '/resume', function(html) {
+            $("#articles").append('<div class="article" data-code="' + code + '"></div>');
+        });
+
+        $("#articles div.article").each(function() {
+            var article_element = this;
+            var code = this.dataset.code;
+            if(typeof(cache_resume[code]) === 'undefined') $.get('/articles/' + code + '/resume', function(html) {
                 cache_resume[code] = html;
-                $("#articles").append(html);
-            });
+                load_one(article_element, html);
+            }); else load_one(article_element, cache_resume[code]);
         });
     }
 
@@ -54,20 +71,11 @@
                 '</a>');
         });
 
-        $.get('/articles', load_list);
-
-        $("#search").keyup(function() {
+        $("#search").val("").keyup(function() {
             $.post('/articles/' + $(this).val(), load_list);
         });
 
-        $('.texte_article p').each(function() {
-            var jElement = $(this);
-
-            while(jElement[0].scrollHeight > jElement[0].offsetHeight) {
-                var lastIndex = jElement.html().lastIndexOf(" ");
-                jElement.html(jElement.html().substring(0, lastIndex) + '&hellip;');
-            }
-        });
+        $.get('/articles', load_list);
     });
 </script>
 <% include foot %>

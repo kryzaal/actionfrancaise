@@ -28,7 +28,8 @@ var controllers = {
     profil : require('./controllers/profil'),
     articles : require('./controllers/articles'),
     rss: require('./controllers/rss'),
-    sections: require('./controllers/sections')
+    sections: require('./controllers/sections'),
+    slideshow: require('./controllers/slideshow')
 };
 
 var transporter = mailer.createTransport({
@@ -118,10 +119,13 @@ app.get("/profil/:code/photo", controllers.profil.photo);
 app.get("/profil/:code", controllers.profil.get);
 
 app.get("/articles", controllers.articles.list);
-app.post("/articles/:query", controllers.articles.search);
+app.post("/articles", controllers.articles.list);
 app.get("/articles/:code", controllers.articles.get);
 app.get("/articles/:code/resume", controllers.articles.resume);
 app.get("/articles/:code/image", controllers.articles.image);
+app.post("/articles/:query", controllers.articles.search);
+
+app.get("/slideshow", controllers.slideshow.get);
 
 app.use("/files", express.static(__dirname + "/static/files"));
 app.use("/style", express.static(__dirname + "/static/style"));

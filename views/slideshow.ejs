@@ -1,41 +1,25 @@
-<% var slide_width = 965; %>
-
 <div id="slideshow">  
     <div onmouseover="setPause(true);" onMouseOut="setPause(false);">
-        <div id="slider" style="width: <%= slide_width * (slides.length) %>px;">
-            <% slides.forEach(function(filename) { %>
-                <figure>  
-                    <img src="/slides/<%= filename %>"/>
-                </figure>
-            <% });%>
-        </div>  
+        <div id="slider"></div>  
     </div>
 </div>
 
 <script>
-    $(window).blur(function() { clearInterval(interval); });
-    $(window).focus(showNext);
-
-    var last = <%= slides.length - 1 %>;
     var current = 0;
     var reverse = false;
     var interval = null;
+    var slide_width = 956;
 
     function nextSlide() {
         if(current == 0) reverse = false;
-        else if(current == last) reverse = true;
+        else if(current == $('#slider figure').length - 1) reverse = true;
 
         return reverse ? current -- : current ++;
     }
 
-    function showSlide(index) {
-        var element = document.getElementById('slider');
-        element.style.left = '-' + (<%= slide_width - 3 %> * index) + 'px';
-    }
-
     function showNext() {
         interval = setInterval(function() {
-            showSlide(nextSlide());
+            $('#slider').css('left', -slide_width * nextSlide());
         }, 5000);
     }
 
@@ -43,4 +27,19 @@
         if(value) clearInterval(interval);
         else showNext();
     }
+
+    $(function() {
+        $.get('/slideshow', function(data) {
+            data.forEach(function(slide) { 
+                $('#slider').append('<figure><img src="/slides/' + slide + '" /></figure>');
+            });
+
+            $('#slider').css("width", slide_width * $('#slider figure').length);
+
+            showNext();
+
+            $(window).blur(function() { clearInterval(interval); });
+            $(window).focus(showNext);
+        });    
+    });
 </script>
