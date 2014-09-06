@@ -9,20 +9,21 @@ section{
 
 #filtre_articles{
   margin-top: 45px;
-  width:90%;
+  width:91%;
   height: 35px;
-  background-color:#ece9e9;
+
   margin-right: auto;
   margin-left: auto;
   padding: 5px;
 }
 
 #filtre_articles input{
-  width: 98%;
+  width: 100%;
   border:none;
+  background-color:#ece9e9;
   text-align: center;
-  height: 25px;
-  margin: 5px;
+  height: 34px;
+  margin: 0px;
   font-weight: bold;
 }
 
