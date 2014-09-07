@@ -21,6 +21,8 @@
 
 <div id="articles"></div>
 
+<div id="loader"></div>
+
 <script>
     function loadVideo(parentDiv, code) {
         parentDiv.innerHTML = '<iframe src="http://www.youtube.com/embed/' + code + '?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>';
@@ -32,64 +34,92 @@
         });
     }
 
-    var cache_resume = {};
-    var scroll = false;
+    html_cache = {};
+    function infinite_scroll(filter) {
+        end_reached = false;
+        already_loading = false;
+        current_filter = filter != null ? filter : null;
 
-    function load_one(article_node, html) {
-        $(article_node).html(html);
-        $(article_node).find('.texte_article p').each(function() {
-            var jElement = $(this);
-
-            while(jElement[0].scrollHeight > jElement[0].offsetHeight) {
-                var lastIndex = jElement.html().lastIndexOf(" ");
-                jElement.html(jElement.html().substring(0, lastIndex) + '&hellip;');
-            }
-        });
-        if(scroll) $("#articles").get(0).scrollIntoView(true);
-    }
-
-    function load_selected() {
-        $("#articles div.article.selected").each(function() {
-            var article_element = this;
-            var code = this.dataset.code;
-            if(typeof(cache_resume[code]) === 'undefined') $.get('/articles/' + code + '/resume', function(html) {
-                cache_resume[code] = html;
-                load_one(article_element, html);
-            }); else load_one(article_element, cache_resume[code]);
-        });
-    }
-
-    function prepare_list(list) {
-        $("#articles").empty();
-        list.forEach(function(code) {
-            $("#articles").append('<div class="article" data-code="' + code + '"></div>');
-        });
-        $('.article').slice(0, 20).addClass('selected');
-        already_loaded = 20;
-
-        refresh_scrolling();
-    }
-
-    var already_loaded = 0;
-    var refreshing = false;
-    function refresh_scrolling() {
-        if(refreshing == true) return;
-        refreshing = true;
-
-        var offset = $('.article:last').offset().top;
-        if(typeof(offset) == 'undefined') offset = 0;
-
-        if((offset - $(window).height() <= $(window).scrollTop())) {
-            var loadMax = $('.article.visible').length + 20;
-            $('.article').slice(20, loadMax).addClass('selected');
-            already_loaded = loadMax;
-            console.log(loadMax);
+        init = function() {
+            $("#articles").empty();
+            $("#loader").css('display', 'inline-block');
+            loadList(function() {
+                loadMore();
+                if(current_filter !== null) $("#filtre_articles").get(0).scrollIntoView(true);
+                $(window).scroll(more);
+            });
         }
 
-        load_selected();
+        more = function() {
+            if(already_loading || end_reached) return;
 
-        setTimeout(function() { refreshing = false; }, 500);
+            var offset = $('.article:last').offset();
+            var offsetTop = (typeof(offset) == 'undefined') ? 0 : offset.top;
+
+            if(offsetTop - $(window).height() >= $(window).scrollTop()) return;
+
+            loadMore();
+        }
+
+        loadMore = function() {
+            if(already_loading || end_reached) return;
+            already_loading = true;
+
+            var offset = $('.article.selected').length;
+            if(offset >= $('.article').length) {
+                end_reached = true;
+                $("#loader").css('display', 'none');
+                return;
+            }
+
+            $('.article').slice(offset, offset + 8).addClass('selected');
+                
+            $("#articles .selected").each(function() {
+                var element = this;
+                var code = this.dataset.code;
+
+                if(typeof(html_cache[code]) === 'undefined') $.get('/articles/' + code + '/resume', function(html) {
+                    html_cache[code] = html;
+                    print(element);
+                }); else print(element);
+            });
+
+            already_loading = false;
+        }
+
+        loadList = function(callback) {
+            $.post("/articles/" + (current_filter != null ? current_filter : ''), function(list) {
+                if(list.length == 0) {
+                    $("#articles").html('<span>Aucun élément trouvé</span>');
+                    return;
+                }
+
+                list.forEach(function(code) {
+                    $("#articles").append('<div class="article" data-code="' + code + '"></div>');
+                });
+                
+                callback();
+            });
+        };
+
+        print = function(element) {
+            var content = html_cache[element.dataset.code];
+
+            $(element).html(content);
+            $(element).find('.texte_article p').each(function() {
+                var jElement = $(this);
+
+                while(this.scrollHeight > this.offsetHeight) {
+                    var lastIndex = jElement.html().lastIndexOf(" ");
+                    jElement.html(jElement.html().substring(0, lastIndex) + '&hellip;');
+                }
+            });
+        };
+
+        init();
     }
+
+    var scroller = null; 
 
     $(function() {
         $.get('/actions/latest', function(data) {
@@ -101,13 +131,10 @@
         });
 
         $("#search").val("").keyup(function() {
-            scroll = true;
-            $.post('/articles/' + $(this).val(), prepare_list);
+            scroller = new infinite_scroll($("#search").val());
         });
 
-        $.get('/articles', prepare_list);
+        scroller = new infinite_scroll(null);
     });
-
-    $(window).scroll(refresh_scrolling);
 </script>
 <% include foot %>

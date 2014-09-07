@@ -1,12 +1,3 @@
-body{
-  height: 100%;
-}
-
-section{
-  height: 100%;
-}
-
-
 #filtre_articles{
   margin-top: 45px;
   width:91%;
@@ -30,6 +21,15 @@ section{
 section .etage{
   margin-bottom:20px;
   height:400px;
+}
+
+#loader {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  background-image: url('/style/images/loader.gif');
+  margin-top: 50px;
+  margin-bottom: 200px;
 }
 
 section .article{

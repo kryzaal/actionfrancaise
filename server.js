@@ -118,11 +118,10 @@ app.get("/rss/xml", controllers.rss.xml);
 app.get("/profil/:code/photo", controllers.profil.photo);
 app.get("/profil/:code", controllers.profil.get);
 
-app.get("/articles", controllers.articles.list);
-app.post("/articles", controllers.articles.list);
 app.get("/articles/:code", controllers.articles.get);
 app.get("/articles/:code/resume", controllers.articles.resume);
 app.get("/articles/:code/image", controllers.articles.image);
+app.post("/articles", controllers.articles.list);
 app.post("/articles/:query", controllers.articles.search);
 
 app.get("/slideshow", controllers.slideshow.get);
