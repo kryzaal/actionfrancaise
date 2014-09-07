@@ -16,7 +16,7 @@
 </div> 
 
 <div id="filtre_articles">
-    <input type="text" id="search" placeholder="Mot clé, auteur, titre ..." auto/>
+    <input type="text" id="search" placeholder="Mot clé, auteur, titre ..."/>
 </div>
 
 <div id="articles"></div>
@@ -33,6 +33,7 @@
     }
 
     var cache_resume = {};
+    var scroll = false;
 
     function load_one(article_node, html) {
         $(article_node).html(html);
@@ -44,15 +45,11 @@
                 jElement.html(jElement.html().substring(0, lastIndex) + '&hellip;');
             }
         });
+        if(scroll) $("#articles").get(0).scrollIntoView(true);
     }
 
-    function load_list(list) {
-        $("#articles").empty();
-        list.forEach(function(code) {
-            $("#articles").append('<div class="article" data-code="' + code + '"></div>');
-        });
-
-        $("#articles div.article").each(function() {
+    function load_selected() {
+        $("#articles div.article.selected").each(function() {
             var article_element = this;
             var code = this.dataset.code;
             if(typeof(cache_resume[code]) === 'undefined') $.get('/articles/' + code + '/resume', function(html) {
@@ -60,6 +57,38 @@
                 load_one(article_element, html);
             }); else load_one(article_element, cache_resume[code]);
         });
+    }
+
+    function prepare_list(list) {
+        $("#articles").empty();
+        list.forEach(function(code) {
+            $("#articles").append('<div class="article" data-code="' + code + '"></div>');
+        });
+        $('.article').slice(0, 20).addClass('selected');
+        already_loaded = 20;
+
+        refresh_scrolling();
+    }
+
+    var already_loaded = 0;
+    var refreshing = false;
+    function refresh_scrolling() {
+        if(refreshing == true) return;
+        refreshing = true;
+
+        var offset = $('.article:last').offset().top;
+        if(typeof(offset) == 'undefined') offset = 0;
+
+        if((offset - $(window).height() <= $(window).scrollTop())) {
+            var loadMax = $('.article.visible').length + 20;
+            $('.article').slice(20, loadMax).addClass('selected');
+            already_loaded = loadMax;
+            console.log(loadMax);
+        }
+
+        load_selected();
+
+        setTimeout(function() { refreshing = false; }, 500);
     }
 
     $(function() {
@@ -72,10 +101,13 @@
         });
 
         $("#search").val("").keyup(function() {
-            $.post('/articles/' + $(this).val(), load_list);
+            scroll = true;
+            $.post('/articles/' + $(this).val(), prepare_list);
         });
 
-        $.get('/articles', load_list);
+        $.get('/articles', prepare_list);
     });
+
+    $(window).scroll(refresh_scrolling);
 </script>
 <% include foot %>

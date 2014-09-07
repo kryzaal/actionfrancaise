@@ -11,11 +11,25 @@ section{
 #manifeste h1 {
     font-color: gray;
     width:100%;
-    text-align: left;
+    text-align: center;
+    font-size: 32px;
 }
 
 #manifeste h2{
   font-size:46px;  
+  text-align: left;
+  text-indent: 45px;
+  font-size: 24px;
+}
+
+#manifeste p {
+	margin: 45px 0 20px;
+	text-align: justify;
+}
+
+#manifeste ul li{
+	text-align: left;
+	margin-bottom: 10px;
 }
 
 em {

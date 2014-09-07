@@ -37,7 +37,14 @@ function list(request, response) {
 	model.fetchAll(function(err, data) {
 		if(err) throw err;
 		var codes = [];
-		data.forEach(function(data) { codes.push(data.code); });
+		data.forEach(function(data) { 
+			codes.push(data.code);
+			codes.push(data.code);
+
+			codes.push(data.code);
+			codes.push(data.code);
+			
+		});
 		response.writeHead('200', {'Content-Type': 'application/json'});
         response.end(JSON.stringify(codes));
 	});
