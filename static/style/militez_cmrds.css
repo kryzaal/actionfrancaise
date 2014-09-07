@@ -3,7 +3,9 @@
 	margin-right: auto;
 	margin-left: auto;
 }
-
+#cmrds #bandeau{
+	width:100%;
+}
 #cmrds a {
 	text-decoration: none;
 	color: white;
