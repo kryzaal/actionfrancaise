@@ -5,6 +5,7 @@
 }
 #cmrds #bandeau{
 	width:100%;
+	margin-bottom: 50px;
 }
 #cmrds a {
 	text-decoration: none;
