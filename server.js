@@ -25,7 +25,7 @@ var controllers = {
     manifeste : require('./controllers/manifeste'),
     recherche : require('./controllers/recherche'),
     reseaux_sociaux : require('./controllers/reseaux_sociaux'),
-    profil : require('./controllers/profil'),
+    profils : require('./controllers/profils'),
     articles : require('./controllers/articles'),
     rss: require('./controllers/rss'),
     sections: require('./controllers/sections'),
@@ -115,8 +115,9 @@ app.get("/youtube", controllers.reseaux_sociaux.youtube);
 app.get("/rss", controllers.rss.get);
 app.get("/rss/xml", controllers.rss.xml);
 
-app.get("/profil/:code/photo", controllers.profil.photo);
-app.get("/profil/:code", controllers.profil.get);
+app.get("/profils/:code/photo", controllers.profils.photo);
+app.get("/profils/:code/widget", controllers.profils.widget);
+app.get("/profils/:code", controllers.profils.get);
 
 app.get("/articles/:code", controllers.articles.get);
 app.get("/articles/:code/resume", controllers.articles.resume);

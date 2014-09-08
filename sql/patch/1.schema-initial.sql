@@ -20,7 +20,8 @@ CREATE TABLE profils (
 	code TEXT PRIMARY KEY,
 	nom TEXT NOT NULL,
 	titre TEXT,
-	biographie TEXT
+	biographie TEXT,
+	contactable BOOLEAN NOT NULL DEFAULT '0'
 );
 
 CREATE TABLE textes (

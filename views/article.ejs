@@ -26,7 +26,7 @@
 
 <script>
 	$(function() {
-		$.get("/profil/<%= article.auteur %>", function( data ) {
+		$.get("/profils/<%= article.auteur %>/widget", function( data ) {
 			$('#auteur').html(data);
 		});
 

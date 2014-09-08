@@ -1,9 +1,9 @@
 var sqlite3 = require('sqlite3').verbose();
 var fs = require('fs');
 var sync = require('sync');
-var test_values = require('./test-values');
 
 var patch_dir = document_root + '/sql/patch/';
+var sql_dir = document_root + '/sql/data/';
 
 function getSchemaVersion() {
 	var row = handler.get.sync(handler, "SELECT value FROM parameters WHERE (key == 'version')", {});
@@ -63,7 +63,9 @@ function init() {
 		console.log("Fin de l'initialisation de la base, version du schéma : " + getSchemaVersion());
 
 		if(isDevelopment) {
-			test_values.insert_profils(handler);
+			fs.readdirSync(sql_dir).forEach(function(file) {
+				executeSqlFile(sql_dir + file)
+			});
 		}
 	}, function(err){
 	    if (err) {

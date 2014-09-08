@@ -1,0 +1,39 @@
+<% include head %>
+
+<div id="profil">
+	<div>
+		<img src="/profils/<%= data.code %>/photo" />
+		<h1><%= data.nom %></h1>
+		<h2><%= data.titre %></h2>
+		<p><%= data.biographie %></p>
+		<% if(data.contactable) { %>
+			<a href="/contact/profil/<% data.code %>"><div>Contactez <%= data.nom %></div></a>
+		<% } %>
+	</div>
+	<div>
+		<div id="textes"></div>
+		<div id="roles"></div>
+	</div>
+</div>
+
+<script>
+	$.get("/profils/<%= data.code %>/textes", function(data) {
+		if(data.length == 0) {
+			$("#textes").remove();
+		}
+	}).error(function(err) {
+		$("#textes").remove();
+		throw err;
+	});
+
+	$.get("/profils/<%= data.code %>/roles", function(data) {
+		if(data.length == 0) {
+			$("#roles").remove();
+		}
+	}).error(function(err) {
+		$("#roles").remove();
+		throw err;
+	});
+</script>
+
+<% include foot %>

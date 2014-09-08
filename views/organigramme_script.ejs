@@ -10,7 +10,7 @@
 	$(function() {
 		$('.personne').each(function() {
 			var div = this;
-			$.get("/profil/" + div.dataset.profil, function( data ) {
+			$.get("/profils/" + div.dataset.profil + "/widget", function( data ) {
 				$(div).html($.trim(data));
 			});
 		});

@@ -1,0 +1,23 @@
+#profil {
+	width: 100%;
+	margin-top: 50px;
+}
+
+#profil div {
+	display: inline-block;
+}
+
+#profil div:first-child {
+	width: 20%;
+}
+
+#profil div:first-child a div {
+	background-color: gray;
+	color: white;
+	width: 80%;
+	padding: 5px;
+}
+
+#profil div:last-child div {
+	width: 75%;
+}
