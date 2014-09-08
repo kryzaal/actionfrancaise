@@ -18,6 +18,11 @@ function photo(request, response) {
 };
 
 function widget(request, response) {
+	if(nullOrEmpty(request.params.code)) {
+		send404();
+		return;
+	}
+
 	model.exists(request.params.code, function(err, exists) {
 		if (err) throw err;
 		if(!exists) {

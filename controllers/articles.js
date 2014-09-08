@@ -6,12 +6,14 @@ function get(request, response) {
 		if(err) throw err;
 
 		if(exists) model.fetchOne(request.params.code, function(err, data) {
-			response.render('article.ejs', {
+			console.log(JSON.stringify(data));
+			if(err) send500(true, err);
+			else response.render('article.ejs', {
 		        pageSubtitle: data.titre,
 		        customStylesheets: ["article"],
 		        article: data,
-		        uri: server + ':' + port + '/article/' + data.id
-		    })
+		        uri: server + ':' + port + '/article/' + data.code
+		    });
 		});
 		else send404(response, true);
 	});

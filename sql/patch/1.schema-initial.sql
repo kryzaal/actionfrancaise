@@ -3,10 +3,10 @@ CREATE TABLE comptes (
 	code_profil TEXT UNIQUE NOT NULL REFERENCES profils(code),
 	adresse_mail TEXT,
 	mot_passe TEXT NOT NULL,
-	date_creation DATE DEFAULT CURRENT_DATE
+	date_creation DATETIME DEFAULT (DATETIME('now'))
 );
 
-CREATE TABLE droits_2_comptes (
+CREATE TABLE droits_comptes (
 	nom_utilisateur TEXT NOT NULL REFERENCES comptes(nom_utilisateur),
 	code_droit TEXT NOT NULL REFERENCES droits(code),
 	PRIMARY KEY(nom_utilisateur, code_droit)
@@ -27,7 +27,7 @@ CREATE TABLE profils (
 CREATE TABLE textes (
 	code TEXT PRIMARY KEY,
 	profil_auteur TEXT NOT NULL REFERENCES profils(code),
-	date_creation DATE DEFAULT CURRENT_DATE,
+	date_creation DATETIME DEFAULT (DATETIME('now')),
 	titre TEXT NOT NULL,
 	ss_titre TEXT
 );
@@ -38,16 +38,21 @@ CREATE TABLE grands_textes (
 );
 
 CREATE TABLE articles (
-	code_article TEXT PRIMARY KEY,
-	code_texte TEXT UNIQUE NOT NULL REFERENCES textes(code)
+	code TEXT PRIMARY KEY REFERENCES textes(code),
+	categorie TEXT REFERENCES categories(code)
 );
 
 CREATE TABLE versions_articles (
-	code_article TEXT NOT NULL REFERENCES articles(code_article),
-	date_edition DATE DEFAULT CURRENT_DATE,
+	code_article TEXT NOT NULL REFERENCES articles(code),
+	date_edition DATETIME DEFAULT (DATETIME('now')),
 	compte_editeur TEXT NOT NULL REFERENCES comptes(nom_utilisateur),
 	texte TEXT NOT NULL,
 	PRIMARY KEY(code_article, date_edition)
+);
+
+CREATE TABLE categories (
+	code TEXT PRIMARY KEY,
+	libelle TEXT NOT NULL
 );
 
 CREATE TABLE entites (
@@ -80,8 +85,8 @@ CREATE TABLE sections (
 CREATE TABLE actions (
 	code TEXT PRIMARY KEY,
 	code_entite_organisatrice TEXT NOT NULL REFERENCES entites(code),
-	date_debut DATE NOT NULL,
-	date_fin DATE,
+	date_debut DATETIME NOT NULL,
+	date_fin DATETIME,
 	nom TEXT NOT NULL,
 	description TEXT NOT NULL,
 	type TEXT NOT NULL REFERENCES types_action(code)

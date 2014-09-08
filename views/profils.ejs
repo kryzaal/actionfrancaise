@@ -7,7 +7,7 @@
 		<h2><%= data.titre %></h2>
 		<p><%= data.biographie %></p>
 		<% if(data.contactable) { %>
-			<a href="/contact/profil/<% data.code %>"><div>Contactez <%= data.nom %></div></a>
+			<a href="/contact/profil/<%= data.code %>"><div>Contactez <%= data.nom %></div></a>
 		<% } %>
 	</div>
 	<div>
