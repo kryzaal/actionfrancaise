@@ -91,7 +91,6 @@ app.get("/actions/:action/:photo", controllers.militez.actions.photo);
 app.get("/militez", controllers.militez.get);
 app.get("/militez/militer", controllers.militez.militer.get);
 app.get("/militez/carte", controllers.militez.carte.get);
-app.get("/militez/camelots", controllers.militez.camelots.get);
 app.get("/militez/cmrds", controllers.militez.cmrds.get);
 app.get("/militez/creer", controllers.militez.creer.get);
 
@@ -100,6 +99,17 @@ app.get("/militez/actions/:action", controllers.militez.actions.get);
 app.get("/militez/actions/:action/affiche", controllers.militez.actions.affiche);
 app.get("/militez/actions/:action/photos", controllers.militez.actions.photos);
 app.get("/militez/actions/:action/:photo", controllers.militez.actions.photo);
+
+app.get("/militez/camelots", controllers.militez.camelots.get);
+app.get("/militez/camelots/photos", controllers.militez.camelots.photos);
+app.get("/militez/camelots/photos/:code", controllers.militez.camelots.photo);
+app.get("/militez/camelots/videos", controllers.militez.camelots.videos);
+app.get("/militez/camelots/chants", controllers.militez.camelots.chants);
+app.get("/militez/camelots/chants/:code", controllers.militez.camelots.chants);
+app.get("/militez/camelots/chants/:code/vignette", controllers.militez.camelots.vignettes.chants);
+app.get("/militez/camelots/textes", controllers.militez.camelots.textes);
+app.get("/militez/camelots/textes/:code", controllers.militez.camelots.texte);
+app.get("/militez/camelots/textes/:code/vignette", controllers.militez.camelots.vignettes.textes);
 
 app.get("/militez/textes", controllers.militez.textes.get);
 app.post("/militez/textes/:filtre", controllers.militez.textes.post);

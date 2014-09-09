@@ -24,6 +24,14 @@ CREATE TABLE profils (
 	contactable BOOLEAN NOT NULL DEFAULT '0'
 );
 
+CREATE TABLE pages (
+	categorie TEXT NOT NULL,
+	code TEXT NOT NULL,
+	titre TEXT NOT NULL,
+	texte TEXT NOT NULL,
+	PRIMARY KEY(categorie, code)
+);
+
 CREATE TABLE textes (
 	code TEXT PRIMARY KEY,
 	profil_auteur TEXT NOT NULL REFERENCES profils(code),
@@ -104,4 +112,11 @@ CREATE TABLE actions_recurrentes (
 
 CREATE TABLE types_action (
 	code TEXT PRIMARY KEY
+);
+
+CREATE TABLE listes_videos (
+	liste TEXT NOT NULL,
+	video TEXT NOT NULL,
+	ajout DATETIME DEFAULT (DATETIME('now')),
+	PRIMARY KEY(liste, video)
 );
