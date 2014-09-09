@@ -3,21 +3,82 @@
 	margin-top: 50px;
 }
 
-#profil div {
+#profil > div {
 	display: inline-block;
 }
 
-#profil div:first-child {
+#profil > div:first-child {
 	width: 20%;
+	float: left;
 }
 
-#profil div:first-child a div {
+#profil > div:first-child > a > div {
+	display: inline-block;
+}
+
+#profil > div:first-child a div {
 	background-color: gray;
 	color: white;
 	width: 80%;
 	padding: 5px;
 }
 
-#profil div:last-child div {
+#profil > div:last-child {
 	width: 75%;
+}
+
+#profil .article {
+	display: inline-block;
+	background-color: gray;
+	width: 80%;
+}
+
+#profil .article .lire_la_suite {
+	display: none;
+}
+
+#profil .article a {
+	display: inline-block;
+	width: 40%;
+	max-width: 252px;
+	vertical-align: middle;
+	float: left;
+}
+
+#profil .article img {
+	width: 100%;
+}
+
+#profil .article p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#profil .article .texte_article {
+	display: inline-block;
+	vertical-align: middle;
+	width: 59%;
+	max-width: 580px;
+}
+
+#profil .article h1 {
+	font-size: 20px;
+}
+
+#profil .article h2 {
+	font-size: 14px;
+	text-align: left;
+}
+
+#profil .article h3 {
+	font-size: 12px;
+	font-style: italic;
+	text-align: left;
+	text-indent: 12px;
+}
+
+#profil .article p {
+	font-size: 12px;
+	text-align: left;
 }

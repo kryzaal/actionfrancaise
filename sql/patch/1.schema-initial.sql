@@ -29,7 +29,8 @@ CREATE TABLE textes (
 	profil_auteur TEXT NOT NULL REFERENCES profils(code),
 	date_creation DATETIME DEFAULT (DATETIME('now')),
 	titre TEXT NOT NULL,
-	ss_titre TEXT
+	ss_titre TEXT,
+	type TEXT NOT NULL
 );
 
 CREATE TABLE grands_textes (

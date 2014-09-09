@@ -1,5 +1,6 @@
 var fs = require('fs');
 var model = require("../models/profil");
+var texte_model = require("../models/texte");
 
 function photo(request, response) {
     fs.readFile(document_root + '/data/profiles/' + request.params.code + '.jpg', function (err, data) {
@@ -69,8 +70,17 @@ function roles(request, response) {
 };
 
 function textes(request, response) {
-	response.writeHead('200', {'Content-Type': 'application/json'});
-	response.end(JSON.stringify([]));
+	model.exists(request.params.code, function(err, exists) {
+		texte_model.fetchForProfil(request.params.code, function(err, data) {
+			if(err) throw err;
+			if(!exists) {
+				send404(response, true);
+			} else {
+				response.writeHead('200', {'Content-Type': 'application/json'});
+				response.end(JSON.stringify(data));
+			}
+		});
+	});
 };
 
 exports.photo = photo;

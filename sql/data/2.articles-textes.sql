@@ -2,15 +2,15 @@ INSERT OR REPLACE INTO categories(code, libelle) VALUES
 ('communiques_presse', "Communiqués de Presse"),
 ('editoriaux', "Editoriaux");
 
-INSERT OR REPLACE INTO textes (code, profil_auteur, titre, ss_titre) VALUES
-('txt1', 'stephane_blanchonnet', 'Texte 1', 'Voici le texte 1'),
-('txt2', 'olivier_perceval', 'Texte 2', 'Voici le texte 2'),
-('txt3', 'arnaud_paris', 'Texte 3', 'Voici le texte 3'),
-('txt4', 'stephane_blanchonnet', 'Texte 4', 'Voici le texte 4'),
-('art1', 'bernard_bonnaves', 'Article 1', 'Voici l''article 1'),
-('art2', 'stephane_blanchonnet', 'Article 2', 'Voici l''article 2'),
-('art3', 'antoine_desonay', 'Article 3', 'Voici l''article 3'),
-('art4', 'gregoire_dubost', 'Article 4', 'Voici l''article 4');
+INSERT OR REPLACE INTO textes (code, profil_auteur, titre, ss_titre, type) VALUES
+('txt1', 'stephane_blanchonnet', 'Texte 1', 'Voici le texte 1', 'grand_texte'),
+('txt2', 'olivier_perceval', 'Texte 2', 'Voici le texte 2', 'grand_texte'),
+('txt3', 'arnaud_paris', 'Texte 3', 'Voici le texte 3', 'grand_texte'),
+('txt4', 'stephane_blanchonnet', 'Texte 4', 'Voici le texte 4', 'grand_texte'),
+('art1', 'bernard_bonnaves', 'Article 1', 'Voici l''article 1', 'article'),
+('art2', 'stephane_blanchonnet', 'Article 2', 'Voici l''article 2', 'article'),
+('art3', 'antoine_desonay', 'Article 3', 'Voici l''article 3', 'article'),
+('art4', 'gregoire_dubost', 'Article 4', 'Voici l''article 4', 'article');
 
 INSERT OR REPLACE INTO grands_textes (code_texte, texte) VALUES
 ('txt1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),

@@ -11,28 +11,58 @@
 		<% } %>
 	</div>
 	<div>
-		<div id="textes"></div>
-		<div id="roles"></div>
+		<div id="textes"><h3>Textes publiés</h3></div>
+		<div id="roles"><h3>Rôles tenus</h3></div>
 	</div>
 </div>
 
 <script>
 	$.get("/profils/<%= data.code %>/textes", function(data) {
 		if(data.length == 0) {
-			$("#textes").remove();
+			$("#textes").append('<span>L\'auteur n\'a publié aucun texte</span>');
+			return;
 		}
-	}).error(function(err) {
-		$("#textes").remove();
-		throw err;
+
+		data.forEach(function(texte) {
+			$("#textes").append('<div class="' + texte.type + '" data-code="' + texte.code + '"></div>');
+		});
+
+		$("#textes .article").each(function() {
+			var code = this.dataset.code;
+			var element = $(this);
+			$.get('/articles/' + code + '/resume', function(data) {
+				element.append(data);
+			}).error(function() {
+				element.remove();
+			});
+		});
+
+		$("#textes .grand_texte").each(function() {
+			var code = this.dataset.code;
+			$.get('/textes/' + code + '/resume', function(data) {
+				$(this).append(data);
+			}).error(function() {
+				element.remove();
+			});
+		});
 	});
 
 	$.get("/profils/<%= data.code %>/roles", function(data) {
 		if(data.length == 0) {
 			$("#roles").remove();
+			return;
 		}
-	}).error(function(err) {
-		$("#roles").remove();
-		throw err;
+
+		data.forEach(function(code_role) {
+			$("#roles").append('<div class="role" data-code="' + code_role + '"></div>');
+		});
+
+		$(".role").each(function() {
+			var code = this.dataset.code;
+			$.get('/roles/' + role + '/widget', function(data) {
+				$(this).append(data);
+			});
+		});
 	});
 </script>
 

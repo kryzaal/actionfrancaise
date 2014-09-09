@@ -6,7 +6,6 @@ function get(request, response) {
 		if(err) throw err;
 
 		if(exists) model.fetchOne(request.params.code, function(err, data) {
-			console.log(JSON.stringify(data));
 			if(err) send500(true, err);
 			else response.render('article.ejs', {
 		        pageSubtitle: data.titre,

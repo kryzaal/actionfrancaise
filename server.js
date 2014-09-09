@@ -118,6 +118,8 @@ app.get("/rss/xml", controllers.rss.xml);
 
 app.get("/profils/:code/photo", controllers.profils.photo);
 app.get("/profils/:code/widget", controllers.profils.widget);
+app.get("/profils/:code/textes", controllers.profils.textes);
+app.get("/profils/:code/roles", controllers.profils.roles);
 app.get("/profils/:code", controllers.profils.get);
 
 app.get("/articles/:code", controllers.articles.get);
