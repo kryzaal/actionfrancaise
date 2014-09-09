@@ -40,7 +40,8 @@ CREATE TABLE grands_textes (
 
 CREATE TABLE articles (
 	code TEXT PRIMARY KEY REFERENCES textes(code),
-	categorie TEXT REFERENCES categories(code)
+	categorie TEXT REFERENCES categories(code),
+	keywords TEXT NOT NULL
 );
 
 CREATE TABLE versions_articles (

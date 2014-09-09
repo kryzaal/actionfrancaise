@@ -34,6 +34,7 @@
         });
     }
 
+    var lock = false;
     html_cache = {};
     function infinite_scroll(filter) {
         end_reached = false;
@@ -41,6 +42,9 @@
         current_filter = filter != null ? filter : null;
 
         init = function() {
+            if(lock) return;
+            lock = true;
+
             $("#articles").empty();
             $("#loader").css('display', 'inline-block');
             loadList(function() {
@@ -48,6 +52,8 @@
                 if(current_filter !== null) $("#filtre_articles").get(0).scrollIntoView(true);
                 $(window).scroll(more);
             });
+
+            lock = false;
         }
 
         more = function() {
@@ -131,7 +137,7 @@
         });
 
         $("#search").val("").keyup(function() {
-            scroller = new infinite_scroll($("#search").val());
+            scroller = new infinite_scroll($("#search").val().toLowerCase());
         });
 
         scroller = new infinite_scroll(null);

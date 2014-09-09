@@ -7,16 +7,24 @@ exports.exists = function(code, callback) {
 }
 
 function listCodes(callback) {
-	dbHandler.get("SELECT code FROM articles", {}, callback);
+	dbHandler.all("SELECT code FROM articles", {}, function(err, rows) {
+		var codes = [];
+		rows.forEach(function(row) { codes.push(row.code); });
+		callback(err, codes);
+	});
 }
 
-function fetchLatestVersion(codeList, callback) {
+function listKeywords(callback) {
+	dbHandler.all("SELECT code, keywords FROM articles", {}, callback);
+}
+
+function fetchLatestVersion(code, callback) {
 	dbHandler.get("SELECT compte_editeur, texte, date_edition FROM versions_articles " +
 		"WHERE code_article == ? " +
-		"ORDER BY date_edition DESC LIMIT 1", codeList, callback);
+		"ORDER BY date_edition DESC LIMIT 1", code, callback);
 }
 
-exports.fetchOne = function(code, callback) {
+function fetchOne(code, callback) {
 	if(nullOrEmpty(code)) callback("Code is null or undefined", undefined);
 	var data = {code : code};
 
@@ -41,6 +49,6 @@ exports.fetchOne = function(code, callback) {
 	});
 }
 
-exports.fetchAll = function(callback) {
-	callback(false, undefined);
-}
+exports.fetchOne = fetchOne;
+exports.listCodes = listCodes;
+exports.listKeywords = listKeywords;

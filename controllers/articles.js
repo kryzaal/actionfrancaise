@@ -35,30 +35,20 @@ function image(request, response) {
 }
 
 function list(request, response) {
-	model.fetchAll(function(err, data) {
+	model.listCodes(function(err, codes) {
 		if(err) throw err;
-		var codes = [];
-		data.forEach(function(data) { 
-			codes.push(data.code);
-			codes.push(data.code);
-
-			codes.push(data.code);
-			codes.push(data.code);
-			
-		});
 		response.writeHead('200', {'Content-Type': 'application/json'});
         response.end(JSON.stringify(codes));
 	});
 }
 
 function search(request, response) {
-	model.fetchAll(function(err, data) {
+	model.listKeywords(function(err, data) {
 		if(err) throw err;
 		var codes = [];
 
 		data.forEach(function(data) {
-			var index = '' + data.code + ' ' + data.titre + ' ' + data.auteur + ' ' + data.complet;
-			if(index.indexOf(request.params.query) > -1) 
+			if(data.keywords.indexOf(request.params.query) > -1) 
 				codes.push(data.code); 
 		});
 
