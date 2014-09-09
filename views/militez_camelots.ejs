@@ -42,7 +42,7 @@
 	$(function() {
 		$.get('/militez/camelots/textes', function(codes) {
 			codes.forEach(function(code) {
-				$.get('/militez/camelots/textes/' + code, function(data) {
+				$.ajax('/militez/camelots/textes/' + code, {accepts: 'application/json'}).done(function(data) {
 					$("#textes").append(
 					'<div class="texte">' +
 						'<a href="/militez/camelots/textes/' + code + '"><img src="/militez/camelots/textes/' + code + '/vignette"></a>' +
@@ -92,7 +92,7 @@
 
 		$.get('/militez/camelots/chants', function(codes) {
 			codes.forEach(function(code) {
-				$.get('/militez/camelots/chants/' + code, function(data) {
+				$.ajax('/militez/camelots/chants/' + code, {accepts: 'application/json'}).done(function(data) {
 					$("#chants").append(
 					'<div class="chant">' +
 						'<a href="/militez/camelots/chants/' + code + '"><img src="/militez/camelots/chants/' + code + '/vignette"></a>' +

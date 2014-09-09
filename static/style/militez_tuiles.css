@@ -58,7 +58,7 @@ a > #tuile_textes:hover, a.current > #tuile_textes {
 	cursor: pointer;
 }
 
-a.current, a.current > * {
+a.disabled, a.disabled > * {
 	cursor: default !important;
 }
 
