@@ -22,19 +22,10 @@
 		});
 
 		$.get('/medias/videos', function(response, success, xhr) {
-			if(!success) {
-				log(response);
-				return;
-			}
-
 			response.forEach(function(code) {
-				$('#videos').append('<div class="video_' + code + '" onClick="loadVideo(this, ' + code + ')"></div>');
+				$('#videos').append('<div class="video_' + code + '" onClick="loadVideo(this, \'' + code + '\')"></div>');
 				
 				$.get("http://gdata.youtube.com/feeds/api/videos/" + code + "?v=2&alt=jsonc", function(response) {
-					if(!success) {
-						log(response);
-						return;
-					}
 	    			$(".video_" + code).html('<img src="http://img.youtube.com/vi/' + code + '/0.jpg"/>' + '<h1>' + response.data.title + '</h1>');
 	    		});
 			})

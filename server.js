@@ -105,7 +105,7 @@ app.get("/militez/camelots/photos", controllers.militez.camelots.photos);
 app.get("/militez/camelots/photos/:code", controllers.militez.camelots.photo);
 app.get("/militez/camelots/videos", controllers.militez.camelots.videos);
 app.get("/militez/camelots/chants", controllers.militez.camelots.chants);
-app.get("/militez/camelots/chants/:code", controllers.militez.camelots.chants);
+app.get("/militez/camelots/chants/:code", controllers.militez.camelots.chant);
 app.get("/militez/camelots/chants/:code/vignette", controllers.militez.camelots.vignettes.chants);
 app.get("/militez/camelots/textes", controllers.militez.camelots.textes);
 app.get("/militez/camelots/textes/:code", controllers.militez.camelots.texte);

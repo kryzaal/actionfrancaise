@@ -10,7 +10,7 @@ var vignettesChantFolder = new folder.Folder(document_root + '/data/pages/camelo
 function get(request, response) {
 	response.render('militez_camelots.ejs', {
     	pageSubtitle: "Les Camelots du Roi",
-    	customStylesheets: ["militez_camelots", "militez_tuiles"]
+    	customStylesheets: ["militez_camelots", "militez_tuiles", "viewer"]
     });
 }
 
