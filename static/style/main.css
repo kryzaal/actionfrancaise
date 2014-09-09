@@ -135,6 +135,11 @@ aside {
   float:right;
 }
 
+aside #adresse_craf img{
+  margin-top: 5px;
+  width: 50%;
+}
+
 aside #adresse_craf h3 {
   width:100%;
   font-size:10px;
@@ -143,9 +148,10 @@ aside #adresse_craf h3 {
 aside #adresse_craf {
   width:160px;
   font-size:10px;
+  color: grey;
   float:right;
   margin-top:5px;
-  margin-right:3px;
+  
   background-color:#ECE9E9;
 }
 
