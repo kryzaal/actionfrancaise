@@ -1,9 +1,10 @@
 
 #alaune{
 width:100%;
+max-width: 1120px;
 text-align: center;
 height:356px;
-margin-left: -4px;
+margin-left: auto;
 margin-right: auto;
 margin-bottom: 10px;
 margin-top: 10px;
@@ -11,14 +12,14 @@ margin-top: 10px;
 
 
 #evenement{
-    position: relative;
+position: relative;
  display:inline-block;
  vertical-align:top;
  text-align:left;
  color:#292927;
  white-space: normal;
 
-
+margin-left: -10px;
  width:22.5%;
 height: 101%;
 overflow: hidden;
@@ -48,7 +49,7 @@ color:black;}
     position: relative;
     box-shadow: 0px 0px 2px #000;
     display:inline-block; 
-    margin-right:5px;
+    
     margin-bottom: 6px;
     white-space: normal;
     padding: 5px;
@@ -60,6 +61,7 @@ color:black;}
     vertical-align:top;
     text-align:left;
     margin-left: 5px;
+    margin-right:5px;
     width:44%;
     height:100%;
     min-width: 200px;
@@ -159,6 +161,7 @@ color:black;}
   margin-top: 45px;
   width:91%;
   height: 35px;
+  max-width: 1029px;
 
   margin-right: auto;
   margin-left: auto;
@@ -188,7 +191,13 @@ section .etage{
   margin-top: 50px;
   margin-bottom: 200px;
 }
-
+#articles{
+  width: 100%;
+  margin-right:auto;
+  margin-left: auto;
+  text-align: center;
+  max-width: 1120px;
+}
 section .article{
   display:inline-block;
   vertical-align:top;
