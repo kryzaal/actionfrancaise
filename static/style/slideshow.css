@@ -1,16 +1,17 @@
 #slideshow {
     text-align: left;
     display: inline-block;
- width: 956px;
-    height: 310px;
+ width: 1020px;
+    height: 337px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 3px;
+    box-shadow: 0px 0px 2px #000;
     margin-bottom: 0px;
-    padding: 0 3%;
-    background-color: #e4e7e9;
-	box-shadow: 0px 0px 12px #000;
+
+
 }
+
+
 
 #slideshow > div {  
     position: relative;
@@ -32,7 +33,7 @@
 
 #slideshow > div > #slider figure {  
     position:relative;
-    width: 956px;
+    width: 1020px;
     height: 316px;
     display:inline-block;
     padding:0;
@@ -41,9 +42,9 @@
 }
 
 #slideshow > div > #slider figure img {
- width: 956px;
-    height: 316px;
+ width: 1020px;
 
+box-shadow: inset 1px 1px 12px #555;
     padding:0;
     margin:0;
 }
