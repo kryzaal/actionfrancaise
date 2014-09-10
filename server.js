@@ -8,7 +8,6 @@ var express = require("express");
 var compression = require('compression');
 var favicon = require('serve-favicon');
 var ejs = require('ejs');
-var mailer = require('nodemailer');
 var bodyParser = require('body-parser')
 var database = require('./database');
 
@@ -30,16 +29,9 @@ var controllers = {
     articles : require('./controllers/articles'),
     rss: require('./controllers/rss'),
     sections: require('./controllers/sections'),
-    slideshow: require('./controllers/slideshow')
+    slideshow: require('./controllers/slideshow'),
+    files: require('./controllers/files')
 };
-
-var transporter = mailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'kryzaal',
-        pass: ''
-    }
-});
 
 var app = express();
 
@@ -52,17 +44,15 @@ app.use(favicon(__dirname + '/static/style/images/favicon.png'))
 
 app.get("/", controllers.index.get);
 
-controllers.contact.setTransporter(transporter);
 app.get("/contact", controllers.contact.get);
 app.get("/contact/:who", controllers.contact.get);
 app.post("/contact", controllers.contact.post);
 app.post("/contact/:who", controllers.contact.post);
 
-controllers.adherer.setTransporter(transporter);
 app.get("/adherer", controllers.adherer.get);
 app.post("/adherer", controllers.adherer.post);
+app.get("/adherer/bulletin", controllers.files.jquery);
 
-controllers.dons.setTransporter(transporter);
 app.get("/dons", controllers.dons.get);
 app.post("/dons", controllers.dons.post);
 
@@ -79,7 +69,9 @@ app.get("/sections/:code/blason", controllers.sections.blason);
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
 app.get("/carte", controllers.militez.carte.get);
+
 app.get("/creer", controllers.militez.creer.get);
+app.post("/creer", controllers.militez.creer.post);
 
 app.get("/actions", controllers.militez.actions.get);
 app.get("/actions/latest", controllers.militez.actions.latest);
@@ -139,8 +131,8 @@ app.post("/articles", controllers.articles.list);
 app.post("/articles/:query", controllers.articles.search);
 
 app.get("/slideshow", controllers.slideshow.get);
+app.get("/jquery", controllers.files.jquery);
 
-app.use("/files", express.static(__dirname + "/static/files"));
 app.use("/style", express.static(__dirname + "/static/style"));
 app.use("/fonts", express.static(__dirname + "/static/fonts"));
 app.use("/slides", express.static(__dirname + "/data/slideshow"));

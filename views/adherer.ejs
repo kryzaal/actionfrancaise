@@ -18,7 +18,7 @@
     Une fois adhérent vous recevrez, en plus des courriers d'information et de notre bulletin de liaison bimestriel, 
     les consignes internes et les invitations militantes.</p>
     
-    <a href="/files/bulletin_adhesion.pdf"><button type="button">Imprimer le bulletin d'adhésion</button></a>
+    <a href="/adherer/bulletin"><button type="button">Imprimer le bulletin d'adhésion</button></a>
 
     <form method="POST" action="/adherer">
         <input type="text" name="prenom" placeholder="Prénom" />
@@ -31,7 +31,7 @@
         	<option value="bienfaiteur">Bienfaiteur €150,00 EUR</option>
     	</select>
 
-        <script src="http://www.google.com/recaptcha/api/challenge?k=<% captcha.pubKey %>"></script>
+        <% include captcha %>
 
         <button type="submit">Adhérer</button>
     </form>

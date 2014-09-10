@@ -1,3 +1,19 @@
 <% include head %>
 
+<div class="formulaire">
+	<h1>Créer une section</h1>
+
+	<p>#TODO</p>
+
+    <form method="POST" action="/creer">
+        <input type="text" name="prenom" placeholder="Prénom" />
+        <input type="text" name="nom" placeholder="Nom" />
+        <input type="email" name="email" placeholder="Courriel" />
+        <input type="text" name="lieu" placeholder="Lieu" />
+        <textarea placeholder="Précisions" name="message"></textarea>
+        <% include captcha %>
+        <button type="submit">Envoyer votre demande</button>
+    </form>
+</div>
+
 <% include foot %>

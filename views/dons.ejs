@@ -18,7 +18,7 @@
 	    <input type="text" name="nom" placeholder="Nom" />
 	    <input type="email" name="email" placeholder="Courriel" />
 	    <input id="montant_don" type="number" name="montant" placeholder="Montant (€)" min="0"/>
-	    <script src="http://www.google.com/recaptcha/api/challenge?k=<% captcha.pubKey %>"></script>
+	    <% include captcha %>
 	    <button type="submit">Donner</button>
     </form>
 </div>

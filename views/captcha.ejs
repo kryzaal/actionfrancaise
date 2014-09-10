@@ -1,0 +1,20 @@
+<script>
+var RecaptchaOptions = {
+	theme : 'custom',
+	custom_theme_widget: 'recaptcha_widget'
+};
+</script>
+
+<div id="recaptcha_widget" style="display:none">
+   <div id="recaptcha_image"></div>
+   <input class="recaptcha_only_if_image" type="text" id="recaptcha_response_field" name="recaptcha_response_field_text" placeholder="Recopiez les mots que vous voyez" />
+   <input class="recaptcha_only_if_audio" type="text" id="recaptcha_response_field" name="recaptcha_response_field_audio" placeholder="Saisisez les nombres que vous entendez" />
+
+   <div><a href="javascript:Recaptcha.reload()">Je veux un autre CAPTCHA</a></div>
+   <div class="recaptcha_only_if_image"><a href="javascript:Recaptcha.switch_type('audio')">Je préfère un CAPTCHA audio</a></div>
+   <div class="recaptcha_only_if_audio"><a href="javascript:Recaptcha.switch_type('image')">Je préfère un CAPTCHA visuel</a></div>
+
+   <div><a href="javascript:Recaptcha.showhelp()">Aide</a></div>
+ </div>
+
+<script src="http://www.google.com/recaptcha/api/challenge?k=<%= captcha.publicKey %>"></script>

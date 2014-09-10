@@ -8,10 +8,10 @@
         <% include css %>
         <meta charset="utf-8">
 		<link rel="icon" type="/image/png" href="/style/images/favicon.png" />
-        <script src="/files/jquery.min.js"></script>
+        <script src="/jquery"></script>
     </head>
     <body>
-        <% if(typeof toaster != 'undefined') { %>
+        <% if(typeof toaster != 'undefined' && toaster) { %>
             <div id="toaster" style="background-color: <%= toaster.color %>;"><%= toaster.html %></div>
             <script>$('#toaster').fadeOut(<%= toaster.duration * 1000 %>);</script>
         <% } %>

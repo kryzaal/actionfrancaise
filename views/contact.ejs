@@ -8,7 +8,7 @@
         <input type="text" name="nom" placeholder="Nom" />
         <input type="email" name="email" placeholder="Courriel" />
         <textarea placeholder="Votre message" name="message"></textarea>
-        <script src="http://www.google.com/recaptcha/api/challenge?k=<% captcha.pubKey %>"></script>
+        <% include captcha %>
         <button type="submit">Envoyer</button>
     </form>
 </div>

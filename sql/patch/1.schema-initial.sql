@@ -120,3 +120,10 @@ CREATE TABLE listes_videos (
 	ajout DATETIME DEFAULT (DATETIME('now')),
 	PRIMARY KEY(liste, video)
 );
+
+CREATE TABLE contacts (
+	categorie TEXT NOT NULL,
+	code TEXT NOT NULL,
+	libelle TEXT,
+	mail TEXT NOT NULL
+);
