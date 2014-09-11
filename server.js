@@ -15,22 +15,22 @@ database.init();
 process.on('exit', database.finalize);
 
 var controllers = {
-    index : require('./controllers/index'),
-    contact : require('./controllers/contact'),
-    adherer : require('./controllers/adherer'),
-    dons : require('./controllers/dons'),
-    medias : require('./controllers/medias'),
-    organigramme : require('./controllers/organigramme'),
-    militez : require('./controllers/militez'),
-    manifeste : require('./controllers/manifeste'),
-    recherche : require('./controllers/recherche'),
+    index :         require('./controllers/index'),
+    contact :       require('./controllers/contact'),
+    adherer :       require('./controllers/adherer'),
+    dons :          require('./controllers/dons'),
+    medias :        require('./controllers/medias'),
+    organigramme :  require('./controllers/organigramme'),
+    militez :       require('./controllers/militez'),
+    manifeste :     require('./controllers/manifeste'),
+    recherche :     require('./controllers/recherche'),
     reseaux_sociaux : require('./controllers/reseaux_sociaux'),
-    profils : require('./controllers/profils'),
-    articles : require('./controllers/articles'),
-    rss: require('./controllers/rss'),
-    sections: require('./controllers/sections'),
-    slideshow: require('./controllers/slideshow'),
-    files: require('./controllers/files')
+    profils :       require('./controllers/profils'),
+    articles :      require('./controllers/articles'),
+    rss:            require('./controllers/rss'),
+    sections:       require('./controllers/sections'),
+    slideshow:      require('./controllers/slideshow'),
+    files:          require('./controllers/files')
 };
 
 var app = express();
@@ -38,7 +38,7 @@ var app = express();
 app.use(favicon(__dirname + '/static/style/images/favicon.png'))
 .use(compression())
 .use(bodyParser.json())
-.use(bodyParser.urlencoded())
+.use(bodyParser.urlencoded());
 
 /** ROUTES **/
 
@@ -135,7 +135,6 @@ app.get("/slideshow", controllers.slideshow.get);
 app.get("/jquery", controllers.files.jquery);
 
 app.use("/style", express.static(__dirname + "/static/style"));
-app.use("/fonts", express.static(__dirname + "/static/fonts"));
 app.use("/slides", express.static(__dirname + "/data/slideshow"));
 
 /** 404 & 500 **/
