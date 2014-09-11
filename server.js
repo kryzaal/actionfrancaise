@@ -24,7 +24,6 @@ var controllers = {
     militez :       require('./controllers/militez'),
     manifeste :     require('./controllers/manifeste'),
     recherche :     require('./controllers/recherche'),
-    reseaux_sociaux : require('./controllers/reseaux_sociaux'),
     profils :       require('./controllers/profils'),
     articles :      require('./controllers/articles'),
     rss:            require('./controllers/rss'),
@@ -111,10 +110,6 @@ app.get("/militez/textes/:code", controllers.militez.texte.get);
 app.get("/organigramme", controllers.organigramme.get);
 app.get("/organigramme/craf", controllers.organigramme.craf.get);
 app.get("/organigramme/journal", controllers.organigramme.journal.get);
-
-app.get("/facebook", controllers.reseaux_sociaux.facebook);
-app.get("/twitter", controllers.reseaux_sociaux.twitter);
-app.get("/youtube", controllers.reseaux_sociaux.youtube);
 
 app.get("/rss", controllers.rss.get);
 app.get("/rss/xml", controllers.rss.xml);
