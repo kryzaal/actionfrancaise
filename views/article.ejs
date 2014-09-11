@@ -2,17 +2,7 @@
 
 <aside id="article_aside">
 	<div id="auteur"></div>
-	<div id="partage">
-		<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURI(uri) %>&t=<%= encodeURI(article.titre) %>">
-			<img src="/style/images/article_fb.png"/><p>&nbsp;Partager</p>
-		</a>
-		<a class="twitter" href="https://twitter.com/share?url=<%= encodeURI(uri) %>&text=<%= encodeURI(article.titre) %>">
-			<img src="/style/images/article_twitter.png"/><p>&nbsp;Twitter</p>
-		</a>
-		<a class="plus" href="https://plus.google.com/share?url=<%= encodeURI(uri) %>">
-			<img src="/style/images/article_g+.png"/><p>&nbsp;Recommander</p>
-		</a>
-	</div>
+	<% include share %>
 </aside>
 
 <article>

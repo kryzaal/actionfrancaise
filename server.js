@@ -104,8 +104,9 @@ app.get("/militez/camelots/textes/:code", controllers.militez.camelots.texte);
 app.get("/militez/camelots/textes/:code/vignette", controllers.militez.camelots.vignettes.textes);
 
 app.get("/militez/textes", controllers.militez.textes.get);
-app.post("/militez/textes/:filtre", controllers.militez.textes.post);
-app.get("/militez/texte/:id", controllers.militez.texte.get);
+app.post("/militez/textes", controllers.militez.textes.list);
+app.post("/militez/textes/:query", controllers.militez.textes.filter);
+app.get("/militez/textes/:code", controllers.militez.texte.get);
 
 app.get("/organigramme", controllers.organigramme.get);
 app.get("/organigramme/craf", controllers.organigramme.craf.get);

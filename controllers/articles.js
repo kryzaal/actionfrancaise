@@ -10,8 +10,7 @@ function get(request, response) {
 			else response.render('article.ejs', {
 		        pageSubtitle: data.titre,
 		        customStylesheets: ["article"],
-		        article: data,
-		        uri: server + ':' + port + '/article/' + data.code
+		        article: data
 		    });
 		});
 		else send404(response, true);

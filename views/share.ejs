@@ -1,0 +1,25 @@
+<div id="partage">
+	<a class="facebook" href="#" onclick="share_facebook();">
+		<img src="/style/images/article_fb.png"/><p>&nbsp;Partager</p>
+	</a>
+	<a class="twitter" href="#" onclick="share_twitter();">
+		<img src="/style/images/article_twitter.png"/><p>&nbsp;Twitter</p>
+	</a>
+	<a class="plus" href="#" onclick="share_google();">
+		<img src="/style/images/article_g+.png"/><p>&nbsp;Recommander</p>
+	</a>
+</div>
+
+<script>
+	function share_facebook() {
+		window.location = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURI(window.location) + "&t=" + encodeURI(document.title);
+	}
+
+	function share_twitter() {
+		window.location = "https://twitter.com/share?url=" + encodeURI(window.location) + "&text=" + encodeURI(document.title);
+	}
+
+	function share_google() {
+		window.location = "https://plus.google.com/share?url=" + encodeURI(window.location);
+	}
+</script>

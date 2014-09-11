@@ -38,7 +38,8 @@ CREATE TABLE textes (
 	date_creation DATETIME DEFAULT (DATETIME('now')),
 	titre TEXT NOT NULL,
 	ss_titre TEXT,
-	type TEXT NOT NULL
+	type TEXT NOT NULL,
+	keywords TEXT
 );
 
 CREATE TABLE grands_textes (
@@ -48,8 +49,7 @@ CREATE TABLE grands_textes (
 
 CREATE TABLE articles (
 	code TEXT PRIMARY KEY REFERENCES textes(code),
-	categorie TEXT REFERENCES categories(code),
-	keywords TEXT NOT NULL
+	categorie TEXT REFERENCES categories(code)
 );
 
 CREATE TABLE versions_articles (

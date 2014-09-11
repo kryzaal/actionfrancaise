@@ -5,11 +5,13 @@
 		<img class="image_auteur"src="/profils/<%= data.code %>/photo" />
 		<h1><%= data.nom %></h1>
 		<h2><%= data.titre %></h2>
-		<p><%= data.biographie %></p>
 		<% if(data.contactable) { %>
 			<a href="/contact/profil/<%= data.code %>"><div>Contactez <%= data.nom %></div></a>
 		<% } %>
 	</div>
+	<% if(data.biographie.length > 0) { %>
+		<div><p><%= data.biographie %></p></div>
+	<% } %>
 	<div>
 		<div id="textes"><h3>Textes publiés</h3></div>
 		<div id="roles"><h3>Rôles tenus</h3></div>

@@ -19,11 +19,6 @@ function photo(request, response) {
 };
 
 function widget(request, response) {
-	if(nullOrEmpty(request.params.code)) {
-		send404();
-		return;
-	}
-
 	model.exists(request.params.code, function(err, exists) {
 		if (err) throw err;
 		if(!exists) {
@@ -48,17 +43,30 @@ function get(request, response) {
 			model.fetchOne(request.params.code, function(err, data) {
 				if (err) throw err;
 
-				response.render('profils.ejs', {
-					pageSubtitle: data.nom,
-    				customStylesheets: ["profils"],
-					data: {
+				
+
+			    if(request.accepts("html")) {
+					response.render('profils.ejs', {
+						pageSubtitle: data.nom,
+	    				customStylesheets: ["profils"],
+						data: {
+							code: data.code, 
+							nom: data.nom, 
+							titre: data.titre, 
+							biographie: data.biographie,
+							contactable: data.contactable
+						}
+				    });
+		    	} else { 
+		    		response.writeHead('200', {'Content-Type': 'application/json'});
+					response.end(JSON.stringify({
 						code: data.code, 
 						nom: data.nom, 
 						titre: data.titre, 
 						biographie: data.biographie,
 						contactable: data.contactable
-					}
-			    });
+					}));
+				}
 			});
 		}
 	});

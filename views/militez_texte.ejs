@@ -1,0 +1,27 @@
+<% include head %>
+
+<% include militez_tuiles %>
+
+<aside id="texte_aside">
+	<div id="auteur"></div>
+	<% include share %>
+</aside>
+
+<article id="texte_<%= data.code %>">
+	<h1><%= data.titre %></h1>
+	<p><%- data.texte %></p>
+</article>
+
+<script>
+	$(function() {
+		$.get("/profils/<%= data.profil_auteur %>/widget", function( data ) {
+			$('#auteur').html(data);
+		});
+
+		$(window).scroll(function() {
+			$('#texte_aside').css('top', $(this).scrollTop());
+		});
+	})
+</script>
+
+<% include foot %>

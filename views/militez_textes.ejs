@@ -4,164 +4,33 @@
 
 <input type="text" id="filtrer" placeholder="Filtrer" />
 
-<div class="texte" id="texte_1">
-<a href=""><img class="image_auteur" src="/profil/charles_maurras/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">La république, la machine à mal faire</h1>
-		<p>En République, nous ne vivons pas dans le domaine des raisons délibérées et réfléchies, mais dans l’ordre des causes brutes.</p>	
-	</div>
-</div>
+<div id="textes"></div>
 
-<div class="texte" id="texte_2">
-<a href=""><img class="image_auteur" src="/profil/pierre_boutang/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">Royauté et libertés renaîtront de concert</h1>
-		<p>Quoi qu’on ait prétendu, cet espoir d’une renaissance française n’est point une chimère, </p>	
-	</div>
-</div>
+<script>
+	$.post('/militez/textes').done(function(data) {
+		data.forEach(function(code) {
+			$.ajax('/militez/textes/' + code, { accepts: "application/json" }).done(function(data) {
+				$("#textes").append(
+					'<a href="/militez/textes/' + code + '"><div class="texte">' +
+						'<img class="image_auteur" src="/profils/' + data.profil_auteur + '/photo" />' +
+						'<div class="texte_texte">' +
+							'<h1>' + data.titre + '</h1>' +
+							'<p>' + data.texte + '</p>' +
+						'</div>' +
+					'</a></div>'
+				);
 
-<div class="texte" id="texte_3">
-<a href=""><img class="image_auteur" src="/profil/thierry_maulnier/photo" /></a>
-	<div class="texte_texte">
-		<h1>Bilan de la république</h1>
-		<p>C’est au résultat que l’on juge un mode de gouvernement. </p>	
-	</div>
-</div>
+				$(".texte p").each(function() {
+	                var jElement = $(this);
 
-<div class="texte" id="texte_4">
-<a href=""><img class="image_auteur" src="/profil/charles_maurras/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">Je suis Romain !</h1>
-		<p>Je suis Romain, parce que Rome, dès le consul Marius et le divin Jules, jusqu’à Théodose, ébaucha la première configuration de ma France.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_5">
-<a href=""><img class="image_auteur" src="/profil/thierry_maulnier/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">Effets du libéralisme</h1>
-		<p>En République, nous ne vivons pas dans le domaine des raisons délibérées et réfléchies, mais dans l’ordre des causes brutes.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_6">
-<a href=""><img class="image_auteur" src="/profil/leon_daudet/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">La république, la machine à mal faire</h1>
-		<p>En République, nous ne vivons pas dans le domaine des raisons délibérées et réfléchies, mais dans l’ordre des causes brutes.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_1">
-<a href=""><img class="image_auteur" src="/profil/charles_maurras/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">La république, la machine à mal faire</h1>
-		<p>En République, nous ne vivons pas dans le domaine des raisons délibérées et réfléchies, mais dans l’ordre des causes brutes.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_2">
-<a href=""><img class="image_auteur" src="/profil/charles_maurras/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">Royauté et libertés renaîtront de concert</h1>
-		<p>Quoi qu’on ait prétendu, cet espoir d’une renaissance française n’est point une chimère, </p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_3">
-<a href=""><img class="image_auteur" src="/profil/jacques_bainville/photo" /></a>
-	<div class="texte_texte">
-		<h1>Bilan de la république</h1>
-		<p>C’est au résultat que l’on juge un mode de gouvernement. </p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_4">
-<a href=""><img class="image_auteur" src="/profil/charles_maurras/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">Je suis Romain !</h1>
-		<p>Je suis Romain, parce que Rome, dès le consul Marius et le divin Jules, jusqu’à Théodose, ébaucha la première configuration de ma France.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_5">
-<a href=""><img class="image_auteur" src="/profil/pierre_boutang/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">Effets du libéralisme</h1>
-		<p>En République, nous ne vivons pas dans le domaine des raisons délibérées et réfléchies, mais dans l’ordre des causes brutes.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_6">
-<a href=""><img class="image_auteur" src="/profil/leon_daudet/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">La république, la machine à mal faire</h1>
-		<p>En République, nous ne vivons pas dans le domaine des raisons délibérées et réfléchies, mais dans l’ordre des causes brutes.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_6">
-<a href=""><img class="image_auteur" src="/profil/leon_daudet/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">La république, la machine à mal faire</h1>
-		<p>En République, nous ne vivons pas dans le domaine des raisons délibérées et réfléchies, mais dans l’ordre des causes brutes.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_1">
-<a href=""><img class="image_auteur" src="/profil/charles_maurras/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">La république, la machine à mal faire</h1>
-		<p>En République, nous ne vivons pas dans le domaine des raisons délibérées et réfléchies, mais dans l’ordre des causes brutes.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_2">
-<a href=""><img class="image_auteur" src="/profil/charles_maurras/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">Royauté et libertés renaîtront de concert</h1>
-		<p>Quoi qu’on ait prétendu, cet espoir d’une renaissance française n’est point une chimère, </p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_3">
-<a href=""><img class="image_auteur" src="/profil/jacques_bainville/photo" /></a>
-	<div class="texte_texte">
-		<h1>Bilan de la république</h1>
-		<p>C’est au résultat que l’on juge un mode de gouvernement. </p>	
-	</div>
-</div>
-<div class="texte" id="texte_6">
-<a href=""><img class="image_auteur" src="/profil/leon_daudet/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">La république, la machine à mal faire</h1>
-		<p>En République, nous ne vivons pas dans le domaine des raisons délibérées et réfléchies, mais dans l’ordre des causes brutes.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_1">
-<a href=""><img class="image_auteur" src="/profil/charles_maurras/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">La république, la machine à mal faire</h1>
-		<p>En République, nous ne vivons pas dans le domaine des raisons délibérées et réfléchies, mais dans l’ordre des causes brutes.</p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_2">
-<a href=""><img class="image_auteur" src="/profil/jacques_bainville/photo" /></a>
-	<div class="texte_texte">
-		<h1 class="titre_texte">Royauté et libertés renaîtront de concert</h1>
-		<p>Quoi qu’on ait prétendu, cet espoir d’une renaissance française n’est point une chimère, </p>	
-	</div>
-</div>
-
-<div class="texte" id="texte_3">
-<a href=""><img class="image_auteur" src="/profil/jacques_bainville/photo" /></a>
-	<div class="texte_texte">
-		<h1>Bilan de la république</h1>
-		<p>C’est au résultat que l’on juge un mode de gouvernement. </p>	
-	</div>
-</div>
-
+	                while(this.scrollHeight > this.offsetHeight) {
+	                    var lastIndex = jElement.html().lastIndexOf(" ");
+	                    jElement.html(jElement.html().substring(0, lastIndex) + '&hellip;');
+	                }
+	            });
+			})
+		});
+	});
+</script>
 
 <% include foot %>
