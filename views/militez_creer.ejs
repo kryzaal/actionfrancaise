@@ -5,12 +5,12 @@
 
 	<p>#TODO</p>
 
-    <form method="POST" action="/creer">
-        <input type="text" name="prenom" placeholder="Prénom" />
-        <input type="text" name="nom" placeholder="Nom" />
-        <input type="email" name="email" placeholder="Courriel" />
-        <input type="text" name="lieu" placeholder="Lieu" />
-        <textarea placeholder="Précisions" name="message"></textarea>
+    <form method="POST" action="/militez/creer">
+        <input type="text" name="prenom" placeholder="Prénom" required value="<%- valueIfPresent('prenom') %>" />
+        <input type="text" name="nom" placeholder="Nom" required value="<%- valueIfPresent('nom') %>" />
+        <input type="email" name="email" placeholder="Courriel" required value="<%- valueIfPresent('email') %>" />
+        <input type="text" name="lieu" placeholder="Lieu" required value="<%- valueIfPresent('lieu') %>" />
+        <textarea placeholder="Précisions" name="message" ><%- valueIfPresent('message') %></textarea>
         <% include captcha %>
         <button type="submit">Envoyer votre demande</button>
     </form>

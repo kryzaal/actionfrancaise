@@ -1,5 +1,4 @@
-var captcha = require('./captcha');
-var mail = require(document_root + '/controllers/mail');
+var mail_form = require(document_root + '/lib/mail_form');
 
 var contacts = {
     'default': {
@@ -14,57 +13,31 @@ var contacts = {
     }
 }
 
-function get(request, response) {
-    var who = 'default';
-    if(typeof request.params.who != 'undefined') who = request.params.who;
+function getContactInfos(who) {
+    if(nullOrEmpty(who)) return contacts['default'];
 
-    renderView(response, who);
+    var data = contacts[who];
+    return nullOrEmpty(data) ? contacts['default'] : data;
+}
+
+function get(request, response) {
+    var contact_parent = new mail_form.mail_form('contact.ejs', getContactInfos().titre, 'Merci pour votre message, nous y répondrons dans les meilleurs délais !');
+    contact_parent.get(request, response);
 }
 
 function post(request, response) {
     var who = 'default';
     if(typeof request.params.who != 'undefined') who = request.params.who;
 
-    captcha.check(request, function(err, ok) {
-        if(ok) {
-            var mailOptions = {
-                from: request.body.email,
-                to: contacts[who].mail,
-                subject: 'Message de ' + request.body.prenom + ' ' + request.body.nom,
-                text: request.body.message
-            };
+    var mailOptions = {
+        from: request.body.email,
+        to: contacts[who].mail,
+        subject: 'Message de ' + request.body.prenom + ' ' + request.body.nom,
+        text: request.body.message
+    };
 
-            mail.send(mailOptions, function(error, info){
-                if(error){
-                    console.log(error);
-                }
-
-                renderView(response, who, {
-                    color: error ? 'red' : 'green',
-                    duration: 5,
-                    html: error ? 'Votre message n\'a pas été envoyé' : 'Merci pour votre message, nous y répondrons dans les meilleurs délais !'
-                });
-            });
-        } else {
-            renderView(response, who, {
-                color: 'red',
-                duration: 5,
-                html: 'Vérification du captcha échouée'
-            });
-        }
-    });
-}
-
-function renderView(response, who, toaster) {
-    if(typeof(toaster) == 'undefined') toaster = false;
-
-    response.render('contact.ejs', {
-        pageSubtitle: "Contact",
-        customStylesheets: ["formulaire"],
-        toaster : toaster,
-        captcha: { publicKey : captcha.publicKey },
-        who: contacts[who]
-    });
+    var contact_parent = new mail_form.mail_form('contact.ejs', contacts[who].titre, 'Merci pour votre message, nous y répondrons dans les meilleurs délais !');
+    contact_parent.post(request, response);
 }
 
 exports.get = get;

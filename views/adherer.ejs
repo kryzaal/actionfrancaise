@@ -21,9 +21,9 @@
     <a href="/adherer/bulletin"><button type="button">Imprimer le bulletin d'adhésion</button></a>
 
     <form method="POST" action="/adherer">
-        <input type="text" name="prenom" placeholder="Prénom" />
-        <input type="text" name="nom" placeholder="Nom" />
-        <input type="email" name="email" placeholder="Courriel" />
+        <input type="text" name="prenom" placeholder="Prénom" value="<%- valueIfPresent('prenom') %>"/>
+        <input type="text" name="nom" placeholder="Nom" value="<%- valueIfPresent('nom') %>"/>
+        <input type="email" name="email" placeholder="Courriel" value="<%- valueIfPresent('email') %>"/>
 
         <select name="type_adhesion">
         	<option value="reduit">Etudiant, lycéen, chômeur €16,00 EUR</option>

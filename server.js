@@ -50,7 +50,7 @@ app.post("/contact/:who", controllers.contact.post);
 
 app.get("/adherer", controllers.adherer.get);
 app.post("/adherer", controllers.adherer.post);
-app.get("/adherer/bulletin", controllers.files.jquery);
+app.get("/adherer/bulletin", controllers.files.adhesion);
 
 app.get("/dons", controllers.dons.get);
 app.post("/dons", controllers.dons.post);
@@ -71,6 +71,8 @@ app.get("/carte", controllers.militez.carte.get);
 
 app.get("/creer", controllers.militez.creer.get);
 app.post("/creer", controllers.militez.creer.post);
+app.get("/militez/creer", controllers.militez.creer.get);
+app.post("/militez/creer", controllers.militez.creer.post);
 
 app.get("/actions", controllers.militez.actions.get);
 app.get("/actions/latest", controllers.militez.actions.latest);

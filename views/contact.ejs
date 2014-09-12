@@ -1,16 +1,22 @@
 <% include head %>
 
 <div class="formulaire">
-	<h1><%= who.titre %></h1>
+	<h1><%= pageSubtitle %></h1>
 
-    <form method="POST" action="/contact<% if(who.code != 'default') { %>/<%= who.code %><% } %>">
-        <input type="text" name="prenom" placeholder="Prénom" />
-        <input type="text" name="nom" placeholder="Nom" />
-        <input type="email" name="email" placeholder="Courriel" />
-        <textarea placeholder="Votre message" name="message"></textarea>
+    <form method="POST" id="contact">
+        <input type="text" name="prenom" placeholder="Prénom" value="<%- valueIfPresent('prenom') %>" />
+        <input type="text" name="nom" placeholder="Nom" value="<%- valueIfPresent('nom') %>" />
+        <input type="email" name="email" placeholder="Courriel" value="<%- valueIfPresent('mail') %>"/>
+        <textarea placeholder="Votre message" name="message"><%- valueIfPresent('message') %></textarea>
         <% include captcha %>
         <button type="submit">Envoyer</button>
     </form>
 </div>
+
+<script>
+	$(function() {
+		$("#contact").attr("action", window.location.pathname);
+	});
+</script>
 
 <% include foot %>
