@@ -1,0 +1,87 @@
+#container{
+	margin-top: 10px;
+width:87%;
+margin-right: auto;
+margin-left: auto;
+
+}
+
+#texte_aside{
+	float: left;
+	width:15%;
+	
+	
+}
+
+#auteur{
+background-color:#9f2020;
+
+}
+
+#auteur img{
+
+	width:100%;
+
+}
+
+#auteur a{
+	text-decoration: none;
+}
+
+#auteur h1, #auteur h2{
+	
+	color: white;
+    margin:10px;
+}
+
+#auteur h1{
+
+	font-size: 16px;
+}
+
+#partage {
+    text-align: left;
+    color: white;
+    background-color:#0D1C42;
+    word-wrap: break-word;
+    display: table;
+    width: 100%;
+}
+
+#partage img {
+    height:15px;
+    margin:5px;
+    vertical-align: middle;
+}
+
+#partage a > * {
+    display: table-cell;
+}
+
+#partage a {
+    display: block;
+    width: 100%;
+    color:white;
+    vertical-align:middle;
+    text-decoration: none;
+    color:white;
+    display: table-row;
+}
+
+#partage a.facebook:hover {
+    background-color: #3B5998;
+}
+
+#partage a.twitter:hover {
+    background-color: #56A3D9;
+}
+
+#partage a.plus:hover {
+    background-color: #DB2D24;
+}
+
+article{
+	width: 84%;
+    background-color:#ece9e9;
+    float: right;
+}

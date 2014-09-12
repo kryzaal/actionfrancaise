@@ -1,7 +1,7 @@
 <% include head %>
 
 <% include militez_tuiles %>
-
+<div id="container">
 <aside id="texte_aside">
 	<div id="auteur"></div>
 	<% include share %>
@@ -10,7 +10,7 @@
 <article id="texte_<%= data.code %>">
 	<h1><%= data.titre %></h1>
 	<p><%- data.texte %></p>
-</article>
+</article></div>
 
 <script>
 	$(function() {
