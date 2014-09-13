@@ -28,7 +28,6 @@ header, h2 {
 }
 
 .entete {
-  background-color: #0000;
   width: 100%; 
   margin-top:-20px;
   margin-right:auto;
@@ -47,12 +46,8 @@ header h1{
   width:450px;
 }
 
-#menu_top { 
-  background-image: -webkit-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
-  background-image:    -moz-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
-  background-image:     -ms-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
-  background-image:      -o-linear-gradient(left,#0D1C42,#1d3674,#0D1C42); 
-  /*box-shadow:  0px 5px 12px #000;*/
+#menu_top {
+  background: linear-gradient(to left, #0D1C42, #1d3674, #0D1C42);
   height:40px;
   width:100%;
   margin-right: auto;

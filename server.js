@@ -130,6 +130,7 @@ app.post("/articles/:query", controllers.articles.search);
 
 app.get("/slideshow", controllers.slideshow.get);
 app.get("/jquery", controllers.files.jquery);
+app.get("/paypal", controllers.files.paypal);
 
 app.use("/style", express.static(__dirname + "/static/style"));
 app.use("/slides", express.static(__dirname + "/data/slideshow"));
