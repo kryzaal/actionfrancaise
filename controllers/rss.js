@@ -60,7 +60,7 @@ function xml(request, response) {
 	if(request.query.actions == 'on') {
 		feed.title += 'Campagnes, Evenements, ';
 		feed.feed_url += 'actions=on,';
-		feed.item(create_action_item(action_model.fetchOneSync('jeanne_2013')));
+		//feed.item(create_action_item(action_model.fetchOneSync('jeanne_2013')));
 	}
 
 	if(request.query.articles == 'on') {

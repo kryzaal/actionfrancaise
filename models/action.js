@@ -1,103 +1,97 @@
-var loremipsum = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?';
-
-var data = {
-	'jeanne_2013' : {
-		code: 'jeanne_2013',
-		nom: "Cortège traditionnel de Jeanne d'Arc",
-		titre: function() { return this.nom + (this.editions ? ' - ' + this.editions.actuelle : '')},
-		editions: {
-			precedente : null,
-			actuelle : "Edition 2013",
-			suivante : {code: 'jeanne_2014', libelle: 'Edition 2014'},
-		},
-		type: 'évenement',
-		description: loremipsum,
-		previous: null,
-		next: {code: 'colloque_la_releve', nom: 'Colloque "La Relève"'},
-		creation: new Date('31', '08', '2014', '22', '30', '00')
-	},
-	'colloque_la_releve' : {
-		code: 'colloque_la_releve',
-		nom: 'Colloque "La Relève"',
-		titre: function() { return nom + (editions ? ' - ' + editions.actelle : '')},
-		editions: null,
-		type: 'évenement',
-		description: loremipsum,
-		previous: {code: 'jeanne_2013', nom: "Cortège traditionnel de Jeanne d'Arc - Edition 2013"},
-		next: {code: 'droles_de_candidats', nom: "De drôles de candidats ..."},
-		creation: new Date('31', '08', '2014', '22', '31', '00')
-	},
-	'droles_de_candidats' : {
-		code: 'droles_de_candidats',
-		nom: "De drôles de candidats ...",
-		titre: function() { return nom + (editions ? ' - ' + editions.actelle : '')},
-		editions: null,
-		type: 'campagne',
-		description: loremipsum,
-		previous: {code: 'colloque_la_releve', nom: 'Colloque "La Relève"'},
-		next: {code: 'jeanne_2014', nom: "Cortège traditionnel de Jeanne d'Arc - Edition 2014"},
-		creation: new Date('31', '08', '2014', '22', '32', '00')
-	},
-	'jeanne_2014' : {
-		code: 'jeanne_2014',
-		nom: "Cortège traditionnel de Jeanne d'Arc",
-		titre: function() { return nom + (editions ? ' - ' + editions.actelle : '')},
-		editions: {
-			precedente : {code: 'jeanne_2013', libelle: 'Edition 2013'},
-			actuelle : "Edition 2014",
-			suivante : {code: 'jeanne_2015', libelle: 'Edition 2015'},
-		},
-		type: 'évenement',
-		description: loremipsum,
-		previous: {code: 'droles_de_candidats', nom: "De drôles de candidats ..."},
-		next: {code: 'jeanne_2015', nom: "Cortège traditionnel de Jeanne d'Arc - Edition 2015"},
-		creation: new Date('31', '08', '2014', '22', '33', '00')
-	},
-	'cmrds_2014' : {
-		code: 'cmrds_2014',
-		nom: "Camp Maxime Réal del Sarte",
-		titre: function() { return nom + (editions ? ' - ' + editions.actelle : '')},
-		editions: null,
-		type: 'cmrds',
-		description: loremipsum,
-		previous: {code: 'jeanne_2014', nom: "Cortège traditionnel de Jeanne d'Arc - Edition 2014"},
-		next: {code: 'jeanne_2015', nom: "Cortège traditionnel de Jeanne d'Arc - Edition 2015"},
-		creation: new Date('31', '08', '2014', '22', '34', '00')
-	},
-	'jeanne_2015' : {
-		code: 'jeanne_2015',
-		nom: "Cortège traditionnel de Jeanne d'Arc",
-		titre: function() { return nom + (editions ? ' - ' + editions.actelle : '')},
-		editions: {
-			precedente : {code: 'jeanne_2014', libelle: 'Edition 2014'},
-			actuelle : "Edition 2015",
-			suivante : null,
-		},
-		type: 'évenement',
-		description: loremipsum,
-		previous: {code: 'jeanne_2014', nom: "Cortège traditionnel de Jeanne d'Arc - Edition 2014"},
-		next: null,
-		creation: new Date('31', '08', '2014', '22', '35', '00')
-	}
-};
+var async = require('async');
+var dbHandler = require(document_root + '/database').handler;
 
 exports.exists = function(code, callback) {
-	callback(false, typeof data[code] !== 'undefined');
+	if(nullOrEmpty(code)) callback("Code is null or undefined at exists", false);
+	dbHandler.get("SELECT COUNT(*) > 0 FROM actions WHERE code == ?", code, callback);
+}
+
+function fetchPreviousEdition(code, callback) {
+	if(nullOrEmpty(code)) callback("Code is null or undefined at fetchPreviousEdition", false);
+	dbHandler.get("SELECT code_action, nom_edition FROM actions_recurrentes " + 
+		"WHERE code_groupe == (SELECT code_groupe FROM actions_recurrentes WHERE code_action == ?) " + 
+		"AND rang_action < (SELECT rang_action FROM actions_recurrentes WHERE code_action == ?) " + 
+		"ORDER BY rang_action DESC LIMIT 1", [code, code], callback);
+}
+
+function fetchNextEdition(code, callback) {
+	if(nullOrEmpty(code)) callback("Code is null or undefined at fetchNextEdition", false);
+	dbHandler.get("SELECT code_action, nom_edition FROM actions_recurrentes " + 
+		"WHERE code_groupe == (SELECT code_groupe FROM actions_recurrentes WHERE code_action == ?) " + 
+		"AND rang_action > (SELECT rang_action FROM actions_recurrentes WHERE code_action == ?) " + 
+		"ORDER BY rang_action ASC LIMIT 1", [code, code], callback);
+}
+
+function fetchPrevious(code, callback) {
+	if(nullOrEmpty(code)) callback("Code is null or undefined at fetchPrevious", false);
+	dbHandler.get("SELECT code, nom FROM actions WHERE date_debut < (SELECT date_debut FROM actions WHERE code == ?) " + 
+		"ORDER BY date_debut DESC LIMIT 1", code, callback);
+}
+
+function fetchNext(code, callback) {
+	if(nullOrEmpty(code)) callback("Code is null or undefined at fetchNext", false);
+	dbHandler.get("SELECT code, nom FROM actions WHERE date_debut > (SELECT date_debut FROM actions WHERE code == ?) " + 
+		"ORDER BY date_debut ASC LIMIT 1", code, callback);
+}
+
+function fetchOneWithLinks(fetcher, callback) {
+	async.waterfall([
+		fetcher,
+		function(actionData, parentCallback) {
+			async.parallel({
+				previousData: function(callback) {
+					fetchPrevious(actionData.code, callback);
+				},
+				nextData: function(callback) {
+					fetchNext(actionData.code, callback);
+				},
+				previousEditionData: function(callback) {
+					fetchPreviousEdition(actionData.code, callback);
+				},
+				nextEditionData: function(callback) {
+					fetchNextEdition(actionData.code, callback);
+				}
+			}, function(err, array) {
+				if(err) parentCallback(err);
+				else parentCallback(null, actionData, array.previousData, array.nextData, array.previousEditionData, array.nextEditionData);
+			});
+		},
+		function(actionData, previousData, nextData, previousEditionData, nextEditionData, callback) {
+			var action = actionData;
+			action.previous = previousData;
+			action.next = nextData;
+			action.editions = false;
+
+			if(actionData['nom_edition']) {
+				action.editions = {
+					precedente: previousEditionData,
+					actuelle: actionData['nom_edition'],
+					suivante: nextEditionData
+				};
+			}
+
+			callback(null, action);
+		}
+	], callback);
 }
 
 function fetchOne(code, callback) {
-	if(typeof data[code] === 'undefined') callback("Code " + code + " introuvable dans les actions", undefined);
-	else callback(false, data[code]);
+	if(nullOrEmpty(code)) callback("Code is null or undefined at fetchOne", false);
+	dbHandler.get("SELECT actions.*, actions_recurrentes.nom_edition FROM actions " + 
+		"INNER JOIN actions_recurrentes ON actions_recurrentes.code_action == actions.code WHERE code == ?", code, callback);
 }
 
-function fetchOneSync(code) {
-	if(typeof data[code] === 'undefined') throw("Code " + code + " introuvable dans les action");
-	else return data[code];
+function fetchLatest(callback) {
+	dbHandler.get("SELECT actions.*, actions_recurrentes.nom_edition FROM actions " + 
+		"INNER JOIN actions_recurrentes ON actions_recurrentes.code_action == actions.code ORDER BY actions.date_debut DESC LIMIT 1", {}, callback);
 }
 
 exports.fetchLatest = function(callback) {
-	fetchOne('jeanne_2015', callback);
+	fetchOneWithLinks(fetchLatest, callback);
 }
 
-exports.fetchOne = fetchOne;
-exports.fetchOneSync = fetchOneSync;
+exports.fetchOne = function(code, callback) {
+	fetchOneWithLinks(function(callback) {
+		fetchOne(code, callback);
+	}, callback);
+}

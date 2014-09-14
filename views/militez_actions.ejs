@@ -1,10 +1,11 @@
 <% include head %>
 
+<%= JSON.stringify(action) %>
+
 <% 
 var base_addr = '/militez/actions/';
 var previous = action.previous;
 var next = action.next;
-
 %>
 
 <% include militez_tuiles %>
@@ -25,13 +26,13 @@ var next = action.next;
 
 			<% if(action.editions) { %><div id="edition">
 				<% if(action.editions.precedente) { %>
-					<a href="<%= base_addr + action.editions.precedente.code %>"><%= action.editions.precedente.libelle %></a>
+					<a href="<%= base_addr + action.editions.precedente.code_action %>"><%= action.editions.precedente.nom_edition %></a>
 				<% } %>
 
 				<h3><%= action.editions.actuelle %></h3>
 
 				<% if(action.editions.suivante) { %>
-					<a href="<%= base_addr + action.editions.suivante.code %>"><%= action.editions.suivante.libelle %></a>
+					<a href="<%= base_addr + action.editions.suivante.code_action %>"><%= action.editions.suivante.nom_edition %></a>
 				<% } %>
 			</div><% } %>
 		</div>

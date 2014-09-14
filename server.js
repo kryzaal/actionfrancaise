@@ -74,8 +74,7 @@ app.post("/creer", controllers.militez.creer.post);
 app.get("/militez/creer", controllers.militez.creer.get);
 app.post("/militez/creer", controllers.militez.creer.post);
 
-app.get("/actions", controllers.militez.actions.get);
-app.get("/actions/latest", controllers.militez.actions.latest);
+app.get("/actions", controllers.militez.actions.latest);
 app.get("/actions/:action", controllers.militez.actions.get);
 app.get("/actions/:action/affiche", controllers.militez.actions.affiche);
 app.get("/actions/:action/photos", controllers.militez.actions.photos);
@@ -87,7 +86,7 @@ app.get("/militez/carte", controllers.militez.carte.get);
 app.get("/militez/cmrds", controllers.militez.cmrds.get);
 app.get("/militez/creer", controllers.militez.creer.get);
 
-app.get("/militez/actions", controllers.militez.actions.get);
+app.get("/militez/actions", controllers.militez.actions.latest);
 app.get("/militez/actions/:action", controllers.militez.actions.get);
 app.get("/militez/actions/:action/affiche", controllers.militez.actions.affiche);
 app.get("/militez/actions/:action/photos", controllers.militez.actions.photos);
@@ -149,7 +148,7 @@ global.send500 = function(response, pretty, err) {
     if(typeof(pretty) === 'undefined') pretty = false;
     if(typeof(err) === 'undefined') err = '';
 
-    console.log(err);
+    console.log(JSON.stringify(err));
     response.status(500);
     if(pretty) response.render('500.ejs', {erreur : err});
     else response.end(err);

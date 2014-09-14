@@ -128,7 +128,7 @@
     var scroller = null; 
 
     $(function() {
-        $.get('/actions/latest', function(data) {
+        $.ajax('/actions', { accepts: 'application/json' }).done(function(data) {
             $("#evenement").html(
                 '<a href="/actions/' + data.code + '">' +
                     '<img class="image_evenement" src="/actions/' + data.code + '/affiche" />' +
