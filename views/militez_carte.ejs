@@ -18,6 +18,19 @@
 
 <script>
 	var current = null;
+	var positions = {
+		'bordeaux': {x: '150', y: '240'},
+		'provence' : {x: '430', y: '130'},
+		'iledefrance' : {x: '280', y: '460'},
+		'annecy' : {x: '480', y: '320'},
+		'clermont' : {x: '340', y: '280'},
+		'grenoble': {x: '480', y: '240'},
+		'lyon': {x: '420', y: '290'},
+		'nantes': {x: '120', y: '370'},
+		'oise_picardie': {x: '300', y: '540'},
+		'rennes': {x: '120', y: '440'},
+		'annonay': {x: '395', y: '230'}
+	};
 
 	function drawSection(id) {
 		if(current && id == current.id) return;

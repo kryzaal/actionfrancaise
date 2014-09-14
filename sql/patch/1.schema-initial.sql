@@ -70,7 +70,8 @@ CREATE TABLE entites (
 	nom_court TEXT NOT NULL,
 	nom TEXT NOT NULL,
 	description TEXT,
-	chef_code_profil TEXT NOT NULL REFERENCES profils(code)
+	chef_code_profil TEXT NOT NULL REFERENCES profils(code),
+	code_contactable TEXT NOT NULL REFERENCES contactable(code)
 );
 
 CREATE TABLE membres_entites (
@@ -87,9 +88,25 @@ CREATE TABLE federations (
 CREATE TABLE sections (
 	code_section TEXT PRIMARY KEY,
 	code_entite TEXT UNIQUE NOT NULL REFERENCES entites(code),
-	code_federation TEXT REFERENCES federations(code_federation),
-	possede_section_afe BOOLEAN NOT NULL,
-	possede_section_af BOOLEAN NOT NULL
+	code_federation TEXT REFERENCES federations(code_federation)
+);
+
+CREATE TABLE section_af (
+	code_section TEXT PRIMARY KEY NOT NULL,
+	code_entite TEXT NOT NULL REFERENCES entites(code)
+);
+
+CREATE TABLE section_afe (
+	code_section TEXT PRIMARY KEY NOT NULL,
+	code_entite TEXT NOT NULL REFERENCES entites(code)
+);
+
+CREATE TABLE contactable (
+	code TEXT PRIMARY KEY,
+	mail TEXT,
+	facebook TEXT,
+	twitter TEXT,
+	site TEXT 
 );
 
 CREATE TABLE actions (

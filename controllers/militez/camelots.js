@@ -24,7 +24,7 @@ function photos(request, response) {
 
 function videos(request, response) {
 	video_model.fetchCodes('camelots', function(err, data) {
-		if(err) throw err;
+		if(err) send500(false, err);
 		response.writeHead('200', {'Content-Type': 'application/json'});
 		response.end(JSON.stringify(data));
 	});
@@ -32,7 +32,7 @@ function videos(request, response) {
 
 function texte(request, response) {
 	page_model.fetchOne('camelots_textes', request.params.code, function(err, data) {
-		if(err) throw err;
+		if(err) send500(false, err);
 
 		if(request.accepts("html")) {
 			response.render('militez_camelots_page.ejs', {
@@ -49,7 +49,7 @@ function texte(request, response) {
 
 function chant(request, response) {
 	page_model.fetchOne('camelots_chants', request.params.code, function(err, data) {
-		if(err) throw err;
+		if(err) send500(false, err);
 
 		if(request.accepts("html")) {
 			response.render('militez_camelots_page.ejs', {
@@ -66,7 +66,7 @@ function chant(request, response) {
 
 function textes(request, response) {
 	page_model.fetchList('camelots_textes', function(err, codes) {
-		if(err) throw err;
+		if(err) send500(false, err);
 		response.writeHead('200', {'Content-Type': 'application/json'});
 		response.end(JSON.stringify(codes));
 	});
@@ -74,7 +74,7 @@ function textes(request, response) {
 
 function chants(request, response) {
 	page_model.fetchList('camelots_chants', function(err, codes) {
-		if(err) throw err;
+		if(err) send500(false, err);
 		response.writeHead('200', {'Content-Type': 'application/json'});
 		response.end(JSON.stringify(codes));
 	});
