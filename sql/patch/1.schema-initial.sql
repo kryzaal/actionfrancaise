@@ -70,13 +70,13 @@ CREATE TABLE entites (
 	nom_court TEXT NOT NULL,
 	nom TEXT NOT NULL,
 	description TEXT,
-	chef_code_profil TEXT NOT NULL REFERENCES profils(code),
 	code_contactable TEXT NOT NULL REFERENCES contactable(code)
 );
 
 CREATE TABLE membres_entites (
 	code_entite TEXT NOT NULL REFERENCES entites(code),
 	code_profil TEXT NOT NULL REFERENCES profils(code),
+	dirigeant BOOLEAN NOT NULL,
 	PRIMARY KEY(code_entite, code_profil)
 );
 

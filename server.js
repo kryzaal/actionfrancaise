@@ -29,7 +29,8 @@ var controllers = {
     rss:            require('./controllers/rss'),
     sections:       require('./controllers/sections'),
     slideshow:      require('./controllers/slideshow'),
-    files:          require('./controllers/files')
+    files:          require('./controllers/files'),
+    entites:          require('./controllers/entites')
 };
 
 var app = express();
@@ -61,9 +62,28 @@ app.get("/medias/visuels/random", controllers.medias.visuels.random);
 app.use("/medias/visuels/:filename", controllers.medias.visuels.get);
 app.get("/medias/videos", controllers.medias.videos.list);
 
-app.get("/sections", controllers.sections.get);
-app.get("/sections/:code/contact", controllers.sections.contact);
-app.get("/sections/:code/blason", controllers.sections.blason);
+/*
+app.get("/entites/craf", controllers.entites.craf.get);
+app.get("/entites/craf/logo", controllers.entites.craf.logo);
+app.get("/entites/craf/contact", controllers.entites.craf.contact);
+app.get("/entites/craf/membres", controllers.entites.craf.membres);
+
+app.get("/entites/sections", controllers.entites.sections.list);
+app.get("/entites/sections/:code", controllers.entites.sections.get);
+app.get("/entites/sections/:code/blason", controllers.entites.sections.blason);
+app.get("/entites/sections/:code/contact", controllers.entites.sections.contact);
+app.get("/entites/sections/:code/membres", controllers.entites.sections.membres);
+app.get("/entites/sections/:code/federation", controllers.entites.sections.federation);
+app.get("/entites/sections/:code/af", controllers.entites.sections.af.get);
+app.get("/entites/sections/:code/afe", controllers.entites.sections.afe.get);
+
+app.get("/entites/federations", controllers.entites.federations.list);
+app.get("/entites/federations/:code", controllers.entites.federations.get);
+app.get("/entites/federations/:code/sections", controllers.entites.federations.sections);
+app.get("/entites/federations/:code/membres", controllers.entites.federations.membres);
+app.get("/entites/federations/:code/contact", controllers.entites.federations.contact);
+app.get("/entites/federations/:code/blason", controllers.entites.federations.blason);
+*/
 
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
@@ -152,6 +172,14 @@ global.send500 = function(response, pretty, err) {
     response.status(500);
     if(pretty) response.render('500.ejs', {erreur : err});
     else response.end(err);
+}
+
+global.send501 = function(response, pretty) {
+    if(typeof(pretty) === 'undefined') pretty = false;
+
+    response.status(501);
+    if(pretty) response.render('501.ejs');
+    else response.end();
 }
 
 app.get("/418", function(request, response) {
