@@ -26,7 +26,7 @@ INSERT OR REPLACE INTO contactable (code, mail, facebook, twitter, site) VALUES
 ('afe_clermont', NULL, NULL, NULL, NULL),
 ('afe_grenoble', NULL, NULL, NULL, NULL);
 
-INSERT OR REPLACE INTO entites (code, nom_court, nom, description, chef_code_profil, code_contactable) VALUES
+INSERT OR REPLACE INTO entites (code, nom_court, nom, description, code_contactable) VALUES
 ('craf', 'CRAF', 'Centre royaliste d''Action Française', '#TODO', 'craf'),
 ('federation_provence', 'Provence', 'Fédération d''Île-de-France', '#TODO', 'federation_provence'),
 ('federation_iledefrance', 'Île de France', 'Fédération de Provence', '#TODO', 'federation_iledefrance'),

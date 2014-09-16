@@ -74,8 +74,16 @@ app.get("/entites/sections/:code/blason", controllers.entites.sections.blason);
 app.get("/entites/sections/:code/contact", controllers.entites.sections.contact);
 app.get("/entites/sections/:code/membres", controllers.entites.sections.membres);
 app.get("/entites/sections/:code/federation", controllers.entites.sections.federation);
+
 app.get("/entites/sections/:code/af", controllers.entites.sections.af.get);
+app.get("/entites/sections/:code/af/membres", controllers.entites.sections.af.membres);
+app.get("/entites/sections/:code/af/contact", controllers.entites.sections.af.contact);
+app.get("/entites/sections/:code/af/blason", controllers.entites.sections.af.blason);
+
 app.get("/entites/sections/:code/afe", controllers.entites.sections.afe.get);
+app.get("/entites/sections/:code/afe/membres", controllers.entites.sections.afe.membres);
+app.get("/entites/sections/:code/afe/contact", controllers.entites.sections.afe.contact);
+app.get("/entites/sections/:code/afe/blason", controllers.entites.sections.afe.blason);
 
 app.get("/entites/federations", controllers.entites.federations.list);
 app.get("/entites/federations/:code", controllers.entites.federations.get);
