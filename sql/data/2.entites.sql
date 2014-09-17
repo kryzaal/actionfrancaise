@@ -1,5 +1,5 @@
 INSERT OR REPLACE INTO contactable (code, mail, facebook, twitter, site) VALUES
-('craf', NULL, NULL, NULL, NULL),
+('craf', 'contact@actionfrancaise.net', 'action.francaise.nationale', 'actionfrancaise', 'actionfrancaise.net'),
 ('federation_provence', NULL, 'afprovence', NULL, NULL),
 ('federation_iledefrance', NULL, 'AFEIleDeFrance', NULL, NULL),
 

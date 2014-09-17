@@ -1,6 +1,7 @@
 var fs = require('fs');
 var model = require(document_root + '/models/action');
 var folder = require(document_root + "/lib/folder");
+var json = require(document_root + "/lib/json");
 
 var actionsFolder = new folder.Folder(document_root + '/data/actions/');
 var subfolders = {};
@@ -51,12 +52,8 @@ function displayAction(request, response, err, data, titre) {
             });
         }
     } else {
-        if(err) send500(response, false, err);
-        else if(!data) send404(response, false);
-        else {
-            response.writeHead('200', {'Content-Type': 'application/json'});
-            response.end(JSON.stringify(data));
-        }
+        var sender = new json.json(response);
+        sender.send(err, data);
     }
 }
 
