@@ -1,8 +1,8 @@
 var folder = require(document_root + '/lib/folder');
-var sectionsFolder = new folder.Folder(document_root + '/data/entites/sections');
+var sectionsFolder = new folder.Folder(document_root + '/data/entites/');
 
 function get(request, response) {
-	send501(true);
+	send501(response, true);
 }
 
 function logo(request, response) {
@@ -10,11 +10,11 @@ function logo(request, response) {
 }
 
 function contact(request, response) {
-	send501(true);
+	send501(response, true);
 }
 
 function membres(request, response) {
-	send501(true);
+	send501(response, true);
 }
 
 exports.get = get;

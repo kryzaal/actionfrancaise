@@ -62,7 +62,6 @@ app.get("/medias/visuels/random", controllers.medias.visuels.random);
 app.use("/medias/visuels/:filename", controllers.medias.visuels.get);
 app.get("/medias/videos", controllers.medias.videos.list);
 
-/*
 app.get("/entites/craf", controllers.entites.craf.get);
 app.get("/entites/craf/logo", controllers.entites.craf.logo);
 app.get("/entites/craf/contact", controllers.entites.craf.contact);
@@ -91,7 +90,6 @@ app.get("/entites/federations/:code/sections", controllers.entites.federations.s
 app.get("/entites/federations/:code/membres", controllers.entites.federations.membres);
 app.get("/entites/federations/:code/contact", controllers.entites.federations.contact);
 app.get("/entites/federations/:code/blason", controllers.entites.federations.blason);
-*/
 
 app.get("/manifeste", controllers.manifeste.get);
 app.post("/recherche", controllers.recherche.post);
@@ -202,4 +200,4 @@ app.use(function(err, request, response, next) {
     global.send500(response, true, err);
 });
 
-app.listen(port, server);
+app.listen(port);
