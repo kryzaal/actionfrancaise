@@ -1,15 +1,35 @@
 var model = require(document_root + '/models/federation');
 var folder = require(document_root + '/lib/folder');
+var jsonLib = require(document_root + '/lib/json');
+var existsOr404 = require(document_root + '/lib/existsOr404');
 
 var federationsFolder = new folder.Folder(document_root + '/data/entites/federations');
 federationsFolder.fallbackFileName = 'fallback.png';
 
 function get(request, response) {
-	send501(response, false);
+	existsOr404(request, response, 'code', model, function() {
+		model.fetchOne(request.params.code, function(err, data) {
+			if(request.accepts('html')) {
+				response.render('entites_federation.ejs', {
+			        pageSubtitle: data.nom,
+			        customStylesheets: ["entites_federation"],
+			        section: data
+		    	});
+			} else {
+				var sender = new jsonLib.json(response);
+				sender.send(err, data);
+			}
+		});
+	});
 }
 
 function contact(request, response) {
-	send501(response, false);
+	existsOr404(request, response, 'code', model, function() {
+		model.fetchContact(request.params.code, function(err, data) {
+			var sender = new jsonLib.json(response);
+			sender.send(err, data);
+		});
+	});
 }
 
 function blason(request, response) {
@@ -17,15 +37,28 @@ function blason(request, response) {
 }
 
 function membres(request, response) {
-	send501(response, false);
+	existsOr404(request, response, 'code', model, function() {
+		model.fetchMembres(request.params.code, function(err, data) {
+			var sender = new jsonLib.json(response);
+			sender.send(err, data);
+		});
+	});
 }
 
 function sections(request, response) {
-	send501(response, false);
+	existsOr404(request, response, 'code', model, function() {
+		model.fetchSections(request.params.code, function(err, data) {
+			var sender = new jsonLib.json(response);
+			sender.send(err, data);
+		});
+	});
 }
 
 function list(request, response) {
-	send501(response, false);
+	model.fetchAll(function(err, data) {
+		var sender = new jsonLib.json(response);
+		sender.send(err, data);
+	});
 }
 
 exports.get = get;

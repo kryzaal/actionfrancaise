@@ -173,8 +173,9 @@ global.send404 = function(response, pretty) {
 global.send500 = function(response, pretty, err) {
     if(typeof(pretty) === 'undefined') pretty = false;
     if(typeof(err) === 'undefined') err = '';
+    err = JSON.stringify(err);
 
-    console.log(JSON.stringify(err));
+    console.log(err);
     response.status(500);
     if(pretty) response.render('500.ejs', {erreur : err});
     else response.end(err);

@@ -1,20 +1,13 @@
 var model = require(document_root + '/models/section');
 var folder = require(document_root + '/lib/folder');
 var jsonLib = require(document_root + '/lib/json');
+var existsOr404 = require(document_root + '/lib/existsOr404');
 
 var sectionsFolder = new folder.Folder(document_root + '/data/entites/sections');
 sectionsFolder.fallbackFileName = 'fallback.png';
 
-function existsOr404(request, response, key, callback) {
-	model.exists(request.params[key], function(err, exists) {
-		if(err) send500(response, true, err);
-		else if(!exists) send404(response, true);
-		else callback();
-	});
-} 
-
 function get(request, response) {
-	existsOr404(request, response, 'code', function() {
+	existsOr404(request, response, 'code', model, function() {
 		model.fetchOne(request.params.code, function(err, data) {
 			if(request.accepts('html')) {
 				response.render('entites_section.ejs', {
@@ -31,7 +24,7 @@ function get(request, response) {
 }
 
 function contact(request, response) {
-	existsOr404(request, response, 'code', function() {
+	existsOr404(request, response, 'code', model, function() {
 		model.fetchContact(request.params.code, function(err, data) {
 			var sender = new jsonLib.json(response);
 			sender.send(err, data);
@@ -44,7 +37,7 @@ function blason(request, response) {
 }
 
 function membres(request, response) {
-	existsOr404(request, response, 'code', function() {
+	existsOr404(request, response, 'code', model, function() {
 		model.fetchMembres(request.params.code, function(err, data) {
 			var sender = new jsonLib.json(response);
 			sender.send(err, data);
@@ -53,7 +46,7 @@ function membres(request, response) {
 }
 
 function federation(request, response) {
-	existsOr404(request, response, 'code', function() {
+	existsOr404(request, response, 'code', model, function() {
 		model.fetchFederation(request.params.code, function(err, data) {
 			var sender = new jsonLib.json(response);
 			sender.send(err, data);
