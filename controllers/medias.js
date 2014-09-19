@@ -1,12 +1,12 @@
 var fs = require("fs");
 
 function get(request, response) {
-    response.render('medias.ejs', {
+    response.render('media.ejs', {
     	pageSubtitle: "Visuels, affiches et vidéos",
-    	customStylesheets: ["medias", "viewer"]
+    	customStylesheets: ["media", "viewer"]
 	});
 }
 
 exports.get = get;
-exports.visuels = require('./medias/visuels');
-exports.videos = require('./medias/videos');
+exports.visuels = require('./media/visuels');
+exports.videos = require('./media/videos');

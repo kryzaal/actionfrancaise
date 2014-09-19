@@ -10,18 +10,18 @@
 
 	$(function() {
 		$('#random').remove();
-		$.get('/medias/visuels', function(response, success, xhr) {
+		$.get('/media/visuels', function(response, success, xhr) {
 			if(!success) {
 				log(response);
 				return;
 			}
 
 			response.forEach(function(filename) {
-				$('#visuels').append('<img src="/medias/visuels/' + filename + '"/>');
+				$('#visuels').append('<img src="/media/visuels/' + filename + '"/>');
 			})
 		});
 
-		$.get('/medias/videos', function(response, success, xhr) {
+		$.get('/media/videos', function(response, success, xhr) {
 			response.forEach(function(code) {
 				$('#videos').append('<div class="video_' + code + '" onClick="loadVideo(this, \'' + code + '\')"></div>');
 				

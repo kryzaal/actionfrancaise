@@ -19,7 +19,7 @@ var controllers = {
     contact :       require('./controllers/contact'),
     adherer :       require('./controllers/adherer'),
     dons :          require('./controllers/dons'),
-    medias :        require('./controllers/medias'),
+    media :        require('./controllers/media'),
     organigramme :  require('./controllers/organigramme'),
     militez :       require('./controllers/militez'),
     manifeste :     require('./controllers/manifeste'),
@@ -56,11 +56,11 @@ app.get("/adherer/bulletin", controllers.files.adhesion);
 app.get("/dons", controllers.dons.get);
 app.post("/dons", controllers.dons.post);
 
-app.get("/medias", controllers.medias.get);
-app.get("/medias/visuels", controllers.medias.visuels.list);
-app.get("/medias/visuels/random", controllers.medias.visuels.random);
-app.use("/medias/visuels/:filename", controllers.medias.visuels.get);
-app.get("/medias/videos", controllers.medias.videos.list);
+app.get("/media", controllers.media.get);
+app.get("/media/visuels", controllers.media.visuels.list);
+app.get("/media/visuels/random", controllers.media.visuels.random);
+app.use("/media/visuels/:filename", controllers.media.visuels.get);
+app.get("/media/videos", controllers.media.videos.list);
 
 app.get("/entites/craf", controllers.entites.craf.get);
 app.get("/entites/craf/logo", controllers.entites.craf.logo);
