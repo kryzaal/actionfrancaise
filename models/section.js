@@ -1,5 +1,13 @@
 var dbHandler = require(document_root + '/database').handler;
 
+function exists(code, callback) {
+	dbHandler.get("SELECT 1 FROM sections WHERE code_section == ? LIMIT 1", code, function(err, data) {
+		if(err) callback(err, undefined);
+		else if(nullOrEmpty(data)) callback(err, false);
+		else callback(err, data['1'] > 0);
+	});
+}
+
 function fetchAll (callback) {
 	dbHandler.all("SELECT code_section FROM sections", {}, function(err, data) {
 		if(err) callback(err, undefined);
@@ -30,10 +38,6 @@ function fetchFederation(code, callback) {
 function fetchContact(code, callback) {
 	dbHandler.get("SELECT contactable.facebook, contactable.twitter, contactable.site FROM sections " + 
 		"INNER JOIN contactable ON contactable.code == sections.code_entite WHERE code_section == ?", code, callback);
-}
-
-function exists(code, callback) {
-	dbHandler.get("SELECT (COUNT(*) > 0) FROM sections WHERE code_section == ?", code, callback);
 }
 
 exports.fetchAll = fetchAll;

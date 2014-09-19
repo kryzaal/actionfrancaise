@@ -15,7 +15,11 @@ function fetchContact(code, callback) {
 }
 
 function exists(code, callback) {
-	dbHandler.get("SELECT (COUNT(*) > 0) FROM section_afe WHERE code_section == ?", code, callback);
+	dbHandler.get("SELECT 1 FROM section_afe WHERE code_section == ? LIMIT 1", code, function(err, data) {
+		if(err) callback(err, undefined);
+		else if(nullOrEmpty(data)) callback(err, false);
+		else callback(err, data['1'] > 0);
+	});
 }
 
 exports.fetchOne = fetchOne;

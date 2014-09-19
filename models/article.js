@@ -1,9 +1,12 @@
 var dbHandler = require(document_root + '/database').handler;
 var texteModel = require('./texte');
 
-exports.exists = function(code, callback) {
-	if(nullOrEmpty(code)) callback("Code is null or undefined", false);
-	dbHandler.get("SELECT COUNT(*) > 0 FROM articles WHERE code == ?", code, callback);
+function exists(code, callback) {
+	dbHandler.get("SELECT 1 FROM articles WHERE code == ? LIMIT 1", code, function(err, data) {
+		if(err) callback(err, undefined);
+		else if(nullOrEmpty(data)) callback(err, false);
+		else callback(err, data['1'] > 0);
+	});
 }
 
 function listCodes(callback) {
@@ -25,7 +28,6 @@ function fetchLatestVersion(code, callback) {
 }
 
 function fetchOne(code, callback) {
-	if(nullOrEmpty(code)) callback("Code is null or undefined", undefined);
 	var data = {code : code};
 
 	texteModel.fetchOne(code, function(err, parentData) {
@@ -49,6 +51,7 @@ function fetchOne(code, callback) {
 	});
 }
 
+exports.exists = exists;
 exports.fetchOne = fetchOne;
 exports.listCodes = listCodes;
 exports.listKeywords = listKeywords;

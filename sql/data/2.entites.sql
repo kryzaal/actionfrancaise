@@ -28,8 +28,8 @@ INSERT OR REPLACE INTO contactable (code, mail, facebook, twitter, site) VALUES
 
 INSERT OR REPLACE INTO entites (code, nom_court, nom, description, code_contactable) VALUES
 ('craf', 'CRAF', 'Centre royaliste d''Action Française', '#TODO', 'craf'),
-('federation_provence', 'Provence', 'Fédération d''Île-de-France', '#TODO', 'federation_provence'),
-('federation_iledefrance', 'Île de France', 'Fédération de Provence', '#TODO', 'federation_iledefrance'),
+('federation_provence', 'Provence', 'Fédération de Provence', '#TODO', 'federation_provence'),
+('federation_iledefrance', 'Île de France', 'Fédération d''Île-de-France', '#TODO', 'federation_iledefrance'),
 
 ('section_bordeaux', 'Bordeaux', 'Section de Bordeaux', '#TODO', 'section_bordeaux'),
 ('section_annecy', 'Annecy', 'Section d''Annecy', '#TODO', 'section_annecy'),

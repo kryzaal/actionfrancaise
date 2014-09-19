@@ -7,7 +7,7 @@ var afFolder = new folder.Folder(document_root + '/data/entites/sections/af');
 afFolder.fallbackFileName = 'fallback.png';
 
 function get(request, response) {
-	existsOr404(request, response, 'code', model, function() {
+	existsOr404.call(request, response, 'code', model, function() {
 		model.fetchOne(request.params.code, function(err, data) {
 			var sender = new jsonLib.json(response);
 			sender.send(err, data);
@@ -16,7 +16,7 @@ function get(request, response) {
 }
 
 function contact(request, response) {
-	existsOr404(request, response, 'code', model, function() {
+	existsOr404.call(request, response, 'code', model, function() {
 		model.fetchContact(request.params.code, function(err, data) {
 			var sender = new jsonLib.json(response);
 			sender.send(err, data);
@@ -29,7 +29,7 @@ function blason(request, response) {
 }
 
 function membres(request, response) {
-	existsOr404(request, response, 'code', model, function() {
+	existsOr404.call(request, response, 'code', model, function() {
 		model.fetchMembres(request.params.code, function(err, data) {
 			var sender = new jsonLib.json(response);
 			sender.send(err, data);

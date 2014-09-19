@@ -1,9 +1,12 @@
 var dbHandler = require(document_root + '/database').handler;
 var texteModel = require('./texte');
 
-exports.exists = function(code, callback) {
-	if(nullOrEmpty(code)) callback("Code is null or undefined", false);
-	dbHandler.get("SELECT COUNT(*) > 0 FROM grands_textes WHERE code_texte == ?", code, callback);
+function exists(code, callback) {
+	dbHandler.get("SELECT 1 FROM grands_textes WHERE code_texte == ? LIMIT 1", code, function(err, data) {
+		if(err) callback(err, undefined);
+		else if(nullOrEmpty(data)) callback(err, false);
+		else callback(err, data['1'] > 0);
+	});
 }
 
 function list_codes(callback) {
@@ -28,12 +31,11 @@ function list_keywords(callback) {
 }
 
 function fetchOne(code, callback) {
-	if(nullOrEmpty(code)) callback("Code is null or undefined", undefined);
-
 	dbHandler.get("SELECT profil_auteur, titre, ss_titre, texte FROM grands_textes " +
 		"INNER JOIN textes ON textes.code == grands_textes.code_texte WHERE grands_textes.code_texte == ?", code, callback);
 }
 
+exports.exists = exists;
 exports.fetchOne = fetchOne;
 exports.list_codes = list_codes;
 exports.list_keywords = list_keywords;
