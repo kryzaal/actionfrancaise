@@ -23,7 +23,8 @@ function fetchAll (callback) {
 }
 
 function fetchOne(code, callback) {
-	dbHandler.get("SELECT entites.* FROM sections INNER JOIN entites ON entites.code == sections.code_entite WHERE code_section == ?", code, callback);
+	dbHandler.get("SELECT sections.code_section AS code, entites.nom_court, entites.nom, entites.description FROM sections " + 
+		"INNER JOIN entites ON entites.code == sections.code_entite WHERE code_section == ?", code, callback);
 }
 
 function fetchMembres(code, callback) {

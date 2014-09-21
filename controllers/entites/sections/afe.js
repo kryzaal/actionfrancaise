@@ -3,8 +3,7 @@ var folder = require(document_root + '/lib/folder');
 var jsonLib = require(document_root + '/lib/json');
 var existsOr404 = require(document_root + '/lib/existsOr404');
 
-var afeFolder = new folder.Folder(document_root + '/data/entites/sections/afe');
-afeFolder.fallbackFileName = 'fallback.png';
+var afeFolder = new folder.Folder(document_root + '/data/entites/sections/afe', 'fallback.png');
 
 function get(request, response) {
 	existsOr404.call(request, response, 'code', model, function() {

@@ -9,7 +9,7 @@
 <div id="carte_aside">
 	<div id="navigation_rapide">
 		<h2>NAVIGATION RAPIDE</h2>
-        <select id="liste_sections" onChange="drawSection(this.value)"></select>
+	<select id="liste_sections" onChange="this.value.dataset."></select>
 	</div>
 	<div id="details"></div>
 
@@ -17,64 +17,69 @@
 </div>
 
 <script>
-	var current = null;
 	var positions = {
 		'bordeaux': {x: '150', y: '240'},
-		'provence' : {x: '430', y: '130'},
+		'provence' : {x: '425', y: '130'},
 		'iledefrance' : {x: '280', y: '460'},
 		'annecy' : {x: '480', y: '320'},
 		'clermont' : {x: '340', y: '280'},
 		'grenoble': {x: '480', y: '240'},
 		'lyon': {x: '420', y: '290'},
 		'nantes': {x: '120', y: '370'},
-		'oise_picardie': {x: '300', y: '540'},
 		'rennes': {x: '120', y: '440'},
-		'annonay': {x: '395', y: '230'}
+		'annonay': {x: '395', y: '230'},
+		'oise-picardie': {x: '285', y: '530'},
+		'aix-en-provence': {x: '470', y: '40'},
+		'marseille': {x: '380', y: '40'}
 	};
 
-	function drawSection(id) {
-		if(current && id == current.id) return;
-		current = findSection(id);
+	var instances = {};
 
-		var index = $("#liste_sections > option[name='" + id + "']")[0].index;
-		document.getElementById("liste_sections").selectedIndex = index;
+	function section(data) {
+		try {
+			this.data = data;
+			this.position = positions[this.data.code];
+			instances[this.data.code] = this;
 
-		var details = document.getElementById("details");
-		details.innerHTML =
-			'<img class="blason_description" src="/sections/' + current.id + '/blason" />' +
-			'<h1>' + current.complet + '</h1>' +
-			'<p>' + current.texte + '</p>' +
-			'<div id="suivre_section">' +
-				'<a href="http://facebook.com/' + current.facebook + '"><img src="/style/images/icone_fb.png"></a>' +
-				'<a href="/section/' + current.id + '/contact"><img src="/style/images/icone_mail.png"></a>' +
-			'</div>';
-
-		$("img.blason").removeClass("active");
-		$("#blason_" + current.id).addClass("active");
+			var blason_html = '<img class="blason" src="/entites/sections/' + this.data.code + '/blason"' +
+				'style="bottom: ' + this.position.y + 'px; left: ' + this.position.x + 'px; z-index: ' + (1000 - this.position.y) + '"' +
+				'onClick="draw(\'' + this.data.code + '\')"/>';
+			var option_html = '<option name="' + this.data.code +'" value="' + this.data.code + '">' + this.data["nom_court"] + '</option>';
+			$("#carte").append(blason_html);
+			$("#liste_sections").append(option_html);
+		} catch(e) {}
 	}
 
-	function findSection(id) {
-		var output = sections[0]
-		sections.forEach(function(section) {
-			if(section.id == id) output = section;
-		});
-		return output;
-	}
+	function federation(data) {
+		try {
+			console.log(JSON.stringify(data));
+			this.data = data;
+			this.position = positions[this.data.code];
+			instances[this.data.code] = this;
 
-	var sections = null;
+			var blason_html = '<img class="blason" src="/entites/federations/' + this.data.code + '/blason"' +
+				'style="bottom: ' + this.position.y + 'px; left: ' + this.position.x + 'px; z-index: ' + (1000 - this.position.y) + '"' +
+				'onClick="draw(\'' + this.data.code + '\')"/>';
+			var option_html = '<option name="' + this.data.code +'" value="' + this.data.code + '">' + this.data["nom_court"] + '</option>';
+			$("#carte").append(blason_html);
+			$("#liste_sections").append(option_html);
+		} catch(e) {}
+	}
 
 	$(function() {
-		$.get('/sections', function(data) {
-			data.forEach(function(section) {
-				$("#carte").append('<img id="blason_' + section.id + '" class="blason" src="/sections/' + section.id + '/blason"' +
-				'style="bottom: ' + section.position.y + 'px; left: ' + section.position.x + 'px; z-index: ' + (1000 - section.position.y) + '"' +
-				'onClick="drawSection(\'' + section.id + '\')"/>');
-
-				$("#liste_sections").append('<option name="' + section.id +'" value="' + section.id + '">' + section.court + '</option>');
+		$.ajax('/entites/sections', {accepts: "application/json"}).done(function(data) {
+			data.forEach(function(code) {
+				$.ajax('/entites/sections/' + code, {accepts: "application/json"}).done(function(data) {
+					new section(data);
+				});
 			});
-
-			sections = data;
-			drawSection(sections[0].id);
+		});
+		$.ajax('/entites/federations', {accepts: "application/json"}).done(function(data) {
+			data.forEach(function(code) {
+				$.ajax('/entites/federations/' + code, {accepts: "application/json"}).done(function(data) {
+					new federation(data);
+				});
+			});
 		});
 	});
 </script>
