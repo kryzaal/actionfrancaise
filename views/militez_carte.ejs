@@ -9,7 +9,7 @@
 <div id="carte_aside">
 	<div id="navigation_rapide">
 		<h2>NAVIGATION RAPIDE</h2>
-	<select id="liste_sections" onChange="this.value.dataset."></select>
+	<select id="liste_sections" onChange="draw(this.selectedValue)"></select>
 	</div>
 	<div id="details"></div>
 
@@ -18,62 +18,109 @@
 
 <script>
 	var positions = {
-		'bordeaux': {x: '150', y: '240'},
-		'provence' : {x: '425', y: '130'},
+		'bordeaux': 	{x: '150', y: '240'},
+		'provence' : 	{x: '425', y: '130'},
 		'iledefrance' : {x: '280', y: '460'},
-		'annecy' : {x: '480', y: '320'},
-		'clermont' : {x: '340', y: '280'},
-		'grenoble': {x: '480', y: '240'},
-		'lyon': {x: '420', y: '290'},
-		'nantes': {x: '120', y: '370'},
-		'rennes': {x: '120', y: '440'},
-		'annonay': {x: '395', y: '230'},
+		'annecy' : 		{x: '480', y: '320'},
+		'clermont' : 	{x: '340', y: '280'},
+		'grenoble': 	{x: '480', y: '240'},
+		'lyon': 		{x: '420', y: '290'},
+		'nantes': 		{x: '120', y: '370'},
+		'rennes': 		{x: '120', y: '440'},
+		'annonay': 		{x: '395', y: '230'},
 		'oise-picardie': {x: '285', y: '530'},
 		'aix-en-provence': {x: '470', y: '40'},
-		'marseille': {x: '380', y: '40'}
+		'marseille': 	{x: '380', y: '40'},
+		'rambouillet': 	{x: '325', y: '370'},
+		'paris': 		{x: '235', y: '370'},
+		'dijon': 		{x: '380', y: '390'},
+		'orleans': 		{x: '250', y: '430'}
 	};
 
 	var instances = {};
+	var sections_federees = {'provence': [], 'iledefrance': []};
+
+	function draw(code) {
+		$(".blason").removeClass("active");
+		$(".federee").removeClass("visible");
+		$("#blason_" + code).addClass("active");
+
+		var instance = instances[code];
+
+		if(instance.parent()) {
+			$("#blason_" + instance.parent().data.code).addClass('active');
+			instance.parent().children().forEach(function(child) {
+				$("#blason_" + child.data.code).addClass('visible');
+			});
+		} else instance.children().forEach(function(child) {
+			$("#blason_" + child.data.code).addClass('visible');
+		});
+	}
 
 	function section(data) {
 		try {
 			this.data = data;
 			this.position = positions[this.data.code];
 			instances[this.data.code] = this;
+			if(this.data.code_federation != null) sections_federees[this.data.code_federation].push(this);
 
-			var blason_html = '<img class="blason" src="/entites/sections/' + this.data.code + '/blason"' +
-				'style="bottom: ' + this.position.y + 'px; left: ' + this.position.x + 'px; z-index: ' + (1000 - this.position.y) + '"' +
+			var blason_html = '<img ' +
+				'id="blason_' + this.data.code + '" ' +
+				'class="blason section ' + (this.data.code_federation == null ? '' : 'federee') + 
+				'" src="/entites/sections/' + this.data.code + '/blason"' +
+				'style="bottom: ' + this.position.y + 'px; ' + 
+				'left: ' + this.position.x + 'px; ' +
+				'z-index: ' + (1000 - this.position.y) + '"' +
 				'onClick="draw(\'' + this.data.code + '\')"/>';
 			var option_html = '<option name="' + this.data.code +'" value="' + this.data.code + '">' + this.data["nom_court"] + '</option>';
 			$("#carte").append(blason_html);
 			$("#liste_sections").append(option_html);
 		} catch(e) {}
+
+		this.children = function() {
+			return [];
+		}
+
+		this.parent = function() {
+			return this.data.code_federation != null ? instances[this.data.code_federation] : false;
+		}
 	}
 
 	function federation(data) {
 		try {
-			console.log(JSON.stringify(data));
 			this.data = data;
 			this.position = positions[this.data.code];
 			instances[this.data.code] = this;
 
-			var blason_html = '<img class="blason" src="/entites/federations/' + this.data.code + '/blason"' +
-				'style="bottom: ' + this.position.y + 'px; left: ' + this.position.x + 'px; z-index: ' + (1000 - this.position.y) + '"' +
+			var blason_html = '<img ' +
+				'id="blason_' + this.data.code + '" ' +
+				'class="blason federation ' + (this.data.code_federation == null ? '' : 'federee') + 
+				'" src="/entites/federations/' + this.data.code + '/blason"' +
+				'style="bottom: ' + this.position.y + 'px; ' + 
+				'left: ' + this.position.x + 'px; ' +
+				'z-index: ' + (1000 - this.position.y) + '"' +
 				'onClick="draw(\'' + this.data.code + '\')"/>';
 			var option_html = '<option name="' + this.data.code +'" value="' + this.data.code + '">' + this.data["nom_court"] + '</option>';
 			$("#carte").append(blason_html);
 			$("#liste_sections").append(option_html);
 		} catch(e) {}
+
+		this.children = function() {
+			return sections_federees[this.data.code];
+		}
+
+		this.parent = function() { return false; }
 	}
 
 	$(function() {
 		$.ajax('/entites/sections', {accepts: "application/json"}).done(function(data) {
 			data.forEach(function(code) {
 				$.ajax('/entites/sections/' + code, {accepts: "application/json"}).done(function(data) {
-					new section(data);
+					if(data) new section(data);
 				});
 			});
 		});
+
 		$.ajax('/entites/federations', {accepts: "application/json"}).done(function(data) {
 			data.forEach(function(code) {
 				$.ajax('/entites/federations/' + code, {accepts: "application/json"}).done(function(data) {

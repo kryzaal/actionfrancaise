@@ -14,9 +14,14 @@ INSERT OR REPLACE INTO contactable (code, mail, facebook, twitter, site) VALUES
 ('section_oise-picardie', NULL, 'actionfrancaise.oise.picardie', NULL, NULL),
 ('section_aix-en-provence', NULL, NULL, NULL, NULL),
 ('section_marseille', NULL, NULL, NULL, NULL),
+('section_dijon', NULL, NULL, NULL, NULL),
+('section_paris', NULL, NULL, NULL, NULL),
+('section_rambouillet', NULL, NULL, NULL, NULL),
+('section_orleans', NULL, NULL, NULL, NULL),
 
 ('af_marseille', NULL, NULL, NULL, NULL),
 ('af_oise-picardie', NULL, NULL, NULL, NULL),
+('af_paris', NULL, NULL, NULL, NULL),
 ('af_lyon', NULL, NULL, NULL, NULL),
 ('afe_bordeaux', NULL, NULL, NULL, NULL),
 ('afe_annecy', NULL, NULL, NULL, NULL),
@@ -24,7 +29,12 @@ INSERT OR REPLACE INTO contactable (code, mail, facebook, twitter, site) VALUES
 ('afe_rennes', NULL, NULL, NULL, NULL),
 ('afe_annonay', NULL, NULL, NULL, NULL),
 ('afe_clermont', NULL, NULL, NULL, NULL),
-('afe_grenoble', NULL, NULL, NULL, NULL);
+('afe_grenoble', NULL, NULL, NULL, NULL),
+('afe_paris', NULL, NULL, NULL, NULL),
+('afe_rambouillet', NULL, NULL, NULL, NULL),
+('afe_orleans', NULL, NULL, NULL, NULL),
+('afe_marseille', NULL, NULL, NULL, NULL),
+('afe_aix-en-provence', NULL, NULL, NULL, NULL);
 
 INSERT OR REPLACE INTO entites (code, nom_court, nom, description, code_contactable) VALUES
 ('craf', 'CRAF', 'Centre royaliste d''Action Française', '#TODO', 'craf'),
@@ -42,10 +52,15 @@ INSERT OR REPLACE INTO entites (code, nom_court, nom, description, code_contacta
 ('section_oise-picardie', 'Oise-Picardie', 'Section Oise-Picardie', '#TODO', 'section_oise-picardie'),
 ('section_aix-en-provence', 'Aix-en-Provence', 'Section d''Aix-en-Provence', '#TODO', 'section_aix-en-provence'),
 ('section_marseille', 'Marseille', 'Section de Marseille', '#TODO', 'section_marseille'),
+('section_dijon', 'Dijon', 'Section de Dijon', '#TODO', 'section_dijon'),
+('section_paris', 'Paris', 'Section de Paris', '#TODO', 'section_paris'),
+('section_rambouillet', 'Rambouillet', 'Section de Rambouillet', '#TODO', 'section_rambouillet'),
+('section_orleans', 'Orléans', 'Section de Orléans', '#TODO', 'section_orleans'),
 
 ('af_marseille', 'AF Marseille', 'Action Française - Marseille', '#TODO', 'af_marseille'),
 ('af_oise-picardie', 'AF Oise-Picardie', 'Action Française - Oise-Picardie', '#TODO', 'af_oise-picardie'),
 ('af_lyon', 'AF Lyon', 'Action Française - Lyon', '#TODO', 'af_lyon'),
+('af_paris', 'AF Paris', 'Action Française - Paris', '#TODO', 'af_paris'),
 
 ('afe_bordeaux', 'AFE Bordeaux', 'Action Française Etudiante - Bordeaux', '#TODO', 'afe_bordeaux'),
 ('afe_annecy', 'AFE Annecy', 'Action Française Etudiante - Annecy', '#TODO', 'afe_annecy'),
@@ -53,7 +68,12 @@ INSERT OR REPLACE INTO entites (code, nom_court, nom, description, code_contacta
 ('afe_nantes', 'AFE Nantes', 'Action Française Etudiante - Nantes', '#TODO', 'afe_nantes'),
 ('afe_rennes', 'AFE Rennes', 'Action Française Etudiante - Rennes', '#TODO', 'afe_rennes'),
 ('afe_annonay', 'AFE Annonay', 'Action Française Etudiante - Annonay', '#TODO', 'afe_annonay'),
-('afe_grenoble', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble');
+('afe_grenoble', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble'),
+('afe_paris', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble'),
+('afe_rambouillet', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble'),
+('afe_orleans', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble'),
+('afe_marseille', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble'),
+('afe_aix-en-provence', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble');
 
 INSERT OR REPLACE INTO federations (code_federation, code_entite) VALUES
 ('provence', 'federation_provence'),
@@ -70,7 +90,11 @@ INSERT OR REPLACE INTO sections (code_section, code_entite, code_federation) VAL
 ('lyon', 'section_lyon', NULL),
 ('oise-picardie', 'section_oise-picardie', NULL),
 ('aix-en-provence', 'section_aix-en-provence', 'provence'),
-('marseille', 'section_marseille', 'provence');
+('marseille', 'section_marseille', 'provence'),
+('dijon', 'section_dijon', NULL),
+('orleans', 'section_orleans', NULL),
+('paris', 'section_paris', 'iledefrance'),
+('rambouillet', 'section_rambouillet', 'iledefrance');
 
 INSERT OR REPLACE INTO section_afe (code_section, code_entite) VALUES
 ('bordeaux', 'afe_bordeaux'),
@@ -79,9 +103,15 @@ INSERT OR REPLACE INTO section_afe (code_section, code_entite) VALUES
 ('nantes', 'afe_nantes'),
 ('rennes', 'afe_rennes'),
 ('annonay', 'afe_annonay'),
-('grenoble', 'afe_grenoble');
+('grenoble', 'afe_grenoble'),
+('paris', 'afe_paris'),
+('rambouillet', 'afe_rambouillet'),
+('orleans', 'afe_orleans'),
+('marseille', 'afe_marseille'),
+('aix-en-provence', 'afe_aix-en-provence');
 
 INSERT OR REPLACE INTO section_af (code_section, code_entite) VALUES
 ('marseille', 'af_marseille'),
 ('oise-picardie', 'af_oise-picardie'),
+('paris', 'af_paris'),
 ('lyon', 'af_lyon');

@@ -23,17 +23,13 @@ function fetchAll (callback) {
 }
 
 function fetchOne(code, callback) {
-	dbHandler.get("SELECT sections.code_section AS code, entites.nom_court, entites.nom, entites.description FROM sections " + 
+	dbHandler.get("SELECT sections.code_section AS code, entites.nom_court, entites.nom, entites.description, code_federation FROM sections " + 
 		"INNER JOIN entites ON entites.code == sections.code_entite WHERE code_section == ?", code, callback);
 }
 
 function fetchMembres(code, callback) {
 	dbHandler.all("SELECT membres_entites.code_profil, membres_entites.dirigeant FROM sections " + 
 		"INNER JOIN membres_entites ON membres_entites.code_entite == sections.code_entite WHERE code_section == ?", code, callback);
-}
-
-function fetchFederation(code, callback) {
-	dbHandler.get("SELECT code_federation FROM sections WHERE code_section == ?", code, callback);
 }
 
 function fetchContact(code, callback) {
@@ -44,6 +40,5 @@ function fetchContact(code, callback) {
 exports.fetchAll = fetchAll;
 exports.fetchOne = fetchOne;
 exports.fetchMembres = fetchMembres;
-exports.fetchFederation = fetchFederation;
 exports.fetchContact = fetchContact;
 exports.exists = exists;

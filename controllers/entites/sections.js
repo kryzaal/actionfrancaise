@@ -44,15 +44,6 @@ function membres(request, response) {
 	});
 }
 
-function federation(request, response) {
-	existsOr404.call(request, response, 'code', model, function() {
-		model.fetchFederation(request.params.code, function(err, data) {
-			var sender = new jsonLib.json(response);
-			sender.send(err, data);
-		});
-	});
-}
-
 function list(request, response) {
 	model.fetchAll(function(err, data) {
 		var sender = new jsonLib.json(response);
@@ -65,7 +56,6 @@ exports.list = list;
 exports.blason = blason;
 exports.contact = contact;
 exports.membres = membres;
-exports.federation = federation;
 
 exports.af = require('./sections/af');
 exports.afe = require('./sections/afe');

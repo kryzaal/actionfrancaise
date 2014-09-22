@@ -19,7 +19,7 @@ var controllers = {
     contact :       require('./controllers/contact'),
     adherer :       require('./controllers/adherer'),
     dons :          require('./controllers/dons'),
-    media :        require('./controllers/media'),
+    media :         require('./controllers/media'),
     organigramme :  require('./controllers/organigramme'),
     militez :       require('./controllers/militez'),
     manifeste :     require('./controllers/manifeste'),
@@ -27,10 +27,9 @@ var controllers = {
     profils :       require('./controllers/profils'),
     articles :      require('./controllers/articles'),
     rss:            require('./controllers/rss'),
-    sections:       require('./controllers/sections'),
     slideshow:      require('./controllers/slideshow'),
     files:          require('./controllers/files'),
-    entites:          require('./controllers/entites')
+    entites:        require('./controllers/entites')
 };
 
 var app = express();
@@ -72,7 +71,6 @@ app.get("/entites/sections/:code", controllers.entites.sections.get);
 app.get("/entites/sections/:code/blason", controllers.entites.sections.blason);
 app.get("/entites/sections/:code/contact", controllers.entites.sections.contact);
 app.get("/entites/sections/:code/membres", controllers.entites.sections.membres);
-app.get("/entites/sections/:code/federation", controllers.entites.sections.federation);
 
 app.get("/entites/sections/:code/af", controllers.entites.sections.af.get);
 app.get("/entites/sections/:code/af/membres", controllers.entites.sections.af.membres);
