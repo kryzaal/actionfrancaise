@@ -1,1 +1,19 @@
-<%= JSON.stringify(section) %>
+<div class="entite section_af" data-code="<%= section.code %>">
+	<img src="/entites/sections/<%= section.code %>/af/blason" />
+	<h1><%= section.nom %></h1>
+	<p><%= section.description %></p>
+	<div class="contacts"></div>
+</div>
+
+<script>
+	$.get('/entites/sections/<%= section.code %>/af/contact').done(function(data) {
+		if(data.twitter != null) $('.section[data-code="<%= section.code %>"] .contacts')
+			.append('<a href="http://twitter.com/' + data.twitter + '"><img src="/style/images/icone_twitter.png" /></a>');
+		if(data.facebook != null) $('.section[data-code="<%= section.code %>"] .contacts')
+			.append('<a href="http://facebook.com/' + data.facebook + '"><img src="/style/images/icone_fb.png" /></a>');
+		if(data.site != null) $('.section[data-code="<%= section.code %>"] .contacts')
+			.append('<a href="' + data.site +'"><img src="/style/images/icone_site.png" /></a>');
+		if(data.mail != null) $('.section[data-code="<%= section.code %>"] .contacts')
+			.append('<a href="/section/' + data.mail + '/contact"><img src="/style/images/icone_mail.png" /></a>');
+	});
+</script>

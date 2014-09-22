@@ -2,9 +2,8 @@ var model = require(document_root + '/models/grand_texte');
 
 function get(request, response) {
 	model.fetchOne(request.params.code, function(err, data) {
-		if(err) throw err;
-
-		if(request.accepts("html")) {
+		if(err) send500(response, true, err);
+		else if(request.accepts("html")) {
 			response.render('militez_texte.ejs', {
 		    	pageSubtitle: data.titre,
 		    	customStylesheets: ["militez_texte", "militez_tuiles"],

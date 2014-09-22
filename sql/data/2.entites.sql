@@ -1,9 +1,9 @@
 INSERT OR REPLACE INTO contactable (code, mail, facebook, twitter, site) VALUES
 ('craf', 'contact@actionfrancaise.net', 'action.francaise.nationale', 'actionfrancaise', 'actionfrancaise.net'),
-('federation_provence', NULL, 'afprovence', NULL, NULL),
+('federation_provence', NULL, 'afprovence', 'afprovence', NULL),
 ('federation_iledefrance', NULL, 'AFEIleDeFrance', NULL, NULL),
 
-('section_bordeaux', NULL, 'actionfrancaisebordeaux', NULL, NULL),
+('section_bordeaux', NULL, 'actionfrancaisebordeaux', NULL, 'http://afe-bordeaux.blogspot.fr/'),
 ('section_annecy', NULL, NULL, NULL, NULL),
 ('section_clermont', NULL, 'af.clermont', NULL, NULL),
 ('section_nantes', NULL, 'action.francaise.etudiante.nantes', NULL, NULL),
@@ -55,7 +55,7 @@ INSERT OR REPLACE INTO entites (code, nom_court, nom, description, code_contacta
 ('section_dijon', 'Dijon', 'Section de Dijon', '#TODO', 'section_dijon'),
 ('section_paris', 'Paris', 'Section de Paris', '#TODO', 'section_paris'),
 ('section_rambouillet', 'Rambouillet', 'Section de Rambouillet', '#TODO', 'section_rambouillet'),
-('section_orleans', 'Orléans', 'Section de Orléans', '#TODO', 'section_orleans'),
+('section_orleans', 'Orléans', 'Section d''Orléans', '#TODO', 'section_orleans'),
 
 ('af_marseille', 'AF Marseille', 'Action Française - Marseille', '#TODO', 'af_marseille'),
 ('af_oise-picardie', 'AF Oise-Picardie', 'Action Française - Oise-Picardie', '#TODO', 'af_oise-picardie'),
@@ -69,11 +69,11 @@ INSERT OR REPLACE INTO entites (code, nom_court, nom, description, code_contacta
 ('afe_rennes', 'AFE Rennes', 'Action Française Etudiante - Rennes', '#TODO', 'afe_rennes'),
 ('afe_annonay', 'AFE Annonay', 'Action Française Etudiante - Annonay', '#TODO', 'afe_annonay'),
 ('afe_grenoble', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble'),
-('afe_paris', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble'),
-('afe_rambouillet', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble'),
-('afe_orleans', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble'),
-('afe_marseille', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble'),
-('afe_aix-en-provence', 'AFE Grenoble', 'Action Française Etudiante - Grenoble', '#TODO', 'afe_grenoble');
+('afe_paris', 'AFE Paris', 'Action Française Etudiante - Paris', '#TODO', 'afe_paris'),
+('afe_rambouillet', 'AFE Rambouillet', 'Action Française Etudiante - Rambouillet', '#TODO', 'afe_rambouillet'),
+('afe_orleans', 'AFE Orléans', 'Action Française Etudiante - Orléans', '#TODO', 'afe_orleans'),
+('afe_marseille', 'AFE Marseille', 'Action Française Etudiante - Marseille', '#TODO', 'afe_marseille'),
+('afe_aix-en-provence', 'AFE Aix-en-Provence', 'Action Française Etudiante - Aix-en-Provence', '#TODO', 'afe_aix-en-provence');
 
 INSERT OR REPLACE INTO federations (code_federation, code_entite) VALUES
 ('provence', 'federation_provence'),

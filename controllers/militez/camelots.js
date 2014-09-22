@@ -24,17 +24,18 @@ function photos(request, response) {
 
 function videos(request, response) {
 	video_model.fetchCodes('camelots', function(err, data) {
-		if(err) send500(false, err);
-		response.writeHead('200', {'Content-Type': 'application/json'});
-		response.end(JSON.stringify(data));
+		if(err) send500(response, false, err);
+		else {
+			response.writeHead('200', {'Content-Type': 'application/json'});
+			response.end(JSON.stringify(data));
+		}
 	});
 }
 
 function texte(request, response) {
 	page_model.fetchOne('camelots_textes', request.params.code, function(err, data) {
-		if(err) send500(false, err);
-
-		if(request.accepts("html")) {
+		if(err) send500(response, false, err);
+		else if(request.accepts("html")) {
 			response.render('militez_camelots_page.ejs', {
 		    	pageSubtitle: data.titre,
 		    	customStylesheets: ["militez_camelots_texte", "militez_tuiles"],
@@ -49,9 +50,8 @@ function texte(request, response) {
 
 function chant(request, response) {
 	page_model.fetchOne('camelots_chants', request.params.code, function(err, data) {
-		if(err) send500(false, err);
-
-		if(request.accepts("html")) {
+		if(err) send500(response, false, err);
+		else if(request.accepts("html")) {
 			response.render('militez_camelots_page.ejs', {
 		    	pageSubtitle: data.titre,
 		    	customStylesheets: ["militez_camelots_chant", "militez_tuiles"],
@@ -66,17 +66,21 @@ function chant(request, response) {
 
 function textes(request, response) {
 	page_model.fetchList('camelots_textes', function(err, codes) {
-		if(err) send500(false, err);
-		response.writeHead('200', {'Content-Type': 'application/json'});
-		response.end(JSON.stringify(codes));
+		if(err) send500(response, false, err);
+		else {
+			response.writeHead('200', {'Content-Type': 'application/json'});
+			response.end(JSON.stringify(codes));
+		}
 	});
 }
 
 function chants(request, response) {
 	page_model.fetchList('camelots_chants', function(err, codes) {
-		if(err) send500(false, err);
-		response.writeHead('200', {'Content-Type': 'application/json'});
-		response.end(JSON.stringify(codes));
+		if(err) send500(response, false, err);
+		else {
+			response.writeHead('200', {'Content-Type': 'application/json'});
+			response.end(JSON.stringify(codes));
+		}
 	});
 }
 

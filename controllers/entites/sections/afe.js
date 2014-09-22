@@ -8,7 +8,8 @@ var afeFolder = new folder.Folder(document_root + '/data/entites/sections/afe', 
 function get(request, response) {
 	existsOr404.call(request, response, 'code', model, function() {
 		model.fetchOne(request.params.code, function(err, data) {
-			if(request.accepts('html')) {
+			if(err) send500(response, false);
+			else if(request.accepts('html')) {
 				response.render('entites_section_afe.ejs', {
 			        section: data
 		    	});

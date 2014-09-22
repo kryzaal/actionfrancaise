@@ -1,5 +1,4 @@
 var folder = require(document_root + "/lib/folder");
-
 var filesFolder = new folder.Folder(document_root + '/static/files/');
 
 function jquery(request, response) {

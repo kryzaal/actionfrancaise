@@ -8,7 +8,8 @@ var federationsFolder = new folder.Folder(document_root + '/data/entites/federat
 function get(request, response) {
 	existsOr404.call(request, response, 'code', model, function() {
 		model.fetchOne(request.params.code, function(err, data) {
-			if(request.accepts('html')) {
+			if(err) send500(response, false, err);
+			else if(request.accepts('html')) {
 				response.render('entites_federation.ejs', {
 			        federation: data
 		    	});

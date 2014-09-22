@@ -17,7 +17,7 @@ exports.fetchOne = function(code, callback) {
 			titre: row['titre'],
 			biographie: row['biographie'],
 			contactable: row['contactable'] == '1'
-		})
+		});
 	});
 }
 
@@ -28,7 +28,7 @@ exports.fetchWidget = function(code, callback) {
 			code: code,
 			nom: row['nom'],
 			titre: row['titre']
-		})
+		});
 	});
 }
 

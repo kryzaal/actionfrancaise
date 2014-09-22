@@ -3,10 +3,9 @@ var model = require("../models/article");
 
 function get(request, response) {
 	model.exists(request.params.code, function(err, exists) {
-		if(err) throw err;
-
-		if(exists) model.fetchOne(request.params.code, function(err, data) {
-			if(err) send500(true, err);
+		if(err) send500(response, true, err);
+		else if(exists) model.fetchOne(request.params.code, function(err, data) {
+			if(err) send500(response, true, err);
 			else response.render('article.ejs', {
 		        pageSubtitle: data.titre,
 		        customStylesheets: ["article"],
@@ -21,10 +20,11 @@ function image(request, response) {
     fs.readFile(document_root + '/data/articles/' + request.params.code + '.jpg', function (err, data) {
         if (err) 
         	fs.readFile(document_root + '/data/articles/fallback.png', function (err, data) {
-		        if (err) throw err;
-
-		        response.writeHead('307', {'Content-Type': 'image/png'});
-		        response.end(data, 'binary');
+		        if(err) send500(response, true, err);
+		        else {
+			        response.writeHead('307', {'Content-Type': 'image/png'});
+			        response.end(data, 'binary');
+			    }
 		    });
     	else {
     		response.writeHead('200', {'Content-Type': 'image/jpg'});
@@ -35,32 +35,35 @@ function image(request, response) {
 
 function list(request, response) {
 	model.listCodes(function(err, codes) {
-		if(err) throw err;
-		response.writeHead('200', {'Content-Type': 'application/json'});
-        response.end(JSON.stringify(codes));
+		if(err) send500(response, true, err);
+		else {
+			response.writeHead('200', {'Content-Type': 'application/json'});
+        	response.end(JSON.stringify(codes));
+        }
 	});
 }
 
 function search(request, response) {
 	model.listKeywords(function(err, data) {
-		if(err) throw err;
-		var codes = [];
+		if(err) send500(response, true, err);
+		else {
+			var codes = [];
 
-		data.forEach(function(data) {
-			if(data.keywords.indexOf(request.params.query) > -1) 
-				codes.push(data.code); 
-		});
+			data.forEach(function(data) {
+				if(data.keywords.indexOf(request.params.query) > -1) 
+					codes.push(data.code); 
+			});
 
-		response.writeHead('200', {'Content-Type': 'application/json'});
-        response.end(JSON.stringify(codes));
+			response.writeHead('200', {'Content-Type': 'application/json'});
+	        response.end(JSON.stringify(codes));
+		}
 	});
 }
 
 function resume(request, response) {
 	model.exists(request.params.code, function(err, exists) {
-		if(err) throw err;
-
-		if(exists) model.fetchOne(request.params.code, function(err, data) {
+		if(err) send500(response, true, err);
+		else if(exists) model.fetchOne(request.params.code, function(err, data) {
 			response.render('article_resume.ejs', data);
 		});
 		else send404(response, false);

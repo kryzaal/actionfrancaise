@@ -1,1 +1,20 @@
-<%= JSON.stringify(federation) %>
+<div class="entite federation" data-code="<%= federation.code %>">
+	<img src="/entites/federations/<%= federation.code %>/blason" />
+	<h1><%= federation.nom %></h1>
+	<p><%= federation.description %></p>
+	<div class="contacts">
+	</div>
+</div>
+
+<script>
+	$.get('/entites/federations/<%= federation.code %>/contact').done(function(data) {
+		if(data.twitter != null) $('.federation[data-code="<%= federation.code %>"] .contacts')
+			.append('<a href="http://twitter.com/' + data.twitter + '"><img src="/style/images/icone_twitter.png" /></a>');
+		if(data.facebook != null) $('.federation[data-code="<%= federation.code %>"] .contacts')
+			.append('<a href="http://facebook.com/' + data.facebook + '"><img src="/style/images/icone_fb.png" /></a>');
+		if(data.site != null) $('.federation[data-code="<%= federation.code %>"] .contacts')
+			.append('<a href="' + data.site +'"><img src="/style/images/icone_site.png" /></a>');
+		if(data.mail != null) $('.federation[data-code="<%= federation.code %>"] .contacts')
+			.append('<a href="/section/' + data.mail + '/contact"><img src="/style/images/icone_mail.png" /></a>');
+	});
+</script>

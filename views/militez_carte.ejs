@@ -7,10 +7,6 @@
 </div>
 
 <div id="carte_aside">
-	<!--<div id="navigation_rapide">
-		<h2>NAVIGATION RAPIDE</h2>
-		<select id="liste_sections" onChange="draw(this.selectedValue)"></select>
-	</div>-->
 	<div id="details"></div>
 
 	<div>Pas de section près de chez-vous ?
@@ -80,9 +76,7 @@
 				'left: ' + this.position.x + 'px; ' +
 				'z-index: ' + (1000 - this.position.y) + '"' +
 				'onClick="draw(\'' + this.data.code + '\')"/>';
-			//var option_html = '<option name="' + this.data.code +'" value="' + this.data.code + '">' + this.data["nom_court"] + '</option>';
 			$("#carte").append(blason_html);
-			//$("#liste_sections").append(option_html);
 		} catch(e) {}
 
 		this.children = function() {
@@ -94,14 +88,15 @@
 		}
 
 		this.draw = function() {
-			$.ajax("/entites/sections/" + this.data.code, {headers: { Accept : "text/html" }}).done(function(data) {
+			var context = this;
+			$.ajax("/entites/sections/" + context.data.code, {headers: { Accept : "text/html" }}).done(function(data) {
 				$("#details").append(data);
 			}).always(function() {
-				$.ajax("/entites/sections/" + this.data.code + "/af", {headers: { Accept : "text/html" }}).done(function(data) {
+				$.ajax("/entites/sections/" + context.data.code + "/af", {headers: { Accept : "text/html" }}).done(function(data) {
 					$("#details").append(data);
 				});
 
-				$.ajax("/entites/sections/" + this.data.code + "/afe", {headers: { Accept : "text/html" }}).done(function(data) {
+				$.ajax("/entites/sections/" + context.data.code + "/afe", {headers: { Accept : "text/html" }}).done(function(data) {
 					$("#details").append(data);
 				});
 			});
@@ -122,9 +117,7 @@
 				'left: ' + this.position.x + 'px; ' +
 				'z-index: ' + (1000 - this.position.y) + '"' +
 				'onClick="draw(\'' + this.data.code + '\')"/>';
-			//var option_html = '<option name="' + this.data.code +'" value="' + this.data.code + '">' + this.data["nom_court"] + '</option>';
 			$("#carte").append(blason_html);
-			//$("#liste_sections").append(option_html);
 		} catch(e) {}
 
 		this.children = function() {

@@ -1,5 +1,3 @@
-var fs = require("fs");
-
 function get(request, response) {
     response.render('media.ejs', {
     	pageSubtitle: "Visuels, affiches et vidéos",
