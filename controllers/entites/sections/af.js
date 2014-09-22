@@ -8,8 +8,14 @@ var afFolder = new folder.Folder(document_root + '/data/entites/sections/af', 'f
 function get(request, response) {
 	existsOr404.call(request, response, 'code', model, function() {
 		model.fetchOne(request.params.code, function(err, data) {
-			var sender = new jsonLib.json(response);
-			sender.send(err, data);
+			if(request.accepts('html')) {
+				response.render('entites_section_af.ejs', {
+			        section: data
+		    	});
+			} else {
+				var sender = new jsonLib.json(response);
+				sender.send(err, data);
+			}
 		});
 	});
 }

@@ -10,9 +10,7 @@ function get(request, response) {
 		model.fetchOne(request.params.code, function(err, data) {
 			if(request.accepts('html')) {
 				response.render('entites_federation.ejs', {
-			        pageSubtitle: data.nom,
-			        customStylesheets: ["entites_federation"],
-			        section: data
+			        federation: data
 		    	});
 			} else {
 				var sender = new jsonLib.json(response);

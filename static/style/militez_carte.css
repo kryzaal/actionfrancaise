@@ -59,7 +59,7 @@
 }
 
 #carte .blason.active {
-	z-index: 1001;
+	z-index: 1001 !important;
 }
 
 #carte .blason.federation.active {

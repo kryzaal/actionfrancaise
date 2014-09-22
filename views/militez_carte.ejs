@@ -7,13 +7,17 @@
 </div>
 
 <div id="carte_aside">
-	<div id="navigation_rapide">
+	<!--<div id="navigation_rapide">
 		<h2>NAVIGATION RAPIDE</h2>
-	<select id="liste_sections" onChange="draw(this.selectedValue)"></select>
-	</div>
+		<select id="liste_sections" onChange="draw(this.selectedValue)"></select>
+	</div>-->
 	<div id="details"></div>
 
-	<a href="/militez/creer"><button id="creermasection" type="button">Créer ma section</button></a>
+	<div>Pas de section près de chez-vous ?
+		<a href="/militez/creer">
+			<button id="creermasection" type="button">Créer ma section</button>
+		</a>
+	</div>
 </div>
 
 <script>
@@ -44,6 +48,7 @@
 		$(".blason").removeClass("active");
 		$(".federee").removeClass("visible");
 		$("#blason_" + code).addClass("active");
+		$("#details").empty();
 
 		var instance = instances[code];
 
@@ -55,6 +60,8 @@
 		} else instance.children().forEach(function(child) {
 			$("#blason_" + child.data.code).addClass('visible');
 		});
+
+		instance.draw();
 	}
 
 	function section(data) {
@@ -72,9 +79,9 @@
 				'left: ' + this.position.x + 'px; ' +
 				'z-index: ' + (1000 - this.position.y) + '"' +
 				'onClick="draw(\'' + this.data.code + '\')"/>';
-			var option_html = '<option name="' + this.data.code +'" value="' + this.data.code + '">' + this.data["nom_court"] + '</option>';
+			//var option_html = '<option name="' + this.data.code +'" value="' + this.data.code + '">' + this.data["nom_court"] + '</option>';
 			$("#carte").append(blason_html);
-			$("#liste_sections").append(option_html);
+			//$("#liste_sections").append(option_html);
 		} catch(e) {}
 
 		this.children = function() {
@@ -83,6 +90,20 @@
 
 		this.parent = function() {
 			return this.data.code_federation != null ? instances[this.data.code_federation] : false;
+		}
+
+		this.draw = function() {
+			$.ajax("/entites/sections/" + this.data.code + "/widget", {accepts: "application/html"}).done(function(data) {
+				$("#details").append(data);
+			}).always(function() {
+				$.ajax("/entites/sections/" + this.data.code + "/af/widget", {accepts: "application/html"}).done(function(data) {
+					$("#details").append(data);
+				});
+
+				$.ajax("/entites/sections/" + this.data.code + "/afe/widget", {accepts: "application/html"}).done(function(data) {
+					$("#details").append(data);
+				});
+			});
 		}
 	}
 
@@ -100,9 +121,9 @@
 				'left: ' + this.position.x + 'px; ' +
 				'z-index: ' + (1000 - this.position.y) + '"' +
 				'onClick="draw(\'' + this.data.code + '\')"/>';
-			var option_html = '<option name="' + this.data.code +'" value="' + this.data.code + '">' + this.data["nom_court"] + '</option>';
+			//var option_html = '<option name="' + this.data.code +'" value="' + this.data.code + '">' + this.data["nom_court"] + '</option>';
 			$("#carte").append(blason_html);
-			$("#liste_sections").append(option_html);
+			//$("#liste_sections").append(option_html);
 		} catch(e) {}
 
 		this.children = function() {
@@ -110,6 +131,12 @@
 		}
 
 		this.parent = function() { return false; }
+
+		this.draw = function() {
+			$.ajax("/entites/federations/" + this.data.code, {accepts: "application/html"}).done(function(data) {
+				$("#details").append(data);
+			});
+		}
 	}
 
 	$(function() {
