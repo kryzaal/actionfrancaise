@@ -28,7 +28,7 @@
 	position: absolute;
 	top: 0;
 	left: 50%;
-	z-index 1;
+	z-index: 1;
 	min-height: 100%;
 	width: 50%;
 	border-left: 5px solid #ECE9E9;
@@ -36,7 +36,7 @@
 
 #cmrds nav div.evenement {
 	position: relative;
-	z-index 2;
+	z-index: 2;
 	background-color: #1D3674;
 	color: white;
 	width: 80%;
@@ -45,11 +45,10 @@
 	font-weight: bolder;
 	margin-bottom: 20%;
 	cursor: pointer;
-	-webkit-transition: box-shadow background-color 0.5s ease-in-out 0s;
-	-moz-transition: box-shadow background-color 0.5s ease-in-out 0s;
-	-o-transition: box-shadow background-color 0.5s ease-in-out 0s;
-	-ms-transition: box-shadow background-color 0.5s ease-in-out 0s;
-	transition: box-shadow  background-color 0.5s ease-in-out 0s; 
+	transition-property: box-shadow, background-color;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-in-out;
+	transition-delay:  0s;
 }
 
 #cmrds nav div.evenement:hover {

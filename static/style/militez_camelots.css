@@ -49,10 +49,8 @@
 	height:100%;
 	transition: filter 0.5s ease-in-out 0s;
 	-webkit-filter: sepia(100%);
-	-moz-filter: greyscale(100%);
 	-ms-filter: greyscale(100%);
 	-o-filter: greyscale(100%);
-	filter: greyscale(100%);
 	filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0' width='1'><filter id='greyscale'><feColorMatrix type='matrix' values='0.343 0.669 0.119 0 0 0.249 0.626 0.130 0 0 0.172 0.334 0.111 0 0 0 0 0 1 0' /></filter></svg>#greyscale"); /* Firefox 4+ */
 }
 
@@ -74,7 +72,7 @@
 #photos {
 	-webkit-column-count: 5; 
 	-moz-column-count: 5; 
-	column-count: 5;
+	-ms-column-count: 5;
 }
 
 #photos img {
@@ -87,7 +85,7 @@
 #videos {
 	-webkit-column-count: 4; 
 	-moz-column-count: 4; 
-	column-count: 4;
+	-ms-column-count: 4;
 }
 
 #videos > div > img {

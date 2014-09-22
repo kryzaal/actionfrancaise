@@ -3,7 +3,7 @@
 <% include militez_tuiles %>
 
 <div id="carte">
-	<img id="fond" src="/style/images/map.png" />
+	<img id="fond" src="/style/images/map.png" onclick="draw(null)" />
 </div>
 
 <div id="carte_aside">
@@ -51,6 +51,7 @@
 		$("#details").empty();
 
 		var instance = instances[code];
+		if(typeof instance == 'undefined') return;
 
 		if(instance.parent()) {
 			$("#blason_" + instance.parent().data.code).addClass('active');
@@ -93,14 +94,14 @@
 		}
 
 		this.draw = function() {
-			$.ajax("/entites/sections/" + this.data.code + "/widget", {accepts: "application/html"}).done(function(data) {
+			$.ajax("/entites/sections/" + this.data.code, {headers: { Accept : "text/html" }}).done(function(data) {
 				$("#details").append(data);
 			}).always(function() {
-				$.ajax("/entites/sections/" + this.data.code + "/af/widget", {accepts: "application/html"}).done(function(data) {
+				$.ajax("/entites/sections/" + this.data.code + "/af", {headers: { Accept : "text/html" }}).done(function(data) {
 					$("#details").append(data);
 				});
 
-				$.ajax("/entites/sections/" + this.data.code + "/afe/widget", {accepts: "application/html"}).done(function(data) {
+				$.ajax("/entites/sections/" + this.data.code + "/afe", {headers: { Accept : "text/html" }}).done(function(data) {
 					$("#details").append(data);
 				});
 			});
@@ -133,24 +134,24 @@
 		this.parent = function() { return false; }
 
 		this.draw = function() {
-			$.ajax("/entites/federations/" + this.data.code, {accepts: "application/html"}).done(function(data) {
+			$.ajax("/entites/federations/" + this.data.code, {headers: { Accept : "text/html" }}).done(function(data) {
 				$("#details").append(data);
 			});
 		}
 	}
 
 	$(function() {
-		$.ajax('/entites/sections', {accepts: "application/json"}).done(function(data) {
+		$.ajax('/entites/sections', {headers: { Accept : "application/json" }}).done(function(data) {
 			data.forEach(function(code) {
-				$.ajax('/entites/sections/' + code, {accepts: "application/json"}).done(function(data) {
+				$.ajax('/entites/sections/' + code, {headers: { Accept : "application/json" }}).done(function(data) {
 					if(data) new section(data);
 				});
 			});
 		});
 
-		$.ajax('/entites/federations', {accepts: "application/json"}).done(function(data) {
+		$.ajax('/entites/federations', {headers: { Accept : "application/json" }}).done(function(data) {
 			data.forEach(function(code) {
-				$.ajax('/entites/federations/' + code, {accepts: "application/json"}).done(function(data) {
+				$.ajax('/entites/federations/' + code, {headers: { Accept : "application/json" }}).done(function(data) {
 					new federation(data);
 				});
 			});

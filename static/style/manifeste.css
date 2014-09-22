@@ -6,11 +6,10 @@ section{
 #manifeste div:first-child {
     padding: 1px 50px 50px 50px;
     border: 1px dashed grey;
-	text-align: left;
+    text-align: left;
 }
 
 #manifeste h1 {
-    font-color: gray;
     width:100%;
     text-align: center;
     font-size: 32px;

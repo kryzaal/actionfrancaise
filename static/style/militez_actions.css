@@ -27,7 +27,6 @@
 }
 
 #evenements div.button:hover {
-	
 	opacity: 0.95;
 }
 
@@ -53,10 +52,7 @@
 
 #evenement div.img_container {
 	margin: 10px auto;
-	background-image: -webkit-linear-gradient(left,#D1D7E6,#fff,#D1D7E6); 
-  background-image:    -moz-linear-gradient(left,#D1D7E6,#fff,#D1D7E6); 
-  background-image:     -ms-linear-gradient(left,#D1D7E6,#fff,#D1D7E6); 
-  background-image:      -o-linear-gradient(left,#D1D7E6,#fff,#D1D7E6); 
+  	background-image: linear-gradient(to left,#D1D7E6,#fff,#D1D7E6); 
 	box-shadow: inset 1px 1px 12px #555;
 }
 
@@ -122,8 +118,8 @@
 #evenement #photos
 {
 	-webkit-column-count: 3; 
-	-moz-column-count: 3; 
-	column-count: 3;
+	-moz-column-count: 3;
+	-ms-column-count: 3;
 }
 
 #evenement #photos img {
