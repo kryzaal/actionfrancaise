@@ -31,7 +31,7 @@
     $(function() {
         $.get('/slideshow', function(data) {
             data.forEach(function(slide) { 
-                $('#slider').append('<figure><img src="/slides/' + slide + '" /></figure>');
+                $('#slider').append('<figure><img src="/slideshow/' + slide + '" /></figure>');
             });
 
             $('#slider').css("width", slide_width * $('#slider figure').length);

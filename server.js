@@ -29,7 +29,8 @@ var controllers = {
     rss:            require('./controllers/rss'),
     slideshow:      require('./controllers/slideshow'),
     files:          require('./controllers/files'),
-    entites:        require('./controllers/entites')
+    entites:        require('./controllers/entites'),
+    style:          require('./controllers/style')
 };
 
 var app = express();
@@ -37,7 +38,8 @@ var app = express();
 app.use(favicon(__dirname + '/static/style/images/favicon.png'))
 .use(compression())
 .use(bodyParser.json())
-.use(bodyParser.urlencoded());
+.use(bodyParser.urlencoded())
+.use(require('morgan')('dev'));
 
 /** ROUTES **/
 
@@ -152,11 +154,12 @@ app.post("/articles", controllers.articles.list);
 app.post("/articles/:query", controllers.articles.search);
 
 app.get("/slideshow", controllers.slideshow.get);
+app.get("/slideshow/:filename", controllers.slideshow.slide);
 app.get("/jquery", controllers.files.jquery);
 app.get("/paypal", controllers.files.paypal);
 
-app.use("/style", express.static(__dirname + "/static/style"));
-app.use("/slides", express.static(__dirname + "/data/slideshow"));
+app.use("/style/images/:filename", controllers.style.image);
+app.use("/style/:filename", controllers.style.css);
 
 /** 404 & 500 **/
 
