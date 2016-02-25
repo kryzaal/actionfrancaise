@@ -1,18 +1,36 @@
 {
-  "dependencies": {},
-  "license": "CC Zero",
-  "maintainers": [
-    {
-      "name": "Ahynn Kryzaal",
-      "email": "kryzaal@gmail.com"
-    }
-  ],
   "name": "actionfrancaise",
-  "optionalDependencies": {},
-  "readme": "No readme",
+  "version": "1.0.0",
+  "description": "Site V2 de l'Action Française",
+  "main": "server.js",
+  "dependencies": {
+    "async": "^1.5.2",
+    "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "morgan": "^1.7.0",
+    "node": "^0.0.0",
+    "nodemailer": "^2.2.1",
+    "rss": "^1.2.1",
+    "serve-favicon": "^2.3.0",
+    "simple-recaptcha": "^0.0.3",
+    "sync": "^0.2.5",
+    "sqlite3": "^3.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kryzaal/actionfrancaise.git"
   },
-  "version": "0.7.0"
+  "author": "Ahynn Kryzaal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kryzaal/actionfrancaise/issues"
+  },
+  "homepage": "https://github.com/kryzaal/actionfrancaise#readme"
 }
