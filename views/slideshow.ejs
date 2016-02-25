@@ -1,5 +1,6 @@
-<div id="slideshow">  
-    <div onmouseover="setPause(true);" onMouseOut="setPause(false);">
+<div id="count">0</div>
+<div id="slideshow">
+    <div>
         <div id="slider"></div>  
     </div>
 </div>
@@ -10,36 +11,24 @@
     var interval = null;
     var slide_width = 1020;
 
-    function nextSlide() {
-        if(current == 0) reverse = false;
-        else if(current == $('#slider figure').length - 1) reverse = true;
-
-        return reverse ? current -- : current ++;
-    }
+    var slider = $('#slider');
 
     function showNext() {
-        interval = setInterval(function() {
-            $('#slider').css('left', -slide_width * nextSlide());
+        interval = setInterval(function(){
+            $('#slider').animate({marginLeft:-slide_width},1200,function(){
+                $(this).css({marginLeft:0}).find("figure:last").after($(this).find("figure:first"));
+            })
         }, 5000);
-    }
-
-    function setPause(value) {
-        if(value) clearInterval(interval);
-        else showNext();
     }
 
     $(function() {
         $.get('/slideshow', function(data) {
-            data.forEach(function(slide) { 
-                $('#slider').append('<figure><img src="/slideshow/' + slide + '" /></figure>');
+            data.forEach(function(slide) {
+                slider.append('<figure><img src="/slideshow/' + slide + '" /></figure>');
             });
 
-            $('#slider').css("width", slide_width * $('#slider figure').length);
-
+            slider.css("width", slide_width * slider.find('figure').length);
             showNext();
-
-            $(window).blur(function() { clearInterval(interval); });
-            $(window).focus(showNext);
         });    
     });
 </script>

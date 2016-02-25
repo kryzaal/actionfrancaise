@@ -6,24 +6,25 @@
 
 <script>
 	var selectedImage = null;
+    var viewer = $('#viewer');
 
 	function expand(img) {
 		selectedImage = img;
 
 		var slices = img.src.split('/');
 		window.location.hash = '#' + slices.pop();
-		
-		$('#viewer > #image').css('background-image', "url('" + img.src + "')");
-		$('#viewer').addClass('expanded');
+
+		viewer.find('> #image').css('background-image', "url('" + img.src + "')");
+		viewer.addClass('expanded');
 	}
 
 	function collapse() {
-		window.location.hash = null;
+		window.location.hash = "";
 		selectedImage.scrollIntoView( true );
 
 		selectedImage = null;
-		$('#viewer > #image').css('background-image', 'none');
-		$('#viewer').removeClass('expanded');
+		viewer.find('> #image').css('background-image', 'none');
+		viewer.removeClass('expanded');
 	}
 
 	function previous() {
