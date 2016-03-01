@@ -9,13 +9,13 @@
 	margin-right:10px;
 	-webkit-column-count: 3;
 	-moz-column-count: 3;
-	-ms-column-count: 3;
+	column-count: 3;
 }
 
 #videos {
 	-webkit-column-count: 2;
 	-moz-column-count: 2;
-	-ms-column-count: 2;
+	column-count: 2;
 
 }
 #videos > div > img {
