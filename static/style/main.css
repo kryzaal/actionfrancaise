@@ -32,11 +32,8 @@ header, h2 {
 }
 
 .entete {
-  width: 100%; 
-  margin-top:-20px;
-  margin-right:auto;
-  margin-left:auto;
-  margin-bottom: 20px;
+  width: 100%;
+    margin: -20px auto 20px;
 }
 
 header h1{

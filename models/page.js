@@ -18,7 +18,7 @@ exports.fetchOne = function(categorie, code, callback) {
 			texte: row['texte']
 		})
 	});
-}
+};
 
 exports.fetchList = function(categorie, callback) {
 	dbHandler.all("SELECT code FROM pages WHERE categorie == ?", categorie, function(err, rows) {
@@ -31,6 +31,6 @@ exports.fetchList = function(categorie, callback) {
 			callback(err, data);
 		}
 	});
-}
+};
 
 exports.exists = exists;

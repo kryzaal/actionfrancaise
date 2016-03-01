@@ -19,7 +19,7 @@ exports.fetchOne = function(code, callback) {
 			contactable: row['contactable'] == '1'
 		});
 	});
-}
+};
 
 exports.fetchWidget = function(code, callback) {
 	dbHandler.get("SELECT nom, titre FROM profils WHERE code == ?", code, function(err, row) {
@@ -30,6 +30,6 @@ exports.fetchWidget = function(code, callback) {
 			titre: row['titre']
 		});
 	});
-}
+};
 
 exports.exists = exists;

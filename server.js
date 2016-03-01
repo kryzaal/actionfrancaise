@@ -2,13 +2,13 @@ global.server = "localhost";
 global.port = 8080;
 global.isDevelopment = true;
 global.document_root = __dirname;
-global.nullOrEmpty = function(value) { return '' + value == "undefined"; }
+global.nullOrEmpty = function(value) { return '' + value == "undefined"; };
 
 var express = require("express");
 var compression = require('compression');
 var favicon = require('serve-favicon');
 var ejs = require('ejs');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var database = require('./database');
 
 database.init();
@@ -36,7 +36,7 @@ var controllers = {
 var app = express();
 
 app.use(favicon(__dirname + '/static/style/images/favicon.png'))
-.use(compression())
+.use(compression({}))
 .use(bodyParser.json())
 .use(bodyParser.urlencoded())
 .use(require('morgan')('dev'));
@@ -169,7 +169,7 @@ global.send404 = function(response, pretty) {
     response.status(404);
     if(pretty) response.render('404.ejs');
     else response.end();
-}
+};
 
 global.send500 = function(response, pretty, err) {
     if(typeof(pretty) === 'undefined') pretty = false;
@@ -180,7 +180,7 @@ global.send500 = function(response, pretty, err) {
     response.status(500);
     if(pretty) response.render('500.ejs', {erreur : err});
     else response.end(err);
-}
+};
 
 global.send501 = function(response, pretty) {
     if(typeof(pretty) === 'undefined') pretty = false;
@@ -188,7 +188,7 @@ global.send501 = function(response, pretty) {
     response.status(501);
     if(pretty) response.render('501.ejs');
     else response.end();
-}
+};
 
 app.get("/418", function(request, response) {
     response.status(418).end("I'm not a teapot");

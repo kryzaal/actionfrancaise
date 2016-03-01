@@ -86,10 +86,10 @@ function fetchLatest(callback) {
 
 exports.fetchLatest = function(callback) {
 	fetchOneWithLinks(fetchLatest, callback);
-}
+};
 
 exports.fetchOne = function(code, callback) {
 	fetchOneWithLinks(function(callback) {
 		fetchOne(code, callback);
 	}, callback);
-}
+};

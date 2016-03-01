@@ -17,8 +17,7 @@ function photo(request, response) {
         	response.end(data, 'binary');
     	}
     });
-};
-
+}
 function widget(request, response) {
 	model.exists(request.params.code, function(err, exists) {
 		if (err) send500(response, false, err);
@@ -28,8 +27,7 @@ function widget(request, response) {
 			else response.render('profils_widget.ejs', { data: data });
 		});
 	});
-};
-
+}
 function get(request, response) {
 	var acceptsHtml = request.accepts("html");
 	model.exists(request.params.code, function(err, exists) {
@@ -49,13 +47,11 @@ function get(request, response) {
 			}
 		});
 	});
-};
-
+}
 function roles(request, response) {
 	response.writeHead('200', {'Content-Type': 'application/json'});
 	response.end(JSON.stringify([]));
-};
-
+}
 function textes(request, response) {
 	model.exists(request.params.code, function(err, exists) {
 		if(err) send500(response, false, err);
@@ -68,8 +64,7 @@ function textes(request, response) {
 			}
 		});
 	});
-};
-
+}
 exports.photo = photo;
 exports.widget = widget;
 exports.get = get;

@@ -6,4 +6,4 @@ exports.fetchCodes = function(list_code, callback) {
 		rows.forEach(function(row) { codes.push(row.video); });
 		callback(err, codes);
 	})
-}
+};

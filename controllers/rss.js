@@ -21,7 +21,7 @@ function create_item() {
 		guid: guid,
 		categories: '',
 		author: '',
-		date: date,
+		date: date
 	}
 }
 
@@ -32,7 +32,7 @@ function create_action_item(action) {
 		guid: action.code,
 		url: http_base + "/actions/" + action.code,
 		categories: [action.type],
-		date: action.creation,
+		date: action.creation
 	}
 }
 
@@ -44,7 +44,7 @@ function create_article_item(article) {
 		guid: guid,
 		categories: '',
 		author: '',
-		date: date,
+		date: date
 	}
 }
 

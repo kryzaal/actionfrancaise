@@ -42,7 +42,7 @@
 				allLinks.attr("href", allLinks.attr("href").replace('/militez', ''));
 		}
 
-		var a = $('#militez > a[href="/' + pathname[1] + "/" + pathname[2] + '"]').addClass("current");
-		var a = $('#militez > a[href="' + window.location.pathname + '"]').click(function() { return false; }).addClass("disabled");
+		$('#militez').find('> a[href="/' + pathname[1] + "/" + pathname[2] + '"]').addClass("current");
+		$('#militez').find('> a[href="' + window.location.pathname + '"]').click(function() { return false; }).addClass("disabled");
 	});
 </script>

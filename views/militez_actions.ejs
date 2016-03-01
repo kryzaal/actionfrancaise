@@ -67,11 +67,11 @@ var next = action.next;
 		}).fail(function() {
 			$("#photos_container").remove();
 		});
-	})
+	});
 
 	$(window).scroll(function() {
 		var scroll = $(this).scrollTop() - $('#militez').height() - 150;
-		$('#evenements div.button').css('top', scroll < 5 ? 5 : scroll);
+		$('#evenements').find('div.button').css('top', scroll < 5 ? 5 : scroll);
 	});
 </script>
 

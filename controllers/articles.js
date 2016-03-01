@@ -14,8 +14,7 @@ function get(request, response) {
 		});
 		else send404(response, true);
 	});
-};
-
+}
 function image(request, response) {
     fs.readFile(document_root + '/data/articles/' + request.params.code + '.jpg', function (err, data) {
         if (err) 

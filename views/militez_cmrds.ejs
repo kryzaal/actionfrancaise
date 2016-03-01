@@ -54,7 +54,7 @@
 	$(window).scroll(function() {
 		var aimedTop = $(this).scrollTop() - 350;
 		if(aimedTop < 0) aimedTop = 0;
-		$('#cmrds nav').css('top', aimedTop);
+		$('#cmrds').find('nav').css('top', aimedTop);
 	});
 </script>
 

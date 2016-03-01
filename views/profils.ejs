@@ -29,7 +29,7 @@
 			$("#textes").append('<div class="' + texte.type + '" data-code="' + texte.code + '"></div>');
 		});
 
-		$("#textes .article").each(function() {
+		$("#textes').find('.article').each(function() {
 			var code = this.dataset.code;
 			var element = $(this);
 			$.get('/articles/' + code + '/resume', function(data) {
@@ -39,7 +39,7 @@
 			});
 		});
 
-		$("#textes .grand_texte").each(function() {
+		$("#textes").find(".grand_texte").each(function() {
 			var code = this.dataset.code;
 			$.get('/textes/' + code + '/resume', function(data) {
 				$(this).append(data);

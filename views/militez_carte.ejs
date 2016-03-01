@@ -81,11 +81,11 @@
 
 		this.children = function() {
 			return [];
-		}
+		};
 
 		this.parent = function() {
 			return this.data.code_federation != null ? instances[this.data.code_federation] : false;
-		}
+		};
 
 		this.draw = function() {
 			var context = this;
@@ -122,9 +122,9 @@
 
 		this.children = function() {
 			return sections_federees[this.data.code];
-		}
+		};
 
-		this.parent = function() { return false; }
+		this.parent = function() { return false; };
 
 		this.draw = function() {
 			$.ajax("/entites/federations/" + this.data.code, {headers: { Accept : "text/html" }}).done(function(data) {

@@ -45,19 +45,18 @@
 	cursor: default;
 }
 
-#organigramme .organe span {
+#organigramme .organe div:first-child {
 	display: inline-block;
 	vertical-align: middle;
 	 font-size: 20px;
 }
 
-#organigramme .organe span h2 {
+#organigramme .organe div:first-child h2 {
 	 font-size: 20px;
 }
 
 #organigramme .ligne div {
 	display: inline-block;
-
 }
 
 #organigramme .organe .membres {
