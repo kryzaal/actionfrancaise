@@ -1,5 +1,5 @@
 section {
-	margin-top:0px;
+	margin-top:0;
 }
 
 div.formulaire {
@@ -16,7 +16,7 @@ div.formulaire input, div.formulaire select, div.formulaire textarea {
 	padding:2px;
 	border:none;
 	background-color:#ece9e9;
-	font-family:Arial;
+	font-family: Arial, serif;
 	font-size:20px;
 	height:50px;
 }
@@ -33,7 +33,7 @@ div.formulaire button {
 	margin-right:12px;
 	margin-top:10px;
 	border:none;
-	font-family:Arial;
+	font-family:Arial, serif;
 	font-size:20px;
 	height:50px;
 	padding: 10px;

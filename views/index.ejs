@@ -29,101 +29,13 @@
     }
 
     function loadTitle(code) {
-        $.getJSON("http://gdata.youtube.com/feeds/api/videos/" + code + "?v=2&alt=jsonc", function(response) {
-            document.getElementById("video_" + code).innerHTML = '<img src="http://img.youtube.com/vi/' + code + '/0.jpg"/>' + '<h1>' + response.data.title + '</h1>';
-        });
+        //$.getJSON("https://www.googleapis.com/youtube/v3/videos?id=" + code + "&key=%3CYOUR_API_KEY%3E&part=snippet", function(response) {
+            document.getElementById("video_" + code).innerHTML = '<img src="http://img.youtube.com/vi/' + code + '/0.jpg"/>' + '<h1>' + "titre" + '</h1>';
+        //});
     }
 
     var lock = false;
     html_cache = {};
-    function infinite_scroll(filter) {
-        end_reached = false;
-        already_loading = false;
-        current_filter = filter != null ? filter : null;
-
-        init = function() {
-            if(lock) return;
-            lock = true;
-
-            $("#articles").empty();
-            $("#loader").css('display', 'inline-block');
-            loadList(function() {
-                loadMore();
-                if(current_filter !== null) $("#filtre_articles").get(0).scrollIntoView(true);
-                $(window).scroll(more);
-            });
-
-            lock = false;
-        }
-
-        more = function() {
-            if(already_loading || end_reached) return;
-
-            var offset = $('.article:last').offset();
-            var offsetTop = (typeof(offset) == 'undefined') ? 0 : offset.top;
-
-            if(offsetTop - $(window).height() >= $(window).scrollTop()) return;
-
-            loadMore();
-        }
-
-        loadMore = function() {
-            if(already_loading || end_reached) return;
-            already_loading = true;
-
-            var offset = $('.article.selected').length;
-            if(offset >= $('.article').length) {
-                end_reached = true;
-                $("#loader").css('display', 'none');
-                return;
-            }
-
-            $('.article').slice(offset, offset + 8).addClass('selected');
-                
-            $("#articles .selected").each(function() {
-                var element = this;
-                var code = this.dataset.code;
-
-                if(typeof(html_cache[code]) === 'undefined') $.get('/articles/' + code + '/resume', function(html) {
-                    html_cache[code] = html;
-                    print(element);
-                }); else print(element);
-            });
-
-            already_loading = false;
-        }
-
-        loadList = function(callback) {
-            $.post("/articles/" + (current_filter != null ? current_filter : ''), function(list) {
-                if(list.length == 0) {
-                    $("#articles").html('<span>Aucun élément trouvé</span>');
-                    return;
-                }
-
-                list.forEach(function(code) {
-                    $("#articles").append('<div class="article" data-code="' + code + '"></div>');
-                });
-                
-                callback();
-            });
-        };
-
-        print = function(element) {
-            var content = html_cache[element.dataset.code];
-
-            $(element).html(content);
-            $(element).find('.texte_article p').each(function() {
-                var jElement = $(this);
-
-                while(this.scrollHeight > this.offsetHeight) {
-                    var lastIndex = jElement.html().lastIndexOf(" ");
-                    jElement.html(jElement.html().substring(0, lastIndex) + '&hellip;');
-                }
-            });
-        };
-
-        init();
-    }
 
     var scroller = null; 
 
@@ -135,12 +47,6 @@
                     '<h1>' + data.type + '</h1>' +
                 '</a>');
         });
-
-        $("#search").val("").keyup(function() {
-            scroller = new infinite_scroll($("#search").val().toLowerCase());
-        });
-
-        scroller = new infinite_scroll(null);
     });
 </script>
 <% include foot %>

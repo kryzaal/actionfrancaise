@@ -1,5 +1,5 @@
 body {
-  font-family: Arial;
+  font-family: Arial,serif;
   font-size: 14px;
   margin: 0;
   background-image:radial-gradient(white, #f8f6f6);
@@ -9,7 +9,7 @@ body {
 
 #corps {
   display: block;
-  margin:0px;
+  margin:0;
   text-align: center;
 }
  
@@ -70,7 +70,7 @@ box-shadow: 7px 6px 15px #333;
 }
 
 #menu_top:after{
-right: 0px;
+right: 0;
 
 transform: rotate(1deg); 
 box-shadow: -7px 6px 15px #333;
@@ -89,8 +89,8 @@ box-shadow: -7px 6px 15px #333;
 }
 
 #menu_top ul {
-  margin-top: 0px;
-  margin-left: 0px;
+  margin-top: 0;
+  margin-left: 0;
 }
 
 #menu_top li {
@@ -110,10 +110,6 @@ box-shadow: -7px 6px 15px #333;
   line-height: 40px;
   vertical-align: middle; 
   text-transform: uppercase;
-  -moz-transition: all 0.1s ease-in-out 0s;
-  -webkit-transition: all 0.1s ease-in-out 0s;
-  -o-transition: all 0.1s ease-in-out 0s;
-  -ms-transition: all 0.1s ease-in-out 0s;
   transition: all 0.1s ease-in-out 0s;
 }
 #menu_top li:hover {
@@ -135,10 +131,6 @@ background-color: #586A98;
 #reseaux_sociaux a,
 #reseaux_sociaux #rss_button
 {
-  -moz-transition: all 0.5s ease-in-out 0s;
-  -webkit-transition: all 0.5s ease-in-out 0s;
-  -o-transition: all 0.5s ease-in-out 0s;
-  -ms-transition: all 0.5s ease-in-out 0s;
   transition: all 0.5s ease-in-out 0s;
 }
 
@@ -171,7 +163,6 @@ aside #adresse_craf {
   color: grey;
   float:right;
   margin-top:5px;
-  
   background-color:#ECE9E9;
 }
 
@@ -213,11 +204,10 @@ footer div{
  
 footer div a{ 
   font-size: 20px;
-  font-family: Myriad Pro;
+  font-family: Myriad Pro, serif;
   color:grey;
   text-decoration: none;
  }
-
 
 #reseaux_sociaux {
   display:inline-block;
@@ -233,8 +223,6 @@ footer div a{
   text-align: center;
   box-shadow: 1px 1px 3px #555;
 }
-
-
 
 #reseaux_sociaux a:hover, #reseaux_sociaux #rss_button:hover{
   top:17px;
@@ -260,7 +248,6 @@ footer div a{
 #reseaux_sociaux #rss_button{
   background-color: #fe9900;
 }
-
 
 #reseaux_sociaux form, #reseaux_sociaux a, #reseaux_sociaux div {
   display: inline-block;

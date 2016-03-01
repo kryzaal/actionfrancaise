@@ -2,7 +2,7 @@
 
 <div id="profil">
 	<div>
-		<img class="image_auteur"src="/profils/<%= data.code %>/photo" />
+		<img class="image_auteur" src="/profils/<%= data.code %>/photo" />
 		<h1><%= data.nom %></h1>
 		<h2><%= data.titre %></h2>
 		<% if(data.contactable) { %>
@@ -60,7 +60,6 @@
 		});
 
 		$(".role").each(function() {
-			var code = this.dataset.code;
 			$.get('/roles/' + role + '/widget', function(data) {
 				$(this).append(data);
 			});

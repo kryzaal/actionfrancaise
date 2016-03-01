@@ -32,10 +32,8 @@
 #carte .blason {
 	position: absolute;
 	width:80px;
-	border-radius: 0px 0px 47px 47px;
+	border-radius: 0 0 47px 47px;
 	transition: filter 0.5s ease-in-out 0s;
-	-webkit-filter: sepia(100%);
-	-o-filter: sepia(100%);
 	filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0' width='1'>\
 		<filter id='greyscale'><feColorMatrix type='matrix' values='0.343 0.669 0.119 0 0 0.249 0.626 0.130 0 0 0.172 0.334 0.111 0 0 0 0 0 1 0' /></filter>\
 		</svg>#greyscale");
@@ -61,7 +59,6 @@
 
 #carte .blason.federation.active {
 	background-color: rgba(50, 50, 50, 0.6);
-	border-radius: 0;
 	padding: 10px 50px 100px 50px;
 	margin-bottom: -100px;
 	margin-left: -50px;
@@ -70,8 +67,6 @@
 }
 
 #carte .blason.active, #carte .blason:hover {
-	-webkit-filter: sepia(0%);
-	-o-filter: sepia(0%);
 	filter: url("data:image/svg+xml;utf8,\
 		<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'>\
 		<filter id='greyscale'><feColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0' /></filter>\

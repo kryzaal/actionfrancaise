@@ -10,7 +10,7 @@
 
 	$(function() {
 		$('#random').remove();
-		$.get('/media/visuels', function(response, success, xhr) {
+		$.get('/media/visuels', function(response, success) {
 			if(!success) {
 				log(response);
 				return;
@@ -21,7 +21,7 @@
 			})
 		});
 
-		$.get('/media/videos', function(response, success, xhr) {
+		$.get('/media/videos', function(response) {
 			response.forEach(function(code) {
 				$('#videos').append('<div class="video_' + code + '" onClick="loadVideo(this, \'' + code + '\')"></div>');
 				

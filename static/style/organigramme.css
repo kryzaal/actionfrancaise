@@ -36,8 +36,7 @@
 }
 
 #organigramme .organe.expanded, #organigramme .organe:hover {
-	background-image: none;
-	background-color: #1D3674;
+	background: #1D3674 none;
 	border-color: transparent;
 	color: white;
 }
@@ -63,7 +62,7 @@
 
 #organigramme .organe .membres {
 	height: 100%;
-	max-height: 0px;
+	max-height: 0;
 	width: 100%;
 	overflow: hidden;
 	display: block;

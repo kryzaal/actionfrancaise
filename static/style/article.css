@@ -91,12 +91,10 @@ section > aside {
 }
 
 #partage a {
-    display: block;
     width: 100%;
     color:white;
     vertical-align:middle;
     text-decoration: none;
-    color:white;
     display: table-row;
 }
 

@@ -1,9 +1,7 @@
 #militer{
 	display:inline-block;
-	
 	width:87%;
-	margin:auto;
-	margin-bottom:5px;
+	margin: auto auto 5px;
 	text-align:left;
 	padding:5px;
 }
@@ -16,7 +14,7 @@
 }
 
 .ss_titre{
-background-color: #0D1C42;
+	background-color: #0D1C42;
 	color: white;
 	text-align: center;
 	font-size: 1.4em;

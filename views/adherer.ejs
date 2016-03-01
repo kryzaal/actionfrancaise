@@ -3,17 +3,17 @@
 <div class="formulaire">
     <h1>Adhérer à l'Action Française</h1> 
     <p> Vous voulez concrétiser votre engagement au quotidien par un acte symbolique, 
-    celui de l'adhésion formelle à l'Action française ? N'hésitez plus, adhérez !</br></br>
+    celui de l'adhésion formelle à l'Action française ? N'hésitez plus, adhérez !<br/><br/>
 
-    Plusieurs niveaux d'adhésion sont proposés :</br></br>
+    Plusieurs niveaux d'adhésion sont proposés :<br/><br/>
 
-    -Membres actifs, 32 euros </br>
-    -Etudiants, lycéens, chômeurs, 16 euros </br>
-    -Bienfaiteurs, 150 euros.</br></br>
+    -Membres actifs, 32 euros <br/>
+    -Etudiants, lycéens, chômeurs, 16 euros <br/>
+    -Bienfaiteurs, 150 euros.<br/><br/>
 
     Notre objectif n'étant pas de "placer des cartes" à tout prix, mais de nous donner les moyens de notre indépendance, 
     il n'y a pas d'adhésion d'appel. Néanmoins, pour ne pas laisser les plus démunis en marge du mouvement, 
-    le CRAF décernera des cartes de membres d'honneur à des militants exemplaires par leur engagement.</br></br>
+    le CRAF décernera des cartes de membres d'honneur à des militants exemplaires par leur engagement.<br/><br/>
 
     Une fois adhérent vous recevrez, en plus des courriers d'information et de notre bulletin de liaison bimestriel, 
     les consignes internes et les invitations militantes.</p>
@@ -25,11 +25,11 @@
         <input type="text" name="nom" placeholder="Nom" value="<%- valueIfPresent('nom') %>"/>
         <input type="email" name="email" placeholder="Courriel" value="<%- valueIfPresent('email') %>"/>
 
-        <select name="type_adhesion">
-        	<option value="reduit">Etudiant, lycéen, chômeur €16,00 EUR</option>
+        <label>Type d'adhésion<select name="type_adhesion">
+            <option value="reduit">Etudiant, lycéen, chômeur €16,00 EUR</option>
             <option value="actif" selected="selected">Membre actif €32,00 EUR</option>
-        	<option value="bienfaiteur">Bienfaiteur €150,00 EUR</option>
-    	</select>
+            <option value="bienfaiteur">Bienfaiteur €150,00 EUR</option>
+        </select></label>
 
         <% include captcha %>
 

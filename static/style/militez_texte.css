@@ -3,25 +3,19 @@
 width:87%;
 margin-right: auto;
 margin-left: auto;
-
 }
 
 #texte_aside{
 	float: left;
 	width:15%;
-	
-	
 }
 
 #auteur{
 background-color:#9f2020;
-
 }
 
 #auteur img{
-
 	width:100%;
-
 }
 
 #auteur a{
@@ -29,7 +23,6 @@ background-color:#9f2020;
 }
 
 #auteur h1, #auteur h2{
-	
 	color: white;
     margin:10px;
 }
@@ -59,12 +52,10 @@ background-color:#9f2020;
 }
 
 #partage a {
-    display: block;
     width: 100%;
     color:white;
     vertical-align:middle;
     text-decoration: none;
-    color:white;
     display: table-row;
 }
 

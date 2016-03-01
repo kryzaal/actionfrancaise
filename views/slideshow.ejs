@@ -1,4 +1,3 @@
-<div id="count">0</div>
 <div id="slideshow">
     <div>
         <div id="slider"></div>  
@@ -15,7 +14,7 @@
 
     function showNext() {
         interval = setInterval(function(){
-            $('#slider').animate({marginLeft:-slide_width},1200,function(){
+            slider.animate({marginLeft:-slide_width},1200,function(){
                 $(this).css({marginLeft:0}).find("figure:last").after($(this).find("figure:first"));
             })
         }, 5000);
