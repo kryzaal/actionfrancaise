@@ -55,3 +55,17 @@ div.formulaire p {
 	text-align:left;
 	margin-left:10px;
 }
+
+div.formulaire #recaptcha_widget a{
+    color: #555;
+    padding: 10px;
+    display: inline-block;
+    margin: 5px auto;
+    background-color: #ece9e9;
+    text-decoration: none;
+}
+
+div.formulaire #recaptcha_widget a:hover {
+    border: 1px solid black;
+    padding: 9px;
+}

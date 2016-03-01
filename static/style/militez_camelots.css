@@ -67,7 +67,9 @@
 }
 
 #photos {
-	column-count: 5;
+	-webkit-column-count: 5;
+	-moz-column-count: 5;
+	-ms-column-count: 5;
 }
 
 #photos img {
@@ -78,7 +80,9 @@
 }
 
 #videos {
-	column-count: 4;
+	-webkit-column-count: 4;
+	-moz-column-count: 4;
+	-ms-column-count: 4;
 }
 
 #videos > div > img {
