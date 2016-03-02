@@ -38,7 +38,7 @@ var app = express();
 app.use(favicon(__dirname + '/static/style/images/favicon.png'))
 .use(compression({}))
 .use(bodyParser.json())
-.use(bodyParser.urlencoded())
+.use(bodyParser.urlencoded({extended: true}))
 .use(require('morgan')('dev'));
 
 /** ROUTES **/
