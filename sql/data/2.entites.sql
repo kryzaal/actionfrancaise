@@ -1,9 +1,9 @@
 INSERT OR REPLACE INTO contactable (code, mail, facebook, twitter, site) VALUES
 ('craf', 'contact@actionfrancaise.net', 'action.francaise.nationale', 'actionfrancaise', 'actionfrancaise.net'),
-('federation_provence', NULL, 'afprovence', 'afprovence', NULL),
+('federation_provence', NULL, 'afprovence', 'afprovence', 'provence.actionfrancaise.royalis.me'),
 ('federation_iledefrance', NULL, 'AFEIleDeFrance', NULL, NULL),
 
-('section_bordeaux', NULL, 'actionfrancaisebordeaux', NULL, 'http://afe-bordeaux.blogspot.fr/'),
+('section_bordeaux', NULL, 'actionfrancaisebordeaux', NULL, 'bordeaux.actionfrancaise.net'),
 ('section_annecy', NULL, NULL, NULL, NULL),
 ('section_clermont', NULL, 'af.clermont', NULL, NULL),
 ('section_nantes', NULL, 'action.francaise.etudiante.nantes', NULL, NULL),
