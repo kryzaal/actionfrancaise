@@ -1,22 +1,5 @@
-<% include head %>
+<% include head.ejs %>
 
-<div class="formulaire">
-	<h1><%= pageSubtitle %></h1>
+<% include contact_form.ejs %>
 
-    <form method="POST" id="contact">
-        <input type="text" name="prenom" placeholder="Prénom" value="<%- valueIfPresent('prenom') %>" />
-        <input type="text" name="nom" placeholder="Nom" value="<%- valueIfPresent('nom') %>" />
-        <input type="email" name="email" placeholder="Courriel" value="<%- valueIfPresent('mail') %>"/>
-        <textarea placeholder="Votre message" name="message"><%- valueIfPresent('message') %></textarea>
-        <% include captcha %>
-        <button type="submit">Envoyer</button>
-    </form>
-</div>
-
-<script>
-	$(function() {
-		$("#contact").attr("action", window.location.pathname);
-	});
-</script>
-
-<% include foot %>
+<% include foot.ejs %>

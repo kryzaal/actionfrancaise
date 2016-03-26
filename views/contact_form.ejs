@@ -1,0 +1,24 @@
+<%
+var who = who ? who : "";
+var prenom = prenom ? prenom : "";
+var nom = nom ? nom : "";
+var mail = mail ? mail : "";
+var message = message ? message : "";
+
+var server = global.server;
+var port = global.port;
+var form_action = server + ":" + port + "/contact/" + who;
+%>
+
+<div class="formulaire">
+    <h1><%= pageSubtitle %></h1>
+
+    <form method="POST" id="contact" action="<%- form_action %>">
+        <input type="text" name="prenom" placeholder="Prénom" value="<%- prenom %>" />
+        <input type="text" name="nom" placeholder="Nom" value="<%- nom %>" />
+        <input type="email" name="email" placeholder="Courriel" value="<%- mail %>"/>
+        <textarea placeholder="Votre message" name="message"><%- message %></textarea>
+        <% include captcha.ejs %>
+        <button type="submit">Envoyer</button>
+    </form>
+</div>

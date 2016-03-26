@@ -61,7 +61,7 @@ var next = action.next;
 		$.get('/actions/<%= action.code %>/photos', function(response) {
 			if(response.length == 0) $("#photos_container").remove();
 			else response.forEach(function(photo) {
-				photo = photo.substr(0, photo.length - 4);
+				photo = photo.substr(0, photo.length - 4);1
 				$("#photos").append('<img src="/actions/<%= action.code %>/' + photo + '" />');
 			});
 		}).fail(function() {
