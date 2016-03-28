@@ -10,8 +10,6 @@ var port = global.port;
 var form_action = server + ":" + port + "/contact/" + who;
 %>
 
-
-
     <form method="POST" id="contact" action="<%- form_action %>">
         <input type="text" name="prenom" placeholder="Prénom" value="<%- prenom %>" />
         <input type="text" name="nom" placeholder="Nom" value="<%- nom %>" />

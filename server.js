@@ -1,7 +1,4 @@
-global.server = "localhost";
-global.port = 8080;
-global.isDevelopment = true;
-global.document_root = __dirname;
+require("./config");
 global.nullOrEmpty = function(value) { return '' + value == "undefined"; };
 
 var express = require("express");

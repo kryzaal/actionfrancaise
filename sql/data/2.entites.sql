@@ -1,7 +1,7 @@
 INSERT OR REPLACE INTO contactable (code, mail, facebook, twitter, youtube ,site) VALUES
 ('craf', 'contact@actionfrancaise.net', 'action.francaise.nationale', 'actionfrancaise', 'https://www.youtube.com/user/afnational', 'actionfrancaise.net'),
-('federation_provence', 'provence@actionfrancaise.net', 'actionfrancaiseprovence', 'afprovence', NULL, 'http://provence.actionfrancaise.net'),
-('federation_iledefrance', '', 'AFEIleDeFrance', NULL, NULL, NULL),
+('federation_provence', 'provence@actionfrancaise.net', 'actionfrancaiseprovence', NULL, NULL, 'http://provence.actionfrancaise.net'),
+('federation_iledefrance', NULL, 'AFEIleDeFrance', NULL, NULL, NULL),
 
 ('section_bordeaux', 'bordeaux.etudiants@actionfrancaise.net', 'actionfrancaisebordeaux', 'AfeBordeaux', 'https://www.youtube.com/channel/UCHuEaJy3lOfSPzdseNvxjQw', 'http://bordeaux.actionfrancaise.net'),
 ('section_annecy', NULL, NULL, NULL, NULL, NULL),

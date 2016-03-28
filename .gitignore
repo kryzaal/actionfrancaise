@@ -2,3 +2,4 @@
 *.s3db-journal
 .idea
 node_modules
+config.js
