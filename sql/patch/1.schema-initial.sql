@@ -106,6 +106,7 @@ CREATE TABLE contactable (
 	mail TEXT,
 	facebook TEXT,
 	twitter TEXT,
+	youtube TEXT,
 	site TEXT 
 );
 

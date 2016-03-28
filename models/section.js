@@ -33,7 +33,7 @@ function fetchMembres(code, callback) {
 }
 
 function fetchContact(code, callback) {
-	dbHandler.get("SELECT contactable.facebook, contactable.twitter, contactable.site FROM sections " + 
+	dbHandler.get("SELECT contactable.facebook, contactable.twitter, contactable.site, contactable.youtube FROM sections " +
 		"INNER JOIN contactable ON contactable.code == sections.code_entite WHERE code_section == ?", code, callback);
 }
 

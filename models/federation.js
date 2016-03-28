@@ -47,7 +47,7 @@ function fetchSections(code, callback) {
 }
 
 function fetchContact(code, callback) {
-	dbHandler.get("SELECT contactable.facebook, contactable.twitter, contactable.site FROM federations " + 
+	dbHandler.get("SELECT contactable.facebook, contactable.twitter, contactable.site, contactable.youtube FROM federations " +
 		"INNER JOIN contactable ON contactable.code == federations.code_entite WHERE code_federation == ?", code, callback);
 }
 
