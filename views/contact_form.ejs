@@ -5,9 +5,7 @@ var nom = nom ? nom : "";
 var mail = mail ? mail : "";
 var message = message ? message : "";
 
-var server = global.server;
-var port = global.port;
-var form_action = server + ":" + port + "/contact/" + who;
+var form_action = global.publicUrl + "contact/" + who;
 %>
 
     <form method="POST" id="contact" action="<%- form_action %>">
