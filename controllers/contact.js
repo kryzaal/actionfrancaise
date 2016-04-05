@@ -1,4 +1,5 @@
 var mail_form = require(document_root + '/lib/mail_form');
+var remerciements = 'Merci pour votre message, nous y répondrons dans les meilleurs délais !';
 
 function get(request, response) {
     do_get(request, response, 'contact.ejs');
@@ -9,7 +10,10 @@ function get_form(request, response) {
 }
 
 function do_get(request, response, template) {
-    var contact_parent = new mail_form.mail_form(template, getContactInfos(request.params.who).titre, 'Merci pour votre message, nous y répondrons dans les meilleurs délais !');
+    if(!request.params.who) request.params.who = "contact";
+    if(!request.query.custom_header) request.query.custom_header = "Contactez-nous";
+
+    var contact_parent = new mail_form.mail_form(template, request.query.custom_header, remerciements);
     contact_parent.get(request, response);
 }
 
@@ -22,17 +26,18 @@ function post_form(request, response) {
 }
 
 function do_post(request, response, template) {
-    var contact = getContactInfos(request.params.who);
+    if(!request.params.who) request.params.who = "contact";
+    if(!request.query.custom_header) request.query.custom_header = "Contactez-nous";
 
     var mailOptions = {
         from: request.body.email,
-        to: contact.mail,
+        to: request.params.who + "@contact.actionfrancaise.net",
         subject: 'Message de ' + request.body.prenom + ' ' + request.body.nom,
         text: request.body.message
     };
 
-    var contact_parent = new mail_form.mail_form(template, contact.titre, 'Merci pour votre message, nous y répondrons dans les meilleurs délais !');
-    contact_parent.post(request, response);
+    var contact_parent = new mail_form.mail_form(template, request.query.custom_header, remerciements);
+    contact_parent.post(request, response, mailOptions);
 }
 
 exports.get = get;
