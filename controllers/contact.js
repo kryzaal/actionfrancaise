@@ -1,23 +1,5 @@
 var mail_form = require(document_root + '/lib/mail_form');
 
-var contacts = {
-    'default': {
-        mail: "Action Française <kryzaal@gmail.com>",
-        titre: "Contactez-nous"
-    },
-    'bordeaux': {
-        mail: "AFE Bordeaux <kryzaal@gmail.com>",
-        titre: "Contactez l'AFE Bordeaux"
-    }
-};
-
-function getContactInfos(who) {
-    if(nullOrEmpty(who)) return contacts['default'];
-
-    var data = contacts[who];
-    return nullOrEmpty(data) ? contacts['default'] : data;
-}
-
 function get(request, response) {
     do_get(request, response, 'contact.ejs');
 }
