@@ -1,5 +1,5 @@
 *.s3db
 *.s3db-journal
 .idea
-node_modules
-config.js
+/node_modules
+/config.js
