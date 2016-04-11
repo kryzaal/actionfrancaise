@@ -1,4 +1,4 @@
-<% include head %>
+<% include head.ejs %>
 
 <div class="formulaire">
 	<h1>Soutenir l'Action Française</h1> 
@@ -19,9 +19,8 @@
 	    <input type="text" name="nom" placeholder="Nom" value="<%- valueIfPresent('nom') %>"/>
 	    <input type="email" name="email" placeholder="Courriel" value="<%- valueIfPresent('email') %>"/>
 	    <input id="montant_don" type="number" name="montant" placeholder="Montant (€)" min="0" value="<%- valueIfPresent('montant') %>"/>
-	    <% include captcha %>
 	    <button type="submit">Donner</button>
     </form>
 </div>
 
-<% include foot %>
+<% include foot.ejs %>

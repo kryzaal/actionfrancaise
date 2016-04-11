@@ -1,4 +1,4 @@
-<% include head %>
+<% include head.ejs %>
 
 <div class="formulaire">
     <h1>Adhérer à l'Action Française</h1> 
@@ -20,7 +20,7 @@
     
     <a href="/adherer/bulletin"><button type="button">Imprimer le bulletin d'adhésion</button></a>
 
-    <form method="POST" action="/adherer">
+    <form method="POST" action="/">
         <input type="text" name="prenom" placeholder="Prénom" value="<%- valueIfPresent('prenom') %>"/>
         <input type="text" name="nom" placeholder="Nom" value="<%- valueIfPresent('nom') %>"/>
         <input type="email" name="email" placeholder="Courriel" value="<%- valueIfPresent('email') %>"/>
@@ -31,10 +31,8 @@
             <option value="bienfaiteur">Bienfaiteur €150,00 EUR</option>
         </select></label>
 
-        <% include captcha %>
-
         <button type="submit">Adhérer</button>
     </form>
 </div>
 
-<% include foot %>
+<% include foot.ejs %>

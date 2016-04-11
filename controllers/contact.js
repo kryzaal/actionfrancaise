@@ -22,7 +22,7 @@ function do_get(request, response, template) {
     response.render(template, {
         pageSubtitle: request.query.custom_header,
         customStylesheets: ["formulaire"],
-        captcha: { publicKey : captcha.publicKey },
+        captcha: { publicKey : global.recaptcha.publicKey },
         values: {
             mail: request.body.mail,
             prenom: request.body.prenom,
