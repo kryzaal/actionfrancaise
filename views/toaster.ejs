@@ -1,4 +1,4 @@
-<%- if(!header_toaster) header_toaster = true; else { %>
+<% if(!header_toaster) { %>
 
 <script>
     function showToaster(durationInSecs, color, message) {
@@ -16,4 +16,7 @@
     <% } %>
 </script>
 
-<% } %>
+<%
+    var header_toaster = true;
+}
+%>
