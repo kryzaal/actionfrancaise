@@ -1,4 +1,4 @@
-<% var form_action = global.publicUrl + "contact/" + who; %>
+<% include toaster.ejs %><% var form_action = global.publicUrl + "contact/" + who; %>
 
 <form method="POST" name="contact" id="contact" action="<%- form_action %>">
     <input type="text" id="prenom" name="prenom" placeholder="Prénom" value="<%- values.prenom %>" />

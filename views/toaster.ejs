@@ -1,3 +1,5 @@
+<%- if(!header_toaster) header_toaster = true; else { %>
+
 <script>
     function showToaster(durationInSecs, color, message) {
         var toaster = $(document.createElement('div'));
@@ -13,3 +15,5 @@
         showToaster( <%= toaster.duration %>, "<%= toaster.color %>", "<%= toaster.html %>");
     <% } %>
 </script>
+
+<% } %>
