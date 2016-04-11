@@ -1,0 +1,15 @@
+<script>
+    function showToaster(durationInSecs, color, message) {
+        var toaster = $(document.createElement('div'));
+        toaster.addClass('toaster')
+        toaster.css("background-color", color)
+        toaster.text(message);
+
+        $(document.body).prepend(toaster);
+        toaster.fadeOut(durationInSecs * 1000, toaster.remove);
+    }
+
+    <% if(typeof toaster != 'undefined' && toaster) { %>
+        showToaster( <%= toaster.duration %>, "<%= toaster.color %>", "<%= toaster.html %>");
+    <% } %>
+</script>

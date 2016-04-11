@@ -1,18 +1,38 @@
-<%
-var who = who ? who : "";
-var prenom = prenom ? prenom : "";
-var nom = nom ? nom : "";
-var mail = mail ? mail : "";
-var message = message ? message : "";
+<% var form_action = global.publicUrl + "contact/" + who; %>
 
-var form_action = global.publicUrl + "contact/" + who;
-%>
+<form method="POST" name="contact" id="contact" action="<%- form_action %>">
+    <input type="text" id="prenom" name="prenom" placeholder="Prénom" value="<%- values.prenom %>" />
+    <input type="text" id="nom" name="nom" placeholder="Nom" value="<%- values.nom %>" />
+    <input type="email" id="mail" name="mail" placeholder="Courriel" value="<%- values.mail %>"/>
+    <textarea placeholder="Votre message" id="message" name="message"><%- values.message %></textarea>
+    <% include captcha.ejs %>
+    <button type="submit">Envoyer</button>
+</form>
 
-    <form method="POST" id="contact" action="<%- form_action %>">
-        <input type="text" name="prenom" placeholder="Prénom" value="<%- prenom %>" />
-        <input type="text" name="nom" placeholder="Nom" value="<%- nom %>" />
-        <input type="email" name="email" placeholder="Courriel" value="<%- mail %>"/>
-        <textarea placeholder="Votre message" name="message"><%- message %></textarea>
-        <% include captcha.ejs %>
-        <button type="submit">Envoyer</button>
-    </form>
+<script>
+    var form = $("#contact");
+
+    form.submit(function(event) {
+        event.preventDefault();
+
+        var data = {
+            prenom: $("#prenom").val(),
+            nom: $("#nom").val(),
+            mail: $("#mail").val(),
+            message: $("#message").val(),
+            recaptcha_challenge_field: $("#recaptcha_challenge_field").val(),
+            recaptcha_response_field: $("#recaptcha_response_field").val()
+        }
+
+        $.post(form.attr('action'), data)
+        .done(function() {
+            form.trigger("reset");
+            Recaptcha.reload();
+            showToaster(5, "green", 'Merci pour votre message, nous y répondrons dans les meilleurs délais !');
+        })
+        .fail(function(data) {
+            showToaster(5, "red", data.responseText);
+        });
+
+    });
+</script>

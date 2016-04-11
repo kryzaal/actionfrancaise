@@ -36,7 +36,7 @@ app.use(favicon(__dirname + '/static/style/images/favicon.png'))
 .use(compression({}))
 .use(bodyParser.json())
 .use(bodyParser.urlencoded({extended: true}))
-.use(require('morgan')('dev'));
+.use(require('morgan')(global.isDevelopment ? 'dev' : 'common'));
 
 /** ROUTES **/
 
@@ -47,7 +47,6 @@ app.get("/contact/:who", controllers.contact.get);
 app.get("/contact/:who/form", controllers.contact.get_form);
 app.post("/contact", controllers.contact.post);
 app.post("/contact/:who", controllers.contact.post);
-app.post("/contact/:who/form", controllers.contact.post_form);
 
 app.get("/adherer", controllers.adherer.get);
 app.post("/adherer", controllers.adherer.post);
