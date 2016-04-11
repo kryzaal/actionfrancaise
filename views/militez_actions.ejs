@@ -1,4 +1,4 @@
-<% include head %>
+<% include head.ejs %>
 
 <% 
 var base_addr = '/militez/actions/';
@@ -6,7 +6,7 @@ var previous = action.previous;
 var next = action.next;
 %>
 
-<% include militez_tuiles %>
+<% include militez_tuiles.ejs %>
 
 <div id="evenements">
 	<% if(previous) { %>
@@ -52,7 +52,7 @@ var next = action.next;
 
 </div>
 
-<% include viewer %>
+<% include viewer.ejs %>
 	
 <script>
 	$(function() {
@@ -75,4 +75,4 @@ var next = action.next;
 	});
 </script>
 
-<% include foot %>
+<% include foot.ejs %>

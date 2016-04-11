@@ -1,7 +1,7 @@
-<% include head %>
+<% include head.ejs %>
 
 <div id="organigramme">
-	<% include organigramme_instancessuperieures %>
+	<% include organigramme_instancessuperieures.ejs %>
 	<div id="fleche_bas" class="ligne"></div>
 	<div class="ligne">
 		<div class="organe noexpansion" id="priep">
@@ -51,6 +51,6 @@
 	</div>
 </div>
 
-<% include organigramme_script %>
+<% include organigramme_script.ejs %>
 
-<% include foot %>
+<% include foot.ejs %>

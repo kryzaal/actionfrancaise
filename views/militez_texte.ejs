@@ -1,10 +1,10 @@
-<% include head %>
+<% include head.ejs %>
 
-<% include militez_tuiles %>
+<% include militez_tuiles.ejs %>
 <div id="container">
 <aside id="texte_aside">
 	<div id="auteur"></div>
-	<% include share %>
+	<% include share.ejs %>
 </aside>
 
 <article id="texte_<%= data.code %>">
@@ -24,4 +24,4 @@
 	})
 </script>
 
-<% include foot %>
+<% include foot.ejs %>

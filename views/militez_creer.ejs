@@ -1,4 +1,4 @@
-<% include head %>
+<% include head.ejs %>
 
 <div class="formulaire">
 	<h1>Créer une section</h1>
@@ -11,9 +11,9 @@
         <input type="email" name="email" placeholder="Courriel" required value="<%- valueIfPresent('email') %>" />
         <input type="text" name="lieu" placeholder="Lieu" required value="<%- valueIfPresent('lieu') %>" />
         <textarea placeholder="Précisions" name="message" ><%- valueIfPresent('message') %></textarea>
-        <% include captcha %>
+        <% include captcha.ejs %>
         <button type="submit">Envoyer votre demande</button>
     </form>
 </div>
 
-<% include foot %>
+<% include foot.ejs %>

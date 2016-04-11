@@ -1,12 +1,12 @@
-<% include head %>
+<% include head.ejs %>
 
 <div id="organigramme">
-	<% include organigramme_instancessuperieures %>
+	<% include organigramme_instancessuperieures.ejs %>
 
 	<div class="ligne" id="secretariats">
-		<% include organigramme_craf_secretariatgeneral %>
+		<% include organigramme_craf_secretariatgeneral.ejs %>
 		<div id="fleche_secretariats"><div></div></div>
-		<% include organigramme_craf_secretariat %>
+		<% include organigramme_craf_secretariat.ejs %>
 	</div>
 	<div class="ligne" id="ligne_fleche_centrale">
 		<div></div>
