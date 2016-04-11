@@ -36,7 +36,13 @@ app.use(favicon(__dirname + '/static/style/images/favicon.png'))
 .use(compression({}))
 .use(bodyParser.json())
 .use(bodyParser.urlencoded({extended: true}))
-.use(require('morgan')(global.isDevelopment ? 'dev' : 'common'));
+.use(require('morgan')(global.isDevelopment ? 'dev' : 'common'))
+.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+
+    next();
+});
 
 /** ROUTES **/
 
