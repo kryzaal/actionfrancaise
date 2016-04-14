@@ -1,10 +1,11 @@
 <% if(!header_toaster) { %>
 
 <script>
-    function showToaster(durationInSecs, color, message) {
-        var toaster = $(document.createElement('div'));
-        toaster.addClass('toaster')
-        toaster.css("background-color", color)
+    function showToaster(durationInSecs, success, message) {
+        var toaster = $(document.createElement('div'))
+        .addClass('toaster')
+        .addClass(success ? "success" : "failure")
+
         toaster.text(message);
 
         $(document.body).prepend(toaster);
@@ -12,7 +13,7 @@
     }
 
     <% if(typeof toaster != 'undefined' && toaster) { %>
-        showToaster( <%= toaster.duration %>, "<%= toaster.color %>", "<%= toaster.html %>");
+        showToaster( <%= toaster.duration %>, <%= toaster.success %>, "<%= toaster.html %>");
     <% } %>
 </script>
 

@@ -28,10 +28,10 @@
         .done(function() {
             form.trigger("reset");
             Recaptcha.reload();
-            showToaster(5, "green", 'Merci pour votre message, nous y répondrons dans les meilleurs délais !');
+            showToaster(5, true, 'Merci pour votre message, nous y répondrons dans les meilleurs délais !');
         })
         .fail(function(data) {
-            showToaster(5, "red", data.responseText);
+            showToaster(5, false, data.responseText);
         });
 
     });

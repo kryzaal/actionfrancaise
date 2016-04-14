@@ -31,6 +31,16 @@ header, h2 {
   width: 100%;
 }
 
+.toaster.success {
+  background-color: #99CC00;
+  color: #0D1C42;
+}
+
+.toaster.failure {
+  background-color: #FF4010;
+  color: #0D1C42;
+}
+
 .entete {
   width: 100%;
     margin: -20px auto 20px;
